@@ -112,7 +112,9 @@ const LessonView: React.FC<LessonViewProps> = ({ lesson, onComplete }) => {
         if (isCorrect) {
             setCompletedExercises(prev => ({ ...prev, [exerciseId]: true }));
             if (!isLast) {
-                setTimeout(() => setExerciseIndex(prev => prev + 1), 300);
+                setTimeout(() => {
+                    setExerciseIndex(prevIndex => prevIndex + 1);
+                }, 300);
             }
             // если последнее — ничего не делаем, ждём useEffect
         } else {
