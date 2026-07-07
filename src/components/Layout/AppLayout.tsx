@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useAppStore } from '../../store/useAppStore';
 import StatsHeader from './StatsHeader';
 import { supabase } from '../../lib/supabaseClient';
-import { LogOut, Moon, Sun } from 'lucide-react';
+import { LogOut, Moon, Sun, Settings } from 'lucide-react';
+
 import { Link } from 'react-router-dom';
 
 const AppLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
@@ -62,6 +63,13 @@ const AppLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                                     title="Достижения"
                                 >
                                     <span className="text-xl">🏆</span>
+                                </Link>
+                                <Link
+                                    to="/settings"
+                                    className="p-2 transition-colors rounded-full hover:bg-cream"
+                                    title="Настройки"
+                                >
+                                    <Settings className="w-5 h-5 text-dark/60" />
                                 </Link>
                                 <StatsHeader />
                                 <button

@@ -1,56 +1,54 @@
+// src/components/Exercises/OrderExercise.tsx
 import React, { useState, useEffect } from 'react';
 import type { Exercise } from '../../types/content';
 import { shuffle } from '../../utils/array';
 
 interface Props {
     exercise: Exercise;
-    onAnswer: (isCorrect: boolean, userAnswer?: string) => void;
+    onAnswer: (
+        isCorrect: boolean,
+        userAnswer?: string,
+        correctAnswer?: string,
+    ) => void;
 }
 
 const OrderExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
     const [available, setAvailable] = useState<string[]>([]);
     const [selected, setSelected] = useState<string[]>([]);
     const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
-    const [wrong, setWrong] = useState(false);
+    const [submitted, setSubmitted] = useState(false);
 
-    // Инициализация: перемешиваем orderItems
     useEffect(() => {
         if (exercise.orderItems) {
             setAvailable(shuffle(exercise.orderItems));
             setSelected([]);
             setIsCorrect(null);
-            setWrong(false);
+            setSubmitted(false);
         }
     }, [exercise]);
 
-    // Когда все элементы выбраны, проверяем
     useEffect(() => {
-        if (
-            available.length === 0 &&
-            selected.length > 0 &&
-            isCorrect === null
-        ) {
-            const isAnswerCorrect =
+        if (available.length === 0 && selected.length > 0 && !submitted) {
+            const correct =
                 JSON.stringify(selected) === JSON.stringify(exercise.correct);
-            setIsCorrect(isAnswerCorrect);
+            setIsCorrect(correct);
+            setSubmitted(true);
             const userAnswer = selected.join(' ');
-            if (isAnswerCorrect) {
-                onAnswer(true, userAnswer);
-            } else {
-                setWrong(true);
-                onAnswer(false, userAnswer);
-            }
+            const correctAnswer = Array.isArray(exercise.correct)
+                ? exercise.correct.join(' ')
+                : exercise.correct;
+            onAnswer(correct, userAnswer, correctAnswer);
         }
-    }, [available, selected, exercise.correct, onAnswer]);
+    }, [available, selected, exercise.correct, onAnswer, submitted]);
 
     const handleSelect = (item: string) => {
-        if (isCorrect !== null) return; // уже ответили
+        if (submitted) return;
         setSelected([...selected, item]);
         setAvailable(available.filter(i => i !== item));
     };
 
     const handleRemove = (item: string) => {
-        if (isCorrect !== null) return;
+        if (submitted) return;
         setSelected(selected.filter(i => i !== item));
         setAvailable([...available, item]);
     };
@@ -59,24 +57,25 @@ const OrderExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
         setAvailable(shuffle(exercise.orderItems || []));
         setSelected([]);
         setIsCorrect(null);
-        setWrong(false);
+        setSubmitted(false);
     };
 
     const getItemColor = (item: string) => {
-        if (isCorrect === null)
+        if (!submitted)
             return 'bg-blue-100 hover:bg-blue-200 text-blue-800 border-blue-300';
         if (isCorrect) return 'bg-green-100 text-green-800 border-green-300';
         return 'bg-red-100 text-red-800 border-red-300';
     };
 
     return (
-        <div className="p-4 bg-white shadow rounded-xl">
+        <div
+            className={`p-4 bg-white rounded-xl shadow ${submitted && !isCorrect ? 'animate-shake' : ''}`}
+        >
             <p className="mb-4 text-lg font-medium">{exercise.question}</p>
             {exercise.hint && (
                 <p className="mb-4 text-sm text-gray-400">💡 {exercise.hint}</p>
             )}
 
-            {/* Выбранные элементы (порядок) */}
             <div className="flex flex-wrap gap-2 min-h-[60px] p-3 bg-gray-50 rounded-lg border-2 border-dashed border-gray-300 mb-4">
                 {selected.length === 0 && (
                     <span className="text-sm text-gray-400">
@@ -95,7 +94,6 @@ const OrderExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
                 ))}
             </div>
 
-            {/* Доступные элементы */}
             <div className="flex flex-wrap gap-2 mb-4">
                 {available.map(item => (
                     <button
@@ -108,11 +106,15 @@ const OrderExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
                 ))}
             </div>
 
-            {/* Состояние ответа */}
-            {isCorrect === false && wrong && (
+            {submitted && !isCorrect && (
                 <div className="p-3 mt-4 border border-red-300 rounded-lg bg-red-50">
                     <p className="text-red-600">
-                        ❌ Неправильный порядок. Попробуй ещё!
+                        ❌ Неправильный порядок. Правильный порядок:{' '}
+                        <span className="font-bold">
+                            {Array.isArray(exercise.correct)
+                                ? exercise.correct.join(' ')
+                                : exercise.correct}
+                        </span>
                     </p>
                     <button
                         onClick={handleReset}
@@ -123,8 +125,8 @@ const OrderExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
                 </div>
             )}
 
-            {isCorrect === true && (
-                <div className="p-3 mt-4 border border-green-300 rounded-lg bg-green-50">
+            {submitted && isCorrect && (
+                <div className="p-3 mt-4 border border-green-300 rounded-lg bg-green-50 animate-bounce-success">
                     <p className="text-green-600">✅ Правильно!</p>
                 </div>
             )}

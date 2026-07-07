@@ -1,12 +1,8 @@
 // src/store/useAppStore.ts
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-import type {
-    Lesson,
-    Exercise,
-    Achievement,
-    UserAchievement,
-} from '../types/content';
+import { supabase } from '../lib/supabaseClient';
+import type { Lesson, Achievement, UserAchievement } from '../types/content';
 import {
     DatabaseService,
     type UserProgress,
@@ -37,6 +33,7 @@ interface AppState {
     streak: number;
     lastActivityDate: string | null;
     userWords: LocalUserWordProgress[]; // локальный SRS (запасной)
+    username: string;
     dailyGoal: number;
 
     // === Данные из БД ===
@@ -63,6 +60,9 @@ interface AppState {
     resetCurrentLesson: () => void;
     updateLocalWordProgress: (wordId: string, isCorrect: boolean) => void;
     setDailyGoal: (goal: number) => void;
+    setUsername: (username: string) => void;
+    saveUserSettings: (userId: string) => Promise<void>;
+    loadUserSettings: (userId: string) => Promise<void>;
 
     // === Действия для БД ===
     setUserId: (id: string | null) => void;
@@ -115,6 +115,7 @@ const initialState = {
     dbStreak: null,
     dbXp: 0,
     userAchievements: [],
+    username: '',
 };
 
 // Вспомогательная функция для стрика (локальная)
@@ -252,6 +253,8 @@ export const useAppStore = create<AppState>()(
 
             // === Действия для БД ===
             setUserId: id => set({ userId: id, isAuthenticated: !!id }),
+            setUsername: username => set({ username }),
+            setDailyGoal: goal => set({ dailyGoal: goal }),
 
             loadUserData: async userId => {
                 try {
@@ -444,6 +447,33 @@ export const useAppStore = create<AppState>()(
                 });
             },
 
+            loadUserSettings: async userId => {
+                try {
+                    const { data, error } = await supabase
+                        .from('users')
+                        .select('username')
+                        .eq('id', userId)
+                        .single();
+                    if (error) throw error;
+                    if (data) set({ username: data.username });
+                } catch (error) {
+                    console.error('Ошибка загрузки настроек:', error);
+                }
+            },
+
+            saveUserSettings: async userId => {
+                const state = get();
+                try {
+                    const { error } = await supabase
+                        .from('users')
+                        .update({ username: state.username })
+                        .eq('id', userId);
+                    if (error) throw error;
+                } catch (error) {
+                    console.error('Ошибка сохранения настроек:', error);
+                }
+            },
+
             checkAndUnlockAchievements: async (
                 userId: string,
                 stats: { lessonsCompleted: number; streak: number; xp: number },
@@ -486,6 +516,7 @@ export const useAppStore = create<AppState>()(
                 isAuthenticated: state.isAuthenticated,
                 dailyGoal: state.dailyGoal,
                 userAchievements: state.userAchievements,
+                username: state.username,
             }),
         },
     ),

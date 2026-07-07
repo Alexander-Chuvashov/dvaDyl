@@ -1,3 +1,4 @@
+// src/components/Chapters/ChapterList.tsx
 import React, { useEffect, useState } from 'react';
 import { useAppStore } from '../../store/useAppStore';
 import { loadAllChapters } from '../../services/ContentService';
@@ -13,6 +14,7 @@ const ChapterList: React.FC = () => {
     const [activeLevel, setActiveLevel] = useState('A1');
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
+    const { completedLessonIds } = useAppStore();
 
     const levels = ['A1', 'A2', 'B1', 'B2', 'C1'];
 
@@ -20,8 +22,9 @@ const ChapterList: React.FC = () => {
         loadAllChapters()
             .then(data => {
                 setAllChapters(data);
-                // По умолчанию показываем A1
-                setFilteredChapters(data.filter(ch => ch.level === 'A1'));
+                setFilteredChapters(
+                    data.filter(ch => ch.level === activeLevel),
+                );
             })
             .catch(err => {
                 console.error(err);
@@ -33,6 +36,27 @@ const ChapterList: React.FC = () => {
     const handleLevelChange = (level: string) => {
         setActiveLevel(level);
         setFilteredChapters(allChapters.filter(ch => ch.level === level));
+    };
+
+    // Проверяем, завершена ли глава (все уроки пройдены)
+    const isChapterCompleted = (chapter: Chapter) => {
+        const lessons =
+            chapter.lessons?.filter(item => item.type === 'lesson') || [];
+        return (
+            lessons.length > 0 &&
+            lessons.every(lesson => completedLessonIds.includes(lesson.id))
+        );
+    };
+
+    // Проверяем, заблокирована ли глава
+    const isChapterLocked = (
+        chapter: Chapter,
+        index: number,
+        list: Chapter[],
+    ) => {
+        if (index === 0) return false; // первая глава всегда открыта
+        const prevChapter = list[index - 1];
+        return !isChapterCompleted(prevChapter);
     };
 
     if (error) {
@@ -61,15 +85,25 @@ const ChapterList: React.FC = () => {
                     ? Array.from({ length: 3 }).map((_, i) => (
                           <Skeleton key={i} variant="card" className="h-24" />
                       ))
-                    : filteredChapters.map((chapter, index) => (
-                          <AnimatedWrapper
-                              key={chapter.id}
-                              animation="fadeIn"
-                              delay={index * 80}
-                          >
-                              <ChapterCard chapter={chapter} />
-                          </AnimatedWrapper>
-                      ))}
+                    : filteredChapters.map((chapter, index) => {
+                          const locked = isChapterLocked(
+                              chapter,
+                              index,
+                              filteredChapters,
+                          );
+                          return (
+                              <AnimatedWrapper
+                                  key={chapter.id}
+                                  animation="fadeIn"
+                                  delay={index * 80}
+                              >
+                                  <ChapterCard
+                                      chapter={chapter}
+                                      isLocked={locked}
+                                  />
+                              </AnimatedWrapper>
+                          );
+                      })}
             </div>
 
             {!loading && filteredChapters.length === 0 && (

@@ -1,10 +1,15 @@
+// src/components/Exercises/MatchExercise.tsx
 import React, { useState, useEffect } from 'react';
 import type { Exercise } from '../../types/content';
 import { shuffle } from '../../utils/array';
 
 interface Props {
     exercise: Exercise;
-    onAnswer: (isCorrect: boolean, userAnswer?: string) => void;
+    onAnswer: (
+        isCorrect: boolean,
+        userAnswer?: string,
+        correctAnswer?: string,
+    ) => void;
 }
 
 const MatchExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
@@ -15,12 +20,12 @@ const MatchExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
     const [matches, setMatches] = useState<{ left: string; right: string }[]>(
         [],
     );
-    const [isDone, setIsDone] = useState(false);
+    const [submitted, setSubmitted] = useState(false);
+    const [isCorrect, setIsCorrect] = useState(false);
     const [error, setError] = useState<string | null>(null);
 
     const pairs = exercise.matchPairs || [];
 
-    // Инициализация: перемешиваем обе колонки
     useEffect(() => {
         const leftValues = pairs.map(p => p.left);
         const rightValues = shuffle(pairs.map(p => p.right));
@@ -29,45 +34,53 @@ const MatchExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
         setSelectedLeft(null);
         setSelectedRight(null);
         setMatches([]);
-        setIsDone(false);
+        setSubmitted(false);
+        setIsCorrect(false);
         setError(null);
     }, [exercise]);
 
     const handleLeftClick = (left: string) => {
-        if (isDone) return;
-        if (matches.some(m => m.left === left)) return; // уже сопоставлено
+        if (submitted) return;
+        if (matches.some(m => m.left === left)) return;
         setSelectedLeft(left);
         setSelectedRight(null);
         setError(null);
     };
 
     const handleRightClick = (right: string) => {
-        if (isDone) return;
-        if (matches.some(m => m.right === right)) return; // уже сопоставлено
+        if (submitted) return;
+        if (matches.some(m => m.right === right)) return;
         if (!selectedLeft) {
             setError('Сначала выбери слово слева');
             return;
         }
         setSelectedRight(right);
 
-        // Проверяем пару
         const pair = pairs.find(
             p => p.left === selectedLeft && p.right === right,
         );
         if (pair) {
-            // Правильно
-            setMatches([...matches, { left: selectedLeft, right: right }]);
+            const newMatches = [
+                ...matches,
+                { left: selectedLeft, right: right },
+            ];
+            setMatches(newMatches);
             setSelectedLeft(null);
             setSelectedRight(null);
             setError(null);
 
-            // Проверяем, все ли сопоставлены
-            if (matches.length + 1 === pairs.length) {
-                setIsDone(true);
-                onAnswer(true);
+            if (newMatches.length === pairs.length) {
+                setSubmitted(true);
+                setIsCorrect(true);
+                const userAnswer = newMatches
+                    .map(m => `${m.left} ↔ ${m.right}`)
+                    .join(', ');
+                const correctAnswer = pairs
+                    .map(p => `${p.left} ↔ ${p.right}`)
+                    .join(', ');
+                onAnswer(true, userAnswer, correctAnswer);
             }
         } else {
-            // Неправильно
             setError(`❌ Неправильная пара: "${selectedLeft}" ↔ "${right}"`);
             setSelectedLeft(null);
             setSelectedRight(null);
@@ -75,7 +88,6 @@ const MatchExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
     };
 
     const handleReset = () => {
-        // Сбрасываем всё
         const leftValues = pairs.map(p => p.left);
         const rightValues = shuffle(pairs.map(p => p.right));
         setLeftItems(shuffle(leftValues));
@@ -83,7 +95,8 @@ const MatchExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
         setSelectedLeft(null);
         setSelectedRight(null);
         setMatches([]);
-        setIsDone(false);
+        setSubmitted(false);
+        setIsCorrect(false);
         setError(null);
     };
 
@@ -104,11 +117,11 @@ const MatchExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
     };
 
     return (
-        <div className="p-4 bg-white shadow rounded-xl">
+        <div
+            className={`p-4 bg-white rounded-xl shadow ${submitted && !isCorrect ? 'animate-shake' : ''}`}
+        >
             <p className="mb-4 text-lg font-medium">{exercise.question}</p>
-
             <div className="grid grid-cols-2 gap-8">
-                {/* Левая колонка */}
                 <div>
                     <h3 className="mb-2 text-sm font-semibold text-gray-500 uppercase">
                         Русский
@@ -119,7 +132,6 @@ const MatchExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
                                 m => m.left === left,
                             );
                             if (isMatched) {
-                                // Показываем сопоставленные серыми, но с галочкой
                                 return (
                                     <div
                                         key={left}
@@ -136,9 +148,7 @@ const MatchExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
                                 <button
                                     key={left}
                                     onClick={() => handleLeftClick(left)}
-                                    className={`w-full text-left px-4 py-2 rounded-lg border-2 transition-all duration-200 ${getLeftClass(
-                                        left,
-                                    )}`}
+                                    className={`w-full text-left px-4 py-2 rounded-lg border-2 transition-all duration-200 ${getLeftClass(left)}`}
                                 >
                                     {left}
                                 </button>
@@ -146,8 +156,6 @@ const MatchExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
                         })}
                     </div>
                 </div>
-
-                {/* Правая колонка */}
                 <div>
                     <h3 className="mb-2 text-sm font-semibold text-gray-500 uppercase">
                         Тувинский
@@ -174,9 +182,7 @@ const MatchExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
                                 <button
                                     key={right}
                                     onClick={() => handleRightClick(right)}
-                                    className={`w-full text-left px-4 py-2 rounded-lg border-2 transition-all duration-200 ${getRightClass(
-                                        right,
-                                    )}`}
+                                    className={`w-full text-left px-4 py-2 rounded-lg border-2 transition-all duration-200 ${getRightClass(right)}`}
                                 >
                                     {right}
                                 </button>
@@ -186,7 +192,6 @@ const MatchExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
                 </div>
             </div>
 
-            {/* Ошибка */}
             {error && (
                 <div className="p-3 mt-4 border border-red-300 rounded-lg bg-red-50">
                     <p className="text-red-600">{error}</p>
@@ -199,17 +204,15 @@ const MatchExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
                 </div>
             )}
 
-            {/* Успех */}
-            {isDone && (
-                <div className="p-3 mt-4 border border-green-300 rounded-lg bg-green-50">
+            {submitted && isCorrect && (
+                <div className="p-3 mt-4 border border-green-300 rounded-lg bg-green-50 animate-bounce-success">
                     <p className="text-green-600">
                         ✅ Все пары сопоставлены верно!
                     </p>
                 </div>
             )}
 
-            {/* Кнопка сброса (для удобства) */}
-            {!isDone && (
+            {!submitted && !error && (
                 <button
                     onClick={handleReset}
                     className="mt-4 text-sm text-gray-400 underline hover:text-gray-600"

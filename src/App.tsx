@@ -3,6 +3,7 @@ import './index.css';
 import React, { useEffect } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { useAppStore } from './store/useAppStore';
+const { setUserId, loadUserData, loadUserSettings } = useAppStore();
 import AppLayout from './components/Layout/AppLayout';
 import ChapterList from './components/Chapters/ChapterList';
 import ChapterView from './components/Chapters/ChapterView';
@@ -11,6 +12,7 @@ import Register from './pages/Register';
 import { supabase } from './lib/supabaseClient';
 import ReviewPage from './pages/ReviewPage';
 import AchievementsPage from './pages/AchievementsPage';
+import SettingsPage from './pages/SettingsPage';
 
 // Компонент для защищённых маршрутов (вынесен за пределы App)
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
@@ -32,6 +34,7 @@ function App() {
             } = await supabase.auth.getSession();
             if (session?.user) {
                 setUserId(session.user.id);
+                await loadUserSettings(session.user.id);
                 await loadUserData(session.user.id);
             }
         };
@@ -93,6 +96,14 @@ function App() {
                         }
                     />
                     <Route path="*" element={<Navigate to="/" replace />} />
+                    <Route
+                        path="/settings"
+                        element={
+                            <ProtectedRoute>
+                                <SettingsPage />
+                            </ProtectedRoute>
+                        }
+                    />
                 </Routes>
             </AppLayout>
         </BrowserRouter>

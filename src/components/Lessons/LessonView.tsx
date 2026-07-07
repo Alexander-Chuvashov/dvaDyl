@@ -1,3 +1,4 @@
+// src/components/Lessons/LessonView.tsx
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { useAppStore } from '../../store/useAppStore';
 import ExerciseRenderer from '../Exercises/ExerciseRenderer';
@@ -17,7 +18,8 @@ const LessonView: React.FC<LessonViewProps> = ({ lesson, onComplete }) => {
     >({});
     const [feedback, setFeedback] = useState<{
         type: 'correct' | 'incorrect';
-        message?: string;
+        message: string;
+        correctAnswer?: string;
     } | null>(null);
     const isProcessingRef = useRef(false);
 
@@ -37,6 +39,7 @@ const LessonView: React.FC<LessonViewProps> = ({ lesson, onComplete }) => {
     const currentExercise = exercises[exerciseIndex];
     const isLast = exerciseIndex === exercises.length - 1;
 
+    // Все ли упражнения выполнены правильно?
     const allCompleted = exercises.every(
         ex => completedExercises[ex.id] === true,
     );
@@ -76,7 +79,11 @@ const LessonView: React.FC<LessonViewProps> = ({ lesson, onComplete }) => {
     }, [allCompleted, userId, lesson.id, completedLessonIds, onComplete]);
 
     const handleAnswer = useCallback(
-        async (isCorrect: boolean, userAnswer?: string) => {
+        async (
+            isCorrect: boolean,
+            userAnswer?: string,
+            correctAnswer?: string,
+        ) => {
             if (isProcessingRef.current) {
                 console.warn('⚠️ Уже обрабатывается ответ, пропускаем');
                 return;
@@ -95,18 +102,11 @@ const LessonView: React.FC<LessonViewProps> = ({ lesson, onComplete }) => {
 
             isProcessingRef.current = true;
 
-            // Показываем фидбек
+            // Если ответ правильный
             if (isCorrect) {
                 setFeedback({ type: 'correct', message: '✅ Правильно!' });
-            } else {
-                setFeedback({
-                    type: 'incorrect',
-                    message: '❌ Неправильно. Попробуй ещё раз.',
-                });
-            }
 
-            try {
-                // Сохраняем ответ в БД (только если есть ответ пользователя)
+                // Сохраняем ответ в БД
                 if (userId && userAnswer !== undefined) {
                     await syncAnswer(userId, exerciseId, userAnswer, isCorrect);
                 }
@@ -114,33 +114,39 @@ const LessonView: React.FC<LessonViewProps> = ({ lesson, onComplete }) => {
                 // Обновляем локальный прогресс
                 answerExercise(exerciseId, isCorrect, lesson);
 
-                // Если правильно – отмечаем и планируем переход
-                if (isCorrect) {
-                    setCompletedExercises(prev => ({
-                        ...prev,
-                        [exerciseId]: true,
-                    }));
-                    // Задержка перед переходом
-                    setTimeout(() => {
-                        setFeedback(null);
-                        isProcessingRef.current = false;
-                        if (!isLast) {
-                            setExerciseIndex(prev => prev + 1);
-                        }
-                        // если последнее – завершение произойдёт через useEffect
-                    }, 700);
-                } else {
-                    // Неправильно – задержка и сброс фидбека, остаёмся на месте
-                    setTimeout(() => {
-                        setFeedback(null);
-                        isProcessingRef.current = false;
-                        // Можно дополнительно подсветить правильный ответ, но пока просто сбрасываем
-                    }, 700);
+                // Отмечаем как пройденное
+                setCompletedExercises(prev => ({
+                    ...prev,
+                    [exerciseId]: true,
+                }));
+
+                // Задержка перед переходом
+                setTimeout(() => {
+                    setFeedback(null);
+                    isProcessingRef.current = false;
+                    if (!isLast) {
+                        setExerciseIndex(prev => prev + 1);
+                    }
+                    // если последнее – завершение произойдёт через useEffect
+                }, 700);
+            } else {
+                // Неправильный ответ – показываем правильный ответ
+                const correctMsg = correctAnswer
+                    ? `Правильный ответ: ${correctAnswer}`
+                    : 'Попробуй ещё раз';
+                setFeedback({
+                    type: 'incorrect',
+                    message: `❌ Неправильно. ${correctMsg}`,
+                    correctAnswer,
+                });
+
+                // Сохраняем ответ в БД (даже неправильный)
+                if (userId && userAnswer !== undefined) {
+                    await syncAnswer(userId, exerciseId, userAnswer, isCorrect);
                 }
-            } catch (error) {
-                console.error('Ошибка обработки ответа:', error);
-                setFeedback(null);
-                isProcessingRef.current = false;
+
+                // Обновляем локальный прогресс (неправильный ответ не засчитывается)
+                answerExercise(exerciseId, isCorrect, lesson);
             }
         },
         [
@@ -153,6 +159,17 @@ const LessonView: React.FC<LessonViewProps> = ({ lesson, onComplete }) => {
             lesson,
         ],
     );
+
+    // Кнопка "Продолжить" после ошибки
+    const handleContinueAfterError = () => {
+        setFeedback(null);
+        isProcessingRef.current = false;
+        if (!isLast) {
+            setExerciseIndex(prev => prev + 1);
+        }
+        // если последнее – остаёмся на месте, но завершение через useEffect не сработает, т.к. not allCompleted
+        // можно предложить завершить урок вручную через кнопку
+    };
 
     // Защита
     if (!currentExercise) {
@@ -175,15 +192,6 @@ const LessonView: React.FC<LessonViewProps> = ({ lesson, onComplete }) => {
     }
 
     const isCurrentCompleted = completedExercises[currentExercise.id] === true;
-
-    // Определяем класс анимации для карточки упражнения
-    let feedbackClass = '';
-    if (feedback) {
-        feedbackClass =
-            feedback.type === 'correct'
-                ? 'animate-bounce-success border-olive'
-                : 'animate-shake border-terracotta';
-    }
 
     return (
         <div className="max-w-2xl p-6 mx-auto">
@@ -223,9 +231,7 @@ const LessonView: React.FC<LessonViewProps> = ({ lesson, onComplete }) => {
                             </button>
                         </div>
                     ) : (
-                        <div
-                            className={`transition-all duration-300 ${feedbackClass}`}
-                        >
+                        <>
                             <ExerciseRenderer
                                 exercise={currentExercise}
                                 onAnswer={handleAnswer}
@@ -235,9 +241,17 @@ const LessonView: React.FC<LessonViewProps> = ({ lesson, onComplete }) => {
                                     className={`mt-3 text-center font-semibold ${feedback.type === 'correct' ? 'text-olive' : 'text-terracotta'}`}
                                 >
                                     {feedback.message}
+                                    {feedback.type === 'incorrect' && (
+                                        <button
+                                            onClick={handleContinueAfterError}
+                                            className="block mx-auto mt-2 btn-secondary"
+                                        >
+                                            Продолжить →
+                                        </button>
+                                    )}
                                 </div>
                             )}
-                        </div>
+                        </>
                     )}
                 </AnimatedWrapper>
             </div>

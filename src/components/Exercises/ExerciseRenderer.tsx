@@ -1,15 +1,19 @@
+// src/components/Exercises/ExerciseRenderer.tsx
 import React from 'react';
 import type { Exercise } from '../../types/content';
 import TranslateExercise from './TranslateExercise';
 import ChoiceExercise from './ChoiceExercise';
 import OrderExercise from './OrderExercise';
 import MatchExercise from './MatchExercise';
-import ListenExercise from './ListenExercise';
-// Listen и Fill можно добавить позже
+import ListenExercise from './ListenExercise'; // если есть
 
 interface Props {
     exercise: Exercise;
-    onAnswer: (isCorrect: boolean, userAnswer?: string) => void;
+    onAnswer: (
+        isCorrect: boolean,
+        userAnswer?: string,
+        correctAnswer?: string,
+    ) => void;
 }
 
 const ExerciseRenderer: React.FC<Props> = ({ exercise, onAnswer }) => {
@@ -25,6 +29,7 @@ const ExerciseRenderer: React.FC<Props> = ({ exercise, onAnswer }) => {
         case 'match':
             return <MatchExercise exercise={exercise} onAnswer={onAnswer} />;
         case 'listen':
+            // если есть компонент ListenExercise, передаём туда
             return <ListenExercise exercise={exercise} onAnswer={onAnswer} />;
         default:
             return (
