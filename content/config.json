@@ -1,0 +1,33 @@
+{
+    "version": "0.1.0",
+    "languages": {
+        "source": "ru",
+        "target": "tuv"
+    },
+    "categories": [
+        "greetings",
+        "numbers",
+        "family",
+        "food",
+        "animals",
+        "colors",
+        "weather",
+        "body",
+        "clothes",
+        "travel",
+        "shopping"
+    ],
+    "skills": [
+        "greetings",
+        "numbers",
+        "family",
+        "food",
+        "animals",
+        "colors",
+        "weather",
+        "body",
+        "clothes",
+        "travel",
+        "shopping"
+    ]
+}

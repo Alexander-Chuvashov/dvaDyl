@@ -1,0 +1,9 @@
+{
+    "type": "theory",
+    "id": "theory_5_food",
+    "chapterId": "ch_5_food",
+    "title": "Основные продукты",
+    "titleTuvan": "Кол аъш-чемнер",
+    "content": "<p>Названия продуктов питания:</p><ul><li><b>Чай</b> — Чай</li><li><b>Сүт</b> — Молоко</li><li><b>Эт</b> — Мясо</li><li><b>Суг</b> — Вода</li><li><b>Нан</b> — Хлеб</li></ul>",
+    "order": 1
+}

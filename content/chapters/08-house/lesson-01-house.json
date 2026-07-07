@@ -1,0 +1,69 @@
+{
+  "type": "lesson",
+  "id": "lesson_8_house",
+  "chapterId": "ch_8_house",
+  "title": "Упражнение: Мой дом",
+  "titleTuvan": "Күүседилге: Мээң бажыңым",
+  "description": "Практика тематической лексики дома.",
+  "skill": "vocabulary",
+  "order": 2,
+  "isPublished": true,
+  "difficulty": 1,
+  "estimatedTime": 12,
+  "exercises": [
+    {
+      "type": "translate",
+      "question": "Дом",
+      "correct": "Бажың",
+      "id": "lesson-01-house_1",
+      "order": 0
+    },
+    {
+      "type": "choice",
+      "question": "Что означает слово 'Орун' в бытовом контексте?",
+      "options": [
+        "Окно",
+        "Стол",
+        "Кровать",
+        "Дверь"
+      ],
+      "correct": "Кровать",
+      "id": "lesson-01-house_2",
+      "order": 1
+    },
+    {
+      "type": "order",
+      "question": "Соберите фразу 'Горячая вода' (Изиг суг):",
+      "orderItems": [
+        "суг",
+        "Изиг"
+      ],
+      "correct": [
+        "Изиг",
+        "суг"
+      ],
+      "id": "lesson-01-house_3",
+      "order": 2
+    },
+    {
+      "type": "match",
+      "question": "Соотнесите предметы с их переводом:",
+      "matchPairs": [
+        {
+          "left": "Өрээл",
+          "right": "Комната"
+        },
+        {
+          "left": "Стол",
+          "right": "Стол"
+        },
+        {
+          "left": "Аяк",
+          "right": "Чашка"
+        }
+      ],
+      "id": "lesson-01-house_4",
+      "order": 3
+    }
+  ]
+}

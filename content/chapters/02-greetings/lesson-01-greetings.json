@@ -1,0 +1,45 @@
+{
+    "type": "lesson",
+    "id": "lesson_2_greetings",
+    "chapterId": "ch_2_greetings",
+    "title": "Упражнение: Знакомство",
+    "titleTuvan": "Күүседилге: Таныжылга",
+    "description": "Практика приветствий и базовых фраз.",
+    "skill": "speaking",
+    "order": 2,
+    "isPublished": true,
+    "difficulty": 1,
+    "estimatedTime": 10,
+    "exercises": [
+        {
+            "id": "greet_1",
+            "type": "translate",
+            "order": 0,
+            "question": "Меня зовут Анна.",
+            "correct": "Мээң адым Анна"
+        },
+        {
+            "id": "greet_2",
+            "type": "choice",
+            "order": 1,
+            "question": "Как перевести фраза 'Кандыг-дир сен?'",
+            "options": ["Кто ты?", "Как дела?", "Где ты?", "Что это?"],
+            "correct": "Как дела?"
+        },
+        {
+            "id": "greet_3",
+            "type": "order",
+            "order": 2,
+            "question": "Составьте фразу 'Меня зовут Айлан':",
+            "orderItems": ["Айлан", "адым", "Мээң"],
+            "correct": ["Мээң", "адым", "Айлан"]
+        },
+        {
+            "id": "greet_4",
+            "type": "translate",
+            "order": 3,
+            "question": "Здравствуй!",
+            "correct": "Экии"
+        }
+    ]
+}

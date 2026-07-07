@@ -1,0 +1,214 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    /* Светлая тема (по умолчанию) */
+    :root {
+        --bg-primary: #e8dcc8;
+        --bg-surface: #f5efe4;
+        --text-primary: #2c241b;
+        --border-color: #e8dcc8;
+        --shadow-color: rgba(44, 36, 27, 0.08);
+    }
+
+    /* Тёмная тема */
+    .dark {
+        --bg-primary: #1a1a1a;
+        --bg-surface: #2a2a2a;
+        --text-primary: #e8dcc8;
+        --border-color: #3a3a3a;
+        --shadow-color: rgba(0, 0, 0, 0.3);
+    }
+
+    body {
+        @apply font-sans antialiased;
+        background-color: var(--bg-primary);
+        color: var(--text-primary);
+        transition:
+            background-color 0.3s ease,
+            color 0.3s ease;
+    }
+
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+        background-color: var(--bg-primary);
+    }
+    ::-webkit-scrollbar-thumb {
+        @apply rounded-full bg-terracotta;
+    }
+}
+
+@layer components {
+    .btn-primary {
+        @apply px-6 py-2 text-white transition-all duration-200 rounded-lg bg-terracotta hover:bg-primary-dark shadow-button hover:shadow-lg;
+    }
+    .btn-secondary {
+        @apply px-6 py-2 transition-all duration-200 rounded-lg bg-gold text-dark hover:bg-secondary-dark;
+    }
+    .btn-success {
+        @apply px-6 py-2 text-white transition-all duration-200 rounded-lg bg-olive hover:bg-success-dark;
+    }
+    .card {
+        background-color: var(--bg-surface);
+        @apply p-6 border rounded-xl shadow-card;
+        border-color: var(--border-color);
+        transition:
+            background-color 0.3s ease,
+            border-color 0.3s ease;
+    }
+    .input-field {
+        @apply w-full px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-terracotta/50;
+        background-color: var(--bg-surface);
+        color: var(--text-primary);
+        border-color: var(--border-color);
+        transition:
+            background-color 0.3s ease,
+            color 0.3s ease,
+            border-color 0.3s ease;
+    }
+    .text-dark {
+        color: var(--text-primary);
+        transition: color 0.3s ease;
+    }
+    .bg-cream {
+        background-color: var(--bg-primary);
+        transition: background-color 0.3s ease;
+    }
+    .bg-surface {
+        background-color: var(--bg-surface);
+        transition: background-color 0.3s ease;
+    }
+    .border-cream {
+        border-color: var(--border-color);
+        transition: border-color 0.3s ease;
+    }
+    .shadow-card {
+        box-shadow: 0 4px 12px var(--shadow-color);
+        transition: box-shadow 0.3s ease;
+    }
+}
+
+@layer utilities {
+    /* Анимации */
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(12px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    @keyframes slideUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    @keyframes scaleIn {
+        from {
+            opacity: 0;
+            transform: scale(0.95);
+        }
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+    @keyframes bounceSuccess {
+        0% {
+            transform: scale(1);
+        }
+        30% {
+            transform: scale(1.05);
+        }
+        50% {
+            transform: scale(0.95);
+        }
+        70% {
+            transform: scale(1.02);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
+    .animate-bounce-success {
+        animation: bounceSuccess 0.5s ease;
+    }
+
+    @keyframes shake {
+        0%,
+        100% {
+            transform: translateX(0);
+        }
+        20% {
+            transform: translateX(-8px);
+        }
+        40% {
+            transform: translateX(8px);
+        }
+        60% {
+            transform: translateX(-6px);
+        }
+        80% {
+            transform: translateX(6px);
+        }
+    }
+    .animate-shake {
+        animation: shake 0.5s ease;
+    }
+
+    @keyframes floatUp {
+        0% {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+        100% {
+            opacity: 0;
+            transform: translateY(-60px) scale(1.2);
+        }
+    }
+    .animate-float-up {
+        animation: floatUp 1s ease forwards;
+    }
+
+    @keyframes pulseSoft {
+        0%,
+        100% {
+            opacity: 1;
+        }
+        50% {
+            opacity: 0.6;
+        }
+    }
+    .animate-pulse-soft {
+        animation: pulseSoft 1.5s ease-in-out infinite;
+    }
+
+    .delay-0 {
+        animation-delay: 0ms;
+    }
+    .delay-1 {
+        animation-delay: 50ms;
+    }
+    .delay-2 {
+        animation-delay: 100ms;
+    }
+    .delay-3 {
+        animation-delay: 150ms;
+    }
+    .delay-4 {
+        animation-delay: 200ms;
+    }
+    .delay-5 {
+        animation-delay: 250ms;
+    }
+}

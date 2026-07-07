@@ -1,0 +1,124 @@
+{
+    "words": [
+        {
+            "id": "w_001",
+            "wordTuvan": "Экии",
+            "wordRussian": "привет",
+            "partOfSpeech": "interjection",
+            "difficulty": 1,
+            "categories": ["greetings"]
+        },
+        {
+            "id": "w_002",
+            "wordTuvan": "Байырлыг",
+            "wordRussian": "до свидания",
+            "partOfSpeech": "interjection",
+            "difficulty": 1,
+            "categories": ["greetings"]
+        },
+        {
+            "id": "w_003",
+            "wordTuvan": "Ава",
+            "wordRussian": "мама",
+            "partOfSpeech": "noun",
+            "difficulty": 1,
+            "categories": ["family"]
+        },
+        {
+            "id": "w_004",
+            "wordTuvan": "Ача",
+            "wordRussian": "папа",
+            "partOfSpeech": "noun",
+            "difficulty": 1,
+            "categories": ["family"]
+        },
+        {
+            "id": "w_005",
+            "wordTuvan": "Акы",
+            "wordRussian": "старший брат",
+            "partOfSpeech": "noun",
+            "difficulty": 1,
+            "categories": ["family"]
+        },
+        {
+            "id": "w_006",
+            "wordTuvan": "Уруг",
+            "wordRussian": "дочь (ребёнок)",
+            "partOfSpeech": "noun",
+            "difficulty": 2,
+            "categories": ["family"]
+        },
+        {
+            "id": "w_007",
+            "wordTuvan": "Оол",
+            "wordRussian": "сын",
+            "partOfSpeech": "noun",
+            "difficulty": 2,
+            "categories": ["family"]
+        },
+        {
+            "id": "w_008",
+            "wordTuvan": "Бир",
+            "wordRussian": "один",
+            "partOfSpeech": "numeral",
+            "difficulty": 1,
+            "categories": ["numbers"]
+        },
+        {
+            "id": "w_009",
+            "wordTuvan": "Ийи",
+            "wordRussian": "два",
+            "partOfSpeech": "numeral",
+            "difficulty": 1,
+            "categories": ["numbers"]
+        },
+        {
+            "id": "w_010",
+            "wordTuvan": "Үш",
+            "wordRussian": "три",
+            "partOfSpeech": "numeral",
+            "difficulty": 1,
+            "categories": ["numbers"]
+        },
+        {
+            "id": "w_011",
+            "wordTuvan": "Хлеб",
+            "wordRussian": "хлеб",
+            "partOfSpeech": "noun",
+            "difficulty": 1,
+            "categories": ["food"]
+        },
+        {
+            "id": "w_012",
+            "wordTuvan": "Эт",
+            "wordRussian": "мясо",
+            "partOfSpeech": "noun",
+            "difficulty": 1,
+            "categories": ["food"]
+        },
+        {
+            "id": "w_013",
+            "wordTuvan": "Сүт",
+            "wordRussian": "молоко",
+            "partOfSpeech": "noun",
+            "difficulty": 1,
+            "categories": ["food"]
+        },
+        {
+            "id": "w_014",
+            "wordTuvan": "Шай",
+            "wordRussian": "чай",
+            "partOfSpeech": "noun",
+            "difficulty": 1,
+            "categories": ["food"]
+        },
+        {
+            "id": "w_015",
+            "wordTuvan": "Суксун",
+            "wordRussian": "напиток",
+            "partOfSpeech": "noun",
+            "difficulty": 2,
+            "categories": ["food"]
+        }
+    ]
+}

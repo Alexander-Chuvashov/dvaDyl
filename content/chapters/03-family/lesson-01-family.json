@@ -1,0 +1,49 @@
+{
+    "type": "lesson",
+    "id": "lesson_3_family",
+    "chapterId": "ch_3_family",
+    "title": "Упражнение: Моя семья",
+    "titleTuvan": "Күүседилге: Мээң өг-бүлем",
+    "description": "Тренировка слов по теме Семья.",
+    "skill": "vocabulary",
+    "order": 2,
+    "isPublished": true,
+    "difficulty": 1,
+    "estimatedTime": 12,
+    "exercises": [
+        {
+            "id": "family_1",
+            "order": 0,
+            "type": "translate",
+            "question": "Папа",
+            "correct": "Ада"
+        },
+        {
+            "id": "family_2",
+            "order": 1,
+            "type": "choice",
+            "question": "Как переводится слово 'Угбай'?",
+            "options": ["Старший брат", "Старшая сестра", "Бабушка", "Дядя"],
+            "correct": "Старшая сестра"
+        },
+        {
+            "id": "family_3",
+            "order": 2,
+            "type": "match",
+            "question": "Соотнесите слова с переводом:",
+            "matchPairs": [
+                { "left": "Ава", "right": "Мама" },
+                { "left": "Акы", "right": "Старший брат" },
+                { "left": "Кырган-ада", "right": "Дедушка" }
+            ]
+        },
+        {
+            "id": "family_4",
+            "order": 3,
+            "type": "choice",
+            "question": "Как сказать 'Бабушка' по-тувински?",
+            "options": ["Кырган-ава", "Кырган-ада", "Ийи", "Угбай"],
+            "correct": "Кырган-ава"
+        }
+    ]
+}

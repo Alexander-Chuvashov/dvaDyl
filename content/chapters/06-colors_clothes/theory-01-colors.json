@@ -1,0 +1,9 @@
+{
+    "type": "theory",
+    "id": "theory_6_colors_clothes",
+    "chapterId": "ch_6_colors_clothes",
+    "title": "Цвета и предметы одежды",
+    "titleTuvan": "Өңнер болгаш кедимче чүүлдери",
+    "content": "<p><b>Цвета:</b></p><ul><li>Ак — Белый</li><li>Кара — Черный</li><li>Кызыл — Красный</li><li>Ногаан — Зеленый</li><li>Көк — Синий</li></ul><p><b>Одежда:</b></p><ul><li>Тон — Шуба</li><li>Идик — Обувь (сапоги)</li><li>Шалбар — Штаны</li><li>Малгай — Шапка</li></ul>",
+    "order": 1
+}

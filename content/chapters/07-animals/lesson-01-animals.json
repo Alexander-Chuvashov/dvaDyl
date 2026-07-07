@@ -1,0 +1,68 @@
+{
+  "type": "lesson",
+  "id": "lesson_7_animals",
+  "chapterId": "ch_7_animals",
+  "title": "Упражнение: Животный мир",
+  "titleTuvan": "Күүседилге: Аңнар делеми",
+  "description": "Изучение названий животных.",
+  "skill": "vocabulary",
+  "order": 2,
+  "isPublished": true,
+  "difficulty": 1,
+  "estimatedTime": 10,
+  "exercises": [
+    {
+      "type": "translate",
+      "question": "Лошадь",
+      "correct": "Аът",
+      "id": "lesson-01-animals_1",
+      "order": 0
+    },
+    {
+      "type": "choice",
+      "question": "Какое животное называется 'Инек'?",
+      "options": [
+        "Овца",
+        "Корова",
+        "Коза",
+        "Собака"
+      ],
+      "correct": "Корова",
+      "id": "lesson-01-animals_2",
+      "order": 1
+    },
+    {
+      "type": "match",
+      "question": "Соотнесите животных с переводом:",
+      "matchPairs": [
+        {
+          "left": "Ыт",
+          "right": "Собака"
+        },
+        {
+          "left": "Хой",
+          "right": "Овца"
+        },
+        {
+          "left": "Бөрү",
+          "right": "Волк"
+        }
+      ],
+      "id": "lesson-01-animals_3",
+      "order": 2
+    },
+    {
+      "type": "choice",
+      "question": "Как сказать 'Кошка' по-тувински?",
+      "options": [
+        "Кош",
+        "Аът",
+        "Инек",
+        "Хой"
+      ],
+      "correct": "Кош",
+      "id": "lesson-01-animals_4",
+      "order": 3
+    }
+  ]
+}
