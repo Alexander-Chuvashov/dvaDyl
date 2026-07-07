@@ -1,0 +1,62 @@
+{
+    "type": "lesson",
+    "id": "lesson_2_alphabet",
+    "chapterId": "ch_1_alphabet",
+    "title": "Упражнение: Гласные и согласные",
+    "titleTuvan": "Күүседилге: Ажык болгаш ажык эвес үннер",
+    "description": "Тренировка различения гласных и согласных звуков тувинского языка.",
+    "skill": "reading",
+    "order": 3,
+    "isPublished": true,
+    "difficulty": 1,
+    "estimatedTime": 10,
+    "exercises": [
+        {
+            "type": "choice",
+            "question": "Сколько гласных букв в тувинском алфавите?",
+            "options": ["8", "10", "12", "6"],
+            "correct": "8",
+            "id": "lesson-02-alphabet_1",
+            "order": 0
+        },
+        {
+            "type": "match",
+            "question": "Соотнесите буквы с их типом:",
+            "matchPairs": [
+                {
+                    "left": "А",
+                    "right": "Гласная"
+                },
+                {
+                    "left": "М",
+                    "right": "Согласная"
+                },
+                {
+                    "left": "Ү",
+                    "right": "Гласная"
+                },
+                {
+                    "left": "Ң",
+                    "right": "Согласная"
+                }
+            ],
+            "id": "lesson-02-alphabet_2",
+            "order": 1
+        },
+        {
+            "type": "translate",
+            "question": "Как читается буква 'Й' в тувинском?",
+            "correct": "Краткое И",
+            "id": "lesson-02-alphabet_3",
+            "order": 2
+        },
+        {
+            "type": "choice",
+            "question": "Какая буква дает мягкость предшествующему согласному?",
+            "options": ["А", "О", "У", "И"],
+            "correct": "И",
+            "id": "lesson-02-alphabet_4",
+            "order": 3
+        }
+    ]
+}

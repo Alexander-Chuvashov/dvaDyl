@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { useAppStore } from '../../store/useAppStore';
 import ExerciseRenderer from '../Exercises/ExerciseRenderer';
 import ProgressBar from '../Progress/ProgressBar';
@@ -15,6 +15,12 @@ const LessonView: React.FC<LessonViewProps> = ({ lesson, onComplete }) => {
     const [completedExercises, setCompletedExercises] = useState<
         Record<string, boolean>
     >({});
+    const [feedback, setFeedback] = useState<{
+        type: 'correct' | 'incorrect';
+        message?: string;
+    } | null>(null);
+    const isProcessingRef = useRef(false);
+
     const {
         userId,
         answerExercise,
@@ -31,33 +37,17 @@ const LessonView: React.FC<LessonViewProps> = ({ lesson, onComplete }) => {
     const currentExercise = exercises[exerciseIndex];
     const isLast = exerciseIndex === exercises.length - 1;
 
-    // Все ли упражнения выполнены правильно?
     const allCompleted = exercises.every(
         ex => completedExercises[ex.id] === true,
     );
 
-    // Логи для отладки
-    console.log('📊 completedExercises:', completedExercises);
-    console.log('📊 allCompleted:', allCompleted);
-
     // Эффект завершения урока
     useEffect(() => {
-        console.log(
-            '🔄 useEffect triggered, allCompleted:',
-            allCompleted,
-            'userId:',
-            userId,
-            'lesson.id:',
-            lesson.id,
-            'already completed:',
-            completedLessonIds.includes(lesson.id),
-        );
         if (!userId) return;
         if (!allCompleted) return;
         if (completedLessonIds.includes(lesson.id)) return;
 
         const completeLesson = async () => {
-            console.log('🚀 Завершаем урок!');
             try {
                 await syncProgress(userId, lesson.id, 'completed', 100, 50);
                 await syncStreak(userId);
@@ -75,10 +65,9 @@ const LessonView: React.FC<LessonViewProps> = ({ lesson, onComplete }) => {
                         alert(`🎉 Новое достижение: ${ach.icon} ${ach.name}`);
                     });
                 }
-                console.log('✅ Урок завершён, вызываем onComplete');
                 onComplete?.();
             } catch (error) {
-                console.error('❌ Ошибка завершения урока:', error);
+                console.error('Ошибка завершения урока:', error);
                 alert('Ошибка сохранения прогресса. Попробуйте ещё раз.');
             }
         };
@@ -86,42 +75,86 @@ const LessonView: React.FC<LessonViewProps> = ({ lesson, onComplete }) => {
         completeLesson();
     }, [allCompleted, userId, lesson.id, completedLessonIds, onComplete]);
 
-    const handleAnswer = async (isCorrect: boolean, userAnswer?: string) => {
-        const exerciseId = currentExercise.id;
-        console.log(
-            '📝 Ответ на упражнение',
-            exerciseId,
-            'правильный?',
-            isCorrect,
-            'ответ пользователя:',
-            userAnswer,
-        );
+    const handleAnswer = useCallback(
+        async (isCorrect: boolean, userAnswer?: string) => {
+            if (isProcessingRef.current) {
+                console.warn('⚠️ Уже обрабатывается ответ, пропускаем');
+                return;
+            }
+            if (!currentExercise) {
+                console.warn('⚠️ Нет текущего упражнения');
+                return;
+            }
 
-        // Сохраняем ответ в БД
-        if (userId && userAnswer !== undefined) {
+            const exerciseId = currentExercise.id;
+
+            if (completedExercises[exerciseId] === true) {
+                console.warn(`⚠️ Упражнение ${exerciseId} уже пройдено`);
+                return;
+            }
+
+            isProcessingRef.current = true;
+
+            // Показываем фидбек
+            if (isCorrect) {
+                setFeedback({ type: 'correct', message: '✅ Правильно!' });
+            } else {
+                setFeedback({
+                    type: 'incorrect',
+                    message: '❌ Неправильно. Попробуй ещё раз.',
+                });
+            }
+
             try {
-                await syncAnswer(userId, exerciseId, userAnswer, isCorrect);
-            } catch (err) {
-                console.error('Ошибка сохранения ответа:', err);
+                // Сохраняем ответ в БД (только если есть ответ пользователя)
+                if (userId && userAnswer !== undefined) {
+                    await syncAnswer(userId, exerciseId, userAnswer, isCorrect);
+                }
+
+                // Обновляем локальный прогресс
+                answerExercise(exerciseId, isCorrect, lesson);
+
+                // Если правильно – отмечаем и планируем переход
+                if (isCorrect) {
+                    setCompletedExercises(prev => ({
+                        ...prev,
+                        [exerciseId]: true,
+                    }));
+                    // Задержка перед переходом
+                    setTimeout(() => {
+                        setFeedback(null);
+                        isProcessingRef.current = false;
+                        if (!isLast) {
+                            setExerciseIndex(prev => prev + 1);
+                        }
+                        // если последнее – завершение произойдёт через useEffect
+                    }, 700);
+                } else {
+                    // Неправильно – задержка и сброс фидбека, остаёмся на месте
+                    setTimeout(() => {
+                        setFeedback(null);
+                        isProcessingRef.current = false;
+                        // Можно дополнительно подсветить правильный ответ, но пока просто сбрасываем
+                    }, 700);
+                }
+            } catch (error) {
+                console.error('Ошибка обработки ответа:', error);
+                setFeedback(null);
+                isProcessingRef.current = false;
             }
-        }
+        },
+        [
+            currentExercise,
+            completedExercises,
+            userId,
+            isLast,
+            syncAnswer,
+            answerExercise,
+            lesson,
+        ],
+    );
 
-        // Обновляем локальный прогресс
-        answerExercise(exerciseId, isCorrect, lesson);
-
-        if (isCorrect) {
-            setCompletedExercises(prev => ({ ...prev, [exerciseId]: true }));
-            if (!isLast) {
-                setTimeout(() => {
-                    setExerciseIndex(prevIndex => prevIndex + 1);
-                }, 300);
-            }
-            // если последнее — ничего не делаем, ждём useEffect
-        } else {
-            // Неправильно — остаёмся
-        }
-    };
-
+    // Защита
     if (!currentExercise) {
         return (
             <div className="py-10 text-center text-dark/60">
@@ -142,6 +175,15 @@ const LessonView: React.FC<LessonViewProps> = ({ lesson, onComplete }) => {
     }
 
     const isCurrentCompleted = completedExercises[currentExercise.id] === true;
+
+    // Определяем класс анимации для карточки упражнения
+    let feedbackClass = '';
+    if (feedback) {
+        feedbackClass =
+            feedback.type === 'correct'
+                ? 'animate-bounce-success border-olive'
+                : 'animate-shake border-terracotta';
+    }
 
     return (
         <div className="max-w-2xl p-6 mx-auto">
@@ -168,7 +210,7 @@ const LessonView: React.FC<LessonViewProps> = ({ lesson, onComplete }) => {
                             <button
                                 onClick={() => {
                                     if (isLast) {
-                                        // Если последнее — завершение произойдёт через useEffect
+                                        // ничего
                                     } else {
                                         setExerciseIndex(prev => prev + 1);
                                     }
@@ -181,10 +223,21 @@ const LessonView: React.FC<LessonViewProps> = ({ lesson, onComplete }) => {
                             </button>
                         </div>
                     ) : (
-                        <ExerciseRenderer
-                            exercise={currentExercise}
-                            onAnswer={handleAnswer}
-                        />
+                        <div
+                            className={`transition-all duration-300 ${feedbackClass}`}
+                        >
+                            <ExerciseRenderer
+                                exercise={currentExercise}
+                                onAnswer={handleAnswer}
+                            />
+                            {feedback && (
+                                <div
+                                    className={`mt-3 text-center font-semibold ${feedback.type === 'correct' ? 'text-olive' : 'text-terracotta'}`}
+                                >
+                                    {feedback.message}
+                                </div>
+                            )}
+                        </div>
                     )}
                 </AnimatedWrapper>
             </div>

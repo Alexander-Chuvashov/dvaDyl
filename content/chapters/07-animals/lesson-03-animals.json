@@ -1,0 +1,69 @@
+{
+  "type": "lesson",
+  "id": "lesson_3_animals",
+  "chapterId": "ch_7_animals",
+  "title": "Упражнение: На ферме",
+  "titleTuvan": "Күүседилге: Ажыл-агыда",
+  "description": "Закрепление названий домашних животных и птиц.",
+  "skill": "vocabulary",
+  "order": 4,
+  "isPublished": true,
+  "difficulty": 1,
+  "estimatedTime": 12,
+  "exercises": [
+    {
+      "type": "choice",
+      "question": "Что означает слово 'Так'?",
+      "options": [
+        "Курица",
+        "Гусь",
+        "Утка",
+        "Петух"
+      ],
+      "correct": "Курица",
+      "id": "lesson-03-animals_1",
+      "order": 0
+    },
+    {
+      "type": "order",
+      "question": "Соберите фразу 'Черная корова' (Кара инек):",
+      "orderItems": [
+        "инек",
+        "Кара"
+      ],
+      "correct": [
+        "Кара",
+        "инек"
+      ],
+      "id": "lesson-03-animals_2",
+      "order": 1
+    },
+    {
+      "type": "translate",
+      "question": "Коза",
+      "correct": "Эчки",
+      "id": "lesson-03-animals_3",
+      "order": 2
+    },
+    {
+      "type": "match",
+      "question": "Соотнесите животных с переводом:",
+      "matchPairs": [
+        {
+          "left": "Эчки",
+          "right": "Коза"
+        },
+        {
+          "left": "Инек",
+          "right": "Корова"
+        },
+        {
+          "left": "Аът",
+          "right": "Лошадь"
+        }
+      ],
+      "id": "lesson-03-animals_4",
+      "order": 3
+    }
+  ]
+}

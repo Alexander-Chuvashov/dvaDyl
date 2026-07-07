@@ -1,0 +1,68 @@
+{
+  "type": "lesson",
+  "id": "lesson_2_food",
+  "chapterId": "ch_5_food",
+  "title": "Упражнение: Традиционная еда",
+  "titleTuvan": "Күүседилге: Аас чогаадыг аъш-чем",
+  "description": "Знакомство с традиционными тувинскими блюдами.",
+  "skill": "vocabulary",
+  "order": 3,
+  "isPublished": true,
+  "difficulty": 1,
+  "estimatedTime": 10,
+  "exercises": [
+    {
+      "type": "choice",
+      "question": "Что такое 'Боова'?",
+      "options": [
+        "Суп",
+        "Жареные лепешки",
+        "Чай",
+        "Колбаса"
+      ],
+      "correct": "Жареные лепешки",
+      "id": "lesson-02-food_1",
+      "order": 0
+    },
+    {
+      "type": "translate",
+      "question": "Соль",
+      "correct": "Дус",
+      "id": "lesson-02-food_2",
+      "order": 1
+    },
+    {
+      "type": "match",
+      "question": "Соотнесите продукты с переводом:",
+      "matchPairs": [
+        {
+          "left": "Далган",
+          "right": "Мука поджаренная"
+        },
+        {
+          "left": "Сүт",
+          "right": "Молоко"
+        },
+        {
+          "left": "Чигир",
+          "right": "Сахар"
+        }
+      ],
+      "id": "lesson-02-food_3",
+      "order": 2
+    },
+    {
+      "type": "choice",
+      "question": "Что означает 'Тараа'?",
+      "options": [
+        "Пшено / Каша",
+        "Вода",
+        "Мясо",
+        "Хлеб"
+      ],
+      "correct": "Пшено / Каша",
+      "id": "lesson-02-food_4",
+      "order": 3
+    }
+  ]
+}

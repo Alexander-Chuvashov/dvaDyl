@@ -1,0 +1,62 @@
+{
+  "type": "lesson",
+  "id": "lesson_2_family",
+  "chapterId": "ch_3_family",
+  "title": "Упражнение: Дети и родственники",
+  "titleTuvan": "Күүседилге: Ажы-төл болгash төрелдер",
+  "description": "Расширение словарного запаса по теме семьи.",
+  "skill": "vocabulary",
+  "order": 3,
+  "isPublished": true,
+  "difficulty": 1,
+  "estimatedTime": 12,
+  "exercises": [
+    {
+      "type": "translate",
+      "question": "Сын",
+      "correct": "Оол",
+      "id": "lesson-02-family_1",
+      "order": 0
+    },
+    {
+      "type": "translate",
+      "question": "Дочь",
+      "correct": "Кыс",
+      "id": "lesson-02-family_2",
+      "order": 1
+    },
+    {
+      "type": "choice",
+      "question": "Кто такой 'Башкы'?",
+      "options": [
+        "Учитель",
+        "Врач",
+        "Дядя",
+        "Брат"
+      ],
+      "correct": "Учитель",
+      "id": "lesson-02-family_3",
+      "order": 2
+    },
+    {
+      "type": "match",
+      "question": "Соотнесите слова и переводы:",
+      "matchPairs": [
+        {
+          "left": "Оол",
+          "right": "Сын / Мальчик"
+        },
+        {
+          "left": "Кыс",
+          "right": "Дочь / Девочка"
+        },
+        {
+          "left": "Өг-бүле",
+          "right": "Семья"
+        }
+      ],
+      "id": "lesson-02-family_4",
+      "order": 3
+    }
+  ]
+}

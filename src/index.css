@@ -212,3 +212,10 @@
         animation-delay: 250ms;
     }
 }
+
+.animate-bounce-success {
+    animation: bounceSuccess 0.5s ease;
+}
+.animate-shake {
+    animation: shake 0.5s ease;
+}

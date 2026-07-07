@@ -1,0 +1,69 @@
+{
+  "type": "lesson",
+  "id": "lesson_2_greetings",
+  "chapterId": "ch_2_greetings",
+  "title": "Упражнение: Вежливые фразы",
+  "titleTuvan": "Күүседилге: Этик чугаалар",
+  "description": "Изучение вежливых форм приветствия и прощания.",
+  "skill": "speaking",
+  "order": 3,
+  "isPublished": true,
+  "difficulty": 1,
+  "estimatedTime": 10,
+  "exercises": [
+    {
+      "type": "choice",
+      "question": "Как вежливо сказать 'Здравствуйте' (множественное число)?",
+      "options": [
+        "Экии",
+        "Экии-сиңнер",
+        "Кандыг-дир",
+        "Байырлыы"
+      ],
+      "correct": "Экии-сиңнер",
+      "id": "lesson-02-greetings_1",
+      "order": 0
+    },
+    {
+      "type": "translate",
+      "question": "Спасибо",
+      "correct": "Байырлыы",
+      "id": "lesson-02-greetings_2",
+      "order": 1
+    },
+    {
+      "type": "order",
+      "question": "Составьте фразу 'Большое спасибо':",
+      "orderItems": [
+        "улуг",
+        "Байырлыы"
+      ],
+      "correct": [
+        "улуг",
+        "Байырлыы"
+      ],
+      "id": "lesson-02-greetings_3",
+      "order": 2
+    },
+    {
+      "type": "match",
+      "question": "Соотнесите фразы с переводом:",
+      "matchPairs": [
+        {
+          "left": "Байырлыы",
+          "right": "Спасибо"
+        },
+        {
+          "left": "Кудум!",
+          "right": "Извините"
+        },
+        {
+          "left": "Бараалдажыр",
+          "right": "До свидания"
+        }
+      ],
+      "id": "lesson-02-greetings_4",
+      "order": 3
+    }
+  ]
+}

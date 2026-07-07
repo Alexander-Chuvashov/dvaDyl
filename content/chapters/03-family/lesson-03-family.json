@@ -1,0 +1,69 @@
+{
+  "type": "lesson",
+  "id": "lesson_3_family",
+  "chapterId": "ch_3_family",
+  "title": "Упражнение: Моя семья",
+  "titleTuvan": "Күүседилге: Мээң өг-бүлем",
+  "description": "Использование притяжательных местоимений с членами семьи.",
+  "skill": "grammar",
+  "order": 4,
+  "isPublished": true,
+  "difficulty": 1,
+  "estimatedTime": 15,
+  "exercises": [
+    {
+      "type": "order",
+      "question": "Составьте фразу 'Моя мама' (Мээң авам):",
+      "orderItems": [
+        "авам",
+        "Мээң"
+      ],
+      "correct": [
+        "Мээң",
+        "авам"
+      ],
+      "id": "lesson-03-family_1",
+      "order": 0
+    },
+    {
+      "type": "choice",
+      "question": "Как сказать 'Твой папа' (обращение на 'ты')?",
+      "options": [
+        "Мээң адаам",
+        "Сээң адаң",
+        "Ооң адаа",
+        "Бистиң адааның"
+      ],
+      "correct": "Сээң адаң",
+      "id": "lesson-03-family_2",
+      "order": 1
+    },
+    {
+      "type": "translate",
+      "question": "Мой брат",
+      "correct": "Мээң акым",
+      "id": "lesson-03-family_3",
+      "order": 2
+    },
+    {
+      "type": "match",
+      "question": "Соотнесите местоимения с их формой:",
+      "matchPairs": [
+        {
+          "left": "Мээң",
+          "right": "Мой"
+        },
+        {
+          "left": "Сээң",
+          "right": "Твой"
+        },
+        {
+          "left": "Ооң",
+          "right": "Его/Ее"
+        }
+      ],
+      "id": "lesson-03-family_4",
+      "order": 3
+    }
+  ]
+}

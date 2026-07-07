@@ -1,6 +1,6 @@
 // src/components/Chapters/ChapterView.tsx
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { loadAllChapters } from '../../services/ContentService';
 import type { Chapter, Lesson, Theory } from '../../types/content';
 import TheoryView from './TheoryView';
@@ -14,6 +14,7 @@ const ChapterView: React.FC = () => {
     const [chapter, setChapter] = useState<Chapter | null>(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
         loadAllChapters()
@@ -75,7 +76,9 @@ const ChapterView: React.FC = () => {
                                 <LessonView
                                     key={item.id}
                                     lesson={item as Lesson}
-                                    onComplete={() => {}}
+                                    onComplete={() => {
+                                        navigate('/'); // или на страницу со списком глав, если у тебя другой путь
+                                    }}
                                 />
                             </ErrorBoundary>
                         )}
