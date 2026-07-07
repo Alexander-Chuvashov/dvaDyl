@@ -1,0 +1,49 @@
+{
+    "type": "lesson",
+    "id": "lesson_3_12-travel",
+    "chapterId": "ch_12-travel",
+    "title": "Путешествия (урок 3)",
+    "titleTuvan": "Аян-чорук (кичээл 3)",
+    "description": "Покупка билетов",
+    "skill": "travel",
+    "order": 4,
+    "isPublished": true,
+    "difficulty": 3,
+    "estimatedTime": 15,
+    "exercises": [
+        {
+            "id": "ex_travel_3_1",
+            "type": "translate",
+            "order": 0,
+            "question": "Переведи на тувинский: 'Билет'",
+            "correct": "Билет"
+        },
+        {
+            "id": "ex_travel_3_2",
+            "type": "choice",
+            "order": 1,
+            "question": "Выбери перевод: 'Мен билет садып алыр мен'",
+            "options": ["Я продаю билет", "Я куплю билет", "Я ищу билет"],
+            "correct": "Я куплю билет"
+        },
+        {
+            "id": "ex_travel_3_3",
+            "type": "order",
+            "order": 2,
+            "question": "Составь: 'Я лечу на самолете' (Мен чагыыр-биле ужар мен)",
+            "orderItems": ["мен", "Мен", "чагыыр-биле", "ужар"],
+            "correct": ["Мен", "чагыыр-биле", "ужар", "мен"]
+        },
+        {
+            "id": "ex_travel_3_4",
+            "type": "match",
+            "order": 3,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Куда ты едешь?", "right": "Кайы черге чор сен?" },
+                { "left": "Я еду в Кызыл", "right": "Мен Кызылче чор мен" },
+                { "left": "Где отель?", "right": "Отулахан кайыан?" }
+            ]
+        }
+    ]
+}

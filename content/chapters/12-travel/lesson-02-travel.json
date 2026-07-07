@@ -1,0 +1,49 @@
+{
+    "type": "lesson",
+    "id": "lesson_2_12-travel",
+    "chapterId": "ch_12-travel",
+    "title": "Путешествия (урок 2)",
+    "titleTuvan": "Аян-чорук (кичээл 2)",
+    "description": "В гостинице и аэропорту",
+    "skill": "travel",
+    "order": 3,
+    "isPublished": true,
+    "difficulty": 2,
+    "estimatedTime": 12,
+    "exercises": [
+        {
+            "id": "ex_travel_2_1",
+            "type": "translate",
+            "order": 0,
+            "question": "Переведи: 'Отель' (Отулахан)",
+            "correct": "Отулахан"
+        },
+        {
+            "id": "ex_travel_2_2",
+            "type": "choice",
+            "order": 1,
+            "question": "Что такое 'Аэропорт'?",
+            "options": ["Гостиница", "Аэропорт", "Билет"],
+            "correct": "Аэропорт"
+        },
+        {
+            "id": "ex_travel_2_3",
+            "type": "order",
+            "order": 2,
+            "question": "Составь: 'Я еду на поезде' (Мен поезд-биле чор мен)",
+            "orderItems": ["мен", "Мен", "поезд-биле", "чор"],
+            "correct": ["Мен", "поезд-биле", "чор", "мен"]
+        },
+        {
+            "id": "ex_travel_2_4",
+            "type": "match",
+            "order": 3,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Отулахан", "right": "Отель" },
+                { "left": "Аэропорт", "right": "Аэропорт" },
+                { "left": "Көрүшкүннер", "right": "Достопримечательности" }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,52 @@
+{
+    "type": "lesson",
+    "id": "lesson_3_13-shopping",
+    "chapterId": "ch_13-shopping",
+    "title": "Покупки (урок 3)",
+    "titleTuvan": "Садыг (кичээл 3)",
+    "description": "В магазине: диалог",
+    "skill": "shopping",
+    "order": 4,
+    "isPublished": true,
+    "difficulty": 3,
+    "estimatedTime": 15,
+    "exercises": [
+        {
+            "id": "ex_shop_3_1",
+            "type": "translate",
+            "order": 0,
+            "question": "Переведи на тувинский: 'Сколько стоит?' (Хире...?)",
+            "correct": "Үнези хире?"
+        },
+        {
+            "id": "ex_shop_3_2",
+            "type": "choice",
+            "order": 1,
+            "question": "Выбери перевод: 'Мен акша төлеп тур мен'",
+            "options": ["Я получаю деньги", "Я плачу деньги", "Я меняю деньги"],
+            "correct": "Я плачу деньги"
+        },
+        {
+            "id": "ex_shop_3_3",
+            "type": "order",
+            "order": 2,
+            "question": "Составь: 'Я покупаю воду' (Мен суг садып алыр мен)",
+            "orderItems": ["мен", "Мен", "суг", "садып", "алыр"],
+            "correct": ["Мен", "суг", "садып", "алыр", "мен"]
+        },
+        {
+            "id": "ex_shop_3_4",
+            "type": "match",
+            "order": 3,
+            "question": "Сопоставь",
+            "matchPairs": [
+                {
+                    "left": "Дайте, пожалуйста, хлеб",
+                    "right": "Нан бээр сил, бе"
+                },
+                { "left": "Сколько стоит?", "right": "Үнези хире?" },
+                { "left": "Есть ли скидка?", "right": "Доозал бар бе?" }
+            ]
+        }
+    ]
+}

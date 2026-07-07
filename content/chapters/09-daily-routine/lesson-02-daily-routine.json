@@ -1,0 +1,53 @@
+{
+    "type": "lesson",
+    "id": "lesson_2_09-daily-routine",
+    "chapterId": "ch_09-daily-routine",
+    "title": "Повседневные дела (урок 2)",
+    "titleTuvan": "Хүн бүрү ажылдар (кичээл 2)",
+    "description": "Приемы пищи и работа",
+    "skill": "daily_routine",
+    "order": 3,
+    "isPublished": true,
+    "difficulty": 2,
+    "estimatedTime": 12,
+    "exercises": [
+        {
+            "id": "ex_daily_2_1",
+            "type": "choice",
+            "order": 0,
+            "question": "Как сказать 'завтракать'?",
+            "options": [
+                "Кежээки чемни чиир",
+                "Эртенги чемни чиир",
+                "Хүн ортузунда чемни чиир"
+            ],
+            "correct": "Эртенги чемни чиир"
+        },
+        {
+            "id": "ex_daily_2_2",
+            "type": "translate",
+            "order": 1,
+            "question": "Переведи: 'Ажылче бар' (идти на работу)",
+            "correct": "Идти на работу"
+        },
+        {
+            "id": "ex_daily_2_3",
+            "type": "order",
+            "order": 2,
+            "question": "Составь фразу: 'возвращаться домой' (Бажыңга эглир)",
+            "orderItems": ["эглир", "Бажыңга"],
+            "correct": ["Бажыңга", "эглир"]
+        },
+        {
+            "id": "ex_daily_2_4",
+            "type": "match",
+            "order": 3,
+            "question": "Сопоставь фразы",
+            "matchPairs": [
+                { "left": "Эртенги чемни чиир", "right": "Завтракать" },
+                { "left": "Ажылче бар", "right": "Идти на работу" },
+                { "left": "Кежээки чемни чиир", "right": "Ужинать" }
+            ]
+        }
+    ]
+}

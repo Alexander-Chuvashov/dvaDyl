@@ -1,0 +1,49 @@
+{
+    "type": "lesson",
+    "id": "lesson_1_13-shopping",
+    "chapterId": "ch_13-shopping",
+    "title": "Покупки (урок 1)",
+    "titleTuvan": "Садыг (кичээл 1)",
+    "description": "Главные слова для магазина",
+    "skill": "shopping",
+    "order": 2,
+    "isPublished": true,
+    "difficulty": 2,
+    "estimatedTime": 10,
+    "exercises": [
+        {
+            "id": "ex_shop_1_1",
+            "type": "translate",
+            "order": 0,
+            "question": "Переведи: 'Деньги'",
+            "correct": "Акша"
+        },
+        {
+            "id": "ex_shop_1_2",
+            "type": "choice",
+            "order": 1,
+            "question": "Как будет 'Цена'?",
+            "options": ["Хемчээл", "Үне", "Доозал"],
+            "correct": "Үне"
+        },
+        {
+            "id": "ex_shop_1_3",
+            "type": "order",
+            "order": 2,
+            "question": "Составь: 'Рынок' (Чыырак)",
+            "orderItems": ["Чыырак"],
+            "correct": ["Чыырак"]
+        },
+        {
+            "id": "ex_shop_1_4",
+            "type": "match",
+            "order": 3,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Магазин", "right": "Магазин" },
+                { "left": "Акша", "right": "Деньги" },
+                { "left": "Садыр", "right": "Продать" }
+            ]
+        }
+    ]
+}
