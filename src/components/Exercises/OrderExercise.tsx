@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import type { Exercise } from '../../types/content';
 import { shuffle } from '../../utils/array';
+import ClickableWord from '../UI/ClickableWord';
 
 interface Props {
     exercise: Exercise;
@@ -88,7 +89,7 @@ const OrderExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
                         onClick={() => handleRemove(item)}
                         className={`px-3 py-2 rounded-lg border-2 ${getItemColor(item)} transition-all duration-200 cursor-pointer hover:shadow-md`}
                     >
-                        {item}
+                        <ClickableWord word={item} />
                         <span className="ml-1 text-xs text-gray-500">✕</span>
                     </button>
                 ))}
@@ -101,7 +102,7 @@ const OrderExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
                         onClick={() => handleSelect(item)}
                         className="px-4 py-2 transition-all duration-200 bg-gray-200 border-2 border-gray-300 rounded-lg cursor-pointer hover:bg-gray-300 hover:shadow-md"
                     >
-                        {item}
+                        <ClickableWord word={item} />
                     </button>
                 ))}
             </div>

@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import type { Exercise } from '../../types/content';
 import { shuffle } from '../../utils/array';
+import ClickableWord from '../UI/ClickableWord';
 
 interface Props {
     exercise: Exercise;
@@ -150,7 +151,7 @@ const MatchExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
                                     onClick={() => handleLeftClick(left)}
                                     className={`w-full text-left px-4 py-2 rounded-lg border-2 transition-all duration-200 ${getLeftClass(left)}`}
                                 >
-                                    {left}
+                                    <ClickableWord word={left} />
                                 </button>
                             );
                         })}
@@ -184,7 +185,7 @@ const MatchExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
                                     onClick={() => handleRightClick(right)}
                                     className={`w-full text-left px-4 py-2 rounded-lg border-2 transition-all duration-200 ${getRightClass(right)}`}
                                 >
-                                    {right}
+                                    <ClickableWord word={right} />
                                 </button>
                             );
                         })}

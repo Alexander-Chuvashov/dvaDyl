@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import type { Exercise } from '../../types/content';
 import AudioButton from '../UI/AudioButton';
+import ClickableWord from '../UI/ClickableWord';
 
 interface Props {
     exercise: Exercise;
@@ -56,8 +57,20 @@ const ChoiceExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
                         onClick={() => handleSelect(option)}
                         className={`flex items-center justify-between w-full text-left px-4 py-3 rounded-lg border-2 transition-all cursor-pointer ${getOptionClass(option)}`}
                     >
-                        <span>{option}</span>
-                        <AudioButton text={option} lang="tuv" size="sm" />
+                        <ClickableWord word={option} />
+                        {!submitted && (
+                            <AudioButton
+                                text={option}
+                                lang="tuv"
+                                size="sm"
+                                className="float-right"
+                            />
+                        )}
+                        {submitted && option === exercise.correct && ' ✅'}
+                        {submitted &&
+                            selected === option &&
+                            option !== exercise.correct &&
+                            ' ❌'}
                     </div>
                 ))}
             </div>

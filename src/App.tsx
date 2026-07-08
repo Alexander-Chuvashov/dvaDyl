@@ -15,6 +15,7 @@ import StatsPage from './pages/StatsPage';
 import LessonPage from './pages/LessonPage';
 import PageTransition from './components/UI/PageTransiton';
 import RepeatErrorsPage from './pages/RepeatErrorPage';
+import { TranslationService } from './services/TranslationService';
 
 // Компонент для защищённых маршрутов (вынесен за пределы App, чтобы не создавать компонент внутри рендера)
 const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({
@@ -32,6 +33,7 @@ function App() {
 
     // Проверяем сессию при загрузке
     useEffect(() => {
+        TranslationService.loadVocabulary().catch(console.error);
         const getSession = async () => {
             const {
                 data: { session },

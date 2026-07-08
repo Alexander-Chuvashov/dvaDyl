@@ -27,6 +27,7 @@ const LessonView: React.FC<LessonViewProps> = ({ lesson, onComplete }) => {
         explanation?: string;
     } | null>(null);
     const isProcessingRef = useRef(false);
+    const isLessonCompletedRef = useRef(false);
 
     const {
         userId,
@@ -44,14 +45,17 @@ const LessonView: React.FC<LessonViewProps> = ({ lesson, onComplete }) => {
     const currentExercise = exercises[exerciseIndex];
     const isLast = exerciseIndex === exercises.length - 1;
 
-    // Режим повторения – берём только ошибочные упражнения
+    // Режим повторения – только ошибочные упражнения
     const reviewExercises = exercises.filter(ex =>
         wrongExerciseIds.includes(ex.id),
     );
     const currentReviewExercise = reviewExercises[exerciseIndex] || null;
-    const isReviewLast = exerciseIndex === reviewExercises.length - 1;
 
-    // Все ли упражнения пройдены правильно в основном режиме
+    // Все ли упражнения имеют статус (хотя бы попытаны)
+    const allAttempted = exercises.every(
+        ex => completedExercises[ex.id] !== undefined,
+    );
+    // Все ли упражнения выполнены правильно
     const allCompleted = exercises.every(
         ex => completedExercises[ex.id] === true,
     );
@@ -60,49 +64,10 @@ const LessonView: React.FC<LessonViewProps> = ({ lesson, onComplete }) => {
         ex => reviewCompleted[ex.id] === true,
     );
 
-    // Эффект: переход в режим повторения или завершение
-    useEffect(() => {
-        if (!userId) return;
-        if (!allCompleted) return;
-        if (isReviewMode) return; // уже в режиме повторения
-        if (completedLessonIds.includes(lesson.id)) return;
-
-        // Если есть ошибки → включаем режим повторения
-        if (wrongExerciseIds.length > 0) {
-            setIsReviewMode(true);
-            setExerciseIndex(0);
-            setReviewCompleted({});
-            setFeedback(null);
-            return;
-        }
-
-        // Ошибок нет → завершаем урок
-        completeLesson();
-    }, [
-        allCompleted,
-        userId,
-        lesson.id,
-        completedLessonIds,
-        isReviewMode,
-        wrongExerciseIds,
-    ]);
-
-    // Эффект: завершение урока из режима повторения
-    useEffect(() => {
-        if (!userId) return;
-        if (!isReviewMode) return;
-        if (!allReviewCompleted) return;
-        if (completedLessonIds.includes(lesson.id)) return;
-        completeLesson();
-    }, [
-        allReviewCompleted,
-        isReviewMode,
-        userId,
-        lesson.id,
-        completedLessonIds,
-    ]);
-
-    const completeLesson = async () => {
+    // Завершение урока
+    const completeLesson = useCallback(async () => {
+        if (isLessonCompletedRef.current) return;
+        isLessonCompletedRef.current = true;
         try {
             if (!userId) return;
             await syncProgress(userId, lesson.id, 'completed', 100, 50);
@@ -125,8 +90,63 @@ const LessonView: React.FC<LessonViewProps> = ({ lesson, onComplete }) => {
         } catch (error) {
             console.error('Ошибка завершения урока:', error);
             alert('Ошибка сохранения прогресса. Попробуйте ещё раз.');
+            isLessonCompletedRef.current = false;
         }
-    };
+    }, [
+        userId,
+        lesson.id,
+        syncProgress,
+        syncStreak,
+        completedLessonIds,
+        streak,
+        xp,
+        checkAndUnlockAchievements,
+        onComplete,
+    ]);
+
+    // Эффект: проверка завершения основного прохода
+    useEffect(() => {
+        if (!userId) return;
+        if (isLessonCompletedRef.current) return;
+        if (completedLessonIds.includes(lesson.id)) return;
+        if (!allAttempted) return;
+
+        // Если есть ошибки – переходим в режим повторения
+        if (wrongExerciseIds.length > 0) {
+            setIsReviewMode(true);
+            setExerciseIndex(0);
+            setReviewCompleted({});
+            setFeedback(null);
+            return;
+        }
+
+        // Ошибок нет – завершаем урок
+        completeLesson();
+    }, [
+        allAttempted,
+        wrongExerciseIds,
+        userId,
+        lesson.id,
+        completedLessonIds,
+        completeLesson,
+    ]);
+
+    // Эффект: завершение режима повторения
+    useEffect(() => {
+        if (!userId) return;
+        if (!isReviewMode) return;
+        if (isLessonCompletedRef.current) return;
+        if (completedLessonIds.includes(lesson.id)) return;
+        if (!allReviewCompleted) return;
+        completeLesson();
+    }, [
+        allReviewCompleted,
+        isReviewMode,
+        userId,
+        lesson.id,
+        completedLessonIds,
+        completeLesson,
+    ]);
 
     // Обработка ответа
     const handleAnswer = useCallback(
@@ -134,14 +154,14 @@ const LessonView: React.FC<LessonViewProps> = ({ lesson, onComplete }) => {
             if (isProcessingRef.current) return;
             const exerciseId = currentExercise.id;
 
-            // Если уже правильно отвечено – не обрабатываем повторно
-            if (completedExercises[exerciseId] === true && !isReviewMode)
-                return;
+            // Если уже правильно отвечено в текущем режиме – пропускаем
             if (isReviewMode && reviewCompleted[exerciseId] === true) return;
+            if (!isReviewMode && completedExercises[exerciseId] === true)
+                return;
 
             isProcessingRef.current = true;
 
-            // Сохраняем ответ в БД (если есть userId и ответ)
+            // Сохраняем ответ в БД
             if (userId && userAnswer !== undefined) {
                 try {
                     await syncAnswer(userId, exerciseId, userAnswer, isCorrect);
@@ -150,11 +170,11 @@ const LessonView: React.FC<LessonViewProps> = ({ lesson, onComplete }) => {
                 }
             }
 
-            // Обновляем локальный прогресс (в сторе)
+            // Обновляем локальный прогресс
             answerExercise(exerciseId, isCorrect, lesson);
 
-            // --- Обработка правильного ответа ---
             if (isCorrect) {
+                // Отмечаем как правильно выполненное
                 if (isReviewMode) {
                     setReviewCompleted(prev => ({
                         ...prev,
@@ -171,7 +191,6 @@ const LessonView: React.FC<LessonViewProps> = ({ lesson, onComplete }) => {
                 }
                 setFeedback({ type: 'correct', message: '✅ Правильно!' });
 
-                // Автоматический переход через 700 мс
                 setTimeout(() => {
                     setFeedback(null);
                     const list = isReviewMode ? reviewExercises : exercises;
@@ -180,14 +199,19 @@ const LessonView: React.FC<LessonViewProps> = ({ lesson, onComplete }) => {
                     }
                     isProcessingRef.current = false;
                 }, 700);
-            }
-
-            // --- Обработка неправильного ответа ---
-            else {
-                // Запоминаем ошибку (если ещё не запомнена)
-                if (!wrongExerciseIds.includes(exerciseId)) {
-                    setWrongExerciseIds(prev => [...prev, exerciseId]);
+            } else {
+                // Запоминаем ошибку (только в основном режиме)
+                if (!isReviewMode) {
+                    if (!wrongExerciseIds.includes(exerciseId)) {
+                        setWrongExerciseIds(prev => [...prev, exerciseId]);
+                    }
+                    // Отмечаем упражнение как попытанное (но неправильное)
+                    setCompletedExercises(prev => ({
+                        ...prev,
+                        [exerciseId]: false,
+                    }));
                 }
+
                 const correctAnswer = Array.isArray(currentExercise.correct)
                     ? currentExercise.correct.join(' ')
                     : currentExercise.correct || '';
@@ -197,7 +221,6 @@ const LessonView: React.FC<LessonViewProps> = ({ lesson, onComplete }) => {
                     message: `❌ Неправильно. Правильный ответ: ${correctAnswer}`,
                     explanation: currentExercise.explanation,
                 });
-                // Не переходим автоматически – ждём кнопку "Продолжить"
                 isProcessingRef.current = false;
             }
         },
@@ -210,6 +233,9 @@ const LessonView: React.FC<LessonViewProps> = ({ lesson, onComplete }) => {
             syncAnswer,
             answerExercise,
             lesson,
+            completedExercises,
+            reviewCompleted,
+            wrongExerciseIds,
         ],
     );
 
@@ -220,7 +246,6 @@ const LessonView: React.FC<LessonViewProps> = ({ lesson, onComplete }) => {
         if (exerciseIndex < list.length - 1) {
             setExerciseIndex(prev => prev + 1);
         }
-        // Если это было последнее упражнение и это не режим повторения – завершение произойдёт через useEffect
     };
 
     // Если урок уже пройден
@@ -242,7 +267,9 @@ const LessonView: React.FC<LessonViewProps> = ({ lesson, onComplete }) => {
     if (!activeExercise) {
         return (
             <div className="py-10 text-center text-dark/60">
-                Упражнение не найдено
+                {isReviewMode
+                    ? 'Все ошибки исправлены!'
+                    : 'Загрузка упражнения...'}
             </div>
         );
     }
@@ -307,7 +334,11 @@ const LessonView: React.FC<LessonViewProps> = ({ lesson, onComplete }) => {
                             />
                             {feedback && (
                                 <div
-                                    className={`mt-3 text-center font-semibold ${feedback.type === 'correct' ? 'text-olive' : 'text-terracotta'}`}
+                                    className={`mt-3 text-center font-semibold ${
+                                        feedback.type === 'correct'
+                                            ? 'text-olive'
+                                            : 'text-terracotta'
+                                    }`}
                                 >
                                     {feedback.message}
                                     {feedback.explanation && (

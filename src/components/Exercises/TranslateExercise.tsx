@@ -3,6 +3,7 @@ import React, { useState, useRef } from 'react';
 import type { Exercise } from '../../types/content';
 import AudioButton from '../UI/AudioButton';
 import TuvanKeyboard from '../UI/TuvanKeyboard';
+import ClickableWord from '../UI/ClickableWord';
 
 interface Props {
     exercise: Exercise;
@@ -71,6 +72,14 @@ const TranslateExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
                                 {exercise.context}
                             </p>
                         )}
+                        <div className="flex items-center gap-2 text-lg font-medium text-dark">
+                            <ClickableWord word={exercise.question} />
+                            <AudioButton
+                                text={exercise.question}
+                                lang="ru-RU"
+                                size="sm"
+                            />
+                        </div>
                     </div>
                 )}
 
