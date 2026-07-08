@@ -1,0 +1,102 @@
+{
+    "type": "lesson",
+    "id": "lesson_5_112_future_tense",
+    "chapterId": "ch_112_future_tense",
+    "title": "Урок 5: Вы пойдете",
+    "titleTuvan": "Кичээл 5: Силер баар силер",
+    "description": "2-е лицо множественного числа",
+    "skill": "grammar",
+    "order": 6,
+    "isPublished": true,
+    "difficulty": 2,
+    "estimatedTime": 7,
+    "exercises": [
+        {
+            "id": "ex_ft5_1",
+            "type": "translate",
+            "order": 0,
+            "question": "Вы пойдете",
+            "correct": "Силер баар силер"
+        },
+        {
+            "id": "ex_ft5_2",
+            "type": "choice",
+            "order": 1,
+            "question": "Выбери 'Вы пойдете'",
+            "options": [
+                "Силер бардыңар",
+                "Силер баар силер",
+                "Силер бар силер"
+            ],
+            "correct": "Силер баар силер"
+        },
+        {
+            "id": "ex_ft5_3",
+            "type": "order",
+            "order": 2,
+            "question": "Собери: 'Вы пойдете'",
+            "orderItems": ["баар", "Силер", "силер"],
+            "correct": ["Силер", "баар", "силер"]
+        },
+        {
+            "id": "ex_ft5_4",
+            "type": "translate",
+            "order": 3,
+            "question": "Силер баар силер",
+            "correct": "Вы пойдете"
+        },
+        {
+            "id": "ex_ft5_5",
+            "type": "match",
+            "order": 4,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Силер баар силер", "right": "Вы пойдете" }
+            ]
+        },
+        {
+            "id": "ex_ft5_6",
+            "type": "choice",
+            "order": 5,
+            "question": "Как сказать 'Вы будете есть'?",
+            "options": [
+                "Силер чиидингер",
+                "Силер чиир силер",
+                "Силер чиип тур силер"
+            ],
+            "correct": "Силер чиир силер"
+        },
+        {
+            "id": "ex_ft5_7",
+            "type": "translate",
+            "order": 6,
+            "question": "Вы будете есть",
+            "correct": "Силер чиир силер"
+        },
+        {
+            "id": "ex_ft5_8",
+            "type": "order",
+            "order": 7,
+            "question": "Собери: 'Вы будете есть'",
+            "orderItems": ["чиир", "Силер", "силер"],
+            "correct": ["Силер", "чиир", "силер"]
+        },
+        {
+            "id": "ex_ft5_9",
+            "type": "choice",
+            "order": 8,
+            "question": "Выбери перевод: 'Силер чиир силер'",
+            "options": ["Вы ели", "Вы едите", "Вы будете есть"],
+            "correct": "Вы будете есть"
+        },
+        {
+            "id": "ex_ft5_10",
+            "type": "match",
+            "order": 9,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Силер чиир силер", "right": "Вы будете есть" }
+            ]
+        }
+    ]
+}

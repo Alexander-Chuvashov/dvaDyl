@@ -1,0 +1,95 @@
+{
+    "type": "lesson",
+    "id": "lesson_1_108_colors_sizes",
+    "chapterId": "ch_108_colors_sizes",
+    "title": "Урок 1: Белый и Черный",
+    "titleTuvan": "Кичээл 1: Ак болгаш кара",
+    "description": "Базовые цвета",
+    "skill": "vocabulary",
+    "order": 2,
+    "isPublished": true,
+    "difficulty": 1,
+    "estimatedTime": 5,
+    "exercises": [
+        {
+            "id": "ex_cs1_1",
+            "type": "translate",
+            "order": 0,
+            "question": "Белый",
+            "correct": "Ак"
+        },
+        {
+            "id": "ex_cs1_2",
+            "type": "translate",
+            "order": 1,
+            "question": "Черный",
+            "correct": "Кара"
+        },
+        {
+            "id": "ex_cs1_3",
+            "type": "choice",
+            "order": 2,
+            "question": "Выбери 'Черный'",
+            "options": ["Ак", "Кара", "Кызыл"],
+            "correct": "Кара"
+        },
+        {
+            "id": "ex_cs1_4",
+            "type": "choice",
+            "order": 3,
+            "question": "Выбери 'Белый'",
+            "options": ["Ногаан", "Ак", "Сарыг"],
+            "correct": "Ак"
+        },
+        {
+            "id": "ex_cs1_5",
+            "type": "match",
+            "order": 4,
+            "question": "Сопоставь цвета",
+            "matchPairs": [
+                { "left": "Ак", "right": "Белый" },
+                { "left": "Кара", "right": "Черный" }
+            ]
+        },
+        {
+            "id": "ex_cs1_6",
+            "type": "translate",
+            "order": 5,
+            "question": "Ак",
+            "correct": "Белый"
+        },
+        {
+            "id": "ex_cs1_7",
+            "type": "translate",
+            "order": 6,
+            "question": "Кара",
+            "correct": "Черный"
+        },
+        {
+            "id": "ex_cs1_8",
+            "type": "order",
+            "order": 7,
+            "question": "Собери: 'Черная собака' (ыт - собака)",
+            "orderItems": ["ыт", "Кара"],
+            "correct": ["Кара", "ыт"]
+        },
+        {
+            "id": "ex_cs1_9",
+            "type": "choice",
+            "order": 8,
+            "question": "Выбери перевод: 'Ак нан'",
+            "options": ["Черный хлеб", "Белый хлеб", "Красная вода"],
+            "correct": "Белый хлеб"
+        },
+        {
+            "id": "ex_cs1_10",
+            "type": "match",
+            "order": 9,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Кара ыт", "right": "Черная собака" },
+                { "left": "Ак нан", "right": "Белый хлеб" }
+            ]
+        }
+    ]
+}

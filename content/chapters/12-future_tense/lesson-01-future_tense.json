@@ -1,0 +1,90 @@
+{
+    "type": "lesson",
+    "id": "lesson_1_112_future_tense",
+    "chapterId": "ch_112_future_tense",
+    "title": "Урок 1: Я пойду",
+    "titleTuvan": "Кичээл 1: Мен баар мен",
+    "description": "1-е лицо единственного числа",
+    "skill": "grammar",
+    "order": 2,
+    "isPublished": true,
+    "difficulty": 1,
+    "estimatedTime": 5,
+    "exercises": [
+        {
+            "id": "ex_ft1_1",
+            "type": "translate",
+            "order": 0,
+            "question": "Я пойду",
+            "correct": "Мен баар мен"
+        },
+        {
+            "id": "ex_ft1_2",
+            "type": "choice",
+            "order": 1,
+            "question": "Выбери 'Я пойду'",
+            "options": ["Мен бардым", "Мен баар мен", "Мен бар мен"],
+            "correct": "Мен баар мен"
+        },
+        {
+            "id": "ex_ft1_3",
+            "type": "order",
+            "order": 2,
+            "question": "Собери: 'Я пойду'",
+            "orderItems": ["баар", "Мен", "мен"],
+            "correct": ["Мен", "баар", "мен"]
+        },
+        {
+            "id": "ex_ft1_4",
+            "type": "translate",
+            "order": 3,
+            "question": "Мен баар мен",
+            "correct": "Я пойду"
+        },
+        {
+            "id": "ex_ft1_5",
+            "type": "match",
+            "order": 4,
+            "question": "Сопоставь",
+            "matchPairs": [{ "left": "Мен баар мен", "right": "Я пойду" }]
+        },
+        {
+            "id": "ex_ft1_6",
+            "type": "choice",
+            "order": 5,
+            "question": "Как сказать 'Я буду есть' (чиир)?",
+            "options": ["Мен чиидим", "Мен чиир мен", "Мен чиип тур мен"],
+            "correct": "Мен чиир мен"
+        },
+        {
+            "id": "ex_ft1_7",
+            "type": "translate",
+            "order": 6,
+            "question": "Я буду есть",
+            "correct": "Мен чиир мен"
+        },
+        {
+            "id": "ex_ft1_8",
+            "type": "order",
+            "order": 7,
+            "question": "Собери: 'Я буду есть'",
+            "orderItems": ["чиир", "Мен", "мен"],
+            "correct": ["Мен", "чиир", "мен"]
+        },
+        {
+            "id": "ex_ft1_9",
+            "type": "choice",
+            "order": 8,
+            "question": "Выбери перевод: 'Мен чиир мен'",
+            "options": ["Я ел", "Я ем", "Я буду есть"],
+            "correct": "Я буду есть"
+        },
+        {
+            "id": "ex_ft1_10",
+            "type": "match",
+            "order": 9,
+            "question": "Сопоставь",
+            "matchPairs": [{ "left": "Мен чиир мен", "right": "Я буду есть" }]
+        }
+    ]
+}

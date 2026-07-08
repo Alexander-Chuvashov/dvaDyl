@@ -1,0 +1,104 @@
+{
+    "type": "lesson",
+    "id": "lesson_6_110_family_age",
+    "chapterId": "ch_110_family_age",
+    "title": "Урок 6: Твоя семья",
+    "titleTuvan": "Кичээл 6: Сээң өг-бүлең",
+    "description": "Вопросы о семье собеседника",
+    "skill": "grammar",
+    "order": 7,
+    "isPublished": true,
+    "difficulty": 2,
+    "estimatedTime": 7,
+    "exercises": [
+        {
+            "id": "ex_fa6_1",
+            "type": "translate",
+            "order": 0,
+            "question": "Твоя мама",
+            "correct": "Сээң аваң"
+        },
+        {
+            "id": "ex_fa6_2",
+            "type": "translate",
+            "order": 1,
+            "question": "Твой папа",
+            "correct": "Сээң адаң"
+        },
+        {
+            "id": "ex_fa6_3",
+            "type": "choice",
+            "order": 2,
+            "question": "Выбери 'Твой брат'",
+            "options": ["Сээң акың", "Мээң акым", "Ооң акызы"],
+            "correct": "Сээң акың"
+        },
+        {
+            "id": "ex_fa6_4",
+            "type": "order",
+            "order": 3,
+            "question": "Собери: 'Твоя сестра'",
+            "orderItems": ["угбаң", "Сээң"],
+            "correct": ["Сээң", "угбаң"]
+        },
+        {
+            "id": "ex_fa6_5",
+            "type": "match",
+            "order": 4,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Сээң аваң", "right": "Твоя мама" },
+                { "left": "Сээң адаң", "right": "Твой папа" }
+            ]
+        },
+        {
+            "id": "ex_fa6_6",
+            "type": "translate",
+            "order": 5,
+            "question": "Сээң акың",
+            "correct": "Твой брат"
+        },
+        {
+            "id": "ex_fa6_7",
+            "type": "choice",
+            "order": 6,
+            "question": "Как спросить 'Где твоя мама?'",
+            "options": [
+                "Кайыан сээң аваң?",
+                "Кым сээң аваң?",
+                "Чүү сээң адаң?"
+            ],
+            "correct": "Кайыан сээң аваң?"
+        },
+        {
+            "id": "ex_fa6_8",
+            "type": "order",
+            "order": 7,
+            "question": "Собери: 'Где твой папа?'",
+            "orderItems": ["Кайыан", "сээң", "адаң?"],
+            "correct": ["Кайыан", "сээң", "адаң?"]
+        },
+        {
+            "id": "ex_fa6_9",
+            "type": "choice",
+            "order": 8,
+            "question": "Выбери перевод: 'Канчап-дыр сээң угбаң?'",
+            "options": [
+                "Где твоя сестра?",
+                "Как твоя сестра?",
+                "Кто твой брат?"
+            ],
+            "correct": "Как твоя сестра?"
+        },
+        {
+            "id": "ex_fa6_10",
+            "type": "match",
+            "order": 9,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Сээң акың", "right": "Твой брат" },
+                { "left": "Сээң угбаң", "right": "Твоя сестра" }
+            ]
+        }
+    ]
+}

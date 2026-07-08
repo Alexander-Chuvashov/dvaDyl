@@ -1,0 +1,93 @@
+{
+    "type": "lesson",
+    "id": "lesson_4_105_possessives",
+    "chapterId": "ch_105_possessives",
+    "title": "Урок 4: Твоя мама",
+    "titleTuvan": "Кичээл 4: Сээң аваң",
+    "description": "Притяжательность 2-го лица (ава)",
+    "skill": "grammar",
+    "order": 5,
+    "isPublished": true,
+    "difficulty": 2,
+    "estimatedTime": 7,
+    "exercises": [
+        {
+            "id": "ex_pos4_1",
+            "type": "translate",
+            "order": 0,
+            "question": "Твоя мама",
+            "correct": "Сээң аваң"
+        },
+        {
+            "id": "ex_pos4_2",
+            "type": "choice",
+            "order": 1,
+            "question": "Выбери 'Сээң аваң'",
+            "options": ["Моя мама", "Твоя мама", "Его мама"],
+            "correct": "Твоя мама"
+        },
+        {
+            "id": "ex_pos4_3",
+            "type": "translate",
+            "order": 2,
+            "question": "Сээң аваң",
+            "correct": "Твоя мама"
+        },
+        {
+            "id": "ex_pos4_4",
+            "type": "order",
+            "order": 3,
+            "question": "Собери: 'Твоя мама'",
+            "orderItems": ["аваң", "Сээң"],
+            "correct": ["Сээң", "аваң"]
+        },
+        {
+            "id": "ex_pos4_5",
+            "type": "match",
+            "order": 4,
+            "question": "Сопоставь",
+            "matchPairs": [{ "left": "Сээң аваң", "right": "Твоя мама" }]
+        },
+        {
+            "id": "ex_pos4_6",
+            "type": "choice",
+            "order": 5,
+            "question": "Как сказать 'Твоя мама'?",
+            "options": ["Сээң авам", "Сээң аваң", "Сээң ава"],
+            "correct": "Сээң аваң"
+        },
+        {
+            "id": "ex_pos4_7",
+            "type": "order",
+            "order": 6,
+            "question": "Собери: 'Твоя мама пьет'",
+            "orderItems": ["Сээң", "аваң", "ижип", "тур"],
+            "correct": ["Сээң", "аваң", "ижип", "тур"]
+        },
+        {
+            "id": "ex_pos4_8",
+            "type": "translate",
+            "order": 7,
+            "question": "Твоя мама ест хлеб",
+            "correct": "Сээң аваң нан чиип тур"
+        },
+        {
+            "id": "ex_pos4_9",
+            "type": "choice",
+            "order": 8,
+            "question": "Выбери перевод: 'Сээң аваң чиип тур'",
+            "options": ["Твоя мама ест", "Моя мама пьет", "Твой папа ест"],
+            "correct": "Твоя мама ест"
+        },
+        {
+            "id": "ex_pos4_10",
+            "type": "match",
+            "order": 9,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Мээң авам", "right": "Моя мама" },
+                { "left": "Сээң аваң", "right": "Твоя мама" }
+            ]
+        }
+    ]
+}

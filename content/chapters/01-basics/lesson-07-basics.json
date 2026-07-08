@@ -1,0 +1,99 @@
+{
+    "type": "lesson",
+    "id": "lesson_7_101_basics",
+    "chapterId": "ch_101_basics",
+    "title": "Урок 7: Вопросы",
+    "titleTuvan": "Кичээл 7: Бе?",
+    "description": "Вопросительная частица бе",
+    "skill": "grammar",
+    "order": 8,
+    "isPublished": true,
+    "difficulty": 2,
+    "estimatedTime": 7,
+    "exercises": [
+        {
+            "id": "ex_b7_1",
+            "type": "choice",
+            "order": 0,
+            "question": "Какая частица образует вопрос?",
+            "options": ["Эвес", "Бе", "Дыр"],
+            "correct": "Бе"
+        },
+        {
+            "id": "ex_b7_2",
+            "type": "order",
+            "order": 1,
+            "question": "Собери: 'Ты мужчина?'",
+            "orderItems": ["Сен", "эр кижи", "бе", "сен?"],
+            "correct": ["Сен", "эр кижи", "бе", "сен?"]
+        },
+        {
+            "id": "ex_b7_3",
+            "type": "order",
+            "order": 2,
+            "question": "Собери: 'Ты мальчик?'",
+            "orderItems": ["Сен", "оол", "бе", "сен?"],
+            "correct": ["Сен", "оол", "бе", "сен?"]
+        },
+        {
+            "id": "ex_b7_4",
+            "type": "choice",
+            "order": 3,
+            "question": "Выбери перевод: 'Сен кыс бе сен?'",
+            "options": ["Ты мужчина?", "Ты девочка?", "Ты не девочка?"],
+            "correct": "Ты девочка?"
+        },
+        {
+            "id": "ex_b7_5",
+            "type": "translate",
+            "order": 4,
+            "question": "Ты человек?",
+            "correct": "Сен кижи бе сен?"
+        },
+        {
+            "id": "ex_b7_6",
+            "type": "order",
+            "order": 5,
+            "question": "Собери: 'Вы люди?'",
+            "orderItems": ["Силер", "кижилер", "бе", "силер?"],
+            "correct": ["Силер", "кижилер", "бе", "силер?"]
+        },
+        {
+            "id": "ex_b7_7",
+            "type": "choice",
+            "order": 6,
+            "question": "Выбери перевод: 'Ол кижи бе?'",
+            "options": ["Он человек?", "Кто это?", "Где он?"],
+            "correct": "Он человек?"
+        },
+        {
+            "id": "ex_b7_8",
+            "type": "match",
+            "order": 7,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Бе", "right": "?" },
+                { "left": "Эвес", "right": "Не" }
+            ]
+        },
+        {
+            "id": "ex_b7_9",
+            "type": "translate",
+            "order": 8,
+            "question": "Это мужчина? (Ол эр кижи бе?)",
+            "correct": "Ол эр кижи бе?"
+        },
+        {
+            "id": "ex_b7_10",
+            "type": "choice",
+            "order": 9,
+            "question": "Как ответить 'Да, я мальчик'?",
+            "options": [
+                "Ийе, мен оол мен",
+                "Чок, мен оол эвес мен",
+                "Ол оол-дур"
+            ],
+            "correct": "Ийе, мен оол мен"
+        }
+    ]
+}

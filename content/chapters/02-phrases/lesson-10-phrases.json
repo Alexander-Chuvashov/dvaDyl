@@ -1,0 +1,97 @@
+{
+    "type": "lesson",
+    "id": "lesson_10_102_phrases",
+    "chapterId": "ch_102_phrases",
+    "title": "Урок 10: Повторение",
+    "titleTuvan": "Кичээл 10: Катаптаа",
+    "description": "Закрепление материала юнита 2",
+    "skill": "review",
+    "order": 11,
+    "isPublished": true,
+    "difficulty": 3,
+    "estimatedTime": 10,
+    "exercises": [
+        {
+            "id": "ex_p10_1",
+            "type": "order",
+            "order": 0,
+            "question": "Собери: 'Здравствуйте, как дела?'",
+            "orderItems": ["Экии-сиңнер,", "кандыг-дыр", "силер?"],
+            "correct": ["Экии-сиңнер,", "кандыг-дыр", "силер?"]
+        },
+        {
+            "id": "ex_p10_2",
+            "type": "choice",
+            "order": 1,
+            "question": "Выбери перевод: 'Улуг байырлыы'",
+            "options": ["Извините", "Большое спасибо", "До свидания"],
+            "correct": "Большое спасибо"
+        },
+        {
+            "id": "ex_p10_3",
+            "type": "match",
+            "order": 2,
+            "question": "Сопоставь фразы",
+            "matchPairs": [
+                { "left": "Экии", "right": "Здравствуй" },
+                { "left": "Бараалдажыр", "right": "До свидания" },
+                { "left": "Кудум", "right": "Извини" }
+            ]
+        },
+        {
+            "id": "ex_p10_4",
+            "type": "translate",
+            "order": 3,
+            "question": "Спасибо",
+            "correct": "Байырлыы"
+        },
+        {
+            "id": "ex_p10_5",
+            "type": "translate",
+            "order": 4,
+            "question": "Извини",
+            "correct": "Кудум"
+        },
+        {
+            "id": "ex_p10_6",
+            "type": "order",
+            "order": 5,
+            "question": "Собери: 'Хорошо, спасибо'",
+            "orderItems": ["Эки,", "байырлыы"],
+            "correct": ["Эки,", "байырлыы"]
+        },
+        {
+            "id": "ex_p10_7",
+            "type": "choice",
+            "order": 6,
+            "question": "Как сказать 'Доброе утро'?",
+            "options": ["Кежээлиги экии", "Эртенги экии", "Экии-сиңнер"],
+            "correct": "Эртенги экии"
+        },
+        {
+            "id": "ex_p10_8",
+            "type": "match",
+            "order": 7,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Эки", "right": "Хорошо" },
+                { "left": "Багай", "right": "Плохо" }
+            ]
+        },
+        {
+            "id": "ex_p10_9",
+            "type": "translate",
+            "order": 8,
+            "question": "До свидания",
+            "correct": "Бараалдажыр"
+        },
+        {
+            "id": "ex_p10_10",
+            "type": "choice",
+            "order": 9,
+            "question": "Выбери правильный ответ на 'Кандыг-дир сен?'",
+            "options": ["Бараалдажыр", "Эки, байырлыы", "Кудум"],
+            "correct": "Эки, байырлыы"
+        }
+    ]
+}

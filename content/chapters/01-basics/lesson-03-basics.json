@@ -1,0 +1,94 @@
+{
+    "type": "lesson",
+    "id": "lesson_3_101_basics",
+    "chapterId": "ch_101_basics",
+    "title": "Урок 3: Мы, Вы, Они",
+    "titleTuvan": "Кичээл 3: Бис, Силер, Олар",
+    "description": "Местоимения множественного числа",
+    "skill": "pronouns",
+    "order": 4,
+    "isPublished": true,
+    "difficulty": 1,
+    "estimatedTime": 5,
+    "exercises": [
+        {
+            "id": "ex_b3_1",
+            "type": "translate",
+            "order": 0,
+            "question": "Мы",
+            "correct": "Бис"
+        },
+        {
+            "id": "ex_b3_2",
+            "type": "translate",
+            "order": 1,
+            "question": "Вы",
+            "correct": "Силер"
+        },
+        {
+            "id": "ex_b3_3",
+            "type": "translate",
+            "order": 2,
+            "question": "Они",
+            "correct": "Олар"
+        },
+        {
+            "id": "ex_b3_4",
+            "type": "choice",
+            "order": 3,
+            "question": "Выбери 'Мы'",
+            "options": ["Олар", "Бис", "Силер"],
+            "correct": "Бис"
+        },
+        {
+            "id": "ex_b3_5",
+            "type": "choice",
+            "order": 4,
+            "question": "Выбери 'Вы'",
+            "options": ["Силер", "Олар", "Бис"],
+            "correct": "Силер"
+        },
+        {
+            "id": "ex_b3_6",
+            "type": "choice",
+            "order": 5,
+            "question": "Выбери 'Они'",
+            "options": ["Бис", "Олар", "Силер"],
+            "correct": "Олар"
+        },
+        {
+            "id": "ex_b3_7",
+            "type": "order",
+            "order": 6,
+            "question": "Собери: 'Мы люди' (кижилер - люди)",
+            "orderItems": ["бис", "Бис", "кижилер"],
+            "correct": ["Бис", "кижилер", "бис"]
+        },
+        {
+            "id": "ex_b3_8",
+            "type": "order",
+            "order": 7,
+            "question": "Собери: 'Вы люди'",
+            "orderItems": ["силер", "Силер", "кижилер"],
+            "correct": ["Силер", "кижилер", "силер"]
+        },
+        {
+            "id": "ex_b3_9",
+            "type": "match",
+            "order": 8,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Бис", "right": "Мы" },
+                { "left": "Силер", "right": "Вы" },
+                { "left": "Олар", "right": "Они" }
+            ]
+        },
+        {
+            "id": "ex_b3_10",
+            "type": "translate",
+            "order": 9,
+            "question": "Бис",
+            "correct": "Мы"
+        }
+    ]
+}

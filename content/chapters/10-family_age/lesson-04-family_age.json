@@ -1,0 +1,95 @@
+{
+    "type": "lesson",
+    "id": "lesson_4_110_family_age",
+    "chapterId": "ch_110_family_age",
+    "title": "Урок 4: Старый и молодой",
+    "titleTuvan": "Кичээл 4: Кырган болгаш аныяк",
+    "description": "Прилагательные возраста",
+    "skill": "vocabulary",
+    "order": 5,
+    "isPublished": true,
+    "difficulty": 2,
+    "estimatedTime": 7,
+    "exercises": [
+        {
+            "id": "ex_fa4_1",
+            "type": "translate",
+            "order": 0,
+            "question": "Старый",
+            "correct": "Кырган"
+        },
+        {
+            "id": "ex_fa4_2",
+            "type": "translate",
+            "order": 1,
+            "question": "Молодой",
+            "correct": "Аныяк"
+        },
+        {
+            "id": "ex_fa4_3",
+            "type": "choice",
+            "order": 2,
+            "question": "Выбери 'Старый'",
+            "options": ["Аныяк", "Кырган", "Улуг"],
+            "correct": "Кырган"
+        },
+        {
+            "id": "ex_fa4_4",
+            "type": "choice",
+            "order": 3,
+            "question": "Выбери 'Молодой'",
+            "options": ["Кырган", "Аныяк", "Биче"],
+            "correct": "Аныяк"
+        },
+        {
+            "id": "ex_fa4_5",
+            "type": "match",
+            "order": 4,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Кырган", "right": "Старый" },
+                { "left": "Аныяк", "right": "Молодой" }
+            ]
+        },
+        {
+            "id": "ex_fa4_6",
+            "type": "translate",
+            "order": 5,
+            "question": "Кырган",
+            "correct": "Старый"
+        },
+        {
+            "id": "ex_fa4_7",
+            "type": "translate",
+            "order": 6,
+            "question": "Аныяк",
+            "correct": "Молодой"
+        },
+        {
+            "id": "ex_fa4_8",
+            "type": "order",
+            "order": 7,
+            "question": "Собери: 'Молодой человек' (кижи)",
+            "orderItems": ["кижи", "Аныяк"],
+            "correct": ["Аныяк", "кижи"]
+        },
+        {
+            "id": "ex_fa4_9",
+            "type": "choice",
+            "order": 8,
+            "question": "Выбери перевод: 'Кырган кижи'",
+            "options": ["Молодой человек", "Старый человек", "Большой человек"],
+            "correct": "Старый человек"
+        },
+        {
+            "id": "ex_fa4_10",
+            "type": "match",
+            "order": 9,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Аныяк кижи", "right": "Молодой человек" },
+                { "left": "Кырган кижи", "right": "Старый человек" }
+            ]
+        }
+    ]
+}

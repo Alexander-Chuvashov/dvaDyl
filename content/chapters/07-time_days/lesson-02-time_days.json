@@ -1,0 +1,94 @@
+{
+    "type": "lesson",
+    "id": "lesson_2_107_time_days",
+    "chapterId": "ch_107_time_days",
+    "title": "Урок 2: Завтра",
+    "titleTuvan": "Кичээл 2: Эртен",
+    "description": "Слово Эртен (завтра/утро)",
+    "skill": "vocabulary",
+    "order": 3,
+    "isPublished": true,
+    "difficulty": 1,
+    "estimatedTime": 5,
+    "exercises": [
+        {
+            "id": "ex_t2_1",
+            "type": "translate",
+            "order": 0,
+            "question": "Завтра",
+            "correct": "Эртен"
+        },
+        {
+            "id": "ex_t2_2",
+            "type": "choice",
+            "order": 1,
+            "question": "Выбери 'Завтра'",
+            "options": ["Бүгү", "Дүъш", "Эртен"],
+            "correct": "Эртен"
+        },
+        {
+            "id": "ex_t2_3",
+            "type": "translate",
+            "order": 2,
+            "question": "Эртен",
+            "correct": "Завтра"
+        },
+        {
+            "id": "ex_t2_4",
+            "type": "order",
+            "order": 3,
+            "question": "Собери: 'Завтра я буду есть' (чиир мен - буду есть)",
+            "orderItems": ["Эртен", "мен", "чиир", "мен"],
+            "correct": ["Эртен", "мен", "чиир", "мен"]
+        },
+        {
+            "id": "ex_t2_5",
+            "type": "match",
+            "order": 4,
+            "question": "Сопоставь",
+            "matchPairs": [{ "left": "Эртен", "right": "Завтра" }]
+        },
+        {
+            "id": "ex_t2_6",
+            "type": "choice",
+            "order": 5,
+            "question": "Как сказать 'Завтра'?",
+            "options": ["Бүгү", "Эртен", "Дүъш"],
+            "correct": "Эртен"
+        },
+        {
+            "id": "ex_t2_7",
+            "type": "translate",
+            "order": 6,
+            "question": "Завтра я буду пить",
+            "correct": "Эртен мен ижер мен"
+        },
+        {
+            "id": "ex_t2_8",
+            "type": "order",
+            "order": 7,
+            "question": "Собери: 'Завтра ты будешь есть мясо'",
+            "orderItems": ["Эртен", "сен", "эт", "чиир", "сен"],
+            "correct": ["Эртен", "сен", "эт", "чиир", "сен"]
+        },
+        {
+            "id": "ex_t2_9",
+            "type": "choice",
+            "order": 8,
+            "question": "Выбери перевод: 'Эртен мен чай ижер мен'",
+            "options": [
+                "Завтра я буду пить чай",
+                "Сегодня я пью чай",
+                "Вчера я ел мясо"
+            ],
+            "correct": "Завтра я буду пить чай"
+        },
+        {
+            "id": "ex_t2_10",
+            "type": "match",
+            "order": 9,
+            "question": "Сопоставь",
+            "matchPairs": [{ "left": "Эртен", "right": "Завтра" }]
+        }
+    ]
+}

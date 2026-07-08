@@ -35,7 +35,9 @@ const TranslateExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
             <div
                 className={`card ${isCorrect ? 'border-olive' : 'border-terracotta'}`}
             >
-                <p className="text-lg">{exercise.question}</p>
+                <p className="text-lg">
+                    <ClickableWord word={exercise.question} />
+                </p>
                 {isCorrect ? (
                     <div className="p-3 mt-4 border rounded-lg bg-olive/10 border-olive text-olive animate-bounce-success">
                         ✅ Правильно!
@@ -46,43 +48,6 @@ const TranslateExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
                         <span className="font-bold">{exercise.correct}</span>
                     </div>
                 )}
-
-                {/* Дополнительная информация */}
-                {(exercise.translation ||
-                    exercise.transcription ||
-                    exercise.context) && (
-                    <div className="p-3 mt-4 border rounded-lg bg-cream/50 border-cream">
-                        {exercise.translation && (
-                            <p className="text-sm text-dark/80">
-                                <span className="font-medium">Перевод:</span>{' '}
-                                {exercise.translation}
-                            </p>
-                        )}
-                        {exercise.transcription && (
-                            <p className="text-sm text-dark/80">
-                                <span className="font-medium">
-                                    Транскрипция:
-                                </span>{' '}
-                                {exercise.transcription}
-                            </p>
-                        )}
-                        {exercise.context && (
-                            <p className="text-sm text-dark/80">
-                                <span className="font-medium">Пример:</span>{' '}
-                                {exercise.context}
-                            </p>
-                        )}
-                        <div className="flex items-center gap-2 text-lg font-medium text-dark">
-                            <ClickableWord word={exercise.question} />
-                            <AudioButton
-                                text={exercise.question}
-                                lang="ru-RU"
-                                size="sm"
-                            />
-                        </div>
-                    </div>
-                )}
-
                 <button
                     onClick={() => {
                         setSubmitted(false);
@@ -99,7 +64,7 @@ const TranslateExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
     return (
         <form onSubmit={handleSubmit} className="card">
             <div className="flex items-center gap-2 text-lg font-medium text-dark">
-                <span>{exercise.question}</span>
+                <ClickableWord word={exercise.question} />
                 <AudioButton text={exercise.question} lang="ru-RU" size="sm" />
             </div>
             {exercise.hint && (

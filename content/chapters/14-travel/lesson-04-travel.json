@@ -1,0 +1,96 @@
+{
+    "type": "lesson",
+    "id": "lesson_4_114_travel",
+    "chapterId": "ch_114_travel",
+    "title": "Урок 4: Гостиница",
+    "titleTuvan": "Кичээл 4: Отулахан",
+    "description": "Размещение",
+    "skill": "vocabulary",
+    "order": 5,
+    "isPublished": true,
+    "difficulty": 2,
+    "estimatedTime": 7,
+    "exercises": [
+        {
+            "id": "ex_tr4_1",
+            "type": "translate",
+            "order": 0,
+            "question": "Гостиница",
+            "correct": "Отулахан"
+        },
+        {
+            "id": "ex_tr4_2",
+            "type": "choice",
+            "order": 1,
+            "question": "Выбери 'Отель'",
+            "options": ["Отулахан", "Вокзал", "Аэропорт"],
+            "correct": "Отулахан"
+        },
+        {
+            "id": "ex_tr4_3",
+            "type": "translate",
+            "order": 2,
+            "question": "Отулахан",
+            "correct": "Гостиница"
+        },
+        {
+            "id": "ex_tr4_4",
+            "type": "order",
+            "order": 3,
+            "question": "Собери: 'Это отель'",
+            "orderItems": ["Бо", "отулыхан"],
+            "correct": ["Бо", "отулыхан"]
+        },
+        {
+            "id": "ex_tr4_5",
+            "type": "match",
+            "order": 4,
+            "question": "Сопоставь",
+            "matchPairs": [{ "left": "Отулахан", "right": "Гостиница" }]
+        },
+        {
+            "id": "ex_tr4_6",
+            "type": "choice",
+            "order": 5,
+            "question": "Как сказать 'Где гостиница?'",
+            "options": ["Кайыан отулахан?", "Кым отулахан?", "Чүү отулахан?"],
+            "correct": "Кайыан отулахан?"
+        },
+        {
+            "id": "ex_tr4_7",
+            "type": "translate",
+            "order": 6,
+            "question": "Где гостиница?",
+            "correct": "Кайыан отулахан?"
+        },
+        {
+            "id": "ex_tr4_8",
+            "type": "order",
+            "order": 7,
+            "question": "Собери: 'Я ищу гостиницу' (тып - ищу/нахожу)",
+            "orderItems": ["Мен", "отулыхан", "тып", "мен"],
+            "correct": ["Мен", "отулыхан", "тып", "мен"]
+        },
+        {
+            "id": "ex_tr4_9",
+            "type": "choice",
+            "order": 8,
+            "question": "Выбери перевод: 'Мен отулыхан тып мен'",
+            "options": [
+                "Я еду в гостиницу",
+                "Я ищу гостиницу",
+                "Я живу в гостинице"
+            ],
+            "correct": "Я ищу гостиницу"
+        },
+        {
+            "id": "ex_tr4_10",
+            "type": "match",
+            "order": 9,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Кайыан отулахан?", "right": "Где гостиница?" }
+            ]
+        }
+    ]
+}

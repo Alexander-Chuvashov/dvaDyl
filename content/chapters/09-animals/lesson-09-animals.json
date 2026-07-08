@@ -1,0 +1,100 @@
+{
+    "type": "lesson",
+    "id": "lesson_9_109_animals",
+    "chapterId": "ch_109_animals",
+    "title": "Урок 9: Цвета животных",
+    "titleTuvan": "Кичээл 9: Аңнарның өңнери",
+    "description": "Описание животных",
+    "skill": "vocabulary",
+    "order": 10,
+    "isPublished": true,
+    "difficulty": 3,
+    "estimatedTime": 7,
+    "exercises": [
+        {
+            "id": "ex_an9_1",
+            "type": "translate",
+            "order": 0,
+            "question": "Черная собака",
+            "correct": "Кара ыт"
+        },
+        {
+            "id": "ex_an9_2",
+            "type": "translate",
+            "order": 1,
+            "question": "Белая лошадь",
+            "correct": "Ак аът"
+        },
+        {
+            "id": "ex_an9_3",
+            "type": "choice",
+            "order": 2,
+            "question": "Выбери 'Красная лиса'",
+            "options": ["Кызыл тулгу", "Кара бөрү", "Ак хой"],
+            "correct": "Кызыл тулгу"
+        },
+        {
+            "id": "ex_an9_4",
+            "type": "order",
+            "order": 3,
+            "question": "Собери: 'Большой медведь'",
+            "orderItems": ["адыг", "Улуг"],
+            "correct": ["Улуг", "адыг"]
+        },
+        {
+            "id": "ex_an9_5",
+            "type": "match",
+            "order": 4,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Кара ыт", "right": "Черная собака" },
+                { "left": "Ак аът", "right": "Белая лошадь" }
+            ]
+        },
+        {
+            "id": "ex_an9_6",
+            "type": "translate",
+            "order": 5,
+            "question": "Кызыл тулгу",
+            "correct": "Красная лиса"
+        },
+        {
+            "id": "ex_an9_7",
+            "type": "choice",
+            "order": 6,
+            "question": "Что такое 'Улуг адыг'?",
+            "options": ["Маленькая лиса", "Большой медведь", "Черный волк"],
+            "correct": "Большой медведь"
+        },
+        {
+            "id": "ex_an9_8",
+            "type": "order",
+            "order": 7,
+            "question": "Собери: 'Это черная собака'",
+            "orderItems": ["Бо", "кара", "ыт"],
+            "correct": ["Бо", "кара", "ыт"]
+        },
+        {
+            "id": "ex_an9_9",
+            "type": "choice",
+            "order": 8,
+            "question": "Выбери перевод: 'Бо ак аът'",
+            "options": [
+                "Это черная собака",
+                "Это белая лошадь",
+                "Это красная лиса"
+            ],
+            "correct": "Это белая лошадь"
+        },
+        {
+            "id": "ex_an9_10",
+            "type": "match",
+            "order": 9,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Кара бөрү", "right": "Черный волк" },
+                { "left": "Улуг адыг", "right": "Большой медведь" }
+            ]
+        }
+    ]
+}

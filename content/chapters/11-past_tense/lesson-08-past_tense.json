@@ -1,0 +1,99 @@
+{
+    "type": "lesson",
+    "id": "lesson_8_111_past_tense",
+    "chapterId": "ch_111_past_tense",
+    "title": "Урок 8: Вопросы в прошедшем",
+    "titleTuvan": "Кичээл 8: Айтырыглар",
+    "description": "Вопросы с частицей бе",
+    "skill": "grammar",
+    "order": 9,
+    "isPublished": true,
+    "difficulty": 3,
+    "estimatedTime": 7,
+    "exercises": [
+        {
+            "id": "ex_pt8_1",
+            "type": "order",
+            "order": 0,
+            "question": "Собери: 'Ты ушел?'",
+            "orderItems": ["бе?", "бардың", "Сен"],
+            "correct": ["Сен", "бардың", "бе?"]
+        },
+        {
+            "id": "ex_pt8_2",
+            "type": "order",
+            "order": 1,
+            "question": "Собери: 'Ты ел?'",
+            "orderItems": ["бе?", "чиидинг", "Сен"],
+            "correct": ["Сен", "чиидинг", "бе?"]
+        },
+        {
+            "id": "ex_pt8_3",
+            "type": "choice",
+            "order": 2,
+            "question": "Выбери перевод: 'Сен бардың бе?'",
+            "options": ["Ты идешь?", "Ты ушел?", "Ты будешь идти?"],
+            "correct": "Ты ушел?"
+        },
+        {
+            "id": "ex_pt8_4",
+            "type": "choice",
+            "order": 3,
+            "question": "Выбери перевод: 'Сен чиидинг бе?'",
+            "options": ["Ты ешь?", "Ты ел?", "Ты будешь есть?"],
+            "correct": "Ты ел?"
+        },
+        {
+            "id": "ex_pt8_5",
+            "type": "translate",
+            "order": 4,
+            "question": "Ты ушел?",
+            "correct": "Сен бардың бе?"
+        },
+        {
+            "id": "ex_pt8_6",
+            "type": "translate",
+            "order": 5,
+            "question": "Ты ел?",
+            "correct": "Сен чиидинг бе?"
+        },
+        {
+            "id": "ex_pt8_7",
+            "type": "order",
+            "order": 6,
+            "question": "Собери: 'Вы ели?'",
+            "orderItems": ["бе?", "чиидингер", "Силер"],
+            "correct": ["Силер", "чиидингер", "бе?"]
+        },
+        {
+            "id": "ex_pt8_8",
+            "type": "order",
+            "order": 7,
+            "question": "Собери: 'Они ушли?'",
+            "orderItems": ["бе?", "бардылар", "Олар"],
+            "correct": ["Олар", "бардылар", "бе?"]
+        },
+        {
+            "id": "ex_pt8_9",
+            "type": "match",
+            "order": 8,
+            "question": "Сопоставь вопросы",
+            "matchPairs": [
+                { "left": "Сен бардың бе?", "right": "Ты ушел?" },
+                { "left": "Олар чиидилер бе?", "right": "Они ели?" }
+            ]
+        },
+        {
+            "id": "ex_pt8_10",
+            "type": "choice",
+            "order": 9,
+            "question": "Как спросить 'Вы пили?' (ижер - пить)?",
+            "options": [
+                "Силер ижедингер бе?",
+                "Силер ижип тур силер бе?",
+                "Силер ижер силер бе?"
+            ],
+            "correct": "Силер ижедингер бе?"
+        }
+    ]
+}

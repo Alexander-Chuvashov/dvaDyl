@@ -1,0 +1,90 @@
+{
+    "type": "lesson",
+    "id": "lesson_1_111_past_tense",
+    "chapterId": "ch_111_past_tense",
+    "title": "Урок 1: Я ушел",
+    "titleTuvan": "Кичээл 1: Мен бардым",
+    "description": "1-е лицо единственного числа",
+    "skill": "grammar",
+    "order": 2,
+    "isPublished": true,
+    "difficulty": 1,
+    "estimatedTime": 5,
+    "exercises": [
+        {
+            "id": "ex_pt1_1",
+            "type": "translate",
+            "order": 0,
+            "question": "Я ушел (Мен бардым)",
+            "correct": "Мен бардым"
+        },
+        {
+            "id": "ex_pt1_2",
+            "type": "choice",
+            "order": 1,
+            "question": "Выбери правильный перевод: 'Мен бардым'",
+            "options": ["Я иду", "Я ушел", "Я буду идти"],
+            "correct": "Я ушел"
+        },
+        {
+            "id": "ex_pt1_3",
+            "type": "order",
+            "order": 2,
+            "question": "Собери: 'Я ушел'",
+            "orderItems": ["бардым", "Мен"],
+            "correct": ["Мен", "бардым"]
+        },
+        {
+            "id": "ex_pt1_4",
+            "type": "translate",
+            "order": 3,
+            "question": "Мен бардым",
+            "correct": "Я ушел"
+        },
+        {
+            "id": "ex_pt1_5",
+            "type": "match",
+            "order": 4,
+            "question": "Сопоставь",
+            "matchPairs": [{ "left": "Мен бардым", "right": "Я ушел" }]
+        },
+        {
+            "id": "ex_pt1_6",
+            "type": "choice",
+            "order": 5,
+            "question": "Как сказать 'Я ушел'?",
+            "options": ["Мен баар мен", "Мен бардым", "Мен бар мен"],
+            "correct": "Мен бардым"
+        },
+        {
+            "id": "ex_pt1_7",
+            "type": "translate",
+            "order": 6,
+            "question": "Я ел (чиидим)",
+            "correct": "Мен чиидим"
+        },
+        {
+            "id": "ex_pt1_8",
+            "type": "order",
+            "order": 7,
+            "question": "Собери: 'Я ел'",
+            "orderItems": ["чиидим", "Мен"],
+            "correct": ["Мен", "чиидим"]
+        },
+        {
+            "id": "ex_pt1_9",
+            "type": "choice",
+            "order": 8,
+            "question": "Выбери перевод: 'Мен чиидим'",
+            "options": ["Я ем", "Я буду есть", "Я ел"],
+            "correct": "Я ел"
+        },
+        {
+            "id": "ex_pt1_10",
+            "type": "match",
+            "order": 9,
+            "question": "Сопоставь",
+            "matchPairs": [{ "left": "Мен чиидим", "right": "Я ел" }]
+        }
+    ]
+}

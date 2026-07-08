@@ -1,0 +1,90 @@
+{
+    "type": "lesson",
+    "id": "lesson_7_107_time_days",
+    "chapterId": "ch_107_time_days",
+    "title": "Урок 7: Ночь",
+    "titleTuvan": "Кичээл 7: Соңгу",
+    "description": "Слово Соңгу",
+    "skill": "vocabulary",
+    "order": 8,
+    "isPublished": true,
+    "difficulty": 2,
+    "estimatedTime": 7,
+    "exercises": [
+        {
+            "id": "ex_t7_1",
+            "type": "translate",
+            "order": 0,
+            "question": "Ночь",
+            "correct": "Соңгу"
+        },
+        {
+            "id": "ex_t7_2",
+            "type": "choice",
+            "order": 1,
+            "question": "Выбери 'Ночь'",
+            "options": ["Соңгу", "Кежээ", "Хүн"],
+            "correct": "Соңгу"
+        },
+        {
+            "id": "ex_t7_3",
+            "type": "translate",
+            "order": 2,
+            "question": "Соңгу",
+            "correct": "Ночь"
+        },
+        {
+            "id": "ex_t7_4",
+            "type": "order",
+            "order": 3,
+            "question": "Собери: 'Спокойной ночи' (экии)",
+            "orderItems": ["экии", "Соңгу"],
+            "correct": ["Соңгу", "экии"]
+        },
+        {
+            "id": "ex_t7_5",
+            "type": "match",
+            "order": 4,
+            "question": "Сопоставь",
+            "matchPairs": [{ "left": "Соңгу", "right": "Ночь" }]
+        },
+        {
+            "id": "ex_t7_6",
+            "type": "choice",
+            "order": 5,
+            "question": "Как сказать 'Спокойной ночи'?",
+            "options": ["Кежээлиги экии", "Соңгу экии", "Эртенги экии"],
+            "correct": "Соңгу экии"
+        },
+        {
+            "id": "ex_t7_7",
+            "type": "translate",
+            "order": 6,
+            "question": "Спокойной ночи",
+            "correct": "Соңгу экии"
+        },
+        {
+            "id": "ex_t7_8",
+            "type": "order",
+            "order": 7,
+            "question": "Собери: 'Я сплю ночью' (узап тур - сплю)",
+            "orderItems": ["Мен", "соңгу", "узап", "тур", "мен"],
+            "correct": ["Мен", "соңгу", "узап", "тур", "мен"]
+        },
+        {
+            "id": "ex_t7_9",
+            "type": "choice",
+            "order": 8,
+            "question": "Выбери перевод: 'Мен соңгу узап тур мен'",
+            "options": ["Я сплю ночью", "Я ем вечером", "Я пью утром"],
+            "correct": "Я сплю ночью"
+        },
+        {
+            "id": "ex_t7_10",
+            "type": "match",
+            "order": 9,
+            "question": "Сопоставь",
+            "matchPairs": [{ "left": "Соңгу экии", "right": "Спокойной ночи" }]
+        }
+    ]
+}

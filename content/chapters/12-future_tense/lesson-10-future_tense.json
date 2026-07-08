@@ -1,0 +1,101 @@
+{
+    "type": "lesson",
+    "id": "lesson_10_112_future_tense",
+    "chapterId": "ch_112_future_tense",
+    "title": "Урок 10: Повторение",
+    "titleTuvan": "Кичээл 10: Катаптаа",
+    "description": "Закрепление материала юнита 12",
+    "skill": "review",
+    "order": 11,
+    "isPublished": true,
+    "difficulty": 3,
+    "estimatedTime": 10,
+    "exercises": [
+        {
+            "id": "ex_ft10_1",
+            "type": "order",
+            "order": 0,
+            "question": "Собери: 'Завтра я буду есть мясо'",
+            "orderItems": ["Эртен", "мен", "эт", "чиир", "мен"],
+            "correct": ["Эртен", "мен", "эт", "чиир", "мен"]
+        },
+        {
+            "id": "ex_ft10_2",
+            "type": "choice",
+            "order": 1,
+            "question": "Выбери перевод: 'Сен баар сен бе?'",
+            "options": ["Ты идешь?", "Ты пойдешь?", "Ты ушел?"],
+            "correct": "Ты пойдешь?"
+        },
+        {
+            "id": "ex_ft10_3",
+            "type": "match",
+            "order": 2,
+            "question": "Сопоставь формы глагола 'бар'",
+            "matchPairs": [
+                { "left": "Мен баар мен", "right": "Я пойду" },
+                { "left": "Сен баар сен", "right": "Ты пойдешь" },
+                { "left": "Ол баар", "right": "Он пойдет" }
+            ]
+        },
+        {
+            "id": "ex_ft10_4",
+            "type": "translate",
+            "order": 3,
+            "question": "Мы будем есть",
+            "correct": "Бис чиир бис"
+        },
+        {
+            "id": "ex_ft10_5",
+            "type": "translate",
+            "order": 4,
+            "question": "Я не пойду",
+            "correct": "Мен барбас мен"
+        },
+        {
+            "id": "ex_ft10_6",
+            "type": "order",
+            "order": 5,
+            "question": "Собери: 'Они пойдут?'",
+            "orderItems": ["бе?", "баарлар", "Олар"],
+            "correct": ["Олар", "баарлар", "бе?"]
+        },
+        {
+            "id": "ex_ft10_7",
+            "type": "choice",
+            "order": 6,
+            "question": "Как сказать 'Вы будете есть'?",
+            "options": [
+                "Силер чиидингер",
+                "Силер чиип тур силер",
+                "Силер чиир силер"
+            ],
+            "correct": "Силер чиир силер"
+        },
+        {
+            "id": "ex_ft10_8",
+            "type": "match",
+            "order": 7,
+            "question": "Сопоставь отрицание",
+            "matchPairs": [
+                { "left": "Мен барбас мен", "right": "Я не пойду" },
+                { "left": "Мен чийвес мен", "right": "Я не буду есть" }
+            ]
+        },
+        {
+            "id": "ex_ft10_9",
+            "type": "translate",
+            "order": 8,
+            "question": "Завтра мы будем пить чай",
+            "correct": "Эртен бис чай ижер бис"
+        },
+        {
+            "id": "ex_ft10_10",
+            "type": "choice",
+            "order": 9,
+            "question": "Выбери правильный перевод: 'Ол чийвес'",
+            "options": ["Он ест", "Он не будет есть", "Он ел"],
+            "correct": "Он не будет есть"
+        }
+    ]
+}

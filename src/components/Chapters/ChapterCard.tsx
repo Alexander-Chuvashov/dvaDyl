@@ -42,18 +42,20 @@ const ChapterCard: React.FC<ChapterCardProps> = ({
     return (
         <div
             onClick={handleClick}
-            className={`w-full card hover:shadow-lg transition-all flex items-center justify-between ${
-                isLocked ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'
+            className={`group w-full card hover:shadow-xl transition-all duration-300 flex items-center justify-between ${
+                isLocked
+                    ? 'opacity-50 cursor-not-allowed'
+                    : 'cursor-pointer hover:scale-[1.02]'
             } ${isFullyCompleted ? 'border-olive/30 bg-olive/5' : ''}`}
         >
             <div className="flex-1 text-left">
                 <div className="flex items-center gap-3 mb-1">
                     {isLocked ? (
-                        <Lock className="w-5 h-5 text-gray-400" />
+                        <Lock className="w-6 h-6 text-gray-400" />
                     ) : isFullyCompleted ? (
-                        <CheckCircle className="w-5 h-5 text-olive" />
+                        <CheckCircle className="w-6 h-6 text-olive animate-bounce-success" />
                     ) : (
-                        <BookOpen className="w-5 h-5 text-terracotta" />
+                        <BookOpen className="w-6 h-6 text-terracotta group-hover:rotate-[-5deg] transition-transform" />
                     )}
                     <h2 className="text-xl font-semibold text-dark">
                         {chapter.title}
@@ -66,29 +68,34 @@ const ChapterCard: React.FC<ChapterCardProps> = ({
                     {chapter.description}
                 </p>
                 <div className="flex items-center gap-4 text-xs text-dark/50">
-                    <span>{totalLessons} уроков</span>
+                    <span className="flex items-center gap-1">
+                        <span className="text-base">📖</span> {totalLessons}{' '}
+                        уроков
+                    </span>
                     {totalLessons > 0 && (
                         <div className="flex items-center gap-2 flex-1 max-w-[200px]">
                             <div className="w-full h-2 overflow-hidden rounded-full bg-cream">
                                 <div
-                                    className="h-full transition-all duration-500 rounded-full bg-olive"
+                                    className="h-full transition-all duration-1000 ease-out rounded-full bg-olive"
                                     style={{ width: `${progress}%` }}
                                 />
                             </div>
-                            <span>{progress}%</span>
+                            <span className="font-medium">{progress}%</span>
                         </div>
                     )}
                     {isLocked && (
-                        <span className="text-xs text-gray-400">
+                        <span className="flex items-center gap-1 text-xs text-gray-400">
                             🔒 заблокировано
                         </span>
                     )}
                     {isFullyCompleted && !isLocked && (
-                        <span className="text-xs text-olive">✅ пройдено</span>
+                        <span className="flex items-center gap-1 text-xs text-olive">
+                            ✅ пройдено
+                        </span>
                     )}
                 </div>
             </div>
-            <div className="text-2xl text-terracotta">
+            <div className="text-2xl transition-transform text-terracotta group-hover:translate-x-1">
                 {isLocked ? '' : '→'}
             </div>
         </div>

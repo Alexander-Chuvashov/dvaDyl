@@ -1,0 +1,92 @@
+{
+    "type": "lesson",
+    "id": "lesson_4_117_weather_seasons",
+    "chapterId": "ch_117_weather_seasons",
+    "title": "Урок 4: Весна и лето",
+    "titleTuvan": "Кичээл 4: Час болгаш чай",
+    "description": "Теплые сезоны",
+    "skill": "vocabulary",
+    "order": 5,
+    "isPublished": true,
+    "difficulty": 2,
+    "estimatedTime": 7,
+    "exercises": [
+        {
+            "id": "ex_ws4_1",
+            "type": "translate",
+            "order": 0,
+            "question": "Весна",
+            "correct": "Час"
+        },
+        {
+            "id": "ex_ws4_2",
+            "type": "translate",
+            "order": 1,
+            "question": "Лето",
+            "correct": "Чай"
+        },
+        {
+            "id": "ex_ws4_3",
+            "type": "choice",
+            "order": 2,
+            "question": "Выбери 'Весна'",
+            "options": ["Чай", "Час", "Күс"],
+            "correct": "Час"
+        },
+        {
+            "id": "ex_ws4_4",
+            "type": "choice",
+            "order": 3,
+            "question": "Выбери 'Лето'",
+            "options": ["Час", "Чай", "Кыш"],
+            "correct": "Чай"
+        },
+        {
+            "id": "ex_ws4_5",
+            "type": "match",
+            "order": 4,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Час", "right": "Весна" },
+                { "left": "Чай", "right": "Лето" }
+            ]
+        },
+        {
+            "id": "ex_ws4_6",
+            "type": "translate",
+            "order": 5,
+            "question": "Час",
+            "correct": "Весна"
+        },
+        {
+            "id": "ex_ws4_7",
+            "type": "translate",
+            "order": 6,
+            "question": "Чай",
+            "correct": "Лето"
+        },
+        {
+            "id": "ex_ws4_8",
+            "type": "order",
+            "order": 7,
+            "question": "Собери: 'Весна и лето'",
+            "orderItems": ["Час", "болгаш", "чай"],
+            "correct": ["Час", "болгаш", "чай"]
+        },
+        {
+            "id": "ex_ws4_9",
+            "type": "choice",
+            "order": 8,
+            "question": "Выбери перевод: 'Час болгаш чай'",
+            "options": ["Осень и зима", "Весна и лето", "Весна и осень"],
+            "correct": "Весна и лето"
+        },
+        {
+            "id": "ex_ws4_10",
+            "type": "match",
+            "order": 9,
+            "question": "Сопоставь",
+            "matchPairs": [{ "left": "Чай", "right": "Лето" }]
+        }
+    ]
+}

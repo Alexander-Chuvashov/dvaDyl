@@ -1,0 +1,93 @@
+{
+    "type": "lesson",
+    "id": "lesson_2_102_phrases",
+    "chapterId": "ch_102_phrases",
+    "title": "Урок 2: Здравствуйте",
+    "titleTuvan": "Кичээл 2: Экии-сиңнер",
+    "description": "Приветствие группы людей",
+    "skill": "phrases",
+    "order": 3,
+    "isPublished": true,
+    "difficulty": 1,
+    "estimatedTime": 5,
+    "exercises": [
+        {
+            "id": "ex_p2_1",
+            "type": "translate",
+            "order": 0,
+            "question": "Здравствуйте (множ.ч.)",
+            "correct": "Экии-сиңнер"
+        },
+        {
+            "id": "ex_p2_2",
+            "type": "choice",
+            "order": 1,
+            "question": "Как поздороваться с группой людей?",
+            "options": ["Экии", "Экии-сиңнер", "Байырлыы"],
+            "correct": "Экии-сиңнер"
+        },
+        {
+            "id": "ex_p2_3",
+            "type": "translate",
+            "order": 2,
+            "question": "Экии-сиңнер",
+            "correct": "Здравствуйте"
+        },
+        {
+            "id": "ex_p2_4",
+            "type": "order",
+            "order": 3,
+            "question": "Собери: 'Здравствуйте, вы люди?'",
+            "orderItems": ["Экии-сиңнер,", "силер", "кижилер", "бе", "силер?"],
+            "correct": ["Экии-сиңнер,", "силер", "кижилер", "бе", "силер?"]
+        },
+        {
+            "id": "ex_p2_5",
+            "type": "match",
+            "order": 4,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Экии", "right": "Здравствуй" },
+                { "left": "Экии-сиңнер", "right": "Здравствуйте" }
+            ]
+        },
+        {
+            "id": "ex_p2_6",
+            "type": "choice",
+            "order": 5,
+            "question": "Выбери правильный перевод: 'Экии-сиңнер'",
+            "options": ["Привет", "Здравствуйте", "Прощайте"],
+            "correct": "Здравствуйте"
+        },
+        {
+            "id": "ex_p2_7",
+            "type": "translate",
+            "order": 6,
+            "question": "Здравствуйте",
+            "correct": "Экии-сиңнер"
+        },
+        {
+            "id": "ex_p2_8",
+            "type": "choice",
+            "order": 7,
+            "question": "К кому обращаются 'Экии-сиңнер'?",
+            "options": ["К одному человеку", "К группе людей", "К ребенку"],
+            "correct": "К группе людей"
+        },
+        {
+            "id": "ex_p2_9",
+            "type": "match",
+            "order": 8,
+            "question": "Сопоставь",
+            "matchPairs": [{ "left": "Экии-сиңнер", "right": "Здравствуйте" }]
+        },
+        {
+            "id": "ex_p2_10",
+            "type": "order",
+            "order": 9,
+            "question": "Собери приветствие: 'Здравствуйте, мы люди'",
+            "orderItems": ["Экии-сиңнер,", "бис", "кижилер", "бис"],
+            "correct": ["Экии-сиңнер,", "бис", "кижилер", "бис"]
+        }
+    ]
+}

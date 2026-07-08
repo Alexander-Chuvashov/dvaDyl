@@ -1,0 +1,92 @@
+{
+    "type": "lesson",
+    "id": "lesson_3_117_weather_seasons",
+    "chapterId": "ch_117_weather_seasons",
+    "title": "Урок 3: Жарко и холодно",
+    "titleTuvan": "Кичээл 3: Изиг болгаш соок",
+    "description": "Температура",
+    "skill": "vocabulary",
+    "order": 4,
+    "isPublished": true,
+    "difficulty": 1,
+    "estimatedTime": 5,
+    "exercises": [
+        {
+            "id": "ex_ws3_1",
+            "type": "translate",
+            "order": 0,
+            "question": "Жарко",
+            "correct": "Изиг"
+        },
+        {
+            "id": "ex_ws3_2",
+            "type": "translate",
+            "order": 1,
+            "question": "Холодно",
+            "correct": "Соок"
+        },
+        {
+            "id": "ex_ws3_3",
+            "type": "choice",
+            "order": 2,
+            "question": "Выбери 'Жарко'",
+            "options": ["Соок", "Изиг", "Кыш"],
+            "correct": "Изиг"
+        },
+        {
+            "id": "ex_ws3_4",
+            "type": "choice",
+            "order": 3,
+            "question": "Выбери 'Холодно'",
+            "options": ["Изиг", "Соок", "Чай"],
+            "correct": "Соок"
+        },
+        {
+            "id": "ex_ws3_5",
+            "type": "match",
+            "order": 4,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Изиг", "right": "Жарко" },
+                { "left": "Соок", "right": "Холодно" }
+            ]
+        },
+        {
+            "id": "ex_ws3_6",
+            "type": "translate",
+            "order": 5,
+            "question": "Изиг",
+            "correct": "Жарко"
+        },
+        {
+            "id": "ex_ws3_7",
+            "type": "translate",
+            "order": 6,
+            "question": "Соок",
+            "correct": "Холодно"
+        },
+        {
+            "id": "ex_ws3_8",
+            "type": "order",
+            "order": 7,
+            "question": "Собери: 'Сейчас жарко' (бооп тур)",
+            "orderItems": ["Изиг", "бооп", "тур"],
+            "correct": ["Изиг", "бооп", "тур"]
+        },
+        {
+            "id": "ex_ws3_9",
+            "type": "choice",
+            "order": 8,
+            "question": "Выбери перевод: 'Соок бооп тур'",
+            "options": ["Жарко", "Холодно", "Идет снег"],
+            "correct": "Холодно"
+        },
+        {
+            "id": "ex_ws3_10",
+            "type": "match",
+            "order": 9,
+            "question": "Сопоставь",
+            "matchPairs": [{ "left": "Изиг бооп тур", "right": "Жарко" }]
+        }
+    ]
+}

@@ -1,0 +1,94 @@
+{
+    "type": "lesson",
+    "id": "lesson_3_107_time_days",
+    "chapterId": "ch_107_time_days",
+    "title": "Урок 3: Вчера",
+    "titleTuvan": "Кичээл 3: Дүъш",
+    "description": "Слово Дүъш",
+    "skill": "vocabulary",
+    "order": 4,
+    "isPublished": true,
+    "difficulty": 1,
+    "estimatedTime": 5,
+    "exercises": [
+        {
+            "id": "ex_t3_1",
+            "type": "translate",
+            "order": 0,
+            "question": "Вчера",
+            "correct": "Дүъш"
+        },
+        {
+            "id": "ex_t3_2",
+            "type": "choice",
+            "order": 1,
+            "question": "Выбери 'Вчера'",
+            "options": ["Эртен", "Бүгү", "Дүъш"],
+            "correct": "Дүъш"
+        },
+        {
+            "id": "ex_t3_3",
+            "type": "translate",
+            "order": 2,
+            "question": "Дүъш",
+            "correct": "Вчера"
+        },
+        {
+            "id": "ex_t3_4",
+            "type": "order",
+            "order": 3,
+            "question": "Собери: 'Вчера я ел' (чиидим - ел)",
+            "orderItems": ["Дүъш", "мен", "чиидим"],
+            "correct": ["Дүъш", "мен", "чиидим"]
+        },
+        {
+            "id": "ex_t3_5",
+            "type": "match",
+            "order": 4,
+            "question": "Сопоставь",
+            "matchPairs": [{ "left": "Дүъш", "right": "Вчера" }]
+        },
+        {
+            "id": "ex_t3_6",
+            "type": "choice",
+            "order": 5,
+            "question": "Как сказать 'Вчера'?",
+            "options": ["Дүъш", "Эртен", "Бүгү"],
+            "correct": "Дүъш"
+        },
+        {
+            "id": "ex_t3_7",
+            "type": "translate",
+            "order": 6,
+            "question": "Вчера я пил",
+            "correct": "Дүъш мен ижедим"
+        },
+        {
+            "id": "ex_t3_8",
+            "type": "order",
+            "order": 7,
+            "question": "Собери: 'Вчера ты ел хлеб'",
+            "orderItems": ["Дүъш", "сен", "нан", "чиидинг", "сен"],
+            "correct": ["Дүъш", "сен", "нан", "чиидинг", "сен"]
+        },
+        {
+            "id": "ex_t3_9",
+            "type": "choice",
+            "order": 8,
+            "question": "Выбери перевод: 'Дүъш мен эт чиидим'",
+            "options": [
+                "Вчера я ел мясо",
+                "Завтра я буду есть мясо",
+                "Сегодня я ем хлеб"
+            ],
+            "correct": "Вчера я ел мясо"
+        },
+        {
+            "id": "ex_t3_10",
+            "type": "match",
+            "order": 9,
+            "question": "Сопоставь",
+            "matchPairs": [{ "left": "Дүъш", "right": "Вчера" }]
+        }
+    ]
+}

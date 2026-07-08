@@ -1,0 +1,95 @@
+{
+    "type": "lesson",
+    "id": "lesson_8_110_family_age",
+    "chapterId": "ch_110_family_age",
+    "title": "Урок 8: Кто это?",
+    "titleTuvan": "Кичээл 8: Кым бо?",
+    "description": "Вопросы о членах семьи",
+    "skill": "grammar",
+    "order": 9,
+    "isPublished": true,
+    "difficulty": 3,
+    "estimatedTime": 7,
+    "exercises": [
+        {
+            "id": "ex_fa8_1",
+            "type": "order",
+            "order": 0,
+            "question": "Собери: 'Кто это?'",
+            "orderItems": ["бо?", "Кым"],
+            "correct": ["Кым", "бо?"]
+        },
+        {
+            "id": "ex_fa8_2",
+            "type": "order",
+            "order": 1,
+            "question": "Собери: 'Это моя мама'",
+            "orderItems": ["Бо", "мээң", "авам"],
+            "correct": ["Бо", "мээң", "авам"]
+        },
+        {
+            "id": "ex_fa8_3",
+            "type": "choice",
+            "order": 2,
+            "question": "Выбери перевод: 'Кым бо?'",
+            "options": ["Что это?", "Кто это?", "Где это?"],
+            "correct": "Кто это?"
+        },
+        {
+            "id": "ex_fa8_4",
+            "type": "choice",
+            "order": 3,
+            "question": "Выбери перевод: 'Бо мээң акым'",
+            "options": ["Это мой папа", "Это мой брат", "Это моя сестра"],
+            "correct": "Это мой брат"
+        },
+        {
+            "id": "ex_fa8_5",
+            "type": "translate",
+            "order": 4,
+            "question": "Кто это?",
+            "correct": "Кым бо?"
+        },
+        {
+            "id": "ex_fa8_6",
+            "type": "translate",
+            "order": 5,
+            "question": "Это мой дедушка",
+            "correct": "Бо мээң кырган-адам"
+        },
+        {
+            "id": "ex_fa8_7",
+            "type": "order",
+            "order": 6,
+            "question": "Собери: 'Кто твоя мама?'",
+            "orderItems": ["Кым", "сээң", "аваң?"],
+            "correct": ["Кым", "сээң", "аваң?"]
+        },
+        {
+            "id": "ex_fa8_8",
+            "type": "order",
+            "order": 7,
+            "question": "Собери: 'Кто твой папа?'",
+            "orderItems": ["Кым", "сээң", "адаң?"],
+            "correct": ["Кым", "сээң", "адаң?"]
+        },
+        {
+            "id": "ex_fa8_9",
+            "type": "match",
+            "order": 8,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Кым бо?", "right": "Кто это?" },
+                { "left": "Бо мээң угбам", "right": "Это моя сестра" }
+            ]
+        },
+        {
+            "id": "ex_fa8_10",
+            "type": "choice",
+            "order": 9,
+            "question": "Выбери правильный ответ на 'Кым бо?'",
+            "options": ["Бо нан", "Бо мээң адам", "Чүү бо?"],
+            "correct": "Бо мээң адам"
+        }
+    ]
+}

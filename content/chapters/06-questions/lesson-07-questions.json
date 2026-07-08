@@ -1,0 +1,93 @@
+{
+    "type": "lesson",
+    "id": "lesson_7_106_questions",
+    "chapterId": "ch_106_questions",
+    "title": "Урок 7: Как?",
+    "titleTuvan": "Кичээл 7: Канчап?",
+    "description": "Вопросительное слово Канчап",
+    "skill": "grammar",
+    "order": 8,
+    "isPublished": true,
+    "difficulty": 2,
+    "estimatedTime": 7,
+    "exercises": [
+        {
+            "id": "ex_q7_1",
+            "type": "translate",
+            "order": 0,
+            "question": "Как",
+            "correct": "Канчап"
+        },
+        {
+            "id": "ex_q7_2",
+            "type": "choice",
+            "order": 1,
+            "question": "Выбери 'Как'",
+            "options": ["Канчап", "Чүге", "Кайыан"],
+            "correct": "Канчап"
+        },
+        {
+            "id": "ex_q7_3",
+            "type": "translate",
+            "order": 2,
+            "question": "Канчап",
+            "correct": "Как"
+        },
+        {
+            "id": "ex_q7_4",
+            "type": "order",
+            "order": 3,
+            "question": "Собери: 'Как ты?'",
+            "orderItems": ["сен?", "Канчап", "сен"],
+            "correct": ["Канчап", "сен", "сен?"]
+        },
+        {
+            "id": "ex_q7_5",
+            "type": "match",
+            "order": 4,
+            "question": "Сопоставь",
+            "matchPairs": [{ "left": "Канчап", "right": "Как" }]
+        },
+        {
+            "id": "ex_q7_6",
+            "type": "choice",
+            "order": 5,
+            "question": "Как спросить 'Как дела?' (досл. Как ты есть?)",
+            "options": ["Канчап-дыр сен?", "Чүге сен?", "Кым сен?"],
+            "correct": "Канчап-дыр сен?"
+        },
+        {
+            "id": "ex_q7_7",
+            "type": "translate",
+            "order": 6,
+            "question": "Как ты?",
+            "correct": "Канчап-дыр сен?"
+        },
+        {
+            "id": "ex_q7_8",
+            "type": "order",
+            "order": 7,
+            "question": "Собери: 'Как мама?'",
+            "orderItems": ["Канчап", "авам?"],
+            "correct": ["Канчап", "авам?"]
+        },
+        {
+            "id": "ex_q7_9",
+            "type": "choice",
+            "order": 8,
+            "question": "Выбери перевод: 'Канчап-дыр аваң?'",
+            "options": ["Как мама?", "Где мама?", "Кто мама?"],
+            "correct": "Как мама?"
+        },
+        {
+            "id": "ex_q7_10",
+            "type": "match",
+            "order": 9,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Канчап", "right": "Как" },
+                { "left": "Чүге", "right": "Почему" }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,95 @@
+{
+    "type": "lesson",
+    "id": "lesson_6_102_phrases",
+    "chapterId": "ch_102_phrases",
+    "title": "Урок 6: Хорошо и Плохо",
+    "titleTuvan": "Кичээл 6: Эки болгаш багай",
+    "description": "Базовые прилагательные",
+    "skill": "vocabulary",
+    "order": 7,
+    "isPublished": true,
+    "difficulty": 2,
+    "estimatedTime": 5,
+    "exercises": [
+        {
+            "id": "ex_p6_1",
+            "type": "translate",
+            "order": 0,
+            "question": "Хорошо",
+            "correct": "Эки"
+        },
+        {
+            "id": "ex_p6_2",
+            "type": "translate",
+            "order": 1,
+            "question": "Плохо",
+            "correct": "Багай"
+        },
+        {
+            "id": "ex_p6_3",
+            "type": "choice",
+            "order": 2,
+            "question": "Выбери 'Хорошо'",
+            "options": ["Багай", "Эки", "Кудум"],
+            "correct": "Эки"
+        },
+        {
+            "id": "ex_p6_4",
+            "type": "choice",
+            "order": 3,
+            "question": "Выбери 'Плохо'",
+            "options": ["Эки", "Багай", "Байырлыы"],
+            "correct": "Багай"
+        },
+        {
+            "id": "ex_p6_5",
+            "type": "order",
+            "order": 4,
+            "question": "Собери: 'Хорошо, спасибо'",
+            "orderItems": ["Эки,", "байырлыы"],
+            "correct": ["Эки,", "байырлыы"]
+        },
+        {
+            "id": "ex_p6_6",
+            "type": "match",
+            "order": 5,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Эки", "right": "Хорошо" },
+                { "left": "Багай", "right": "Плохо" }
+            ]
+        },
+        {
+            "id": "ex_p6_7",
+            "type": "translate",
+            "order": 6,
+            "question": "Эки",
+            "correct": "Хорошо"
+        },
+        {
+            "id": "ex_p6_8",
+            "type": "translate",
+            "order": 7,
+            "question": "Багай",
+            "correct": "Плохо"
+        },
+        {
+            "id": "ex_p6_9",
+            "type": "choice",
+            "order": 8,
+            "question": "Выбери перевод: 'Эки, байырлыы'",
+            "options": ["Плохо, извини", "Хорошо, спасибо", "Да, нет"],
+            "correct": "Хорошо, спасибо"
+        },
+        {
+            "id": "ex_p6_10",
+            "type": "match",
+            "order": 9,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Хорошо", "right": "Эки" },
+                { "left": "Плохо", "right": "Багай" }
+            ]
+        }
+    ]
+}

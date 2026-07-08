@@ -1,0 +1,96 @@
+{
+    "type": "lesson",
+    "id": "lesson_3_114_travel",
+    "chapterId": "ch_114_travel",
+    "title": "Урок 3: Вокзал и аэропорт",
+    "titleTuvan": "Кичээл 3: Вокзал болгаш аэропорт",
+    "description": "Места отправления",
+    "skill": "vocabulary",
+    "order": 4,
+    "isPublished": true,
+    "difficulty": 1,
+    "estimatedTime": 5,
+    "exercises": [
+        {
+            "id": "ex_tr3_1",
+            "type": "translate",
+            "order": 0,
+            "question": "Вокзал",
+            "correct": "Вокзал"
+        },
+        {
+            "id": "ex_tr3_2",
+            "type": "translate",
+            "order": 1,
+            "question": "Аэропорт",
+            "correct": "Аэропорт"
+        },
+        {
+            "id": "ex_tr3_3",
+            "type": "choice",
+            "order": 2,
+            "question": "Выбери 'Вокзал'",
+            "options": ["Аэропорт", "Вокзал", "Отулахан"],
+            "correct": "Вокзал"
+        },
+        {
+            "id": "ex_tr3_4",
+            "type": "choice",
+            "order": 3,
+            "question": "Выбери 'Аэропорт'",
+            "options": ["Вокзал", "Аэропорт", "Билет"],
+            "correct": "Аэропорт"
+        },
+        {
+            "id": "ex_tr3_5",
+            "type": "match",
+            "order": 4,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Вокзал", "right": "Вокзал" },
+                { "left": "Аэропорт", "right": "Аэропорт" }
+            ]
+        },
+        {
+            "id": "ex_tr3_6",
+            "type": "translate",
+            "order": 5,
+            "question": "Вокзал",
+            "correct": "Вокзал"
+        },
+        {
+            "id": "ex_tr3_7",
+            "type": "translate",
+            "order": 6,
+            "question": "Аэропорт",
+            "correct": "Аэропорт"
+        },
+        {
+            "id": "ex_tr3_8",
+            "type": "order",
+            "order": 7,
+            "question": "Собери: 'Я еду на вокзал' (бар - иду)",
+            "orderItems": ["Мен", "вокзалче", "бар", "мен"],
+            "correct": ["Мен", "вокзалче", "бар", "мен"]
+        },
+        {
+            "id": "ex_tr3_9",
+            "type": "choice",
+            "order": 8,
+            "question": "Выбери перевод: 'Мен аэропортке баар мен'",
+            "options": [
+                "Я еду на вокзал",
+                "Я иду в аэропорт",
+                "Я ищу гостиницу"
+            ],
+            "correct": "Я иду в аэропорт"
+        },
+        {
+            "id": "ex_tr3_10",
+            "type": "match",
+            "order": 9,
+            "question": "Сопоставь",
+            "matchPairs": [{ "left": "Аэропорт", "right": "Аэропорт" }]
+        }
+    ]
+}

@@ -1,0 +1,100 @@
+{
+    "type": "lesson",
+    "id": "lesson_8_109_animals",
+    "chapterId": "ch_109_animals",
+    "title": "Урок 8: Мои животные",
+    "titleTuvan": "Кичээл 8: Мээң аңнарым",
+    "description": "Притяжательность с животными",
+    "skill": "grammar",
+    "order": 9,
+    "isPublished": true,
+    "difficulty": 3,
+    "estimatedTime": 7,
+    "exercises": [
+        {
+            "id": "ex_an8_1",
+            "type": "translate",
+            "order": 0,
+            "question": "Моя собака",
+            "correct": "Мээң ыдым"
+        },
+        {
+            "id": "ex_an8_2",
+            "type": "translate",
+            "order": 1,
+            "question": "Моя лошадь",
+            "correct": "Мээң аътым"
+        },
+        {
+            "id": "ex_an8_3",
+            "type": "choice",
+            "order": 2,
+            "question": "Выбери 'Твоя корова'",
+            "options": ["Мээң инегим", "Сээң инегиң", "Ооң инээзи"],
+            "correct": "Сээң инегиң"
+        },
+        {
+            "id": "ex_an8_4",
+            "type": "order",
+            "order": 3,
+            "question": "Собери: 'Моя кошка'",
+            "orderItems": ["кошум", "Мээң"],
+            "correct": ["Мээң", "кошум"]
+        },
+        {
+            "id": "ex_an8_5",
+            "type": "match",
+            "order": 4,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Мээң ыдым", "right": "Моя собака" },
+                { "left": "Мээң аътым", "right": "Моя лошадь" }
+            ]
+        },
+        {
+            "id": "ex_an8_6",
+            "type": "translate",
+            "order": 5,
+            "question": "Мээң ыдым",
+            "correct": "Моя собака"
+        },
+        {
+            "id": "ex_an8_7",
+            "type": "choice",
+            "order": 6,
+            "question": "Как сказать 'Его волк'?",
+            "options": ["Ооң бөрүзү", "Ооң бөрүм", "Сээң бөрүң"],
+            "correct": "Ооң бөрүзү"
+        },
+        {
+            "id": "ex_an8_8",
+            "type": "order",
+            "order": 7,
+            "question": "Собери: 'Это моя собака'",
+            "orderItems": ["Бо", "мээң", "ыдым"],
+            "correct": ["Бо", "мээң", "ыдым"]
+        },
+        {
+            "id": "ex_an8_9",
+            "type": "choice",
+            "order": 8,
+            "question": "Выбери перевод: 'Сээң кошуң ак'",
+            "options": [
+                "Моя собака белая",
+                "Твоя кошка белая",
+                "Его лошадь черная"
+            ],
+            "correct": "Твоя кошка белая"
+        },
+        {
+            "id": "ex_an8_10",
+            "type": "match",
+            "order": 9,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Мээң аътым", "right": "Моя лошадь" },
+                { "left": "Сээң инегиң", "right": "Твоя корова" }
+            ]
+        }
+    ]
+}

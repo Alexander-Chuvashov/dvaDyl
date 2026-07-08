@@ -1,3 +1,4 @@
+// src/components/Exercises/ChoiceExercise.tsx
 import React, { useState } from 'react';
 import type { Exercise } from '../../types/content';
 import AudioButton from '../UI/AudioButton';
@@ -5,14 +6,17 @@ import ClickableWord from '../UI/ClickableWord';
 
 interface Props {
     exercise: Exercise;
-    onAnswer: (isCorrect: boolean, answer?: string) => void;
+    onAnswer: (
+        isCorrect: boolean,
+        userAnswer?: string,
+        correctAnswer?: string,
+    ) => void;
 }
 
 const ChoiceExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
     const [selected, setSelected] = useState<string | null>(null);
     const [submitted, setSubmitted] = useState(false);
     const [isCorrect, setIsCorrect] = useState(false);
-    const [animating, setAnimating] = useState(false);
 
     const handleSelect = (option: string) => {
         if (submitted) return;
@@ -21,16 +25,10 @@ const ChoiceExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
 
     const handleSubmit = () => {
         if (!selected) return;
-        const isAnswerCorrect = selected === exercise.correct;
-        setIsCorrect(isAnswerCorrect);
+        const correct = selected === exercise.correct;
+        setIsCorrect(correct);
         setSubmitted(true);
-        setAnimating(true);
-        if (isAnswerCorrect) {
-            onAnswer(true, selected);
-        } else {
-            onAnswer(false, selected);
-        }
-        setTimeout(() => setAnimating(false), 600);
+        onAnswer(correct, selected, exercise.correct?.toString());
     };
 
     const getOptionClass = (option: string) => {
@@ -47,15 +45,17 @@ const ChoiceExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
 
     return (
         <div
-            className={`card ${animating ? (isCorrect ? 'animate-bounce-success' : 'animate-shake') : ''}`}
+            className={`card ${submitted && !isCorrect ? 'animate-shake' : ''}`}
         >
-            <p className="text-lg font-medium text-dark">{exercise.question}</p>
+            <p className="text-lg font-medium text-dark">
+                <ClickableWord word={exercise.question} />
+            </p>
             <div className="mt-4 space-y-2">
                 {exercise.options?.map(option => (
                     <div
                         key={option}
                         onClick={() => handleSelect(option)}
-                        className={`flex items-center justify-between w-full text-left px-4 py-3 rounded-lg border-2 transition-all cursor-pointer ${getOptionClass(option)}`}
+                        className={`w-full text-left px-4 py-3 rounded-lg border-2 transition-all cursor-pointer ${getOptionClass(option)}`}
                     >
                         <ClickableWord word={option} />
                         {!submitted && (
@@ -87,47 +87,11 @@ const ChoiceExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
                 <div className="p-3 mt-4 border rounded-lg bg-terracotta/10 border-terracotta text-terracotta">
                     ❌ Неправильно. Правильный ответ:{' '}
                     <span className="font-bold">{exercise.correct}</span>
-                    <button
-                        onClick={() => {
-                            setSelected(null);
-                            setSubmitted(false);
-                            setIsCorrect(false);
-                        }}
-                        className="ml-4 text-sm btn-secondary"
-                    >
-                        Попробовать снова
-                    </button>
                 </div>
             )}
             {submitted && isCorrect && (
                 <div className="p-3 mt-4 border rounded-lg bg-olive/10 border-olive text-olive animate-bounce-success">
                     ✅ Правильно!
-                </div>
-            )}
-
-            {/* Дополнительная информация */}
-            {(exercise.translation ||
-                exercise.transcription ||
-                exercise.context) && (
-                <div className="p-3 mt-4 border rounded-lg bg-cream/50 border-cream">
-                    {exercise.translation && (
-                        <p className="text-sm text-dark/80">
-                            <span className="font-medium">Перевод:</span>{' '}
-                            {exercise.translation}
-                        </p>
-                    )}
-                    {exercise.transcription && (
-                        <p className="text-sm text-dark/80">
-                            <span className="font-medium">Транскрипция:</span>{' '}
-                            {exercise.transcription}
-                        </p>
-                    )}
-                    {exercise.context && (
-                        <p className="text-sm text-dark/80">
-                            <span className="font-medium">Пример:</span>{' '}
-                            {exercise.context}
-                        </p>
-                    )}
                 </div>
             )}
         </div>

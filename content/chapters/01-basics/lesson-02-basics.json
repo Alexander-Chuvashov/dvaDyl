@@ -1,0 +1,87 @@
+{
+    "type": "lesson",
+    "id": "lesson_2_101_basics",
+    "chapterId": "ch_101_basics",
+    "title": "Урок 2: Он и Она",
+    "titleTuvan": "Кичээл 2: Ол",
+    "description": "Местоимение 3-го лица",
+    "skill": "pronouns",
+    "order": 3,
+    "isPublished": true,
+    "difficulty": 1,
+    "estimatedTime": 5,
+    "exercises": [
+        {
+            "id": "ex_b2_1",
+            "type": "translate",
+            "order": 0,
+            "question": "Он",
+            "correct": "Ол"
+        },
+        {
+            "id": "ex_b2_2",
+            "type": "choice",
+            "order": 1,
+            "question": "Как сказать 'Она'?",
+            "options": ["Олар", "Ол", "Бис"],
+            "correct": "Ол"
+        },
+        {
+            "id": "ex_b2_3",
+            "type": "order",
+            "order": 2,
+            "question": "Собери: 'Он человек'",
+            "orderItems": ["Ол", "кижи", "-", "дыр"],
+            "correct": ["Ол", "кижи", "-", "дыр"]
+        },
+
+        {
+            "id": "ex_b2_5",
+            "type": "translate",
+            "order": 4,
+            "question": "Ол",
+            "correct": "Он"
+        },
+        {
+            "id": "ex_b2_6",
+            "type": "choice",
+            "order": 5,
+            "question": "Выбери правильный перевод: 'Ол кижи-дыр'",
+            "options": ["Я человек", "Он человек", "Ты человек"],
+            "correct": "Он человек"
+        },
+        {
+            "id": "ex_b2_7",
+            "type": "order",
+            "order": 6,
+            "question": "Составь: 'Это дом' (бажың - дом)",
+            "orderItems": ["дыр", "Ол", "-", "бажың"],
+            "correct": ["Ол", "бажың", "-", "дыр"]
+        },
+        {
+            "id": "ex_b2_8",
+            "type": "match",
+            "order": 7,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Ол", "right": "Он/Она" },
+                { "left": "Мен", "right": "Я" }
+            ]
+        },
+        {
+            "id": "ex_b2_9",
+            "type": "translate",
+            "order": 8,
+            "question": "Она",
+            "correct": "Ол"
+        },
+        {
+            "id": "ex_b2_10",
+            "type": "choice",
+            "order": 9,
+            "question": "Какое слово означает 'Он/Она'?",
+            "options": ["Мен", "Сен", "Ол"],
+            "correct": "Ол"
+        }
+    ]
+}

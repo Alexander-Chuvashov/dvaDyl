@@ -1,0 +1,100 @@
+{
+    "type": "lesson",
+    "id": "lesson_7_108_colors_sizes",
+    "chapterId": "ch_108_colors_sizes",
+    "title": "Урок 7: Размеры и дом",
+    "titleTuvan": "Кичээл 7: Хемчээл болгаш бажың",
+    "description": "Описание дома и мебели",
+    "skill": "vocabulary",
+    "order": 8,
+    "isPublished": true,
+    "difficulty": 2,
+    "estimatedTime": 7,
+    "exercises": [
+        {
+            "id": "ex_cs7_1",
+            "type": "translate",
+            "order": 0,
+            "question": "Большой дом",
+            "correct": "Улуг бажың"
+        },
+        {
+            "id": "ex_cs7_2",
+            "type": "translate",
+            "order": 1,
+            "question": "Маленькая чашка",
+            "correct": "Биче аяк"
+        },
+        {
+            "id": "ex_cs7_3",
+            "type": "choice",
+            "order": 2,
+            "question": "Выбери 'Большой стол'",
+            "options": ["Биче стол", "Улуг стол", "Кара стол"],
+            "correct": "Улуг стол"
+        },
+        {
+            "id": "ex_cs7_4",
+            "type": "order",
+            "order": 3,
+            "question": "Собери: 'Маленький дом'",
+            "orderItems": ["бажың", "Биче"],
+            "correct": ["Биче", "бажың"]
+        },
+        {
+            "id": "ex_cs7_5",
+            "type": "match",
+            "order": 4,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Улуг бажың", "right": "Большой дом" },
+                { "left": "Биче аяк", "right": "Маленькая чашка" }
+            ]
+        },
+        {
+            "id": "ex_cs7_6",
+            "type": "translate",
+            "order": 5,
+            "question": "Улуг стол",
+            "correct": "Большой стол"
+        },
+        {
+            "id": "ex_cs7_7",
+            "type": "choice",
+            "order": 6,
+            "question": "Как сказать 'Маленький стол'?",
+            "options": ["Улуг стол", "Биче стол", "Ак стол"],
+            "correct": "Биче стол"
+        },
+        {
+            "id": "ex_cs7_8",
+            "type": "order",
+            "order": 7,
+            "question": "Собери: 'Это большой дом'",
+            "orderItems": ["Бо", "улуг", "бажың"],
+            "correct": ["Бо", "улуг", "бажың"]
+        },
+        {
+            "id": "ex_cs7_9",
+            "type": "choice",
+            "order": 8,
+            "question": "Выбери перевод: 'Бо биче аяк'",
+            "options": [
+                "Это большая чашка",
+                "Это маленький дом",
+                "Это маленькая чашка"
+            ],
+            "correct": "Это маленькая чашка"
+        },
+        {
+            "id": "ex_cs7_10",
+            "type": "match",
+            "order": 9,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Улуг стол", "right": "Большой стол" },
+                { "left": "Биче бажың", "right": "Маленький дом" }
+            ]
+        }
+    ]
+}

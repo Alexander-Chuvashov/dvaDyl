@@ -1,0 +1,95 @@
+{
+    "type": "lesson",
+    "id": "lesson_6_109_animals",
+    "chapterId": "ch_109_animals",
+    "title": "Урок 6: Что это за животное?",
+    "titleTuvan": "Кичээл 6: Бо чүү аңыл?",
+    "description": "Вопросы о животных",
+    "skill": "grammar",
+    "order": 7,
+    "isPublished": true,
+    "difficulty": 2,
+    "estimatedTime": 7,
+    "exercises": [
+        {
+            "id": "ex_an6_1",
+            "type": "order",
+            "order": 0,
+            "question": "Собери: 'Что это?'",
+            "orderItems": ["бо?", "Чүү"],
+            "correct": ["Чүү", "бо?"]
+        },
+        {
+            "id": "ex_an6_2",
+            "type": "order",
+            "order": 1,
+            "question": "Собери: 'Это собака'",
+            "orderItems": ["Бо", "ыт"],
+            "correct": ["Бо", "ыт"]
+        },
+        {
+            "id": "ex_an6_3",
+            "type": "choice",
+            "order": 2,
+            "question": "Выбери перевод: 'Чүү бо?'",
+            "options": ["Кто это?", "Что это?", "Где это?"],
+            "correct": "Что это?"
+        },
+        {
+            "id": "ex_an6_4",
+            "type": "choice",
+            "order": 3,
+            "question": "Выбери перевод: 'Бо инек'",
+            "options": ["Это корова", "Это лошадь", "Это собака"],
+            "correct": "Это корова"
+        },
+        {
+            "id": "ex_an6_5",
+            "type": "translate",
+            "order": 4,
+            "question": "Что это?",
+            "correct": "Чүү бо?"
+        },
+        {
+            "id": "ex_an6_6",
+            "type": "translate",
+            "order": 5,
+            "question": "Это медведь",
+            "correct": "Бо адыг"
+        },
+        {
+            "id": "ex_an6_7",
+            "type": "order",
+            "order": 6,
+            "question": "Собери: 'Это лошадь?'",
+            "orderItems": ["Бо", "аът", "бе?"],
+            "correct": ["Бо", "аът", "бе?"]
+        },
+        {
+            "id": "ex_an6_8",
+            "type": "order",
+            "order": 7,
+            "question": "Собери: 'Это волк?'",
+            "orderItems": ["Бо", "бөрү", "бе?"],
+            "correct": ["Бо", "бөрү", "бе?"]
+        },
+        {
+            "id": "ex_an6_9",
+            "type": "match",
+            "order": 8,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Чүү бо?", "right": "Что это?" },
+                { "left": "Бо адыг", "right": "Это медведь" }
+            ]
+        },
+        {
+            "id": "ex_an6_10",
+            "type": "choice",
+            "order": 9,
+            "question": "Выбери правильный ответ на 'Чүү бо?'",
+            "options": ["Бо кара", "Бо ыт", "Чүге бо?"],
+            "correct": "Бо ыт"
+        }
+    ]
+}

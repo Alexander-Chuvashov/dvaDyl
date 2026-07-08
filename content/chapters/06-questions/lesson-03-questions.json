@@ -1,0 +1,93 @@
+{
+    "type": "lesson",
+    "id": "lesson_3_106_questions",
+    "chapterId": "ch_106_questions",
+    "title": "Урок 3: Где?",
+    "titleTuvan": "Кичээл 3: Кайыан?",
+    "description": "Вопросительное слово Кайыан",
+    "skill": "grammar",
+    "order": 4,
+    "isPublished": true,
+    "difficulty": 1,
+    "estimatedTime": 5,
+    "exercises": [
+        {
+            "id": "ex_q3_1",
+            "type": "translate",
+            "order": 0,
+            "question": "Где",
+            "correct": "Кайыан"
+        },
+        {
+            "id": "ex_q3_2",
+            "type": "choice",
+            "order": 1,
+            "question": "Выбери 'Где'",
+            "options": ["Канчап", "Кайыан", "Кым"],
+            "correct": "Кайыан"
+        },
+        {
+            "id": "ex_q3_3",
+            "type": "translate",
+            "order": 2,
+            "question": "Кайыан",
+            "correct": "Где"
+        },
+        {
+            "id": "ex_q3_4",
+            "type": "order",
+            "order": 3,
+            "question": "Собери: 'Ты где?'",
+            "orderItems": ["сен?", "Кайыан", "сен"],
+            "correct": ["Кайыан", "сен", "сен?"]
+        },
+        {
+            "id": "ex_q3_5",
+            "type": "match",
+            "order": 4,
+            "question": "Сопоставь",
+            "matchPairs": [{ "left": "Кайыан", "right": "Где" }]
+        },
+        {
+            "id": "ex_q3_6",
+            "type": "choice",
+            "order": 5,
+            "question": "Как спросить 'Ты где?'",
+            "options": ["Кым сен?", "Кайыан сен?", "Чүү сен?"],
+            "correct": "Кайыан сен?"
+        },
+        {
+            "id": "ex_q3_7",
+            "type": "translate",
+            "order": 6,
+            "question": "Ты где?",
+            "correct": "Кайыан сен?"
+        },
+        {
+            "id": "ex_q3_8",
+            "type": "order",
+            "order": 7,
+            "question": "Собери: 'Где мама?' (ава)",
+            "orderItems": ["Кайыан", "ава?"],
+            "correct": ["Кайыан", "ава?"]
+        },
+        {
+            "id": "ex_q3_9",
+            "type": "choice",
+            "order": 8,
+            "question": "Выбери перевод: 'Кайыан адаң?'",
+            "options": ["Где мама?", "Где папа?", "Кто папа?"],
+            "correct": "Где папа?"
+        },
+        {
+            "id": "ex_q3_10",
+            "type": "match",
+            "order": 9,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Кайыан сен?", "right": "Ты где?" },
+                { "left": "Кайыан авам?", "right": "Где мама?" }
+            ]
+        }
+    ]
+}

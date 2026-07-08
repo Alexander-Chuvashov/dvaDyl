@@ -1,0 +1,92 @@
+{
+    "type": "lesson",
+    "id": "lesson_1_118_description",
+    "chapterId": "ch_118_description",
+    "title": "Урок 1: Высокий и низкий",
+    "titleTuvan": "Кичээл 1: Өр болгаш ээжик",
+    "description": "Рост",
+    "skill": "vocabulary",
+    "order": 2,
+    "isPublished": true,
+    "difficulty": 1,
+    "estimatedTime": 5,
+    "exercises": [
+        {
+            "id": "ex_de1_1",
+            "type": "translate",
+            "order": 0,
+            "question": "Высокий",
+            "correct": "Өр"
+        },
+        {
+            "id": "ex_de1_2",
+            "type": "translate",
+            "order": 1,
+            "question": "Низкий",
+            "correct": "Ээжик"
+        },
+        {
+            "id": "ex_de1_3",
+            "type": "choice",
+            "order": 2,
+            "question": "Выбери 'Высокий'",
+            "options": ["Ээжик", "Өр", "Улуг"],
+            "correct": "Өр"
+        },
+        {
+            "id": "ex_de1_4",
+            "type": "choice",
+            "order": 3,
+            "question": "Выбери 'Низкий'",
+            "options": ["Өр", "Ээжик", "Биче"],
+            "correct": "Ээжик"
+        },
+        {
+            "id": "ex_de1_5",
+            "type": "match",
+            "order": 4,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Өр", "right": "Высокий" },
+                { "left": "Ээжик", "right": "Низкий" }
+            ]
+        },
+        {
+            "id": "ex_de1_6",
+            "type": "translate",
+            "order": 5,
+            "question": "Өр",
+            "correct": "Высокий"
+        },
+        {
+            "id": "ex_de1_7",
+            "type": "translate",
+            "order": 6,
+            "question": "Ээжик",
+            "correct": "Низкий"
+        },
+        {
+            "id": "ex_de1_8",
+            "type": "order",
+            "order": 7,
+            "question": "Собери: 'Высокий мужчина'",
+            "orderItems": ["эр кижи", "Өр"],
+            "correct": ["Өр", "эр кижи"]
+        },
+        {
+            "id": "ex_de1_9",
+            "type": "choice",
+            "order": 8,
+            "question": "Выбери перевод: 'Ээжик кыс кижи'",
+            "options": ["Высокая женщина", "Низкая женщина", "Молодая девушка"],
+            "correct": "Низкая женщина"
+        },
+        {
+            "id": "ex_de1_10",
+            "type": "match",
+            "order": 9,
+            "question": "Сопоставь",
+            "matchPairs": [{ "left": "Өр эр кижи", "right": "Высокий мужчина" }]
+        }
+    ]
+}

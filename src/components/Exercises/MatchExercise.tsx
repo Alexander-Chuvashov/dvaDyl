@@ -121,7 +121,9 @@ const MatchExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
         <div
             className={`p-4 bg-white rounded-xl shadow ${submitted && !isCorrect ? 'animate-shake' : ''}`}
         >
-            <p className="mb-4 text-lg font-medium">{exercise.question}</p>
+            <p className="mb-4 text-lg font-medium">
+                <ClickableWord word={exercise.question} />
+            </p>
             <div className="grid grid-cols-2 gap-8">
                 <div>
                     <h3 className="mb-2 text-sm font-semibold text-gray-500 uppercase">
@@ -138,7 +140,7 @@ const MatchExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
                                         key={idx}
                                         className="flex items-center justify-between px-4 py-2 text-gray-500 bg-gray-100 border-2 border-gray-200 rounded-lg"
                                     >
-                                        <span>{left}</span>
+                                        <ClickableWord word={left} />
                                         <span className="text-green-500">
                                             ✓
                                         </span>
@@ -172,7 +174,7 @@ const MatchExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
                                         key={idx}
                                         className="flex items-center justify-between px-4 py-2 text-gray-500 bg-gray-100 border-2 border-gray-200 rounded-lg"
                                     >
-                                        <span>{right}</span>
+                                        <ClickableWord word={right} />
                                         <span className="text-green-500">
                                             ✓
                                         </span>

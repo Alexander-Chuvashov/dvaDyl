@@ -1,0 +1,99 @@
+{
+    "type": "lesson",
+    "id": "lesson_2_109_animals",
+    "chapterId": "ch_109_animals",
+    "title": "Урок 2: Лошадь и корова",
+    "titleTuvan": "Кичээл 2: Аът болгаш инек",
+    "description": "Крупный рогатый скот",
+    "skill": "vocabulary",
+    "order": 3,
+    "isPublished": true,
+    "difficulty": 1,
+    "estimatedTime": 5,
+    "exercises": [
+        {
+            "id": "ex_an2_1",
+            "type": "translate",
+            "order": 0,
+            "question": "Лошадь",
+            "correct": "Аът"
+        },
+        {
+            "id": "ex_an2_2",
+            "type": "translate",
+            "order": 1,
+            "question": "Корова",
+            "correct": "Инек"
+        },
+        {
+            "id": "ex_an2_3",
+            "type": "choice",
+            "order": 2,
+            "question": "Выбери 'Лошадь'",
+            "options": ["Инек", "Аът", "Хой"],
+            "correct": "Аът"
+        },
+        {
+            "id": "ex_an2_4",
+            "type": "choice",
+            "order": 3,
+            "question": "Выбери 'Корова'",
+            "options": ["Аът", "Инек", "Эшки"],
+            "correct": "Инек"
+        },
+        {
+            "id": "ex_an2_5",
+            "type": "match",
+            "order": 4,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Аът", "right": "Лошадь" },
+                { "left": "Инек", "right": "Корова" }
+            ]
+        },
+        {
+            "id": "ex_an2_6",
+            "type": "translate",
+            "order": 5,
+            "question": "Аът",
+            "correct": "Лошадь"
+        },
+        {
+            "id": "ex_an2_7",
+            "type": "translate",
+            "order": 6,
+            "question": "Инек",
+            "correct": "Корова"
+        },
+        {
+            "id": "ex_an2_8",
+            "type": "order",
+            "order": 7,
+            "question": "Собери: 'Большая корова'",
+            "orderItems": ["инек", "Улуг"],
+            "correct": ["Улуг", "инек"]
+        },
+        {
+            "id": "ex_an2_9",
+            "type": "choice",
+            "order": 8,
+            "question": "Выбери перевод: 'Биче аът'",
+            "options": [
+                "Большая корова",
+                "Маленькая лошадь",
+                "Маленькая собака"
+            ],
+            "correct": "Маленькая лошадь"
+        },
+        {
+            "id": "ex_an2_10",
+            "type": "match",
+            "order": 9,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Улуг инек", "right": "Большая корова" },
+                { "left": "Биче аът", "right": "Маленькая лошадь" }
+            ]
+        }
+    ]
+}

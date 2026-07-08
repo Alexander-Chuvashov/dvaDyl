@@ -1,0 +1,96 @@
+{
+    "type": "lesson",
+    "id": "lesson_6_104_plurals",
+    "chapterId": "ch_104_plurals",
+    "title": "Урок 6: Дома и вещи",
+    "titleTuvan": "Кичээл 6: Бажыңнар болгаш чүүлдер",
+    "description": "Мн.ч. неодушевленных предметов",
+    "skill": "vocabulary",
+    "order": 7,
+    "isPublished": true,
+    "difficulty": 2,
+    "estimatedTime": 7,
+    "exercises": [
+        {
+            "id": "ex_pl6_1",
+            "type": "translate",
+            "order": 0,
+            "question": "Дома",
+            "correct": "Бажыңнар"
+        },
+        {
+            "id": "ex_pl6_2",
+            "type": "translate",
+            "order": 1,
+            "question": "Чашки",
+            "correct": "Аяктар"
+        },
+        {
+            "id": "ex_pl6_3",
+            "type": "choice",
+            "order": 2,
+            "question": "Выбери 'Столы'",
+            "options": ["Стол", "Столдар", "Столлар"],
+            "correct": "Столдар"
+        },
+        {
+            "id": "ex_pl6_4",
+            "type": "order",
+            "order": 3,
+            "question": "Собери: 'Большие дома' (улуг - большой)",
+            "orderItems": ["бажыңнар", "Улуг"],
+            "correct": ["Улуг", "бажыңнар"]
+        },
+        {
+            "id": "ex_pl6_5",
+            "type": "match",
+            "order": 4,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Бажың", "right": "Дом" },
+                { "left": "Бажыңнар", "right": "Дома" }
+            ]
+        },
+        {
+            "id": "ex_pl6_6",
+            "type": "translate",
+            "order": 5,
+            "question": "Бажыңнар",
+            "correct": "Дома"
+        },
+        {
+            "id": "ex_pl6_7",
+            "type": "choice",
+            "order": 6,
+            "question": "Как сказать 'Шкафы' (кагар - шкаф)?",
+            "options": ["Кагарлар", "Кагартар", "Кагарлер"],
+            "correct": "Кагарлар"
+        },
+        {
+            "id": "ex_pl6_8",
+            "type": "order",
+            "order": 7,
+            "question": "Собери: 'Маленькие чашки' (биче - маленький)",
+            "orderItems": ["аяктар", "Биче"],
+            "correct": ["Биче", "аяктар"]
+        },
+        {
+            "id": "ex_pl6_9",
+            "type": "match",
+            "order": 8,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Аяктар", "right": "Чашки" },
+                { "left": "Столдар", "right": "Столы" }
+            ]
+        },
+        {
+            "id": "ex_pl6_10",
+            "type": "choice",
+            "order": 9,
+            "question": "Выбери перевод: 'Биче бажыңнар'",
+            "options": ["Маленький дом", "Большие дома", "Маленькие дома"],
+            "correct": "Маленькие дома"
+        }
+    ]
+}

@@ -1,0 +1,90 @@
+{
+    "type": "lesson",
+    "id": "lesson_3_116_health",
+    "chapterId": "ch_116_health",
+    "title": "Урок 3: Уши",
+    "titleTuvan": "Кичээл 3: Кулак",
+    "description": "Части тела (слух)",
+    "skill": "vocabulary",
+    "order": 4,
+    "isPublished": true,
+    "difficulty": 1,
+    "estimatedTime": 5,
+    "exercises": [
+        {
+            "id": "ex_h3_1",
+            "type": "translate",
+            "order": 0,
+            "question": "Ухо",
+            "correct": "Кулак"
+        },
+        {
+            "id": "ex_h3_2",
+            "type": "choice",
+            "order": 1,
+            "question": "Выбери 'Ухо'",
+            "options": ["Карак", "Кулак", "Баш"],
+            "correct": "Кулак"
+        },
+        {
+            "id": "ex_h3_3",
+            "type": "translate",
+            "order": 2,
+            "question": "Кулак",
+            "correct": "Ухо"
+        },
+        {
+            "id": "ex_h3_4",
+            "type": "order",
+            "order": 3,
+            "question": "Собери: 'Уши' (мн.ч.)",
+            "orderItems": ["Кулактар"],
+            "correct": ["Кулактар"]
+        },
+        {
+            "id": "ex_h3_5",
+            "type": "match",
+            "order": 4,
+            "question": "Сопоставь",
+            "matchPairs": [{ "left": "Кулак", "right": "Ухо" }]
+        },
+        {
+            "id": "ex_h3_6",
+            "type": "translate",
+            "order": 5,
+            "question": "Ухо",
+            "correct": "Кулак"
+        },
+        {
+            "id": "ex_h3_7",
+            "type": "choice",
+            "order": 6,
+            "question": "Как сказать 'Уши'?",
+            "options": ["Кулактар", "Карактар", "Холдер"],
+            "correct": "Кулактар"
+        },
+        {
+            "id": "ex_h3_8",
+            "type": "order",
+            "order": 7,
+            "question": "Собери: 'Глаза и уши'",
+            "orderItems": ["Карактар", "болгаш", "кулактар"],
+            "correct": ["Карактар", "болгаш", "кулактар"]
+        },
+        {
+            "id": "ex_h3_9",
+            "type": "choice",
+            "order": 8,
+            "question": "Выбери перевод: 'Карактар болгаш кулактар'",
+            "options": ["Глаза и уши", "Руки и ноги", "Голова и уши"],
+            "correct": "Глаза и уши"
+        },
+        {
+            "id": "ex_h3_10",
+            "type": "match",
+            "order": 9,
+            "question": "Сопоставь",
+            "matchPairs": [{ "left": "Кулактар", "right": "Уши" }]
+        }
+    ]
+}

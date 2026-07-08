@@ -1,0 +1,94 @@
+{
+    "type": "lesson",
+    "id": "lesson_8_103_food_verbs",
+    "chapterId": "ch_103_food_verbs",
+    "title": "Урок 8: Он и Они",
+    "titleTuvan": "Кичээл 8: Ол болгаш олар",
+    "description": "3-е лицо единственного и множественного числа",
+    "skill": "grammar",
+    "order": 9,
+    "isPublished": true,
+    "difficulty": 3,
+    "estimatedTime": 7,
+    "exercises": [
+        {
+            "id": "ex_f8_1",
+            "type": "order",
+            "order": 0,
+            "question": "Собери: 'Он ест'",
+            "orderItems": ["Ол", "чиип", "тур"],
+            "correct": ["Ол", "чиип", "тур"]
+        },
+        {
+            "id": "ex_f8_2",
+            "type": "order",
+            "order": 1,
+            "question": "Собери: 'Они пьют'",
+            "orderItems": ["Олар", "ижип", "турлар"],
+            "correct": ["Олар", "ижип", "турлар"]
+        },
+        {
+            "id": "ex_f8_3",
+            "type": "choice",
+            "order": 2,
+            "question": "Выбери перевод: 'Ол чиип тур'",
+            "options": ["Он ест", "Она пьет", "Они едят"],
+            "correct": "Он ест"
+        },
+        {
+            "id": "ex_f8_4",
+            "type": "choice",
+            "order": 3,
+            "question": "Выбери перевод: 'Олар ижип турлар'",
+            "options": ["Они пьют", "Он пьет", "Мы едим"],
+            "correct": "Они пьют"
+        },
+        {
+            "id": "ex_f8_5",
+            "type": "translate",
+            "order": 4,
+            "question": "Он ест",
+            "correct": "Ол чиип тур"
+        },
+        {
+            "id": "ex_f8_6",
+            "type": "translate",
+            "order": 5,
+            "question": "Они пьют",
+            "correct": "Олар ижип турлар"
+        },
+        {
+            "id": "ex_f8_7",
+            "type": "order",
+            "order": 6,
+            "question": "Собери: 'Он ест мясо'",
+            "orderItems": ["Ол", "эт", "чиип", "тур"],
+            "correct": ["Ол", "эт", "чиип", "тур"]
+        },
+        {
+            "id": "ex_f8_8",
+            "type": "order",
+            "order": 7,
+            "question": "Собери: 'Они пьют чай'",
+            "orderItems": ["Олар", "чай", "ижип", "турлар"],
+            "correct": ["Олар", "чай", "ижип", "турлар"]
+        },
+        {
+            "id": "ex_f8_9",
+            "type": "match",
+            "order": 8,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Ол чиип тур", "right": "Он ест" },
+                { "left": "Олар ижип турлар", "right": "Они пьют" }
+            ]
+        },
+        {
+            "id": "ex_f8_10",
+            "type": "translate",
+            "order": 9,
+            "question": "Ол чиип тур",
+            "correct": "Он ест"
+        }
+    ]
+}

@@ -1,0 +1,90 @@
+{
+    "type": "lesson",
+    "id": "lesson_2_114_travel",
+    "chapterId": "ch_114_travel",
+    "title": "Урок 2: Билет",
+    "titleTuvan": "Кичээл 2: Билет",
+    "description": "Покупка билета",
+    "skill": "vocabulary",
+    "order": 3,
+    "isPublished": true,
+    "difficulty": 1,
+    "estimatedTime": 5,
+    "exercises": [
+        {
+            "id": "ex_tr2_1",
+            "type": "translate",
+            "order": 0,
+            "question": "Билет",
+            "correct": "Билет"
+        },
+        {
+            "id": "ex_tr2_2",
+            "type": "choice",
+            "order": 1,
+            "question": "Выбери 'Билет'",
+            "options": ["Акша", "Билет", "Үне"],
+            "correct": "Билет"
+        },
+        {
+            "id": "ex_tr2_3",
+            "type": "translate",
+            "order": 2,
+            "question": "Билет",
+            "correct": "Билет"
+        },
+        {
+            "id": "ex_tr2_4",
+            "type": "order",
+            "order": 3,
+            "question": "Собери: 'Один билет' (Бир)",
+            "orderItems": ["Бир", "билет"],
+            "correct": ["Бир", "билет"]
+        },
+        {
+            "id": "ex_tr2_5",
+            "type": "match",
+            "order": 4,
+            "question": "Сопоставь",
+            "matchPairs": [{ "left": "Билет", "right": "Билет" }]
+        },
+        {
+            "id": "ex_tr2_6",
+            "type": "choice",
+            "order": 5,
+            "question": "Как сказать 'Один билет'?",
+            "options": ["Ийи билет", "Бир билет", "Үш билет"],
+            "correct": "Бир билет"
+        },
+        {
+            "id": "ex_tr2_7",
+            "type": "translate",
+            "order": 6,
+            "question": "Один билет",
+            "correct": "Бир билет"
+        },
+        {
+            "id": "ex_tr2_8",
+            "type": "order",
+            "order": 7,
+            "question": "Собери: 'Я куплю билет' (садып алыр - куплю)",
+            "orderItems": ["Мен", "билет", "садып", "алыр", "мен"],
+            "correct": ["Мен", "билет", "садып", "алыр", "мен"]
+        },
+        {
+            "id": "ex_tr2_9",
+            "type": "choice",
+            "order": 8,
+            "question": "Выбери перевод: 'Мен билет садып алыр мен'",
+            "options": ["Я куплю билет", "Я еду на поезде", "Я ищу билет"],
+            "correct": "Я куплю билет"
+        },
+        {
+            "id": "ex_tr2_10",
+            "type": "match",
+            "order": 9,
+            "question": "Сопоставь",
+            "matchPairs": [{ "left": "Бир билет", "right": "Один билет" }]
+        }
+    ]
+}

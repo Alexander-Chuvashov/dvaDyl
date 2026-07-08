@@ -1,0 +1,92 @@
+{
+    "type": "lesson",
+    "id": "lesson_1_117_weather_seasons",
+    "chapterId": "ch_117_weather_seasons",
+    "title": "Урок 1: Дождь и снег",
+    "titleTuvan": "Кичээл 1: Чаъс болгаш кар",
+    "description": "Осадки",
+    "skill": "vocabulary",
+    "order": 2,
+    "isPublished": true,
+    "difficulty": 1,
+    "estimatedTime": 5,
+    "exercises": [
+        {
+            "id": "ex_ws1_1",
+            "type": "translate",
+            "order": 0,
+            "question": "Дождь",
+            "correct": "Чаъс"
+        },
+        {
+            "id": "ex_ws1_2",
+            "type": "translate",
+            "order": 1,
+            "question": "Снег",
+            "correct": "Кар"
+        },
+        {
+            "id": "ex_ws1_3",
+            "type": "choice",
+            "order": 2,
+            "question": "Выбери 'Дождь'",
+            "options": ["Кар", "Чаъс", "Салык"],
+            "correct": "Чаъс"
+        },
+        {
+            "id": "ex_ws1_4",
+            "type": "choice",
+            "order": 3,
+            "question": "Выбери 'Снег'",
+            "options": ["Чаъс", "Кар", "Хүн"],
+            "correct": "Кар"
+        },
+        {
+            "id": "ex_ws1_5",
+            "type": "match",
+            "order": 4,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Чаъс", "right": "Дождь" },
+                { "left": "Кар", "right": "Снег" }
+            ]
+        },
+        {
+            "id": "ex_ws1_6",
+            "type": "translate",
+            "order": 5,
+            "question": "Чаъс",
+            "correct": "Дождь"
+        },
+        {
+            "id": "ex_ws1_7",
+            "type": "translate",
+            "order": 6,
+            "question": "Кар",
+            "correct": "Снег"
+        },
+        {
+            "id": "ex_ws1_8",
+            "type": "order",
+            "order": 7,
+            "question": "Собери: 'Идет дождь' (чаар - падать)",
+            "orderItems": ["Чаъс", "чаар"],
+            "correct": ["Чаъс", "чаар"]
+        },
+        {
+            "id": "ex_ws1_9",
+            "type": "choice",
+            "order": 8,
+            "question": "Выбери перевод: 'Кар чаар'",
+            "options": ["Идет дождь", "Идет снег", "Светит солнце"],
+            "correct": "Идет снег"
+        },
+        {
+            "id": "ex_ws1_10",
+            "type": "match",
+            "order": 9,
+            "question": "Сопоставь",
+            "matchPairs": [{ "left": "Чаъс чаар", "right": "Идет дождь" }]
+        }
+    ]
+}

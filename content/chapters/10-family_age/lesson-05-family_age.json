@@ -1,0 +1,100 @@
+{
+    "type": "lesson",
+    "id": "lesson_5_110_family_age",
+    "chapterId": "ch_110_family_age",
+    "title": "Урок 5: Моя семья",
+    "titleTuvan": "Кичээл 5: Мээң өг-бүлем",
+    "description": "Притяжательность с семьей",
+    "skill": "grammar",
+    "order": 6,
+    "isPublished": true,
+    "difficulty": 2,
+    "estimatedTime": 7,
+    "exercises": [
+        {
+            "id": "ex_fa5_1",
+            "type": "translate",
+            "order": 0,
+            "question": "Моя семья (өг-бүле)",
+            "correct": "Мээң өг-бүлем"
+        },
+        {
+            "id": "ex_fa5_2",
+            "type": "translate",
+            "order": 1,
+            "question": "Моя мама",
+            "correct": "Мээң авам"
+        },
+        {
+            "id": "ex_fa5_3",
+            "type": "choice",
+            "order": 2,
+            "question": "Выбери 'Мой папа'",
+            "options": ["Мээң адам", "Сээң адаң", "Ооң адаазы"],
+            "correct": "Мээң адам"
+        },
+        {
+            "id": "ex_fa5_4",
+            "type": "order",
+            "order": 3,
+            "question": "Собери: 'Моя сестра' (угбай)",
+            "orderItems": ["угбам", "Мээң"],
+            "correct": ["Мээң", "угбам"]
+        },
+        {
+            "id": "ex_fa5_5",
+            "type": "match",
+            "order": 4,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Мээң өг-бүлем", "right": "Моя семья" },
+                { "left": "Мээң авам", "right": "Моя мама" }
+            ]
+        },
+        {
+            "id": "ex_fa5_6",
+            "type": "translate",
+            "order": 5,
+            "question": "Мээң акым",
+            "correct": "Мой брат"
+        },
+        {
+            "id": "ex_fa5_7",
+            "type": "choice",
+            "order": 6,
+            "question": "Как сказать 'Моя бабушка'?",
+            "options": [
+                "Мээң кырган-авам",
+                "Мээң кырган-адам",
+                "Сээң кырган-аваң"
+            ],
+            "correct": "Мээң кырган-авам"
+        },
+        {
+            "id": "ex_fa5_8",
+            "type": "order",
+            "order": 7,
+            "question": "Собери: 'Это моя семья'",
+            "orderItems": ["Бо", "мээң", "өг-бүлем"],
+            "correct": ["Бо", "мээң", "өг-бүлем"]
+        },
+        {
+            "id": "ex_fa5_9",
+            "type": "choice",
+            "order": 8,
+            "question": "Выбери перевод: 'Бо мээң адам'",
+            "options": ["Это мой папа", "Это твоя мама", "Это моя семья"],
+            "correct": "Это мой папа"
+        },
+        {
+            "id": "ex_fa5_10",
+            "type": "match",
+            "order": 9,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Мээң акым", "right": "Мой брат" },
+                { "left": "Мээң угбам", "right": "Моя сестра" }
+            ]
+        }
+    ]
+}

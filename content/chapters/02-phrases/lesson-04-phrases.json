@@ -1,0 +1,93 @@
+{
+    "type": "lesson",
+    "id": "lesson_4_102_phrases",
+    "chapterId": "ch_102_phrases",
+    "title": "Урок 4: Спасибо",
+    "titleTuvan": "Кичээл 4: Байырлыы",
+    "description": "Благодарность",
+    "skill": "phrases",
+    "order": 5,
+    "isPublished": true,
+    "difficulty": 1,
+    "estimatedTime": 5,
+    "exercises": [
+        {
+            "id": "ex_p4_1",
+            "type": "translate",
+            "order": 0,
+            "question": "Спасибо",
+            "correct": "Байырлыы"
+        },
+        {
+            "id": "ex_p4_2",
+            "type": "choice",
+            "order": 1,
+            "question": "Как сказать 'Спасибо'?",
+            "options": ["Байырлыы", "Кудум", "Эки"],
+            "correct": "Байырлыы"
+        },
+        {
+            "id": "ex_p4_3",
+            "type": "translate",
+            "order": 2,
+            "question": "Байырлыы",
+            "correct": "Спасибо"
+        },
+        {
+            "id": "ex_p4_4",
+            "type": "order",
+            "order": 3,
+            "question": "Собери: 'Да, спасибо'",
+            "orderItems": ["Ийе,", "байырлыы"],
+            "correct": ["Ийе,", "байырлыы"]
+        },
+        {
+            "id": "ex_p4_5",
+            "type": "match",
+            "order": 4,
+            "question": "Сопоставь",
+            "matchPairs": [{ "left": "Байырлыы", "right": "Спасибо" }]
+        },
+        {
+            "id": "ex_p4_6",
+            "type": "choice",
+            "order": 5,
+            "question": "Что означает 'Байырлыы'?",
+            "options": ["Извини", "Спасибо", "Здравствуйте"],
+            "correct": "Спасибо"
+        },
+        {
+            "id": "ex_p4_7",
+            "type": "translate",
+            "order": 6,
+            "question": "Большое спасибо (улуг - большой)",
+            "correct": "Улуг байырлыы"
+        },
+        {
+            "id": "ex_p4_8",
+            "type": "order",
+            "order": 7,
+            "question": "Собери: 'Большое спасибо'",
+            "orderItems": ["улуг", "Байырлыы"],
+            "correct": ["улуг", "Байырлыы"]
+        },
+        {
+            "id": "ex_p4_9",
+            "type": "choice",
+            "order": 8,
+            "question": "Выбери перевод: 'Улуг байырлыы'",
+            "options": ["Простите", "Большое спасибо", "Добрый день"],
+            "correct": "Большое спасибо"
+        },
+        {
+            "id": "ex_p4_10",
+            "type": "match",
+            "order": 9,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Улуг байырлыы", "right": "Большое спасибо" },
+                { "left": "Байырлыы", "right": "Спасибо" }
+            ]
+        }
+    ]
+}

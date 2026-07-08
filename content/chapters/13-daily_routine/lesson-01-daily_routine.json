@@ -1,0 +1,95 @@
+{
+    "type": "lesson",
+    "id": "lesson_1_113_daily_routine",
+    "chapterId": "ch_113_daily_routine",
+    "title": "Урок 1: Вставать и умываться",
+    "titleTuvan": "Кичээл 1: Турар болгаш чуур",
+    "description": "Утренние процедуры",
+    "skill": "vocabulary",
+    "order": 2,
+    "isPublished": true,
+    "difficulty": 1,
+    "estimatedTime": 5,
+    "exercises": [
+        {
+            "id": "ex_dr1_1",
+            "type": "translate",
+            "order": 0,
+            "question": "Вставать",
+            "correct": "Турар"
+        },
+        {
+            "id": "ex_dr1_2",
+            "type": "translate",
+            "order": 1,
+            "question": "Умываться",
+            "correct": "Чуур"
+        },
+        {
+            "id": "ex_dr1_3",
+            "type": "choice",
+            "order": 2,
+            "question": "Выбери 'Вставать'",
+            "options": ["Чуур", "Турар", "Амыраар"],
+            "correct": "Турар"
+        },
+        {
+            "id": "ex_dr1_4",
+            "type": "choice",
+            "order": 3,
+            "question": "Выбери 'Умываться'",
+            "options": ["Ажылдаар", "Чуур", "Өөренир"],
+            "correct": "Чуур"
+        },
+        {
+            "id": "ex_dr1_5",
+            "type": "match",
+            "order": 4,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Турар", "right": "Вставать" },
+                { "left": "Чуур", "right": "Умываться" }
+            ]
+        },
+        {
+            "id": "ex_dr1_6",
+            "type": "translate",
+            "order": 5,
+            "question": "Турар",
+            "correct": "Вставать"
+        },
+        {
+            "id": "ex_dr1_7",
+            "type": "translate",
+            "order": 6,
+            "question": "Чуур",
+            "correct": "Умываться"
+        },
+        {
+            "id": "ex_dr1_8",
+            "type": "order",
+            "order": 7,
+            "question": "Собери: 'Я встаю' (настоящее время)",
+            "orderItems": ["тур", "Мен", "мен"],
+            "correct": ["Мен", "тур", "мен"]
+        },
+        {
+            "id": "ex_dr1_9",
+            "type": "choice",
+            "order": 8,
+            "question": "Выбери перевод: 'Мен чуур мен'",
+            "options": ["Я умываюсь", "Я встаю", "Я работаю"],
+            "correct": "Я умываюсь"
+        },
+        {
+            "id": "ex_dr1_10",
+            "type": "match",
+            "order": 9,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Мен турар мен", "right": "Я встаю" },
+                { "left": "Мен чуур мен", "right": "Я умываюсь" }
+            ]
+        }
+    ]
+}

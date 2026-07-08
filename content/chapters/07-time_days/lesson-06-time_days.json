@@ -1,0 +1,96 @@
+{
+    "type": "lesson",
+    "id": "lesson_6_107_time_days",
+    "chapterId": "ch_107_time_days",
+    "title": "Урок 6: Вечер",
+    "titleTuvan": "Кичээл 6: Кежээ",
+    "description": "Слово Кежээ",
+    "skill": "vocabulary",
+    "order": 7,
+    "isPublished": true,
+    "difficulty": 2,
+    "estimatedTime": 7,
+    "exercises": [
+        {
+            "id": "ex_t6_1",
+            "type": "translate",
+            "order": 0,
+            "question": "Вечер",
+            "correct": "Кежээ"
+        },
+        {
+            "id": "ex_t6_2",
+            "type": "choice",
+            "order": 1,
+            "question": "Выбери 'Вечер'",
+            "options": ["Кежээ", "Эртен", "Хүн"],
+            "correct": "Кежээ"
+        },
+        {
+            "id": "ex_t6_3",
+            "type": "translate",
+            "order": 2,
+            "question": "Кежээ",
+            "correct": "Вечер"
+        },
+        {
+            "id": "ex_t6_4",
+            "type": "order",
+            "order": 3,
+            "question": "Собери: 'Добрый вечер'",
+            "orderItems": ["экии", "Кежээлиги"],
+            "correct": ["Кежээлиги", "экии"]
+        },
+        {
+            "id": "ex_t6_5",
+            "type": "match",
+            "order": 4,
+            "question": "Сопоставь",
+            "matchPairs": [{ "left": "Кежээ", "right": "Вечер" }]
+        },
+        {
+            "id": "ex_t6_6",
+            "type": "choice",
+            "order": 5,
+            "question": "Как сказать 'Добрый вечер'?",
+            "options": ["Эртенги экии", "Кежээлиги экии", "Хүннүң экии"],
+            "correct": "Кежээлиги экии"
+        },
+        {
+            "id": "ex_t6_7",
+            "type": "translate",
+            "order": 6,
+            "question": "Добрый вечер",
+            "correct": "Кежээлиги экии"
+        },
+        {
+            "id": "ex_t6_8",
+            "type": "order",
+            "order": 7,
+            "question": "Собери: 'Я пью вечером'",
+            "orderItems": ["Мен", "кежээ", "суг", "ижип", "тур", "мен"],
+            "correct": ["Мен", "кежээ", "суг", "ижип", "тур", "мен"]
+        },
+        {
+            "id": "ex_t6_9",
+            "type": "choice",
+            "order": 8,
+            "question": "Выбери перевод: 'Мен кежээ чай ижип тур мен'",
+            "options": [
+                "Я пью чай вечером",
+                "Я ем хлеб днем",
+                "Я пью воду утром"
+            ],
+            "correct": "Я пью чай вечером"
+        },
+        {
+            "id": "ex_t6_10",
+            "type": "match",
+            "order": 9,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Кежээлиги экии", "right": "Добрый вечер" }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,92 @@
+{
+    "type": "lesson",
+    "id": "lesson_1_116_health",
+    "chapterId": "ch_116_health",
+    "title": "Урок 1: Голова и руки",
+    "titleTuvan": "Кичээл 1: Баш болгаш хол",
+    "description": "Части тела (верх)",
+    "skill": "vocabulary",
+    "order": 2,
+    "isPublished": true,
+    "difficulty": 1,
+    "estimatedTime": 5,
+    "exercises": [
+        {
+            "id": "ex_h1_1",
+            "type": "translate",
+            "order": 0,
+            "question": "Голова",
+            "correct": "Баш"
+        },
+        {
+            "id": "ex_h1_2",
+            "type": "translate",
+            "order": 1,
+            "question": "Рука",
+            "correct": "Хол"
+        },
+        {
+            "id": "ex_h1_3",
+            "type": "choice",
+            "order": 2,
+            "question": "Выбери 'Голова'",
+            "options": ["Хол", "Баш", "Будук"],
+            "correct": "Баш"
+        },
+        {
+            "id": "ex_h1_4",
+            "type": "choice",
+            "order": 3,
+            "question": "Выбери 'Рука'",
+            "options": ["Баш", "Хол", "Кулак"],
+            "correct": "Хол"
+        },
+        {
+            "id": "ex_h1_5",
+            "type": "match",
+            "order": 4,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Баш", "right": "Голова" },
+                { "left": "Хол", "right": "Рука" }
+            ]
+        },
+        {
+            "id": "ex_h1_6",
+            "type": "translate",
+            "order": 5,
+            "question": "Баш",
+            "correct": "Голова"
+        },
+        {
+            "id": "ex_h1_7",
+            "type": "translate",
+            "order": 6,
+            "question": "Хол",
+            "correct": "Рука"
+        },
+        {
+            "id": "ex_h1_8",
+            "type": "order",
+            "order": 7,
+            "question": "Собери: 'Голова и руки'",
+            "orderItems": ["Баш", "болгаш", "холдер"],
+            "correct": ["Баш", "болгаш", "холдер"]
+        },
+        {
+            "id": "ex_h1_9",
+            "type": "choice",
+            "order": 8,
+            "question": "Что такое 'Хол'?",
+            "options": ["Голова", "Рука", "Нога"],
+            "correct": "Рука"
+        },
+        {
+            "id": "ex_h1_10",
+            "type": "match",
+            "order": 9,
+            "question": "Сопоставь",
+            "matchPairs": [{ "left": "Хол", "right": "Рука" }]
+        }
+    ]
+}

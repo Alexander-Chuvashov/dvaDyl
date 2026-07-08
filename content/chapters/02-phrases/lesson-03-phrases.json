@@ -1,0 +1,93 @@
+{
+    "type": "lesson",
+    "id": "lesson_3_102_phrases",
+    "chapterId": "ch_102_phrases",
+    "title": "Урок 3: До свидания",
+    "titleTuvan": "Кичээл 3: Бараалдажыр",
+    "description": "Прощание",
+    "skill": "phrases",
+    "order": 4,
+    "isPublished": true,
+    "difficulty": 1,
+    "estimatedTime": 5,
+    "exercises": [
+        {
+            "id": "ex_p3_1",
+            "type": "translate",
+            "order": 0,
+            "question": "До свидания",
+            "correct": "Бараалдажыр"
+        },
+        {
+            "id": "ex_p3_2",
+            "type": "choice",
+            "order": 1,
+            "question": "Как сказать 'До свидания'?",
+            "options": ["Бараалдажыр", "Экии", "Кудум"],
+            "correct": "Бараалдажыр"
+        },
+        {
+            "id": "ex_p3_3",
+            "type": "translate",
+            "order": 2,
+            "question": "Бараалдажыр",
+            "correct": "До свидания"
+        },
+        {
+            "id": "ex_p3_4",
+            "type": "order",
+            "order": 3,
+            "question": "Собери: 'До свидания, я ухожу' (бар - ухожу)",
+            "orderItems": ["Бараалдажыр,", "мен", "бар", "мен"],
+            "correct": ["Бараалдажыр,", "мен", "бар", "мен"]
+        },
+        {
+            "id": "ex_p3_5",
+            "type": "match",
+            "order": 4,
+            "question": "Сопоставь",
+            "matchPairs": [{ "left": "Бараалдажыр", "right": "До свидания" }]
+        },
+        {
+            "id": "ex_p3_6",
+            "type": "choice",
+            "order": 5,
+            "question": "Что означает 'Бараалдажыр'?",
+            "options": ["Спасибо", "Извини", "До свидания"],
+            "correct": "До свидания"
+        },
+        {
+            "id": "ex_p3_7",
+            "type": "translate",
+            "order": 6,
+            "question": "Прощай",
+            "correct": "Бараалдажыр"
+        },
+        {
+            "id": "ex_p3_8",
+            "type": "order",
+            "order": 7,
+            "question": "Собери: 'Привет и до свидания'",
+            "orderItems": ["Экии", "болгаш", "бараалдажыр"],
+            "correct": ["Экии", "болгаш", "бараалдажыр"]
+        },
+        {
+            "id": "ex_p3_9",
+            "type": "choice",
+            "order": 8,
+            "question": "Выбери 'Бараалдажыр'",
+            "options": ["До свидания", "Здравствуйте", "Извините"],
+            "correct": "До свидания"
+        },
+        {
+            "id": "ex_p3_10",
+            "type": "match",
+            "order": 9,
+            "question": "Сопоставь фразы",
+            "matchPairs": [
+                { "left": "Экии", "right": "Привет" },
+                { "left": "Бараалдажыр", "right": "Прощай" }
+            ]
+        }
+    ]
+}

@@ -13,7 +13,7 @@ import AchievementsPage from './pages/AchievementsPage';
 import SettingsPage from './pages/SettingsPage';
 import StatsPage from './pages/StatsPage';
 import LessonPage from './pages/LessonPage';
-import PageTransition from './components/UI/PageTransiton';
+import PageTransition from './components/UI/PageTransition';
 import RepeatErrorsPage from './pages/RepeatErrorPage';
 import { TranslationService } from './services/TranslationService';
 

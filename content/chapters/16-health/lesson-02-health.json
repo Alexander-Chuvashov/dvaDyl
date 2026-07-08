@@ -1,0 +1,92 @@
+{
+    "type": "lesson",
+    "id": "lesson_2_116_health",
+    "chapterId": "ch_116_health",
+    "title": "Урок 2: Ноги и глаза",
+    "titleTuvan": "Кичээл 2: Будук болгаш карак",
+    "description": "Части тела (низ и зрение)",
+    "skill": "vocabulary",
+    "order": 3,
+    "isPublished": true,
+    "difficulty": 1,
+    "estimatedTime": 5,
+    "exercises": [
+        {
+            "id": "ex_h2_1",
+            "type": "translate",
+            "order": 0,
+            "question": "Нога",
+            "correct": "Будук"
+        },
+        {
+            "id": "ex_h2_2",
+            "type": "translate",
+            "order": 1,
+            "question": "Глаз",
+            "correct": "Карак"
+        },
+        {
+            "id": "ex_h2_3",
+            "type": "choice",
+            "order": 2,
+            "question": "Выбери 'Нога'",
+            "options": ["Карак", "Будук", "Хол"],
+            "correct": "Будук"
+        },
+        {
+            "id": "ex_h2_4",
+            "type": "choice",
+            "order": 3,
+            "question": "Выбери 'Глаз'",
+            "options": ["Кулак", "Баш", "Карак"],
+            "correct": "Карак"
+        },
+        {
+            "id": "ex_h2_5",
+            "type": "match",
+            "order": 4,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Будук", "right": "Нога" },
+                { "left": "Карак", "right": "Глаз" }
+            ]
+        },
+        {
+            "id": "ex_h2_6",
+            "type": "translate",
+            "order": 5,
+            "question": "Будук",
+            "correct": "Нога"
+        },
+        {
+            "id": "ex_h2_7",
+            "type": "translate",
+            "order": 6,
+            "question": "Карак",
+            "correct": "Глаз"
+        },
+        {
+            "id": "ex_h2_8",
+            "type": "order",
+            "order": 7,
+            "question": "Собери: 'Глаза и ноги' (мн.ч.)",
+            "orderItems": ["Карактар", "болгаш", "будуктар"],
+            "correct": ["Карактар", "болгаш", "будуктар"]
+        },
+        {
+            "id": "ex_h2_9",
+            "type": "choice",
+            "order": 8,
+            "question": "Что такое 'Карак'?",
+            "options": ["Нога", "Глаз", "Ухо"],
+            "correct": "Глаз"
+        },
+        {
+            "id": "ex_h2_10",
+            "type": "match",
+            "order": 9,
+            "question": "Сопоставь",
+            "matchPairs": [{ "left": "Карак", "right": "Глаз" }]
+        }
+    ]
+}

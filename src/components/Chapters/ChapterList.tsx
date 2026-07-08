@@ -65,12 +65,31 @@ const ChapterList: React.FC = () => {
     return (
         <div className="max-w-4xl p-6 mx-auto">
             <AnimatedWrapper animation="slideUp">
-                <h1 className="mb-2 text-3xl font-bold text-dark">
-                    📚 Уроки тувинского
-                </h1>
-                <p className="mb-6 text-dark/70">
-                    Выбери уровень и начни изучение
-                </p>
+                <div className="p-8 mb-8 border bg-surface rounded-2xl shadow-card border-cream">
+                    <h1 className="text-4xl font-bold text-dark">
+                        🌍 Добро пожаловать в дваДЫЛ!
+                    </h1>
+                    <p className="mt-2 text-lg text-dark/70">
+                        Изучай тувинский язык с увлекательными уроками,
+                        геймификацией и системой повторений.
+                    </p>
+                    <div className="flex gap-4 mt-4 text-sm text-dark/50">
+                        <span>📚 {allChapters.length} глав</span>
+                        <span>•</span>
+                        <span>
+                            📖{' '}
+                            {allChapters.reduce(
+                                (acc, ch) =>
+                                    acc +
+                                    (ch.lessons?.filter(
+                                        l => l.type === 'lesson',
+                                    ).length || 0),
+                                0,
+                            )}{' '}
+                            уроков
+                        </span>
+                    </div>
+                </div>
             </AnimatedWrapper>
 
             <LevelTabs

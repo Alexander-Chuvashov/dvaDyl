@@ -1,0 +1,95 @@
+{
+    "type": "lesson",
+    "id": "lesson_1_103_food_verbs",
+    "chapterId": "ch_103_food_verbs",
+    "title": "Урок 1: Хлеб и Вода",
+    "titleTuvan": "Кичээл 1: Нан болгаш суг",
+    "description": "Базовые продукты",
+    "skill": "vocabulary",
+    "order": 2,
+    "isPublished": true,
+    "difficulty": 1,
+    "estimatedTime": 5,
+    "exercises": [
+        {
+            "id": "ex_f1_1",
+            "type": "translate",
+            "order": 0,
+            "question": "Хлеб",
+            "correct": "Нан"
+        },
+        {
+            "id": "ex_f1_2",
+            "type": "translate",
+            "order": 1,
+            "question": "Вода",
+            "correct": "Суг"
+        },
+        {
+            "id": "ex_f1_3",
+            "type": "choice",
+            "order": 2,
+            "question": "Выбери 'Хлеб'",
+            "options": ["Суг", "Нан", "Эт"],
+            "correct": "Нан"
+        },
+        {
+            "id": "ex_f1_4",
+            "type": "choice",
+            "order": 3,
+            "question": "Выбери 'Вода'",
+            "options": ["Суг", "Чай", "Сүт"],
+            "correct": "Суг"
+        },
+        {
+            "id": "ex_f1_5",
+            "type": "match",
+            "order": 4,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Нан", "right": "Хлеб" },
+                { "left": "Суг", "right": "Вода" }
+            ]
+        },
+        {
+            "id": "ex_f1_6",
+            "type": "translate",
+            "order": 5,
+            "question": "Нан",
+            "correct": "Хлеб"
+        },
+        {
+            "id": "ex_f1_7",
+            "type": "translate",
+            "order": 6,
+            "question": "Суг",
+            "correct": "Вода"
+        },
+        {
+            "id": "ex_f1_8",
+            "type": "order",
+            "order": 7,
+            "question": "Собери: 'Хлеб и вода' (болгаш - и)",
+            "orderItems": ["Нан", "болгаш", "суг"],
+            "correct": ["Нан", "болгаш", "суг"]
+        },
+        {
+            "id": "ex_f1_9",
+            "type": "choice",
+            "order": 8,
+            "question": "Что такое 'Нан'?",
+            "options": ["Вода", "Хлеб", "Мясо"],
+            "correct": "Хлеб"
+        },
+        {
+            "id": "ex_f1_10",
+            "type": "match",
+            "order": 9,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Вода", "right": "Суг" },
+                { "left": "Хлеб", "right": "Нан" }
+            ]
+        }
+    ]
+}

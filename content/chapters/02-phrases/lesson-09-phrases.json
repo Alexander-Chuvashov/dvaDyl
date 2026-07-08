@@ -1,0 +1,95 @@
+{
+    "type": "lesson",
+    "id": "lesson_9_102_phrases",
+    "chapterId": "ch_102_phrases",
+    "title": "Урок 9: Время суток",
+    "titleTuvan": "Кичээл 9: Хүннүң үелери",
+    "description": "Приветствия по времени",
+    "skill": "phrases",
+    "order": 10,
+    "isPublished": true,
+    "difficulty": 2,
+    "estimatedTime": 7,
+    "exercises": [
+        {
+            "id": "ex_p9_1",
+            "type": "translate",
+            "order": 0,
+            "question": "Утро",
+            "correct": "Эртен"
+        },
+        {
+            "id": "ex_p9_2",
+            "type": "translate",
+            "order": 1,
+            "question": "Доброе утро (Эртенги экии)",
+            "correct": "Эртенги экии"
+        },
+        {
+            "id": "ex_p9_3",
+            "type": "choice",
+            "order": 2,
+            "question": "Как сказать 'Добрый вечер' (Кежээлиги экии)?",
+            "options": ["Эртенги экии", "Кежээлиги экии", "Соңгу экии"],
+            "correct": "Кежээлиги экии"
+        },
+        {
+            "id": "ex_p9_4",
+            "type": "order",
+            "order": 3,
+            "question": "Собери: 'Доброе утро'",
+            "orderItems": ["экии", "Эртенги"],
+            "correct": ["Эртенги", "экии"]
+        },
+        {
+            "id": "ex_p9_5",
+            "type": "match",
+            "order": 4,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Эртенги экии", "right": "Доброе утро" },
+                { "left": "Кежээлиги экии", "right": "Добрый вечер" }
+            ]
+        },
+        {
+            "id": "ex_p9_6",
+            "type": "translate",
+            "order": 5,
+            "question": "Эртенги экии",
+            "correct": "Доброе утро"
+        },
+        {
+            "id": "ex_p9_7",
+            "type": "choice",
+            "order": 6,
+            "question": "Выбери перевод: 'Кежээлиги экии'",
+            "options": ["Доброе утро", "Добрый вечер", "Спокойной ночи"],
+            "correct": "Добрый вечер"
+        },
+        {
+            "id": "ex_p9_8",
+            "type": "order",
+            "order": 7,
+            "question": "Собери: 'Добрый вечер'",
+            "orderItems": ["экии", "Кежээлиги"],
+            "correct": ["Кежээлиги", "экии"]
+        },
+        {
+            "id": "ex_p9_9",
+            "type": "translate",
+            "order": 8,
+            "question": "Кежээлиги экии",
+            "correct": "Добрый вечер"
+        },
+        {
+            "id": "ex_p9_10",
+            "type": "match",
+            "order": 9,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Эртен", "right": "Утро" },
+                { "left": "Кежээ", "right": "Вечер" }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,92 @@
+{
+    "type": "lesson",
+    "id": "lesson_2_115_shopping",
+    "chapterId": "ch_115_shopping",
+    "title": "Урок 2: Деньги и цена",
+    "titleTuvan": "Кичээл 2: Акша болгаш үне",
+    "description": "Основные финансовые термины",
+    "skill": "vocabulary",
+    "order": 3,
+    "isPublished": true,
+    "difficulty": 1,
+    "estimatedTime": 5,
+    "exercises": [
+        {
+            "id": "ex_sh2_1",
+            "type": "translate",
+            "order": 0,
+            "question": "Деньги",
+            "correct": "Акша"
+        },
+        {
+            "id": "ex_sh2_2",
+            "type": "translate",
+            "order": 1,
+            "question": "Цена",
+            "correct": "Үне"
+        },
+        {
+            "id": "ex_sh2_3",
+            "type": "choice",
+            "order": 2,
+            "question": "Выбери 'Деньги'",
+            "options": ["Үне", "Акша", "Доозал"],
+            "correct": "Акша"
+        },
+        {
+            "id": "ex_sh2_4",
+            "type": "choice",
+            "order": 3,
+            "question": "Выбери 'Цена'",
+            "options": ["Акша", "Үне", "Хемчээл"],
+            "correct": "Үне"
+        },
+        {
+            "id": "ex_sh2_5",
+            "type": "match",
+            "order": 4,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Акша", "right": "Деньги" },
+                { "left": "Үне", "right": "Цена" }
+            ]
+        },
+        {
+            "id": "ex_sh2_6",
+            "type": "translate",
+            "order": 5,
+            "question": "Акша",
+            "correct": "Деньги"
+        },
+        {
+            "id": "ex_sh2_7",
+            "type": "translate",
+            "order": 6,
+            "question": "Үне",
+            "correct": "Цена"
+        },
+        {
+            "id": "ex_sh2_8",
+            "type": "order",
+            "order": 7,
+            "question": "Собери: 'Сколько стоит?' (Үнези хире?)",
+            "orderItems": ["хире?", "Үнези"],
+            "correct": ["Үнези", "хире?"]
+        },
+        {
+            "id": "ex_sh2_9",
+            "type": "choice",
+            "order": 8,
+            "question": "Выбери перевод: 'Үнези хире?'",
+            "options": ["Где магазин?", "Сколько стоит?", "Какой размер?"],
+            "correct": "Сколько стоит?"
+        },
+        {
+            "id": "ex_sh2_10",
+            "type": "match",
+            "order": 9,
+            "question": "Сопоставь",
+            "matchPairs": [{ "left": "Үнези хире?", "right": "Сколько стоит?" }]
+        }
+    ]
+}

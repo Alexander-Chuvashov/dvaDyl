@@ -18,9 +18,9 @@ const ProgressBar: React.FC<Props> = ({ current, total, correctCount }) => {
                     {correctCount} / {total} верно
                 </span>
             </div>
-            <div className="w-full h-3 rounded-full bg-cream">
+            <div className="w-full h-3 overflow-hidden rounded-full shadow-inner bg-cream">
                 <div
-                    className="h-3 transition-all duration-300 rounded-full bg-olive"
+                    className="h-full transition-all duration-700 ease-out rounded-full bg-gradient-to-r from-terracotta/70 to-olive"
                     style={{ width: `${percentage}%` }}
                 />
             </div>

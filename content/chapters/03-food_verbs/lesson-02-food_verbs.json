@@ -1,0 +1,95 @@
+{
+    "type": "lesson",
+    "id": "lesson_2_103_food_verbs",
+    "chapterId": "ch_103_food_verbs",
+    "title": "Урок 2: Мясо и Молоко",
+    "titleTuvan": "Кичээл 2: Эт болгаш сүт",
+    "description": "Основные продукты",
+    "skill": "vocabulary",
+    "order": 3,
+    "isPublished": true,
+    "difficulty": 1,
+    "estimatedTime": 5,
+    "exercises": [
+        {
+            "id": "ex_f2_1",
+            "type": "translate",
+            "order": 0,
+            "question": "Мясо",
+            "correct": "Эт"
+        },
+        {
+            "id": "ex_f2_2",
+            "type": "translate",
+            "order": 1,
+            "question": "Молоко",
+            "correct": "Сүт"
+        },
+        {
+            "id": "ex_f2_3",
+            "type": "choice",
+            "order": 2,
+            "question": "Выбери 'Мясо'",
+            "options": ["Сүт", "Эт", "Нан"],
+            "correct": "Эт"
+        },
+        {
+            "id": "ex_f2_4",
+            "type": "choice",
+            "order": 3,
+            "question": "Выбери 'Молоко'",
+            "options": ["Суг", "Чай", "Сүт"],
+            "correct": "Сүт"
+        },
+        {
+            "id": "ex_f2_5",
+            "type": "match",
+            "order": 4,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Эт", "right": "Мясо" },
+                { "left": "Сүт", "right": "Молоко" }
+            ]
+        },
+        {
+            "id": "ex_f2_6",
+            "type": "translate",
+            "order": 5,
+            "question": "Эт",
+            "correct": "Мясо"
+        },
+        {
+            "id": "ex_f2_7",
+            "type": "translate",
+            "order": 6,
+            "question": "Сүт",
+            "correct": "Молоко"
+        },
+        {
+            "id": "ex_f2_8",
+            "type": "order",
+            "order": 7,
+            "question": "Собери: 'Мясо и молоко'",
+            "orderItems": ["Эт", "болгаш", "сүт"],
+            "correct": ["Эт", "болгаш", "сүт"]
+        },
+        {
+            "id": "ex_f2_9",
+            "type": "choice",
+            "order": 8,
+            "question": "Что такое 'Сүт'?",
+            "options": ["Чай", "Молоко", "Вода"],
+            "correct": "Молоко"
+        },
+        {
+            "id": "ex_f2_10",
+            "type": "match",
+            "order": 9,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Молоко", "right": "Сүт" },
+                { "left": "Мясо", "right": "Эт" }
+            ]
+        }
+    ]
+}

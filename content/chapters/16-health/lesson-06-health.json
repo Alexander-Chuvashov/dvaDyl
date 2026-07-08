@@ -1,0 +1,94 @@
+{
+    "type": "lesson",
+    "id": "lesson_6_116_health",
+    "chapterId": "ch_116_health",
+    "title": "Урок 6: Аптека",
+    "titleTuvan": "Кичээл 6: Эм аптеказы",
+    "description": "Покупка лекарств",
+    "skill": "vocabulary",
+    "order": 7,
+    "isPublished": true,
+    "difficulty": 2,
+    "estimatedTime": 7,
+    "exercises": [
+        {
+            "id": "ex_h6_1",
+            "type": "translate",
+            "order": 0,
+            "question": "Аптека",
+            "correct": "Эм аптеказы"
+        },
+        {
+            "id": "ex_h6_2",
+            "type": "choice",
+            "order": 1,
+            "question": "Выбери 'Аптека'",
+            "options": ["Эмнелге", "Эм аптеказы", "Эмчи"],
+            "correct": "Эм аптеказы"
+        },
+        {
+            "id": "ex_h6_3",
+            "type": "translate",
+            "order": 2,
+            "question": "Эм аптеказы",
+            "correct": "Аптека"
+        },
+        {
+            "id": "ex_h6_4",
+            "type": "order",
+            "order": 3,
+            "question": "Собери: 'Я иду в аптеку'",
+            "orderItems": ["Мен", "эм аптекаже", "бар", "мен"],
+            "correct": ["Мен", "эм аптекаже", "бар", "мен"]
+        },
+        {
+            "id": "ex_h6_5",
+            "type": "match",
+            "order": 4,
+            "question": "Сопоставь",
+            "matchPairs": [{ "left": "Эм аптеказы", "right": "Аптека" }]
+        },
+        {
+            "id": "ex_h6_6",
+            "type": "choice",
+            "order": 5,
+            "question": "Как сказать 'Я иду в аптеку'?",
+            "options": [
+                "Мен эмнелгеге баар мен",
+                "Мен эм аптекаже баар мен",
+                "Мен эмчиге баар мен"
+            ],
+            "correct": "Мен эм аптекаже баар мен"
+        },
+        {
+            "id": "ex_h6_7",
+            "type": "translate",
+            "order": 6,
+            "question": "Я иду в аптеку",
+            "correct": "Мен эм аптекаже баар мен"
+        },
+        {
+            "id": "ex_h6_8",
+            "type": "order",
+            "order": 7,
+            "question": "Собери: 'Дайте лекарство' (эм - лекарство)",
+            "orderItems": ["Эм", "бээр", "сил,", "бе"],
+            "correct": ["Эм", "бээр", "сил,", "бе"]
+        },
+        {
+            "id": "ex_h6_9",
+            "type": "choice",
+            "order": 8,
+            "question": "Выбери перевод: 'Эм бээр сил, бе'",
+            "options": ["Дайте воду", "Дайте лекарство", "Дайте хлеб"],
+            "correct": "Дайте лекарство"
+        },
+        {
+            "id": "ex_h6_10",
+            "type": "match",
+            "order": 9,
+            "question": "Сопоставь",
+            "matchPairs": [{ "left": "Эм", "right": "Лекарство" }]
+        }
+    ]
+}

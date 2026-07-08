@@ -1,0 +1,92 @@
+{
+    "type": "lesson",
+    "id": "lesson_2_117_weather_seasons",
+    "chapterId": "ch_117_weather_seasons",
+    "title": "Урок 2: Ветер и солнце",
+    "titleTuvan": "Кичээл 2: Салык болгаш хүн",
+    "description": "Погодные явления",
+    "skill": "vocabulary",
+    "order": 3,
+    "isPublished": true,
+    "difficulty": 1,
+    "estimatedTime": 5,
+    "exercises": [
+        {
+            "id": "ex_ws2_1",
+            "type": "translate",
+            "order": 0,
+            "question": "Ветер",
+            "correct": "Салык"
+        },
+        {
+            "id": "ex_ws2_2",
+            "type": "translate",
+            "order": 1,
+            "question": "Солнце",
+            "correct": "Хүн"
+        },
+        {
+            "id": "ex_ws2_3",
+            "type": "choice",
+            "order": 2,
+            "question": "Выбери 'Ветер'",
+            "options": ["Хүн", "Салык", "Кар"],
+            "correct": "Салык"
+        },
+        {
+            "id": "ex_ws2_4",
+            "type": "choice",
+            "order": 3,
+            "question": "Выбери 'Солнце'",
+            "options": ["Салык", "Хүн", "Чаъс"],
+            "correct": "Хүн"
+        },
+        {
+            "id": "ex_ws2_5",
+            "type": "match",
+            "order": 4,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Салык", "right": "Ветер" },
+                { "left": "Хүн", "right": "Солнце" }
+            ]
+        },
+        {
+            "id": "ex_ws2_6",
+            "type": "translate",
+            "order": 5,
+            "question": "Салык",
+            "correct": "Ветер"
+        },
+        {
+            "id": "ex_ws2_7",
+            "type": "translate",
+            "order": 6,
+            "question": "Хүн",
+            "correct": "Солнце"
+        },
+        {
+            "id": "ex_ws2_8",
+            "type": "order",
+            "order": 7,
+            "question": "Собери: 'Светит солнце' (үнүп тур - светить/всходить)",
+            "orderItems": ["Хүн", "үнүп", "тур"],
+            "correct": ["Хүн", "үнүп", "тур"]
+        },
+        {
+            "id": "ex_ws2_9",
+            "type": "choice",
+            "order": 8,
+            "question": "Выбери перевод: 'Хүн үнүп тур'",
+            "options": ["Дует ветер", "Светит солнце", "Идет дождь"],
+            "correct": "Светит солнце"
+        },
+        {
+            "id": "ex_ws2_10",
+            "type": "match",
+            "order": 9,
+            "question": "Сопоставь",
+            "matchPairs": [{ "left": "Хүн үнүп тур", "right": "Светит солнце" }]
+        }
+    ]
+}

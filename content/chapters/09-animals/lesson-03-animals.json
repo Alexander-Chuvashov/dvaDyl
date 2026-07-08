@@ -1,0 +1,95 @@
+{
+    "type": "lesson",
+    "id": "lesson_3_109_animals",
+    "chapterId": "ch_109_animals",
+    "title": "Урок 3: Овца и коза",
+    "titleTuvan": "Кичээл 3: Хой болгаш эшки",
+    "description": "Мелкий рогатый скот",
+    "skill": "vocabulary",
+    "order": 4,
+    "isPublished": true,
+    "difficulty": 1,
+    "estimatedTime": 5,
+    "exercises": [
+        {
+            "id": "ex_an3_1",
+            "type": "translate",
+            "order": 0,
+            "question": "Овца",
+            "correct": "Хой"
+        },
+        {
+            "id": "ex_an3_2",
+            "type": "translate",
+            "order": 1,
+            "question": "Коза",
+            "correct": "Эшки"
+        },
+        {
+            "id": "ex_an3_3",
+            "type": "choice",
+            "order": 2,
+            "question": "Выбери 'Овца'",
+            "options": ["Эшки", "Хой", "Инек"],
+            "correct": "Хой"
+        },
+        {
+            "id": "ex_an3_4",
+            "type": "choice",
+            "order": 3,
+            "question": "Выбери 'Коза'",
+            "options": ["Хой", "Эшки", "Аът"],
+            "correct": "Эшки"
+        },
+        {
+            "id": "ex_an3_5",
+            "type": "match",
+            "order": 4,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Хой", "right": "Овца" },
+                { "left": "Эшки", "right": "Коза" }
+            ]
+        },
+        {
+            "id": "ex_an3_6",
+            "type": "translate",
+            "order": 5,
+            "question": "Хой",
+            "correct": "Овца"
+        },
+        {
+            "id": "ex_an3_7",
+            "type": "translate",
+            "order": 6,
+            "question": "Эшки",
+            "correct": "Коза"
+        },
+        {
+            "id": "ex_an3_8",
+            "type": "order",
+            "order": 7,
+            "question": "Собери: 'Белая овца'",
+            "orderItems": ["хой", "Ак"],
+            "correct": ["Ак", "хой"]
+        },
+        {
+            "id": "ex_an3_9",
+            "type": "choice",
+            "order": 8,
+            "question": "Выбери перевод: 'Кара эшки'",
+            "options": ["Белая овца", "Черная коза", "Черная собака"],
+            "correct": "Черная коза"
+        },
+        {
+            "id": "ex_an3_10",
+            "type": "match",
+            "order": 9,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Ак хой", "right": "Белая овца" },
+                { "left": "Кара эшки", "right": "Черная коза" }
+            ]
+        }
+    ]
+}

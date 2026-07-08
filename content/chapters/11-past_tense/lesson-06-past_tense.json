@@ -1,0 +1,90 @@
+{
+    "type": "lesson",
+    "id": "lesson_6_111_past_tense",
+    "chapterId": "ch_111_past_tense",
+    "title": "Урок 6: Они ушли",
+    "titleTuvan": "Кичээл 6: Олар бардылар",
+    "description": "3-е лицо множественного числа",
+    "skill": "grammar",
+    "order": 7,
+    "isPublished": true,
+    "difficulty": 2,
+    "estimatedTime": 7,
+    "exercises": [
+        {
+            "id": "ex_pt6_1",
+            "type": "translate",
+            "order": 0,
+            "question": "Они ушли",
+            "correct": "Олар бардылар"
+        },
+        {
+            "id": "ex_pt6_2",
+            "type": "choice",
+            "order": 1,
+            "question": "Выбери 'Они ушли'",
+            "options": ["Олар бардылар", "Ол барды", "Бис бардық"],
+            "correct": "Олар бардылар"
+        },
+        {
+            "id": "ex_pt6_3",
+            "type": "order",
+            "order": 2,
+            "question": "Собери: 'Они ушли'",
+            "orderItems": ["бардылар", "Олар"],
+            "correct": ["Олар", "бардылар"]
+        },
+        {
+            "id": "ex_pt6_4",
+            "type": "translate",
+            "order": 3,
+            "question": "Олар бардылар",
+            "correct": "Они ушли"
+        },
+        {
+            "id": "ex_pt6_5",
+            "type": "match",
+            "order": 4,
+            "question": "Сопоставь",
+            "matchPairs": [{ "left": "Олар бардылар", "right": "Они ушли" }]
+        },
+        {
+            "id": "ex_pt6_6",
+            "type": "choice",
+            "order": 5,
+            "question": "Как сказать 'Они ели'?",
+            "options": ["Олар чиидилер", "Олар чиип турлар", "Олар чиирлар"],
+            "correct": "Олар чиидилер"
+        },
+        {
+            "id": "ex_pt6_7",
+            "type": "translate",
+            "order": 6,
+            "question": "Они ели",
+            "correct": "Олар чиидилер"
+        },
+        {
+            "id": "ex_pt6_8",
+            "type": "order",
+            "order": 7,
+            "question": "Собери: 'Они ели'",
+            "orderItems": ["чиидилер", "Олар"],
+            "correct": ["Олар", "чиидилер"]
+        },
+        {
+            "id": "ex_pt6_9",
+            "type": "choice",
+            "order": 8,
+            "question": "Выбери перевод: 'Олар чиидилер'",
+            "options": ["Они едят", "Они ели", "Они будут есть"],
+            "correct": "Они ели"
+        },
+        {
+            "id": "ex_pt6_10",
+            "type": "match",
+            "order": 9,
+            "question": "Сопоставь",
+            "matchPairs": [{ "left": "Олар чиидилер", "right": "Они ели" }]
+        }
+    ]
+}

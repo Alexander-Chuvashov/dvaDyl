@@ -2,8 +2,9 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import { loadAllChapters } from '../services/ContentService';
-import type { Lesson } from '../types/content';
+import type { Lesson, Theory } from '../types/content';
 import LessonView from '../components/Lessons/LessonView';
+import TheoryView from '../components/Chapters/TheoryView';
 import Skeleton from '../components/UI/Skeleton';
 import Breadcrumbs from '../components/UI/Breadcrumbs';
 import { useAppStore } from '../store/useAppStore';
@@ -14,12 +15,14 @@ const LessonPage: React.FC = () => {
     const location = useLocation();
     const { completedLessonIds } = useAppStore();
     const [lesson, setLesson] = useState<Lesson | null>(null);
+    const [theories, setTheories] = useState<Theory[]>([]);
     const [chapterTitle, setChapterTitle] = useState<string>(
         location.state?.chapterTitle || 'Глава',
     );
     const [nextLessonId, setNextLessonId] = useState<string | null>(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
+    const [showTheory, setShowTheory] = useState(false);
 
     useEffect(() => {
         loadAllChapters()
@@ -29,10 +32,18 @@ const LessonPage: React.FC = () => {
                     setError('Глава не найдена');
                     return;
                 }
-                // Сохраняем название главы для хлебных крошек, если не передано через state
                 if (!location.state?.chapterTitle) {
                     setChapterTitle(chapter.title);
                 }
+
+                // Извлекаем теорию из главы
+                const theoryItems =
+                    (chapter.lessons?.filter(
+                        item => item.type === 'theory',
+                    ) as Theory[]) || [];
+                setTheories(theoryItems);
+
+                // Извлекаем уроки и находим текущий
                 const allLessons =
                     (chapter.lessons?.filter(
                         item => item.type === 'lesson',
@@ -93,7 +104,22 @@ const LessonPage: React.FC = () => {
                     { label: lesson.title },
                 ]}
             />
+
+            {/* Кнопка теории и заголовок */}
+            <div className="flex items-center justify-between mb-4">
+                <h1 className="text-2xl font-bold text-dark">{lesson.title}</h1>
+                {theories.length > 0 && (
+                    <button
+                        onClick={() => setShowTheory(true)}
+                        className="flex items-center gap-2 btn-secondary"
+                    >
+                        📖 Теория
+                    </button>
+                )}
+            </div>
+
             <LessonView lesson={lesson} onComplete={handleComplete} />
+
             <div className="mt-4 text-center">
                 <button
                     onClick={() => navigate(`/chapter/${chapterId}`)}
@@ -102,6 +128,34 @@ const LessonPage: React.FC = () => {
                     ← Вернуться к списку уроков
                 </button>
             </div>
+
+            {/* Модальное окно с теорией */}
+            {showTheory && (
+                <div
+                    className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50"
+                    onClick={() => setShowTheory(false)}
+                >
+                    <div
+                        className="bg-surface rounded-xl shadow-2xl max-w-3xl w-full max-h-[80vh] overflow-y-auto p-6 relative"
+                        onClick={e => e.stopPropagation()}
+                    >
+                        <button
+                            onClick={() => setShowTheory(false)}
+                            className="absolute text-2xl top-4 right-4 text-dark/60 hover:text-dark"
+                        >
+                            ✕
+                        </button>
+                        <h2 className="mb-4 text-2xl font-bold text-dark">
+                            📖 Теория
+                        </h2>
+                        <div className="space-y-6">
+                            {theories.map(theory => (
+                                <TheoryView key={theory.id} theory={theory} />
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     );
 };

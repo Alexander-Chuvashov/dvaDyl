@@ -1,0 +1,100 @@
+{
+    "type": "lesson",
+    "id": "lesson_9_110_family_age",
+    "chapterId": "ch_110_family_age",
+    "title": "Урок 9: Возраст",
+    "titleTuvan": "Кичээл 9: Назын",
+    "description": "Вопросы о возрасте",
+    "skill": "vocabulary",
+    "order": 10,
+    "isPublished": true,
+    "difficulty": 3,
+    "estimatedTime": 7,
+    "exercises": [
+        {
+            "id": "ex_fa9_1",
+            "type": "translate",
+            "order": 0,
+            "question": "Возраст",
+            "correct": "Назын"
+        },
+        {
+            "id": "ex_fa9_2",
+            "type": "translate",
+            "order": 1,
+            "question": "Сколько (возраст)",
+            "correct": "Хире"
+        },
+        {
+            "id": "ex_fa9_3",
+            "type": "choice",
+            "order": 2,
+            "question": "Выбери 'Возраст'",
+            "options": ["Хире", "Назын", "Үе"],
+            "correct": "Назын"
+        },
+        {
+            "id": "ex_fa9_4",
+            "type": "order",
+            "order": 3,
+            "question": "Собери: 'Сколько лет?' (досл: Возраст сколько?)",
+            "orderItems": ["хире?", "Назын"],
+            "correct": ["Назын", "хире?"]
+        },
+        {
+            "id": "ex_fa9_5",
+            "type": "match",
+            "order": 4,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Назын", "right": "Возраст" },
+                { "left": "Хире", "right": "Сколько" }
+            ]
+        },
+        {
+            "id": "ex_fa9_6",
+            "type": "translate",
+            "order": 5,
+            "question": "Назын",
+            "correct": "Возраст"
+        },
+        {
+            "id": "ex_fa9_7",
+            "type": "choice",
+            "order": 6,
+            "question": "Как спросить 'Сколько тебе лет?' (досл: Твой возраст сколько?)",
+            "options": [
+                "Сээң назың хире?",
+                "Кажан сээң назың?",
+                "Кым сээң назың?"
+            ],
+            "correct": "Сээң назың хире?"
+        },
+        {
+            "id": "ex_fa9_8",
+            "type": "order",
+            "order": 7,
+            "question": "Собери: 'Сколько тебе лет?'",
+            "orderItems": ["хире?", "Сээң", "назың"],
+            "correct": ["Сээң", "назың", "хире?"]
+        },
+        {
+            "id": "ex_fa9_9",
+            "type": "choice",
+            "order": 8,
+            "question": "Выбери перевод: 'Мээң назыым хире?'",
+            "options": ["Кто ты?", "Сколько мне лет?", "Сколько тебе лет?"],
+            "correct": "Сколько мне лет?"
+        },
+        {
+            "id": "ex_fa9_10",
+            "type": "match",
+            "order": 9,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Сээң назың хире?", "right": "Сколько тебе лет?" },
+                { "left": "Назын", "right": "Возраст" }
+            ]
+        }
+    ]
+}

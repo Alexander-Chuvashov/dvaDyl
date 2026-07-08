@@ -1,0 +1,95 @@
+{
+    "type": "lesson",
+    "id": "lesson_1_109_animals",
+    "chapterId": "ch_109_animals",
+    "title": "Урок 1: Собака и кошка",
+    "titleTuvan": "Кичээл 1: Ыт болгаш кош",
+    "description": "Базовые домашние животные",
+    "skill": "vocabulary",
+    "order": 2,
+    "isPublished": true,
+    "difficulty": 1,
+    "estimatedTime": 5,
+    "exercises": [
+        {
+            "id": "ex_an1_1",
+            "type": "translate",
+            "order": 0,
+            "question": "Собака",
+            "correct": "Ыт"
+        },
+        {
+            "id": "ex_an1_2",
+            "type": "translate",
+            "order": 1,
+            "question": "Кошка",
+            "correct": "Кош"
+        },
+        {
+            "id": "ex_an1_3",
+            "type": "choice",
+            "order": 2,
+            "question": "Выбери 'Собака'",
+            "options": ["Кош", "Ыт", "Аът"],
+            "correct": "Ыт"
+        },
+        {
+            "id": "ex_an1_4",
+            "type": "choice",
+            "order": 3,
+            "question": "Выбери 'Кошка'",
+            "options": ["Инек", "Кош", "Бөрү"],
+            "correct": "Кош"
+        },
+        {
+            "id": "ex_an1_5",
+            "type": "match",
+            "order": 4,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Ыт", "right": "Собака" },
+                { "left": "Кош", "right": "Кошка" }
+            ]
+        },
+        {
+            "id": "ex_an1_6",
+            "type": "translate",
+            "order": 5,
+            "question": "Ыт",
+            "correct": "Собака"
+        },
+        {
+            "id": "ex_an1_7",
+            "type": "translate",
+            "order": 6,
+            "question": "Кош",
+            "correct": "Кошка"
+        },
+        {
+            "id": "ex_an1_8",
+            "type": "order",
+            "order": 7,
+            "question": "Собери: 'Черная собака'",
+            "orderItems": ["Ыт", "Кара"],
+            "correct": ["Кара", "ыт"]
+        },
+        {
+            "id": "ex_an1_9",
+            "type": "choice",
+            "order": 8,
+            "question": "Выбери перевод: 'Ак кош'",
+            "options": ["Белая кошка", "Черная собака", "Белая лошадь"],
+            "correct": "Белая кошка"
+        },
+        {
+            "id": "ex_an1_10",
+            "type": "match",
+            "order": 9,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Кара ыт", "right": "Черная собака" },
+                { "left": "Ак кош", "right": "Белая кошка" }
+            ]
+        }
+    ]
+}

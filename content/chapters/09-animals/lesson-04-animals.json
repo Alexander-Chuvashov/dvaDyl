@@ -1,0 +1,95 @@
+{
+    "type": "lesson",
+    "id": "lesson_4_109_animals",
+    "chapterId": "ch_109_animals",
+    "title": "Урок 4: Медведь и волк",
+    "titleTuvan": "Кичээл 4: Адыг болгаш бөрү",
+    "description": "Дикие хищники",
+    "skill": "vocabulary",
+    "order": 5,
+    "isPublished": true,
+    "difficulty": 2,
+    "estimatedTime": 7,
+    "exercises": [
+        {
+            "id": "ex_an4_1",
+            "type": "translate",
+            "order": 0,
+            "question": "Медведь",
+            "correct": "Адыг"
+        },
+        {
+            "id": "ex_an4_2",
+            "type": "translate",
+            "order": 1,
+            "question": "Волк",
+            "correct": "Бөрү"
+        },
+        {
+            "id": "ex_an4_3",
+            "type": "choice",
+            "order": 2,
+            "question": "Выбери 'Медведь'",
+            "options": ["Бөрү", "Адыг", "Тулгу"],
+            "correct": "Адыг"
+        },
+        {
+            "id": "ex_an4_4",
+            "type": "choice",
+            "order": 3,
+            "question": "Выбери 'Волк'",
+            "options": ["Адыг", "Бөрү", "Бугу"],
+            "correct": "Бөрү"
+        },
+        {
+            "id": "ex_an4_5",
+            "type": "match",
+            "order": 4,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Адыг", "right": "Медведь" },
+                { "left": "Бөрү", "right": "Волк" }
+            ]
+        },
+        {
+            "id": "ex_an4_6",
+            "type": "translate",
+            "order": 5,
+            "question": "Адыг",
+            "correct": "Медведь"
+        },
+        {
+            "id": "ex_an4_7",
+            "type": "translate",
+            "order": 6,
+            "question": "Бөрү",
+            "correct": "Волк"
+        },
+        {
+            "id": "ex_an4_8",
+            "type": "order",
+            "order": 7,
+            "question": "Собери: 'Большой медведь'",
+            "orderItems": ["адыг", "Улуг"],
+            "correct": ["Улуг", "адыг"]
+        },
+        {
+            "id": "ex_an4_9",
+            "type": "choice",
+            "order": 8,
+            "question": "Выбери перевод: 'Кара бөрү'",
+            "options": ["Большой медведь", "Черный волк", "Белая лиса"],
+            "correct": "Черный волк"
+        },
+        {
+            "id": "ex_an4_10",
+            "type": "match",
+            "order": 9,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Улуг адыг", "right": "Большой медведь" },
+                { "left": "Кара бөрү", "right": "Черный волк" }
+            ]
+        }
+    ]
+}

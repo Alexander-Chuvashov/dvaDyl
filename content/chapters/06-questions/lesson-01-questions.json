@@ -1,0 +1,93 @@
+{
+    "type": "lesson",
+    "id": "lesson_1_106_questions",
+    "chapterId": "ch_106_questions",
+    "title": "Урок 1: Кто?",
+    "titleTuvan": "Кичээл 1: Кым?",
+    "description": "Вопросительное слово Кым",
+    "skill": "grammar",
+    "order": 2,
+    "isPublished": true,
+    "difficulty": 1,
+    "estimatedTime": 5,
+    "exercises": [
+        {
+            "id": "ex_q1_1",
+            "type": "translate",
+            "order": 0,
+            "question": "Кто",
+            "correct": "Кым"
+        },
+        {
+            "id": "ex_q1_2",
+            "type": "choice",
+            "order": 1,
+            "question": "Выбери 'Кто'",
+            "options": ["Чүү", "Кым", "Кажан"],
+            "correct": "Кым"
+        },
+        {
+            "id": "ex_q1_3",
+            "type": "translate",
+            "order": 2,
+            "question": "Кым",
+            "correct": "Кто"
+        },
+        {
+            "id": "ex_q1_4",
+            "type": "order",
+            "order": 3,
+            "question": "Собери: 'Кто это?'",
+            "orderItems": ["бо?", "Кым"],
+            "correct": ["Кым", "бо?"]
+        },
+        {
+            "id": "ex_q1_5",
+            "type": "match",
+            "order": 4,
+            "question": "Сопоставь",
+            "matchPairs": [{ "left": "Кым", "right": "Кто" }]
+        },
+        {
+            "id": "ex_q1_6",
+            "type": "choice",
+            "order": 5,
+            "question": "Как спросить 'Кто это?'",
+            "options": ["Чүү бо?", "Кым бо?", "Кайыан бо?"],
+            "correct": "Кым бо?"
+        },
+        {
+            "id": "ex_q1_7",
+            "type": "translate",
+            "order": 6,
+            "question": "Кто это?",
+            "correct": "Кым бо?"
+        },
+        {
+            "id": "ex_q1_8",
+            "type": "order",
+            "order": 7,
+            "question": "Собери: 'Кто ты?'",
+            "orderItems": ["сен?", "Кым", "сен"],
+            "correct": ["Кым", "сен", "сен?"]
+        },
+        {
+            "id": "ex_q1_9",
+            "type": "choice",
+            "order": 8,
+            "question": "Выбери перевод: 'Кым сен?'",
+            "options": ["Что это?", "Кто ты?", "Где ты?"],
+            "correct": "Кто ты?"
+        },
+        {
+            "id": "ex_q1_10",
+            "type": "match",
+            "order": 9,
+            "question": "Сопоставь вопросы",
+            "matchPairs": [
+                { "left": "Кым бо?", "right": "Кто это?" },
+                { "left": "Кым сен?", "right": "Кто ты?" }
+            ]
+        }
+    ]
+}

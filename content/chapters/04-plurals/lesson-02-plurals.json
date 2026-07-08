@@ -1,0 +1,95 @@
+{
+    "type": "lesson",
+    "id": "lesson_2_104_plurals",
+    "chapterId": "ch_104_plurals",
+    "title": "Урок 2: Мальчики и девочки",
+    "titleTuvan": "Кичээл 2: Оолдар болгаш кыстар",
+    "description": "Мн.ч. слов оол и кыс",
+    "skill": "grammar",
+    "order": 3,
+    "isPublished": true,
+    "difficulty": 1,
+    "estimatedTime": 5,
+    "exercises": [
+        {
+            "id": "ex_pl2_1",
+            "type": "translate",
+            "order": 0,
+            "question": "Мальчики",
+            "correct": "Оолдар"
+        },
+        {
+            "id": "ex_pl2_2",
+            "type": "translate",
+            "order": 1,
+            "question": "Девочки",
+            "correct": "Кыстар"
+        },
+        {
+            "id": "ex_pl2_3",
+            "type": "choice",
+            "order": 2,
+            "question": "Выбери 'Мальчики'",
+            "options": ["Оол", "Оолдар", "Кыстар"],
+            "correct": "Оолдар"
+        },
+        {
+            "id": "ex_pl2_4",
+            "type": "choice",
+            "order": 3,
+            "question": "Выбери 'Девочки'",
+            "options": ["Кыс", "Кыстар", "Оолдар"],
+            "correct": "Кыстар"
+        },
+        {
+            "id": "ex_pl2_5",
+            "type": "order",
+            "order": 4,
+            "question": "Собери: 'Они мальчики'",
+            "orderItems": ["Олар", "оолдар"],
+            "correct": ["Олар", "оолдар"]
+        },
+        {
+            "id": "ex_pl2_6",
+            "type": "order",
+            "order": 5,
+            "question": "Собери: 'Вы девочки'",
+            "orderItems": ["Силер", "кыстар", "силер"],
+            "correct": ["Силер", "кыстар", "силер"]
+        },
+        {
+            "id": "ex_pl2_7",
+            "type": "match",
+            "order": 6,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Оол", "right": "Мальчик" },
+                { "left": "Оолдар", "right": "Мальчики" }
+            ]
+        },
+        {
+            "id": "ex_pl2_8",
+            "type": "translate",
+            "order": 7,
+            "question": "Оолдар",
+            "correct": "Мальчики"
+        },
+        {
+            "id": "ex_pl2_9",
+            "type": "translate",
+            "order": 8,
+            "question": "Кыстар",
+            "correct": "Девочки"
+        },
+        {
+            "id": "ex_pl2_10",
+            "type": "match",
+            "order": 9,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Кыс", "right": "Девочка" },
+                { "left": "Кыстар", "right": "Девочки" }
+            ]
+        }
+    ]
+}

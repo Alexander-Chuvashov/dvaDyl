@@ -1,0 +1,94 @@
+{
+    "type": "lesson",
+    "id": "lesson_1_107_time_days",
+    "chapterId": "ch_107_time_days",
+    "title": "Урок 1: Сегодня",
+    "titleTuvan": "Кичээл 1: Бүгү",
+    "description": "Слово Бүгү",
+    "skill": "vocabulary",
+    "order": 2,
+    "isPublished": true,
+    "difficulty": 1,
+    "estimatedTime": 5,
+    "exercises": [
+        {
+            "id": "ex_t1_1",
+            "type": "translate",
+            "order": 0,
+            "question": "Сегодня",
+            "correct": "Бүгү"
+        },
+        {
+            "id": "ex_t1_2",
+            "type": "choice",
+            "order": 1,
+            "question": "Выбери 'Сегодня'",
+            "options": ["Эртен", "Бүгү", "Дүъш"],
+            "correct": "Бүгү"
+        },
+        {
+            "id": "ex_t1_3",
+            "type": "translate",
+            "order": 2,
+            "question": "Бүгү",
+            "correct": "Сегодня"
+        },
+        {
+            "id": "ex_t1_4",
+            "type": "order",
+            "order": 3,
+            "question": "Собери: 'Сегодня я ем'",
+            "orderItems": ["Бүгү", "мен", "чиип", "тур", "мен"],
+            "correct": ["Бүгү", "мен", "чиип", "тур", "мен"]
+        },
+        {
+            "id": "ex_t1_5",
+            "type": "match",
+            "order": 4,
+            "question": "Сопоставь",
+            "matchPairs": [{ "left": "Бүгү", "right": "Сегодня" }]
+        },
+        {
+            "id": "ex_t1_6",
+            "type": "choice",
+            "order": 5,
+            "question": "Как сказать 'Сегодня'?",
+            "options": ["Эртен", "Дүъш", "Бүгү"],
+            "correct": "Бүгү"
+        },
+        {
+            "id": "ex_t1_7",
+            "type": "translate",
+            "order": 6,
+            "question": "Сегодня я пью чай",
+            "correct": "Бүгү мен чай ижип тур мен"
+        },
+        {
+            "id": "ex_t1_8",
+            "type": "order",
+            "order": 7,
+            "question": "Собери: 'Сегодня ты ешь хлеб'",
+            "orderItems": ["Бүгү", "сен", "нан", "чиип", "тур", "сен"],
+            "correct": ["Бүгү", "сен", "нан", "чиип", "тур", "сен"]
+        },
+        {
+            "id": "ex_t1_9",
+            "type": "choice",
+            "order": 8,
+            "question": "Выбери перевод: 'Бүгү мен суг ижип тур мен'",
+            "options": [
+                "Сегодня я пью воду",
+                "Завтра я ем хлеб",
+                "Вчера ты пил чай"
+            ],
+            "correct": "Сегодня я пью воду"
+        },
+        {
+            "id": "ex_t1_10",
+            "type": "match",
+            "order": 9,
+            "question": "Сопоставь",
+            "matchPairs": [{ "left": "Бүгү", "right": "Сегодня" }]
+        }
+    ]
+}

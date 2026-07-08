@@ -1,0 +1,95 @@
+{
+    "type": "lesson",
+    "id": "lesson_2_110_family_age",
+    "chapterId": "ch_110_family_age",
+    "title": "Урок 2: Брат и сестра",
+    "titleTuvan": "Кичээл 2: Акы болгаш угбай",
+    "description": "Братья и сестры",
+    "skill": "vocabulary",
+    "order": 3,
+    "isPublished": true,
+    "difficulty": 1,
+    "estimatedTime": 5,
+    "exercises": [
+        {
+            "id": "ex_fa2_1",
+            "type": "translate",
+            "order": 0,
+            "question": "Старший брат",
+            "correct": "Акы"
+        },
+        {
+            "id": "ex_fa2_2",
+            "type": "translate",
+            "order": 1,
+            "question": "Старшая сестра",
+            "correct": "Угбай"
+        },
+        {
+            "id": "ex_fa2_3",
+            "type": "choice",
+            "order": 2,
+            "question": "Выбери 'Старший брат'",
+            "options": ["Угбай", "Акы", "Ийи"],
+            "correct": "Акы"
+        },
+        {
+            "id": "ex_fa2_4",
+            "type": "choice",
+            "order": 3,
+            "question": "Выбери 'Старшая сестра'",
+            "options": ["Акы", "Угбай", "Ава"],
+            "correct": "Угбай"
+        },
+        {
+            "id": "ex_fa2_5",
+            "type": "match",
+            "order": 4,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Акы", "right": "Старший брат" },
+                { "left": "Угбай", "right": "Старшая сестра" }
+            ]
+        },
+        {
+            "id": "ex_fa2_6",
+            "type": "translate",
+            "order": 5,
+            "question": "Акы",
+            "correct": "Старший брат"
+        },
+        {
+            "id": "ex_fa2_7",
+            "type": "translate",
+            "order": 6,
+            "question": "Угбай",
+            "correct": "Старшая сестра"
+        },
+        {
+            "id": "ex_fa2_8",
+            "type": "order",
+            "order": 7,
+            "question": "Собери: 'Мой брат'",
+            "orderItems": ["акым", "Мээң"],
+            "correct": ["Мээң", "акым"]
+        },
+        {
+            "id": "ex_fa2_9",
+            "type": "choice",
+            "order": 8,
+            "question": "Выбери перевод: 'Сээң угбаң'",
+            "options": ["Мой брат", "Твоя сестра", "Ее сестра"],
+            "correct": "Твоя сестра"
+        },
+        {
+            "id": "ex_fa2_10",
+            "type": "match",
+            "order": 9,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Мээң акым", "right": "Мой брат" },
+                { "left": "Сээң угбаң", "right": "Твоя сестра" }
+            ]
+        }
+    ]
+}

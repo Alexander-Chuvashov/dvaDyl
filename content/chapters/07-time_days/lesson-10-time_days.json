@@ -1,0 +1,105 @@
+{
+    "type": "lesson",
+    "id": "lesson_10_107_time_days",
+    "chapterId": "ch_107_time_days",
+    "title": "Урок 10: Повторение",
+    "titleTuvan": "Кичээл 10: Катаптаа",
+    "description": "Закрепление материала юнита 7",
+    "skill": "review",
+    "order": 11,
+    "isPublished": true,
+    "difficulty": 3,
+    "estimatedTime": 10,
+    "exercises": [
+        {
+            "id": "ex_t10_1",
+            "type": "order",
+            "order": 0,
+            "question": "Собери: 'Сегодня я пью чай'",
+            "orderItems": ["Бүгү", "мен", "чай", "ижип", "тур", "мен"],
+            "correct": ["Бүгү", "мен", "чай", "ижип", "тур", "мен"]
+        },
+        {
+            "id": "ex_t10_2",
+            "type": "choice",
+            "order": 1,
+            "question": "Выбери перевод: 'Эртен мен эт чиир мен'",
+            "options": [
+                "Завтра я буду есть мясо",
+                "Сегодня я ем хлеб",
+                "Вчера я ел мясо"
+            ],
+            "correct": "Завтра я буду есть мясо"
+        },
+        {
+            "id": "ex_t10_3",
+            "type": "match",
+            "order": 2,
+            "question": "Сопоставь слова",
+            "matchPairs": [
+                { "left": "Бүгү", "right": "Сегодня" },
+                { "left": "Эртен", "right": "Завтра" },
+                { "left": "Дүъш", "right": "Вчера" }
+            ]
+        },
+        {
+            "id": "ex_t10_4",
+            "type": "translate",
+            "order": 3,
+            "question": "Утро",
+            "correct": "Эртен"
+        },
+        {
+            "id": "ex_t10_5",
+            "type": "translate",
+            "order": 4,
+            "question": "Вечер",
+            "correct": "Кежээ"
+        },
+        {
+            "id": "ex_t10_6",
+            "type": "order",
+            "order": 5,
+            "question": "Собери: 'Доброе утро'",
+            "orderItems": ["экии", "Эртенги"],
+            "correct": ["Эртенги", "экии"]
+        },
+        {
+            "id": "ex_t10_7",
+            "type": "choice",
+            "order": 6,
+            "question": "Как сказать 'Спокойной ночи'?",
+            "options": ["Соңгу экии", "Кежээлиги экии", "Хүннүң экии"],
+            "correct": "Соңгу экии"
+        },
+        {
+            "id": "ex_t10_8",
+            "type": "match",
+            "order": 7,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Хүн", "right": "День" },
+                { "left": "Соңгу", "right": "Ночь" }
+            ]
+        },
+        {
+            "id": "ex_t10_9",
+            "type": "translate",
+            "order": 8,
+            "question": "Когда",
+            "correct": "Кажан"
+        },
+        {
+            "id": "ex_t10_10",
+            "type": "choice",
+            "order": 9,
+            "question": "Выбери правильный перевод: 'Дүъш мен суг ижедим'",
+            "options": [
+                "Вчера я пил воду",
+                "Завтра я буду пить чай",
+                "Сегодня я пью воду"
+            ],
+            "correct": "Вчера я пил воду"
+        }
+    ]
+}

@@ -1,0 +1,94 @@
+{
+    "type": "lesson",
+    "id": "lesson_3_113_daily_routine",
+    "chapterId": "ch_113_daily_routine",
+    "title": "Урок 3: Ужин и сон",
+    "titleTuvan": "Кичээл 3: Кежээки чем болгаш узар",
+    "description": "Вечерние действия",
+    "skill": "vocabulary",
+    "order": 4,
+    "isPublished": true,
+    "difficulty": 1,
+    "estimatedTime": 5,
+    "exercises": [
+        {
+            "id": "ex_dr3_1",
+            "type": "translate",
+            "order": 0,
+            "question": "Ужин",
+            "correct": "Кежээки чем"
+        },
+        {
+            "id": "ex_dr3_2",
+            "type": "translate",
+            "order": 1,
+            "question": "Спать (узар)",
+            "correct": "Узар"
+        },
+        {
+            "id": "ex_dr3_3",
+            "type": "choice",
+            "order": 2,
+            "question": "Выбери 'Ужин'",
+            "options": ["Кежээки чем", "Эртенги чем", "Хүн ортузунда чем"],
+            "correct": "Кежээки чем"
+        },
+        {
+            "id": "ex_dr3_4",
+            "type": "choice",
+            "order": 3,
+            "question": "Выбери 'Спать'",
+            "options": ["Амыраар", "Узар", "Турар"],
+            "correct": "Узар"
+        },
+        {
+            "id": "ex_dr3_5",
+            "type": "match",
+            "order": 4,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Кежээки чем", "right": "Ужин" },
+                { "left": "Узар", "right": "Спать" }
+            ]
+        },
+        {
+            "id": "ex_dr3_6",
+            "type": "translate",
+            "order": 5,
+            "question": "Кежээки чем",
+            "correct": "Ужин"
+        },
+        {
+            "id": "ex_dr3_7",
+            "type": "translate",
+            "order": 6,
+            "question": "Узар",
+            "correct": "Спать"
+        },
+        {
+            "id": "ex_dr3_8",
+            "type": "order",
+            "order": 7,
+            "question": "Собери: 'Я ужинаю'",
+            "orderItems": ["чем", "Мен", "кежээки", "чиип", "тур", "мен"],
+            "correct": ["Мен", "кежээки", "чем", "чиип", "тур", "мен"]
+        },
+        {
+            "id": "ex_dr3_9",
+            "type": "choice",
+            "order": 8,
+            "question": "Выбери перевод: 'Мен узап тур мен'",
+            "options": ["Я отдыхаю", "Я сплю", "Я встаю"],
+            "correct": "Я сплю"
+        },
+        {
+            "id": "ex_dr3_10",
+            "type": "match",
+            "order": 9,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Мен кежээки чем чиип тур мен", "right": "Я ужинаю" }
+            ]
+        }
+    ]
+}

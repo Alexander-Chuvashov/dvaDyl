@@ -1,0 +1,90 @@
+{
+    "type": "lesson",
+    "id": "lesson_3_111_past_tense",
+    "chapterId": "ch_111_past_tense",
+    "title": "Урок 3: Он ушел",
+    "titleTuvan": "Кичээл 3: Ол барды",
+    "description": "3-е лицо единственного числа",
+    "skill": "grammar",
+    "order": 4,
+    "isPublished": true,
+    "difficulty": 1,
+    "estimatedTime": 5,
+    "exercises": [
+        {
+            "id": "ex_pt3_1",
+            "type": "translate",
+            "order": 0,
+            "question": "Он ушел",
+            "correct": "Ол барды"
+        },
+        {
+            "id": "ex_pt3_2",
+            "type": "choice",
+            "order": 1,
+            "question": "Выбери 'Он ушел'",
+            "options": ["Ол барды", "Ол баар", "Ол бар"],
+            "correct": "Ол барды"
+        },
+        {
+            "id": "ex_pt3_3",
+            "type": "order",
+            "order": 2,
+            "question": "Собери: 'Он ушел'",
+            "orderItems": ["барды", "Ол"],
+            "correct": ["Ол", "барды"]
+        },
+        {
+            "id": "ex_pt3_4",
+            "type": "translate",
+            "order": 3,
+            "question": "Ол барды",
+            "correct": "Он ушел"
+        },
+        {
+            "id": "ex_pt3_5",
+            "type": "match",
+            "order": 4,
+            "question": "Сопоставь",
+            "matchPairs": [{ "left": "Ол барды", "right": "Он ушел" }]
+        },
+        {
+            "id": "ex_pt3_6",
+            "type": "choice",
+            "order": 5,
+            "question": "Как сказать 'Он ел'?",
+            "options": ["Ол чииди", "Ол чиип тур", "Ол чиир"],
+            "correct": "Ол чииди"
+        },
+        {
+            "id": "ex_pt3_7",
+            "type": "translate",
+            "order": 6,
+            "question": "Он ел",
+            "correct": "Ол чииди"
+        },
+        {
+            "id": "ex_pt3_8",
+            "type": "order",
+            "order": 7,
+            "question": "Собери: 'Он ел'",
+            "orderItems": ["чииди", "Ол"],
+            "correct": ["Ол", "чииди"]
+        },
+        {
+            "id": "ex_pt3_9",
+            "type": "choice",
+            "order": 8,
+            "question": "Выбери перевод: 'Ол чииди'",
+            "options": ["Он ест", "Он ел", "Он будет есть"],
+            "correct": "Он ел"
+        },
+        {
+            "id": "ex_pt3_10",
+            "type": "match",
+            "order": 9,
+            "question": "Сопоставь",
+            "matchPairs": [{ "left": "Ол чииди", "right": "Он ел" }]
+        }
+    ]
+}

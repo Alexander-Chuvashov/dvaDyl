@@ -1,0 +1,92 @@
+{
+    "type": "lesson",
+    "id": "lesson_7_102_phrases",
+    "chapterId": "ch_102_phrases",
+    "title": "Урок 7: Как дела?",
+    "titleTuvan": "Кичээл 7: Кандыг-дир сен?",
+    "description": "Вопрос о делах",
+    "skill": "phrases",
+    "order": 8,
+    "isPublished": true,
+    "difficulty": 2,
+    "estimatedTime": 7,
+    "exercises": [
+        {
+            "id": "ex_p7_1",
+            "type": "translate",
+            "order": 0,
+            "question": "Как дела?",
+            "correct": "Кандыг-дир сен?"
+        },
+        {
+            "id": "ex_p7_2",
+            "type": "choice",
+            "order": 1,
+            "question": "Как спросить 'Как дела?'",
+            "options": ["Кым сен?", "Кандыг-дир сен?", "Кайыан сен?"],
+            "correct": "Кандыг-дир сен?"
+        },
+        {
+            "id": "ex_p7_3",
+            "type": "translate",
+            "order": 2,
+            "question": "Кандыг-дир сен?",
+            "correct": "Как дела?"
+        },
+        {
+            "id": "ex_p7_4",
+            "type": "order",
+            "order": 3,
+            "question": "Собери: 'Как дела?'",
+            "orderItems": ["сен?", "Кандыг-дир"],
+            "correct": ["Кандыг-дир", "сен?"]
+        },
+        {
+            "id": "ex_p7_5",
+            "type": "match",
+            "order": 4,
+            "question": "Сопоставь",
+            "matchPairs": [{ "left": "Кандыг-дир сен?", "right": "Как дела?" }]
+        },
+        {
+            "id": "ex_p7_6",
+            "type": "choice",
+            "order": 5,
+            "question": "Как ответить 'Хорошо, спасибо'?",
+            "options": ["Эки, байырлыы", "Багай, кудум", "Ийе, бараалдажыр"],
+            "correct": "Эки, байырлыы"
+        },
+        {
+            "id": "ex_p7_7",
+            "type": "translate",
+            "order": 6,
+            "question": "Хорошо, спасибо",
+            "correct": "Эки, байырлыы"
+        },
+        {
+            "id": "ex_p7_8",
+            "type": "order",
+            "order": 7,
+            "question": "Собери ответ: 'Хорошо, спасибо'",
+            "orderItems": ["Эки,", "байырлыы"],
+            "correct": ["Эки,", "байырлыы"]
+        },
+        {
+            "id": "ex_p7_9",
+            "type": "choice",
+            "order": 8,
+            "question": "Что означает 'Кандыг-дир сен?'",
+            "options": ["Кто ты?", "Как дела?", "Где ты?"],
+            "correct": "Как дела?"
+        },
+        {
+            "id": "ex_p7_10",
+            "type": "match",
+            "order": 9,
+            "question": "Сопоставь вопросы и ответы",
+            "matchPairs": [
+                { "left": "Кандыг-дир сен?", "right": "Эки, байырлыы" }
+            ]
+        }
+    ]
+}

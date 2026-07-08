@@ -1,0 +1,101 @@
+{
+    "type": "lesson",
+    "id": "lesson_10_104_plurals",
+    "chapterId": "ch_104_plurals",
+    "title": "Урок 10: Повторение",
+    "titleTuvan": "Кичээл 10: Катаптаа",
+    "description": "Закрепление материала юнита 4",
+    "skill": "review",
+    "order": 11,
+    "isPublished": true,
+    "difficulty": 3,
+    "estimatedTime": 10,
+    "exercises": [
+        {
+            "id": "ex_pl10_1",
+            "type": "order",
+            "order": 0,
+            "question": "Собери: 'Они едят хлеба'",
+            "orderItems": ["Олар", "наннар", "чиип", "турлар"],
+            "correct": ["Олар", "наннар", "чиип", "турлар"]
+        },
+        {
+            "id": "ex_pl10_2",
+            "type": "choice",
+            "order": 1,
+            "question": "Выбери перевод: 'Бис ачалар эвес бис'",
+            "options": ["Мы не дети", "Мы дети", "Вы не дети"],
+            "correct": "Мы не дети"
+        },
+        {
+            "id": "ex_pl10_3",
+            "type": "match",
+            "order": 2,
+            "question": "Сопоставь мн.ч.",
+            "matchPairs": [
+                { "left": "Кижи", "right": "Кижилер" },
+                { "left": "Ыт", "right": "Ыттар" },
+                { "left": "Бажың", "right": "Бажыңнар" }
+            ]
+        },
+        {
+            "id": "ex_pl10_4",
+            "type": "translate",
+            "order": 3,
+            "question": "Мальчики",
+            "correct": "Оолдар"
+        },
+        {
+            "id": "ex_pl10_5",
+            "type": "translate",
+            "order": 4,
+            "question": "Девочки",
+            "correct": "Кыстар"
+        },
+        {
+            "id": "ex_pl10_6",
+            "type": "order",
+            "order": 5,
+            "question": "Собери: 'Они мальчики?'",
+            "orderItems": ["Олар", "оолдар", "бе?"],
+            "correct": ["Олар", "оолдар", "бе?"]
+        },
+        {
+            "id": "ex_pl10_7",
+            "type": "choice",
+            "order": 6,
+            "question": "Как сказать 'Они пьют воды'?",
+            "options": [
+                "Олар суглар ижип турлар",
+                "Олар суг ижип тур",
+                "Бис суглар ижип тур бис"
+            ],
+            "correct": "Олар суглар ижип турлар"
+        },
+        {
+            "id": "ex_pl10_8",
+            "type": "match",
+            "order": 7,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Наннар", "right": "Хлеба" },
+                { "left": "Эттер", "right": "Мяса" }
+            ]
+        },
+        {
+            "id": "ex_pl10_9",
+            "type": "translate",
+            "order": 8,
+            "question": "Они не собаки",
+            "correct": "Олар ыттар эвес"
+        },
+        {
+            "id": "ex_pl10_10",
+            "type": "choice",
+            "order": 9,
+            "question": "Выбери правильный перевод: 'Олар кыжилер бе?'",
+            "options": ["Они люди?", "Они не люди?", "Вы люди?"],
+            "correct": "Они люди?"
+        }
+    ]
+}

@@ -72,7 +72,9 @@ const OrderExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
         <div
             className={`p-4 bg-white rounded-xl shadow ${submitted && !isCorrect ? 'animate-shake' : ''}`}
         >
-            <p className="mb-4 text-lg font-medium">{exercise.question}</p>
+            <p className="mb-4 text-lg font-medium">
+                <ClickableWord word={exercise.question} />
+            </p>
             {exercise.hint && (
                 <p className="mb-4 text-sm text-gray-400">💡 {exercise.hint}</p>
             )}
@@ -85,7 +87,7 @@ const OrderExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
                 )}
                 {selected.map((item, index) => (
                     <button
-                        key={index} // <-- используем index вместо item
+                        key={index}
                         onClick={() => handleRemove(item)}
                         className={`px-3 py-2 rounded-lg border-2 ${getItemColor(item)} transition-all duration-200 cursor-pointer hover:shadow-md`}
                     >
@@ -96,9 +98,9 @@ const OrderExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
             </div>
 
             <div className="flex flex-wrap gap-2 mb-4">
-                {available.map((item, index) => (
+                {available.map(item => (
                     <button
-                        key={index} // <-- используем index вместо item
+                        key={item}
                         onClick={() => handleSelect(item)}
                         className="px-4 py-2 transition-all duration-200 bg-gray-200 border-2 border-gray-300 rounded-lg cursor-pointer hover:bg-gray-300 hover:shadow-md"
                     >

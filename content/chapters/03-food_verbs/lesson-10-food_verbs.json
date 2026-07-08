@@ -1,0 +1,101 @@
+{
+    "type": "lesson",
+    "id": "lesson_10_103_food_verbs",
+    "chapterId": "ch_103_food_verbs",
+    "title": "Урок 10: Повторение",
+    "titleTuvan": "Кичээл 10: Катаптаа",
+    "description": "Закрепление материала юнита 3",
+    "skill": "review",
+    "order": 11,
+    "isPublished": true,
+    "difficulty": 3,
+    "estimatedTime": 10,
+    "exercises": [
+        {
+            "id": "ex_f10_1",
+            "type": "order",
+            "order": 0,
+            "question": "Собери: 'Я пью воду'",
+            "orderItems": ["Мен", "суг", "ижип", "тур", "мен"],
+            "correct": ["Мен", "суг", "ижип", "тур", "мен"]
+        },
+        {
+            "id": "ex_f10_2",
+            "type": "choice",
+            "order": 1,
+            "question": "Выбери перевод: 'Олар эт чиип турлар'",
+            "options": ["Они едят мясо", "Он ест хлеб", "Мы пьем чай"],
+            "correct": "Они едят мясо"
+        },
+        {
+            "id": "ex_f10_3",
+            "type": "match",
+            "order": 2,
+            "question": "Сопоставь слова",
+            "matchPairs": [
+                { "left": "Нан", "right": "Хлеб" },
+                { "left": "Эт", "right": "Мясо" },
+                { "left": "Суг", "right": "Вода" }
+            ]
+        },
+        {
+            "id": "ex_f10_4",
+            "type": "translate",
+            "order": 3,
+            "question": "Пить",
+            "correct": "Ижер"
+        },
+        {
+            "id": "ex_f10_5",
+            "type": "translate",
+            "order": 4,
+            "question": "Есть",
+            "correct": "Чиир"
+        },
+        {
+            "id": "ex_f10_6",
+            "type": "order",
+            "order": 5,
+            "question": "Собери: 'Вы едите хлеб'",
+            "orderItems": ["Силер", "нан", "чиип", "тур", "силер"],
+            "correct": ["Силер", "нан", "чиип", "тур", "силер"]
+        },
+        {
+            "id": "ex_f10_7",
+            "type": "choice",
+            "order": 6,
+            "question": "Как сказать 'Ты пьешь чай'?",
+            "options": [
+                "Сен чай ижип тур сен",
+                "Мен чай ижип тур мен",
+                "Ол чай ижип тур"
+            ],
+            "correct": "Сен чай ижип тур сен"
+        },
+        {
+            "id": "ex_f10_8",
+            "type": "match",
+            "order": 7,
+            "question": "Сопоставь глаголы",
+            "matchPairs": [
+                { "left": "Чиир", "right": "Есть" },
+                { "left": "Ижер", "right": "Пить" }
+            ]
+        },
+        {
+            "id": "ex_f10_9",
+            "type": "translate",
+            "order": 8,
+            "question": "Мы едим мясо",
+            "correct": "Бис эт чиип тур бис"
+        },
+        {
+            "id": "ex_f10_10",
+            "type": "choice",
+            "order": 9,
+            "question": "Выбери правильный перевод: 'Мен сүт ижип тур мен'",
+            "options": ["Я пью молоко", "Я ем хлеб", "Ты пьешь воду"],
+            "correct": "Я пью молоко"
+        }
+    ]
+}

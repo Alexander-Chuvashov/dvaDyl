@@ -1,0 +1,93 @@
+{
+    "type": "lesson",
+    "id": "lesson_8_105_possessives",
+    "chapterId": "ch_105_possessives",
+    "title": "Урок 8: Моя сестра",
+    "titleTuvan": "Кичээл 8: Мээң угбам",
+    "description": "Слово угбай (сестра) с суффиксами",
+    "skill": "vocabulary",
+    "order": 9,
+    "isPublished": true,
+    "difficulty": 3,
+    "estimatedTime": 7,
+    "exercises": [
+        {
+            "id": "ex_pos8_1",
+            "type": "translate",
+            "order": 0,
+            "question": "Моя сестра",
+            "correct": "Мээң угбам"
+        },
+        {
+            "id": "ex_pos8_2",
+            "type": "choice",
+            "order": 1,
+            "question": "Выбери 'Мээң угбам'",
+            "options": ["Моя сестра", "Твоя сестра", "Ее сестра"],
+            "correct": "Моя сестра"
+        },
+        {
+            "id": "ex_pos8_3",
+            "type": "translate",
+            "order": 2,
+            "question": "Твоя сестра",
+            "correct": "Сээң угбаң"
+        },
+        {
+            "id": "ex_pos8_4",
+            "type": "order",
+            "order": 3,
+            "question": "Собери: 'Моя сестра'",
+            "orderItems": ["угбам", "Мээң"],
+            "correct": ["Мээң", "угбам"]
+        },
+        {
+            "id": "ex_pos8_5",
+            "type": "match",
+            "order": 4,
+            "question": "Сопоставь",
+            "matchPairs": [{ "left": "Мээң угбам", "right": "Моя сестра" }]
+        },
+        {
+            "id": "ex_pos8_6",
+            "type": "choice",
+            "order": 5,
+            "question": "Как сказать 'Ее сестра' (угбай)?",
+            "options": ["Ооң угбазы", "Ооң угбам", "Ооң угбаң"],
+            "correct": "Ооң угбазы"
+        },
+        {
+            "id": "ex_pos8_7",
+            "type": "translate",
+            "order": 6,
+            "question": "Мээң угбам",
+            "correct": "Моя сестра"
+        },
+        {
+            "id": "ex_pos8_8",
+            "type": "order",
+            "order": 7,
+            "question": "Собери: 'Моя сестра пьет'",
+            "orderItems": ["Мээң", "угбам", "ижип", "тур"],
+            "correct": ["Мээң", "угбам", "ижип", "тур"]
+        },
+        {
+            "id": "ex_pos8_9",
+            "type": "choice",
+            "order": 8,
+            "question": "Выбери перевод: 'Сээң угбаң чиип тур'",
+            "options": ["Твоя сестра ест", "Моя сестра пьет", "Ее сестра ест"],
+            "correct": "Твоя сестра ест"
+        },
+        {
+            "id": "ex_pos8_10",
+            "type": "match",
+            "order": 9,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Мээң угбам", "right": "Моя сестра" },
+                { "left": "Ооң угбазы", "right": "Ее сестра" }
+            ]
+        }
+    ]
+}

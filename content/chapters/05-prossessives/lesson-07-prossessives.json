@@ -1,0 +1,93 @@
+{
+    "type": "lesson",
+    "id": "lesson_7_105_possessives",
+    "chapterId": "ch_105_possessives",
+    "title": "Урок 7: Мой брат",
+    "titleTuvan": "Кичээл 7: Мээң акым",
+    "description": "Слово акы (брат) с суффиксами",
+    "skill": "vocabulary",
+    "order": 8,
+    "isPublished": true,
+    "difficulty": 3,
+    "estimatedTime": 7,
+    "exercises": [
+        {
+            "id": "ex_pos7_1",
+            "type": "translate",
+            "order": 0,
+            "question": "Мой брат",
+            "correct": "Мээң акым"
+        },
+        {
+            "id": "ex_pos7_2",
+            "type": "choice",
+            "order": 1,
+            "question": "Выбери 'Мээң акым'",
+            "options": ["Мой брат", "Твой брат", "Его брат"],
+            "correct": "Мой брат"
+        },
+        {
+            "id": "ex_pos7_3",
+            "type": "translate",
+            "order": 2,
+            "question": "Твой брат",
+            "correct": "Сээң аңгың"
+        },
+        {
+            "id": "ex_pos7_4",
+            "type": "order",
+            "order": 3,
+            "question": "Собери: 'Мой брат'",
+            "orderItems": ["акым", "Мээң"],
+            "correct": ["Мээң", "акым"]
+        },
+        {
+            "id": "ex_pos7_5",
+            "type": "match",
+            "order": 4,
+            "question": "Сопоставь",
+            "matchPairs": [{ "left": "Мээң акым", "right": "Мой брат" }]
+        },
+        {
+            "id": "ex_pos7_6",
+            "type": "choice",
+            "order": 5,
+            "question": "Как сказать 'Его брат' (акы)?",
+            "options": ["Ооң акызы", "Ооң акым", "Ооң аңгың"],
+            "correct": "Ооң акызы"
+        },
+        {
+            "id": "ex_pos7_7",
+            "type": "translate",
+            "order": 6,
+            "question": "Мээң акым",
+            "correct": "Мой брат"
+        },
+        {
+            "id": "ex_pos7_8",
+            "type": "order",
+            "order": 7,
+            "question": "Собери: 'Мой брат ест'",
+            "orderItems": ["Мээң", "акым", "чиип", "тур"],
+            "correct": ["Мээң", "акым", "чиип", "тур"]
+        },
+        {
+            "id": "ex_pos7_9",
+            "type": "choice",
+            "order": 8,
+            "question": "Выбери перевод: 'Сээң аңгың ижип тур'",
+            "options": ["Твой брат пьет", "Мой брат ест", "Его брат пьет"],
+            "correct": "Твой брат пьет"
+        },
+        {
+            "id": "ex_pos7_10",
+            "type": "match",
+            "order": 9,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Мээң акым", "right": "Мой брат" },
+                { "left": "Сээң аңгың", "right": "Твой брат" }
+            ]
+        }
+    ]
+}

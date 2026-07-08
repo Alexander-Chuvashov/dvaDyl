@@ -1,0 +1,90 @@
+{
+    "type": "lesson",
+    "id": "lesson_3_118_description",
+    "chapterId": "ch_118_description",
+    "title": "Урок 3: Красивый",
+    "titleTuvan": "Кичээл 3: Чараш",
+    "description": "Эстетика",
+    "skill": "vocabulary",
+    "order": 4,
+    "isPublished": true,
+    "difficulty": 1,
+    "estimatedTime": 5,
+    "exercises": [
+        {
+            "id": "ex_de3_1",
+            "type": "translate",
+            "order": 0,
+            "question": "Красивый",
+            "correct": "Чараш"
+        },
+        {
+            "id": "ex_de3_2",
+            "type": "choice",
+            "order": 1,
+            "question": "Выбери 'Красивый'",
+            "options": ["Чараш", "Кырган", "Аныяк"],
+            "correct": "Чараш"
+        },
+        {
+            "id": "ex_de3_3",
+            "type": "translate",
+            "order": 2,
+            "question": "Чараш",
+            "correct": "Красивый"
+        },
+        {
+            "id": "ex_de3_4",
+            "type": "order",
+            "order": 3,
+            "question": "Собери: 'Красивый дом'",
+            "orderItems": ["бажың", "Чараш"],
+            "correct": ["Чараш", "бажың"]
+        },
+        {
+            "id": "ex_de3_5",
+            "type": "match",
+            "order": 4,
+            "question": "Сопоставь",
+            "matchPairs": [{ "left": "Чараш", "right": "Красивый" }]
+        },
+        {
+            "id": "ex_de3_6",
+            "type": "choice",
+            "order": 5,
+            "question": "Как сказать 'Красивая девушка' (кыс)?",
+            "options": ["Чараш кыс", "Улуг кыс", "Биче кыс"],
+            "correct": "Чараш кыс"
+        },
+        {
+            "id": "ex_de3_7",
+            "type": "translate",
+            "order": 6,
+            "question": "Красивая девушка",
+            "correct": "Чараш кыс"
+        },
+        {
+            "id": "ex_de3_8",
+            "type": "order",
+            "order": 7,
+            "question": "Собери: 'Красивый цветок' (чек - цветок)",
+            "orderItems": ["чек", "Чараш"],
+            "correct": ["Чараш", "чек"]
+        },
+        {
+            "id": "ex_de3_9",
+            "type": "choice",
+            "order": 8,
+            "question": "Выбери перевод: 'Чараш чек'",
+            "options": ["Большой дом", "Красивый цветок", "Красивая девушка"],
+            "correct": "Красивый цветок"
+        },
+        {
+            "id": "ex_de3_10",
+            "type": "match",
+            "order": 9,
+            "question": "Сопоставь",
+            "matchPairs": [{ "left": "Чараш кыс", "right": "Красивая девушка" }]
+        }
+    ]
+}

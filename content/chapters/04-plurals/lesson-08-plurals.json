@@ -1,0 +1,99 @@
+{
+    "type": "lesson",
+    "id": "lesson_8_104_plurals",
+    "chapterId": "ch_104_plurals",
+    "title": "Урок 8: Вопросы с мн.ч.",
+    "titleTuvan": "Кичээл 8: Ажыг чугаалар",
+    "description": "Вопросы с существительными во мн.ч.",
+    "skill": "grammar",
+    "order": 9,
+    "isPublished": true,
+    "difficulty": 3,
+    "estimatedTime": 7,
+    "exercises": [
+        {
+            "id": "ex_pl8_1",
+            "type": "order",
+            "order": 0,
+            "question": "Собери: 'Они люди?'",
+            "orderItems": ["Олар", "кижилер", "бе?"],
+            "correct": ["Олар", "кижилер", "бе?"]
+        },
+        {
+            "id": "ex_pl8_2",
+            "type": "order",
+            "order": 1,
+            "question": "Собери: 'Вы мальчики?'",
+            "orderItems": ["Силер", "оолдар", "бе", "силер?"],
+            "correct": ["Силер", "оолдар", "бе", "силер?"]
+        },
+        {
+            "id": "ex_pl8_3",
+            "type": "choice",
+            "order": 2,
+            "question": "Выбери перевод: 'Олар кыстар бе?'",
+            "options": ["Они девочки?", "Вы мальчики?", "Они люди?"],
+            "correct": "Они девочки?"
+        },
+        {
+            "id": "ex_pl8_4",
+            "type": "translate",
+            "order": 3,
+            "question": "Они собаки?",
+            "correct": "Олар ыттар бе?"
+        },
+        {
+            "id": "ex_pl8_5",
+            "type": "order",
+            "order": 4,
+            "question": "Собери: 'Это дома?'",
+            "orderItems": ["Бо", "бажыңнар", "бе?"],
+            "correct": ["Бо", "бажыңнар", "бе?"]
+        },
+        {
+            "id": "ex_pl8_6",
+            "type": "choice",
+            "order": 5,
+            "question": "Как спросить 'Они дети?'",
+            "options": ["Олар ачалар бе?", "Олар ача бе?", "Бо ачалар бе?"],
+            "correct": "Олар ачалар бе?"
+        },
+        {
+            "id": "ex_pl8_7",
+            "type": "translate",
+            "order": 6,
+            "question": "Олар ыттар бе?",
+            "correct": "Они собаки?"
+        },
+        {
+            "id": "ex_pl8_8",
+            "type": "match",
+            "order": 7,
+            "question": "Сопоставь вопросы",
+            "matchPairs": [
+                { "left": "Олар кижилер бе?", "right": "Они люди?" },
+                { "left": "Силер оолдар бе?", "right": "Вы мальчики?" }
+            ]
+        },
+        {
+            "id": "ex_pl8_9",
+            "type": "choice",
+            "order": 8,
+            "question": "Выбери перевод: 'Чок, олар кыстар'",
+            "options": [
+                "Нет, они мальчики",
+                "Да, они девочки",
+                "Нет, они девочки"
+            ],
+            "correct": "Нет, они девочки"
+        },
+        {
+            "id": "ex_pl8_10",
+            "type": "order",
+            "order": 9,
+            "question": "Собери ответ: 'Да, мы люди'",
+            "orderItems": ["Ийе,", "бис", "кижилер", "бис"],
+            "correct": ["Ийе,", "бис", "кижилер", "бис"]
+        }
+    ]
+}

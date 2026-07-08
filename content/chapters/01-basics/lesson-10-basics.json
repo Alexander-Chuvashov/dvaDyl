@@ -1,0 +1,99 @@
+{
+    "type": "lesson",
+    "id": "lesson_10_101_basics",
+    "chapterId": "ch_101_basics",
+    "title": "Урок 10: Повторение",
+    "titleTuvan": "Кичээл 10: Катаптаа",
+    "description": "Закрепление материала юнита 1",
+    "skill": "review",
+    "order": 11,
+    "isPublished": true,
+    "difficulty": 3,
+    "estimatedTime": 10,
+    "exercises": [
+        {
+            "id": "ex_b10_1",
+            "type": "order",
+            "order": 0,
+            "question": "Собери: 'Я не ребенок'",
+            "orderItems": ["Мен", "ача", "эвес", "мен"],
+            "correct": ["Мен", "ача", "эвес", "мен"]
+        },
+        {
+            "id": "ex_b10_2",
+            "type": "choice",
+            "order": 1,
+            "question": "Выбери перевод: 'Кым бо?'",
+            "options": ["Кто это?", "Что это?", "Где ты?"],
+            "correct": "Кто это?"
+        },
+        {
+            "id": "ex_b10_3",
+            "type": "match",
+            "order": 2,
+            "question": "Сопоставь местоимения",
+            "matchPairs": [
+                { "left": "Мен", "right": "Я" },
+                { "left": "Сен", "right": "Ты" },
+                { "left": "Ол", "right": "Он" },
+                { "left": "Бис", "right": "Мы" }
+            ]
+        },
+        {
+            "id": "ex_b10_4",
+            "type": "translate",
+            "order": 3,
+            "question": "Мальчик",
+            "correct": "Оол"
+        },
+        {
+            "id": "ex_b10_5",
+            "type": "translate",
+            "order": 4,
+            "question": "Женщина",
+            "correct": "Кыс кижи"
+        },
+        {
+            "id": "ex_b10_6",
+            "type": "order",
+            "order": 5,
+            "question": "Собери: 'Вы люди?'",
+            "orderItems": ["Силер", "кижилер", "бе", "силер?"],
+            "correct": ["Силер", "кижилер", "бе", "силер?"]
+        },
+        {
+            "id": "ex_b10_7",
+            "type": "choice",
+            "order": 6,
+            "question": "Как ответить 'Да, это я'?",
+            "options": ["Ийе, бо мен", "Чок, бо сен", "Ийе, бо ол"],
+            "correct": "Ийе, бо мен"
+        },
+        {
+            "id": "ex_b10_8",
+            "type": "match",
+            "order": 7,
+            "question": "Сопоставь ответы",
+            "matchPairs": [
+                { "left": "Ийе", "right": "Да" },
+                { "left": "Чок", "right": "Нет" },
+                { "left": "Эвес", "right": "Не" }
+            ]
+        },
+        {
+            "id": "ex_b10_9",
+            "type": "translate",
+            "order": 8,
+            "question": "Мы мужчины",
+            "correct": "Бис эр кижилер бис"
+        },
+        {
+            "id": "ex_b10_10",
+            "type": "choice",
+            "order": 9,
+            "question": "Выбери правильное: 'Сен кыс бе сен?'",
+            "options": ["Ты девочка?", "Вы девочки?", "Она девочка?"],
+            "correct": "Ты девочка?"
+        }
+    ]
+}

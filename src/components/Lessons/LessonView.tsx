@@ -5,6 +5,7 @@ import ExerciseRenderer from '../Exercises/ExerciseRenderer';
 import ProgressBar from '../Progress/ProgressBar';
 import AnimatedWrapper from '../UI/AnimatedWrapper';
 import type { Lesson } from '../../types/content';
+import Mascot from '../UI/Mascot';
 
 interface LessonViewProps {
     lesson: Lesson;
@@ -14,6 +15,9 @@ interface LessonViewProps {
 const LessonView: React.FC<LessonViewProps> = ({ lesson, onComplete }) => {
     const [exerciseIndex, setExerciseIndex] = useState(0);
     const [completedExercises, setCompletedExercises] = useState<
+        Record<string, boolean>
+    >({});
+    const [attemptedExercises, setAttemptedExercises] = useState<
         Record<string, boolean>
     >({});
     const [wrongExerciseIds, setWrongExerciseIds] = useState<string[]>([]);
@@ -28,6 +32,10 @@ const LessonView: React.FC<LessonViewProps> = ({ lesson, onComplete }) => {
     } | null>(null);
     const isProcessingRef = useRef(false);
     const isLessonCompletedRef = useRef(false);
+
+    const [mascotState, setMascotState] = useState<
+        'idle' | 'happy' | 'sad' | 'celebrate' | 'thinking'
+    >('idle');
 
     const {
         userId,
@@ -51,9 +59,9 @@ const LessonView: React.FC<LessonViewProps> = ({ lesson, onComplete }) => {
     );
     const currentReviewExercise = reviewExercises[exerciseIndex] || null;
 
-    // Все ли упражнения имеют статус (хотя бы попытаны)
+    // Все ли упражнения были попытаны
     const allAttempted = exercises.every(
-        ex => completedExercises[ex.id] !== undefined,
+        ex => attemptedExercises[ex.id] === true,
     );
     // Все ли упражнения выполнены правильно
     const allCompleted = exercises.every(
@@ -64,7 +72,7 @@ const LessonView: React.FC<LessonViewProps> = ({ lesson, onComplete }) => {
         ex => reviewCompleted[ex.id] === true,
     );
 
-    // Завершение урока
+    // Завершение урока (единая функция)
     const completeLesson = useCallback(async () => {
         if (isLessonCompletedRef.current) return;
         isLessonCompletedRef.current = true;
@@ -173,8 +181,13 @@ const LessonView: React.FC<LessonViewProps> = ({ lesson, onComplete }) => {
             // Обновляем локальный прогресс
             answerExercise(exerciseId, isCorrect, lesson);
 
+            // Отмечаем упражнение как попытанное (всегда)
+            setAttemptedExercises(prev => ({ ...prev, [exerciseId]: true }));
+
             if (isCorrect) {
                 // Отмечаем как правильно выполненное
+                setMascotState('happy');
+                setTimeout(() => setMascotState('idle'), 1500);
                 if (isReviewMode) {
                     setReviewCompleted(prev => ({
                         ...prev,
@@ -184,13 +197,22 @@ const LessonView: React.FC<LessonViewProps> = ({ lesson, onComplete }) => {
                         prev.filter(id => id !== exerciseId),
                     );
                 } else {
+                    setMascotState('sad');
+                    setTimeout(() => setMascotState('idle'), 1500);
                     setCompletedExercises(prev => ({
                         ...prev,
                         [exerciseId]: true,
                     }));
+                    // Если упражнение было в списке ошибок – удаляем (на случай, если пользователь ошибся, потом вернулся и исправил)
+                    setWrongExerciseIds(prev =>
+                        prev.filter(id => id !== exerciseId),
+                    );
                 }
                 setFeedback({ type: 'correct', message: '✅ Правильно!' });
+                setMascotState('celebrate');
+                setTimeout(() => setMascotState('idle'), 2500);
 
+                // Автоматический переход к следующему (только если не последнее)
                 setTimeout(() => {
                     setFeedback(null);
                     const list = isReviewMode ? reviewExercises : exercises;
@@ -198,18 +220,13 @@ const LessonView: React.FC<LessonViewProps> = ({ lesson, onComplete }) => {
                         setExerciseIndex(prev => prev + 1);
                     }
                     isProcessingRef.current = false;
-                }, 700);
+                }, 1300);
             } else {
                 // Запоминаем ошибку (только в основном режиме)
                 if (!isReviewMode) {
                     if (!wrongExerciseIds.includes(exerciseId)) {
                         setWrongExerciseIds(prev => [...prev, exerciseId]);
                     }
-                    // Отмечаем упражнение как попытанное (но неправильное)
-                    setCompletedExercises(prev => ({
-                        ...prev,
-                        [exerciseId]: false,
-                    }));
                 }
 
                 const correctAnswer = Array.isArray(currentExercise.correct)
@@ -246,6 +263,7 @@ const LessonView: React.FC<LessonViewProps> = ({ lesson, onComplete }) => {
         if (exerciseIndex < list.length - 1) {
             setExerciseIndex(prev => prev + 1);
         }
+        // Если достигли конца списка, эффекты сработают автоматически
     };
 
     // Если урок уже пройден
@@ -298,11 +316,14 @@ const LessonView: React.FC<LessonViewProps> = ({ lesson, onComplete }) => {
                     Осталось ошибок: {wrongExerciseIds.length}
                 </p>
             )}
-            <ProgressBar
-                current={exerciseIndex + 1}
-                total={total}
-                correctCount={completedCount}
-            />
+            <div className="flex items-center gap-4">
+                <Mascot state={mascotState} size="md" />
+                <ProgressBar
+                    current={exerciseIndex + 1}
+                    total={total}
+                    correctCount={completedCount}
+                />
+            </div>
             <div className="mt-6">
                 <AnimatedWrapper key={exerciseIndex} animation="scaleIn">
                     {isCompleted ? (

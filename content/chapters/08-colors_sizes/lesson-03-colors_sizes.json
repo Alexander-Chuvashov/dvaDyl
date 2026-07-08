@@ -1,0 +1,95 @@
+{
+    "type": "lesson",
+    "id": "lesson_3_108_colors_sizes",
+    "chapterId": "ch_108_colors_sizes",
+    "title": "Урок 3: Синий и Желтый",
+    "titleTuvan": "Кичээл 3: Көк болгаш сарыг",
+    "description": "Синий и желтый цвета",
+    "skill": "vocabulary",
+    "order": 4,
+    "isPublished": true,
+    "difficulty": 1,
+    "estimatedTime": 5,
+    "exercises": [
+        {
+            "id": "ex_cs3_1",
+            "type": "translate",
+            "order": 0,
+            "question": "Синий",
+            "correct": "Көк"
+        },
+        {
+            "id": "ex_cs3_2",
+            "type": "translate",
+            "order": 1,
+            "question": "Желтый",
+            "correct": "Сарыг"
+        },
+        {
+            "id": "ex_cs3_3",
+            "type": "choice",
+            "order": 2,
+            "question": "Выбери 'Желтый'",
+            "options": ["Көк", "Сарыг", "Ак"],
+            "correct": "Сарыг"
+        },
+        {
+            "id": "ex_cs3_4",
+            "type": "choice",
+            "order": 3,
+            "question": "Выбери 'Синий'",
+            "options": ["Кара", "Көк", "Ногаан"],
+            "correct": "Көк"
+        },
+        {
+            "id": "ex_cs3_5",
+            "type": "match",
+            "order": 4,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Көк", "right": "Синий" },
+                { "left": "Сарыг", "right": "Желтый" }
+            ]
+        },
+        {
+            "id": "ex_cs3_6",
+            "type": "translate",
+            "order": 5,
+            "question": "Көк",
+            "correct": "Синий"
+        },
+        {
+            "id": "ex_cs3_7",
+            "type": "translate",
+            "order": 6,
+            "question": "Сарыг",
+            "correct": "Желтый"
+        },
+        {
+            "id": "ex_cs3_8",
+            "type": "order",
+            "order": 7,
+            "question": "Собери: 'Синяя чашка' (аяк)",
+            "orderItems": ["аяк", "Көк"],
+            "correct": ["Көк", "аяк"]
+        },
+        {
+            "id": "ex_cs3_9",
+            "type": "choice",
+            "order": 8,
+            "question": "Выбери перевод: 'Сарыг чай'",
+            "options": ["Желтый чай", "Синяя чашка", "Зеленая вода"],
+            "correct": "Желтый чай"
+        },
+        {
+            "id": "ex_cs3_10",
+            "type": "match",
+            "order": 9,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Көк аяк", "right": "Синяя чашка" },
+                { "left": "Сарыг чай", "right": "Желтый чай" }
+            ]
+        }
+    ]
+}

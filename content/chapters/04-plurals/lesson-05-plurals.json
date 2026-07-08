@@ -1,0 +1,96 @@
+{
+    "type": "lesson",
+    "id": "lesson_5_104_plurals",
+    "chapterId": "ch_104_plurals",
+    "title": "Урок 5: Животные",
+    "titleTuvan": "Кичээл 5: Аңнар",
+    "description": "Мн.ч. названий животных",
+    "skill": "vocabulary",
+    "order": 6,
+    "isPublished": true,
+    "difficulty": 2,
+    "estimatedTime": 7,
+    "exercises": [
+        {
+            "id": "ex_pl5_1",
+            "type": "translate",
+            "order": 0,
+            "question": "Собаки",
+            "correct": "Ыттар"
+        },
+        {
+            "id": "ex_pl5_2",
+            "type": "translate",
+            "order": 1,
+            "question": "Лошади",
+            "correct": "Аъттар"
+        },
+        {
+            "id": "ex_pl5_3",
+            "type": "choice",
+            "order": 2,
+            "question": "Выбери 'Коровы'",
+            "options": ["Инек", "Инектер", "Инеклер"],
+            "correct": "Инектер"
+        },
+        {
+            "id": "ex_pl5_4",
+            "type": "order",
+            "order": 3,
+            "question": "Собери: 'Кошки'",
+            "orderItems": ["Коштар"],
+            "correct": ["Коштар"]
+        },
+        {
+            "id": "ex_pl5_5",
+            "type": "match",
+            "order": 4,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Ыт", "right": "Собака" },
+                { "left": "Ыттар", "right": "Собаки" }
+            ]
+        },
+        {
+            "id": "ex_pl5_6",
+            "type": "translate",
+            "order": 5,
+            "question": "Ыттар",
+            "correct": "Собаки"
+        },
+        {
+            "id": "ex_pl5_7",
+            "type": "choice",
+            "order": 6,
+            "question": "Как сказать 'Овцы'?",
+            "options": ["Хой", "Хойлар", "Хойлер"],
+            "correct": "Хойлар"
+        },
+        {
+            "id": "ex_pl5_8",
+            "type": "order",
+            "order": 7,
+            "question": "Собери: 'Лошади и собаки'",
+            "orderItems": ["Аъттар", "болгаш", "ыттар"],
+            "correct": ["Аъттар", "болгаш", "ыттар"]
+        },
+        {
+            "id": "ex_pl5_9",
+            "type": "match",
+            "order": 8,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Аъттар", "right": "Лошади" },
+                { "left": "Инектер", "right": "Коровы" }
+            ]
+        },
+        {
+            "id": "ex_pl5_10",
+            "type": "choice",
+            "order": 9,
+            "question": "Выбери перевод: 'Олар ыттар'",
+            "options": ["Они собаки", "Она собака", "Мы лошади"],
+            "correct": "Они собаки"
+        }
+    ]
+}

@@ -1,0 +1,93 @@
+{
+    "type": "lesson",
+    "id": "lesson_8_101_basics",
+    "chapterId": "ch_101_basics",
+    "title": "Урок 8: Кто это?",
+    "titleTuvan": "Кичээл 8: Кым бо?",
+    "description": "Вопросительные слова",
+    "skill": "grammar",
+    "order": 9,
+    "isPublished": true,
+    "difficulty": 2,
+    "estimatedTime": 7,
+    "exercises": [
+        {
+            "id": "ex_b8_1",
+            "type": "translate",
+            "order": 0,
+            "question": "Кто",
+            "correct": "Кым"
+        },
+        {
+            "id": "ex_b8_2",
+            "type": "translate",
+            "order": 1,
+            "question": "Это",
+            "correct": "Бо"
+        },
+        {
+            "id": "ex_b8_3",
+            "type": "order",
+            "order": 2,
+            "question": "Собери: 'Кто это?'",
+            "orderItems": ["бо?", "Кым"],
+            "correct": ["Кым", "бо?"]
+        },
+        {
+            "id": "ex_b8_4",
+            "type": "choice",
+            "order": 3,
+            "question": "Как спросить 'Кто это?'",
+            "options": ["Кым бо?", "Кайыан бо?", "Чүү бо?"],
+            "correct": "Кым бо?"
+        },
+        {
+            "id": "ex_b8_5",
+            "type": "translate",
+            "order": 4,
+            "question": "Это я",
+            "correct": "Бо мен"
+        },
+        {
+            "id": "ex_b8_6",
+            "type": "order",
+            "order": 5,
+            "question": "Собери: 'Это ты'",
+            "orderItems": ["Бо", "сен"],
+            "correct": ["Бо", "сен"]
+        },
+        {
+            "id": "ex_b8_7",
+            "type": "match",
+            "order": 6,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Кым", "right": "Кто" },
+                { "left": "Бо", "right": "Это" }
+            ]
+        },
+        {
+            "id": "ex_b8_8",
+            "type": "choice",
+            "order": 7,
+            "question": "Выбери перевод: 'Бо ол'",
+            "options": ["Кто он?", "Это он", "Это она"],
+            "correct": "Это он"
+        },
+        {
+            "id": "ex_b8_9",
+            "type": "order",
+            "order": 8,
+            "question": "Собери вопрос: 'Кто ты?'",
+            "orderItems": ["сен?", "Кым", "сен"],
+            "correct": ["Кым", "сен", "сен?"]
+        },
+        {
+            "id": "ex_b8_10",
+            "type": "translate",
+            "order": 9,
+            "question": "Кым",
+            "correct": "Кто"
+        }
+    ]
+}

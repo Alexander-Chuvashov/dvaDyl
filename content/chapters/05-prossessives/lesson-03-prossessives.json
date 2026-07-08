@@ -1,0 +1,90 @@
+{
+    "type": "lesson",
+    "id": "lesson_3_105_possessives",
+    "chapterId": "ch_105_possessives",
+    "title": "Урок 3: Твой папа",
+    "titleTuvan": "Кичээл 3: Сээң адаң",
+    "description": "Притяжательный суффикс 2-го лица",
+    "skill": "grammar",
+    "order": 4,
+    "isPublished": true,
+    "difficulty": 2,
+    "estimatedTime": 5,
+    "exercises": [
+        {
+            "id": "ex_pos3_1",
+            "type": "translate",
+            "order": 0,
+            "question": "Твой папа",
+            "correct": "Сээң адаң"
+        },
+        {
+            "id": "ex_pos3_2",
+            "type": "choice",
+            "order": 1,
+            "question": "Выбери 'Сээң адаң'",
+            "options": ["Мой папа", "Твой папа", "Его папа"],
+            "correct": "Твой папа"
+        },
+        {
+            "id": "ex_pos3_3",
+            "type": "translate",
+            "order": 2,
+            "question": "Сээң адаң",
+            "correct": "Твой папа"
+        },
+        {
+            "id": "ex_pos3_4",
+            "type": "order",
+            "order": 3,
+            "question": "Собери: 'Твой папа'",
+            "orderItems": ["адаң", "Сээң"],
+            "correct": ["Сээң", "адаң"]
+        },
+        {
+            "id": "ex_pos3_5",
+            "type": "match",
+            "order": 4,
+            "question": "Сопоставь",
+            "matchPairs": [{ "left": "Сээң адаң", "right": "Твой папа" }]
+        },
+        {
+            "id": "ex_pos3_6",
+            "type": "choice",
+            "order": 5,
+            "question": "Какой суффикс используется для 'Твой'?",
+            "options": ["-м", "-ң", "-зы"],
+            "correct": "-ң"
+        },
+        {
+            "id": "ex_pos3_7",
+            "type": "translate",
+            "order": 6,
+            "question": "Сээң",
+            "correct": "Твой"
+        },
+        {
+            "id": "ex_pos3_8",
+            "type": "order",
+            "order": 7,
+            "question": "Собери: 'Твой папа ест'",
+            "orderItems": ["Сээң", "адаң", "чиип", "тур"],
+            "correct": ["Сээң", "адаң", "чиип", "тур"]
+        },
+        {
+            "id": "ex_pos3_9",
+            "type": "choice",
+            "order": 8,
+            "question": "Выбери правильный вариант: '___ адаң'",
+            "options": ["Мээң", "Сээң", "Ооң"],
+            "correct": "Сээң"
+        },
+        {
+            "id": "ex_pos3_10",
+            "type": "match",
+            "order": 9,
+            "question": "Сопоставь",
+            "matchPairs": [{ "left": "Сээң", "right": "Твой" }]
+        }
+    ]
+}

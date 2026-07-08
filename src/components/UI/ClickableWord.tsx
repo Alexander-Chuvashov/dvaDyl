@@ -16,7 +16,8 @@ const ClickableWord: React.FC<ClickableWordProps> = ({
 }) => {
     const [popover, setPopover] = useState<{
         word: string;
-        translation: string | null;
+        translation: string;
+        from: 'tuvan' | 'russian';
         x: number;
         y: number;
     } | null>(null);
@@ -24,11 +25,12 @@ const ClickableWord: React.FC<ClickableWordProps> = ({
     const handleClick = (e: React.MouseEvent<HTMLSpanElement>) => {
         e.stopPropagation();
         const rect = e.currentTarget.getBoundingClientRect();
-        const translation = TranslationService.getTranslation(word);
-        if (translation) {
+        const result = TranslationService.getTranslation(word);
+        if (result) {
             setPopover({
                 word,
-                translation,
+                translation: result.translation,
+                from: result.from,
                 x: rect.left + rect.width / 2,
                 y: rect.top,
             });
@@ -48,6 +50,7 @@ const ClickableWord: React.FC<ClickableWordProps> = ({
                 <WordPopover
                     word={popover.word}
                     translation={popover.translation}
+                    from={popover.from}
                     position={{ x: popover.x, y: popover.y }}
                     onClose={() => setPopover(null)}
                 />

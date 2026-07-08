@@ -1,0 +1,93 @@
+{
+    "type": "lesson",
+    "id": "lesson_3_104_plurals",
+    "chapterId": "ch_104_plurals",
+    "title": "Урок 3: Дети",
+    "titleTuvan": "Кичээл 3: Ачалар",
+    "description": "Мн.ч. слова ача",
+    "skill": "vocabulary",
+    "order": 4,
+    "isPublished": true,
+    "difficulty": 1,
+    "estimatedTime": 5,
+    "exercises": [
+        {
+            "id": "ex_pl3_1",
+            "type": "translate",
+            "order": 0,
+            "question": "Дети",
+            "correct": "Ачалар"
+        },
+        {
+            "id": "ex_pl3_2",
+            "type": "choice",
+            "order": 1,
+            "question": "Выбери 'Дети'",
+            "options": ["Ача", "Ачалар", "Кижилер"],
+            "correct": "Ачалар"
+        },
+        {
+            "id": "ex_pl3_3",
+            "type": "translate",
+            "order": 2,
+            "question": "Ачалар",
+            "correct": "Дети"
+        },
+        {
+            "id": "ex_pl3_4",
+            "type": "order",
+            "order": 3,
+            "question": "Собери: 'Мы дети'",
+            "orderItems": ["бис", "Бис", "ачалар"],
+            "correct": ["Бис", "ачалар", "бис"]
+        },
+        {
+            "id": "ex_pl3_5",
+            "type": "choice",
+            "order": 4,
+            "question": "Выбери перевод: 'Олар ачалар'",
+            "options": ["Они дети", "Вы дети", "Мы дети"],
+            "correct": "Они дети"
+        },
+        {
+            "id": "ex_pl3_6",
+            "type": "order",
+            "order": 5,
+            "question": "Собери: 'Вы дети?'",
+            "orderItems": ["силер?", "Силер", "ачалар", "бе"],
+            "correct": ["Силер", "ачалар", "бе", "силер?"]
+        },
+        {
+            "id": "ex_pl3_7",
+            "type": "match",
+            "order": 6,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Ача", "right": "Ребенок" },
+                { "left": "Ачалар", "right": "Дети" }
+            ]
+        },
+        {
+            "id": "ex_pl3_8",
+            "type": "translate",
+            "order": 7,
+            "question": "Ребенок",
+            "correct": "Ача"
+        },
+        {
+            "id": "ex_pl3_9",
+            "type": "translate",
+            "order": 8,
+            "question": "Дети",
+            "correct": "Ачалар"
+        },
+        {
+            "id": "ex_pl3_10",
+            "type": "choice",
+            "order": 9,
+            "question": "Что такое 'Ачалар'?",
+            "options": ["Ребенок", "Люди", "Дети"],
+            "correct": "Дети"
+        }
+    ]
+}

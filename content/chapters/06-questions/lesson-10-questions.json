@@ -1,0 +1,97 @@
+{
+    "type": "lesson",
+    "id": "lesson_10_106_questions",
+    "chapterId": "ch_106_questions",
+    "title": "Урок 10: Повторение",
+    "titleTuvan": "Кичээл 10: Катаптаа",
+    "description": "Закрепление материала юнита 6",
+    "skill": "review",
+    "order": 11,
+    "isPublished": true,
+    "difficulty": 3,
+    "estimatedTime": 10,
+    "exercises": [
+        {
+            "id": "ex_q10_1",
+            "type": "order",
+            "order": 0,
+            "question": "Собери: 'Почему ты пьешь воду?'",
+            "orderItems": ["Чүге", "сен", "суг", "ижип", "тур", "сен?"],
+            "correct": ["Чүге", "сен", "суг", "ижип", "тур", "сен?"]
+        },
+        {
+            "id": "ex_q10_2",
+            "type": "choice",
+            "order": 1,
+            "question": "Выбери перевод: 'Кайыан сен?'",
+            "options": ["Кто ты?", "Где ты?", "Куда ты?"],
+            "correct": "Где ты?"
+        },
+        {
+            "id": "ex_q10_3",
+            "type": "match",
+            "order": 2,
+            "question": "Сопоставь вопросительные слова",
+            "matchPairs": [
+                { "left": "Кым", "right": "Кто" },
+                { "left": "Чүү", "right": "Что" },
+                { "left": "Кайыан", "right": "Где" }
+            ]
+        },
+        {
+            "id": "ex_q10_4",
+            "type": "translate",
+            "order": 3,
+            "question": "Когда",
+            "correct": "Кажан"
+        },
+        {
+            "id": "ex_q10_5",
+            "type": "translate",
+            "order": 4,
+            "question": "Почему",
+            "correct": "Чүге"
+        },
+        {
+            "id": "ex_q10_6",
+            "type": "order",
+            "order": 5,
+            "question": "Собери: 'Что это?'",
+            "orderItems": ["бо?", "Чүү"],
+            "correct": ["Чүү", "бо?"]
+        },
+        {
+            "id": "ex_q10_7",
+            "type": "choice",
+            "order": 6,
+            "question": "Как спросить 'Как ты?'",
+            "options": ["Канчап-дыр сен?", "Чүге сен?", "Кым сен?"],
+            "correct": "Канчап-дыр сен?"
+        },
+        {
+            "id": "ex_q10_8",
+            "type": "match",
+            "order": 7,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Кажан", "right": "Когда" },
+                { "left": "Канчап", "right": "Как" }
+            ]
+        },
+        {
+            "id": "ex_q10_9",
+            "type": "translate",
+            "order": 8,
+            "question": "Куда",
+            "correct": "Кудаа"
+        },
+        {
+            "id": "ex_q10_10",
+            "type": "choice",
+            "order": 9,
+            "question": "Выбери правильный перевод: 'Чүү чиип тур сен?'",
+            "options": ["Что ты ешь?", "Кто ты?", "Где ты ешь?"],
+            "correct": "Что ты ешь?"
+        }
+    ]
+}

@@ -1,0 +1,101 @@
+{
+    "type": "lesson",
+    "id": "lesson_10_105_possessives",
+    "chapterId": "ch_105_possessives",
+    "title": "Урок 10: Повторение",
+    "titleTuvan": "Кичээл 10: Катаптаа",
+    "description": "Закрепление материала юнита 5",
+    "skill": "review",
+    "order": 11,
+    "isPublished": true,
+    "difficulty": 3,
+    "estimatedTime": 10,
+    "exercises": [
+        {
+            "id": "ex_pos10_1",
+            "type": "order",
+            "order": 0,
+            "question": "Собери: 'Моя мама пьет чай'",
+            "orderItems": ["Мээң", "авам", "чай", "ижип", "тур"],
+            "correct": ["Мээң", "авам", "чай", "ижип", "тур"]
+        },
+        {
+            "id": "ex_pos10_2",
+            "type": "choice",
+            "order": 1,
+            "question": "Выбери перевод: 'Сээң адаң чиип тур'",
+            "options": ["Твой папа ест", "Моя мама пьет", "Его брат ест"],
+            "correct": "Твой папа ест"
+        },
+        {
+            "id": "ex_pos10_3",
+            "type": "match",
+            "order": 2,
+            "question": "Сопоставь притяжательные",
+            "matchPairs": [
+                { "left": "Мээң", "right": "Мой" },
+                { "left": "Сээң", "right": "Твой" },
+                { "left": "Ооң", "right": "Его / Ее" }
+            ]
+        },
+        {
+            "id": "ex_pos10_4",
+            "type": "translate",
+            "order": 3,
+            "question": "Мой брат",
+            "correct": "Мээң акым"
+        },
+        {
+            "id": "ex_pos10_5",
+            "type": "translate",
+            "order": 4,
+            "question": "Твоя сестра",
+            "correct": "Сээң угбаң"
+        },
+        {
+            "id": "ex_pos10_6",
+            "type": "order",
+            "order": 5,
+            "question": "Собери: 'Его дом'",
+            "orderItems": ["бажыңы", "Ооң"],
+            "correct": ["Ооң", "бажыңы"]
+        },
+        {
+            "id": "ex_pos10_7",
+            "type": "choice",
+            "order": 6,
+            "question": "Как сказать 'Моя мама'?",
+            "options": ["Мээң авам", "Сээң аваң", "Ооң авазы"],
+            "correct": "Мээң авам"
+        },
+        {
+            "id": "ex_pos10_8",
+            "type": "match",
+            "order": 7,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Ооң адаазы", "right": "Его папа" },
+                { "left": "Мээң угбам", "right": "Моя сестра" }
+            ]
+        },
+        {
+            "id": "ex_pos10_9",
+            "type": "translate",
+            "order": 8,
+            "question": "Ее мама",
+            "correct": "Ооң авазы"
+        },
+        {
+            "id": "ex_pos10_10",
+            "type": "choice",
+            "order": 9,
+            "question": "Выбери правильный перевод: 'Мээң бажыңым биче'",
+            "options": [
+                "Мой дом маленький",
+                "Твой дом большой",
+                "Ее дом маленький"
+            ],
+            "correct": "Мой дом маленький"
+        }
+    ]
+}

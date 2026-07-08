@@ -6,7 +6,6 @@ let vocabulary: VocabularyWord[] | null = null;
 let loadingPromise: Promise<void> | null = null;
 
 export const TranslationService = {
-    // Загружаем словарь один раз
     loadVocabulary: async (): Promise<void> => {
         if (vocabulary) return;
         if (loadingPromise) return loadingPromise;
@@ -20,17 +19,39 @@ export const TranslationService = {
         return loadingPromise;
     },
 
-    // Получить перевод для слова (игнорируем регистр)
-    getTranslation: (word: string): string | null => {
+    // Ищет перевод в обоих направлениях
+    getTranslation: (
+        word: string,
+    ): { translation: string; from: 'tuvan' | 'russian' } | null => {
         if (!vocabulary) return null;
         const normalized = word.trim().toLowerCase();
-        const found = vocabulary.find(
+
+        // Ищем как тувинское слово
+        const foundAsTuvan = vocabulary.find(
             item => item.wordTuvan.toLowerCase() === normalized,
         );
-        return found?.wordRussian || null;
+        if (foundAsTuvan) {
+            return {
+                translation: foundAsTuvan.wordRussian,
+                from: 'tuvan',
+            };
+        }
+
+        // Ищем как русское слово
+        const foundAsRussian = vocabulary.find(
+            item => item.wordRussian.toLowerCase() === normalized,
+        );
+        if (foundAsRussian) {
+            return {
+                translation: foundAsRussian.wordTuvan,
+                from: 'russian',
+            };
+        }
+
+        return null;
     },
 
-    // Проверить, есть ли перевод
+    // Проверяем, есть ли перевод для слова
     hasTranslation: (word: string): boolean => {
         return !!TranslationService.getTranslation(word);
     },

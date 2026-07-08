@@ -1,0 +1,93 @@
+{
+    "type": "lesson",
+    "id": "lesson_2_105_possessives",
+    "chapterId": "ch_105_possessives",
+    "title": "Урок 2: Моя мама",
+    "titleTuvan": "Кичээл 2: Мээң авам",
+    "description": "Притяжательный суффикс 1-го лица (ава)",
+    "skill": "grammar",
+    "order": 3,
+    "isPublished": true,
+    "difficulty": 1,
+    "estimatedTime": 5,
+    "exercises": [
+        {
+            "id": "ex_pos2_1",
+            "type": "translate",
+            "order": 0,
+            "question": "Моя мама",
+            "correct": "Мээң авам"
+        },
+        {
+            "id": "ex_pos2_2",
+            "type": "choice",
+            "order": 1,
+            "question": "Выбери 'Мээң авам'",
+            "options": ["Моя мама", "Твоя мама", "Его мама"],
+            "correct": "Моя мама"
+        },
+        {
+            "id": "ex_pos2_3",
+            "type": "translate",
+            "order": 2,
+            "question": "Мээң авам",
+            "correct": "Моя мама"
+        },
+        {
+            "id": "ex_pos2_4",
+            "type": "order",
+            "order": 3,
+            "question": "Собери: 'Моя мама'",
+            "orderItems": ["авам", "Мээң"],
+            "correct": ["Мээң", "авам"]
+        },
+        {
+            "id": "ex_pos2_5",
+            "type": "match",
+            "order": 4,
+            "question": "Сопоставь",
+            "matchPairs": [{ "left": "Мээң авам", "right": "Моя мама" }]
+        },
+        {
+            "id": "ex_pos2_6",
+            "type": "choice",
+            "order": 5,
+            "question": "Как сказать 'Моя мама'?",
+            "options": ["Мээң авам", "Мээң ава", "Мээң аваң"],
+            "correct": "Мээң авам"
+        },
+        {
+            "id": "ex_pos2_7",
+            "type": "order",
+            "order": 6,
+            "question": "Собери: 'Моя мама пьет чай'",
+            "orderItems": ["Мээң", "авам", "чай", "ижип", "тур"],
+            "correct": ["Мээң", "авам", "чай", "ижип", "тур"]
+        },
+        {
+            "id": "ex_pos2_8",
+            "type": "translate",
+            "order": 7,
+            "question": "Моя мама ест",
+            "correct": "Мээң авам чиип тур"
+        },
+        {
+            "id": "ex_pos2_9",
+            "type": "choice",
+            "order": 8,
+            "question": "Выбери перевод: 'Мээң авам ижип тур'",
+            "options": ["Моя мама пьет", "Мой папа ест", "Твоя мама пьет"],
+            "correct": "Моя мама пьет"
+        },
+        {
+            "id": "ex_pos2_10",
+            "type": "match",
+            "order": 9,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Мээң авам", "right": "Моя мама" },
+                { "left": "Мээң адам", "right": "Мой папа" }
+            ]
+        }
+    ]
+}

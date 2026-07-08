@@ -1,0 +1,93 @@
+{
+    "type": "lesson",
+    "id": "lesson_8_107_time_days",
+    "chapterId": "ch_107_time_days",
+    "title": "Урок 8: Время",
+    "titleTuvan": "Кичээл 8: Үе",
+    "description": "Слово Үе и вопрос когда",
+    "skill": "vocabulary",
+    "order": 9,
+    "isPublished": true,
+    "difficulty": 3,
+    "estimatedTime": 7,
+    "exercises": [
+        {
+            "id": "ex_t8_1",
+            "type": "translate",
+            "order": 0,
+            "question": "Время",
+            "correct": "Үе"
+        },
+        {
+            "id": "ex_t8_2",
+            "type": "choice",
+            "order": 1,
+            "question": "Выбери 'Время'",
+            "options": ["Хүн", "Үе", "Кежээ"],
+            "correct": "Үе"
+        },
+        {
+            "id": "ex_t8_3",
+            "type": "translate",
+            "order": 2,
+            "question": "Үе",
+            "correct": "Время"
+        },
+        {
+            "id": "ex_t8_4",
+            "type": "order",
+            "order": 3,
+            "question": "Собери: 'Когда?'",
+            "orderItems": ["Кажан?"],
+            "correct": ["Кажан?"]
+        },
+        {
+            "id": "ex_t8_5",
+            "type": "match",
+            "order": 4,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Үе", "right": "Время" },
+                { "left": "Кажан", "right": "Когда" }
+            ]
+        },
+        {
+            "id": "ex_t8_6",
+            "type": "choice",
+            "order": 5,
+            "question": "Как спросить 'Когда?'",
+            "options": ["Кайыан?", "Кажан?", "Чүге?"],
+            "correct": "Кажан?"
+        },
+        {
+            "id": "ex_t8_7",
+            "type": "translate",
+            "order": 6,
+            "question": "Когда?",
+            "correct": "Кажан?"
+        },
+        {
+            "id": "ex_t8_8",
+            "type": "order",
+            "order": 7,
+            "question": "Собери: 'Когда ты ешь?'",
+            "orderItems": ["Кажан", "сен", "чиип", "тур", "сен?"],
+            "correct": ["Кажан", "сен", "чиип", "тур", "сен?"]
+        },
+        {
+            "id": "ex_t8_9",
+            "type": "choice",
+            "order": 8,
+            "question": "Выбери перевод: 'Кажан сен ижип тур сен?'",
+            "options": ["Когда ты пьешь?", "Где ты ешь?", "Почему ты пьешь?"],
+            "correct": "Когда ты пьешь?"
+        },
+        {
+            "id": "ex_t8_10",
+            "type": "match",
+            "order": 9,
+            "question": "Сопоставь",
+            "matchPairs": [{ "left": "Үе", "right": "Время" }]
+        }
+    ]
+}

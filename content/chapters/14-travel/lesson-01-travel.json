@@ -1,0 +1,92 @@
+{
+    "type": "lesson",
+    "id": "lesson_1_114_travel",
+    "chapterId": "ch_114_travel",
+    "title": "Урок 1: Виды транспорта",
+    "titleTuvan": "Кичээл 1: Транспорт хевирлери",
+    "description": "Основные виды транспорта",
+    "skill": "vocabulary",
+    "order": 2,
+    "isPublished": true,
+    "difficulty": 1,
+    "estimatedTime": 5,
+    "exercises": [
+        {
+            "id": "ex_tr1_1",
+            "type": "translate",
+            "order": 0,
+            "question": "Поезд",
+            "correct": "Поезд"
+        },
+        {
+            "id": "ex_tr1_2",
+            "type": "translate",
+            "order": 1,
+            "question": "Автобус",
+            "correct": "Автобус"
+        },
+        {
+            "id": "ex_tr1_3",
+            "type": "choice",
+            "order": 2,
+            "question": "Выбери 'Самолёт'",
+            "options": ["Поезд", "Чагыыр", "Автобус"],
+            "correct": "Чагыыр"
+        },
+        {
+            "id": "ex_tr1_4",
+            "type": "choice",
+            "order": 3,
+            "question": "Выбери 'Поезд'",
+            "options": ["Чагыыр", "Автобус", "Поезд"],
+            "correct": "Поезд"
+        },
+        {
+            "id": "ex_tr1_5",
+            "type": "match",
+            "order": 4,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Поезд", "right": "Поезд" },
+                { "left": "Чагыыр", "right": "Самолет" }
+            ]
+        },
+        {
+            "id": "ex_tr1_6",
+            "type": "translate",
+            "order": 5,
+            "question": "Чагыыр",
+            "correct": "Самолет"
+        },
+        {
+            "id": "ex_tr1_7",
+            "type": "translate",
+            "order": 6,
+            "question": "Автобус",
+            "correct": "Автобус"
+        },
+        {
+            "id": "ex_tr1_8",
+            "type": "order",
+            "order": 7,
+            "question": "Собери: 'Поезд и автобус'",
+            "orderItems": ["Поезд", "болгаш", "Автобус"],
+            "correct": ["Поезд", "болгаш", "Автобус"]
+        },
+        {
+            "id": "ex_tr1_9",
+            "type": "choice",
+            "order": 8,
+            "question": "Что такое 'Чагыыр'?",
+            "options": ["Поезд", "Автобус", "Самолет"],
+            "correct": "Самолет"
+        },
+        {
+            "id": "ex_tr1_10",
+            "type": "match",
+            "order": 9,
+            "question": "Сопоставь",
+            "matchPairs": [{ "left": "Автобус", "right": "Автобус" }]
+        }
+    ]
+}

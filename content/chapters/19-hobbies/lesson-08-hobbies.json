@@ -1,0 +1,99 @@
+{
+    "type": "lesson",
+    "id": "lesson_8_118_description",
+    "chapterId": "ch_118_description",
+    "title": "Урок 8: Отрицание прилагательных",
+    "titleTuvan": "Кичээл 8: Эвес",
+    "description": "Отрицание свойств",
+    "skill": "grammar",
+    "order": 9,
+    "isPublished": true,
+    "difficulty": 3,
+    "estimatedTime": 7,
+    "exercises": [
+        {
+            "id": "ex_de8_1",
+            "type": "order",
+            "order": 0,
+            "question": "Собери: 'Он не высокий'",
+            "orderItems": ["Ол", "өр", "эвес"],
+            "correct": ["Ол", "өр", "эвес"]
+        },
+        {
+            "id": "ex_de8_2",
+            "type": "order",
+            "order": 1,
+            "question": "Собери: 'Дом не большой'",
+            "orderItems": ["Бажың", "улуг", "эвес"],
+            "correct": ["Бажың", "улуг", "эвес"]
+        },
+        {
+            "id": "ex_de8_3",
+            "type": "choice",
+            "order": 2,
+            "question": "Выбери перевод: 'Ол чараш эвес'",
+            "options": ["Он некрасивый", "Она красивая", "Он высокий"],
+            "correct": "Он некрасивый"
+        },
+        {
+            "id": "ex_de8_4",
+            "type": "translate",
+            "order": 3,
+            "question": "Он не высокий",
+            "correct": "Ол өр эвес"
+        },
+        {
+            "id": "ex_de8_5",
+            "type": "order",
+            "order": 4,
+            "question": "Собери: 'Машина не новая' (чаа)",
+            "orderItems": ["Машина", "чаа", "эвес"],
+            "correct": ["Машина", "чаа", "эвес"]
+        },
+        {
+            "id": "ex_de8_6",
+            "type": "choice",
+            "order": 5,
+            "question": "Как сказать 'Дом не маленький'?",
+            "options": [
+                "Бажың биче эвес",
+                "Бажың улуг эвес",
+                "Бажың чараш эвес"
+            ],
+            "correct": "Бажың биче эвес"
+        },
+        {
+            "id": "ex_de8_7",
+            "type": "translate",
+            "order": 6,
+            "question": "Дом не маленький",
+            "correct": "Бажың биче эвес"
+        },
+        {
+            "id": "ex_de8_8",
+            "type": "order",
+            "order": 7,
+            "question": "Собери: 'Он не старый'",
+            "orderItems": ["Ол", "кырган", "эвес"],
+            "correct": ["Ол", "кырган", "эвес"]
+        },
+        {
+            "id": "ex_de8_9",
+            "type": "match",
+            "order": 8,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Ол өр эвес", "right": "Он не высокий" },
+                { "left": "Бажың улуг эвес", "right": "Дом не большой" }
+            ]
+        },
+        {
+            "id": "ex_de8_10",
+            "type": "choice",
+            "order": 9,
+            "question": "Выбери правильный перевод: 'Машина чаа эвес'",
+            "options": ["Машина новая", "Машина не новая", "Машина не большая"],
+            "correct": "Машина не новая"
+        }
+    ]
+}

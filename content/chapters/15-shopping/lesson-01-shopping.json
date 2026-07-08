@@ -1,0 +1,92 @@
+{
+    "type": "lesson",
+    "id": "lesson_1_115_shopping",
+    "chapterId": "ch_115_shopping",
+    "title": "Урок 1: Магазин и рынок",
+    "titleTuvan": "Кичээл 1: Магазин болгаш чыырак",
+    "description": "Места покупок",
+    "skill": "vocabulary",
+    "order": 2,
+    "isPublished": true,
+    "difficulty": 1,
+    "estimatedTime": 5,
+    "exercises": [
+        {
+            "id": "ex_sh1_1",
+            "type": "translate",
+            "order": 0,
+            "question": "Магазин",
+            "correct": "Магазин"
+        },
+        {
+            "id": "ex_sh1_2",
+            "type": "translate",
+            "order": 1,
+            "question": "Рынок",
+            "correct": "Чыырак"
+        },
+        {
+            "id": "ex_sh1_3",
+            "type": "choice",
+            "order": 2,
+            "question": "Выбери 'Магазин'",
+            "options": ["Чыырак", "Магазин", "Акша"],
+            "correct": "Магазин"
+        },
+        {
+            "id": "ex_sh1_4",
+            "type": "choice",
+            "order": 3,
+            "question": "Выбери 'Рынок'",
+            "options": ["Магазин", "Чыырак", "Үне"],
+            "correct": "Чыырак"
+        },
+        {
+            "id": "ex_sh1_5",
+            "type": "match",
+            "order": 4,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Магазин", "right": "Магазин" },
+                { "left": "Чыырак", "right": "Рынок" }
+            ]
+        },
+        {
+            "id": "ex_sh1_6",
+            "type": "translate",
+            "order": 5,
+            "question": "Чыырак",
+            "correct": "Рынок"
+        },
+        {
+            "id": "ex_sh1_7",
+            "type": "translate",
+            "order": 6,
+            "question": "Магазин",
+            "correct": "Магазин"
+        },
+        {
+            "id": "ex_sh1_8",
+            "type": "order",
+            "order": 7,
+            "question": "Собери: 'Я иду в магазин'",
+            "orderItems": ["Мен", "магазинче", "бар", "мен"],
+            "correct": ["Мен", "магазинче", "бар", "мен"]
+        },
+        {
+            "id": "ex_sh1_9",
+            "type": "choice",
+            "order": 8,
+            "question": "Выбери перевод: 'Мен чыыракче баар мен'",
+            "options": ["Я иду в магазин", "Я еду на рынок", "Я иду на рынок"],
+            "correct": "Я иду на рынок"
+        },
+        {
+            "id": "ex_sh1_10",
+            "type": "match",
+            "order": 9,
+            "question": "Сопоставь",
+            "matchPairs": [{ "left": "Чыырак", "right": "Рынок" }]
+        }
+    ]
+}
