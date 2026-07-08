@@ -3,7 +3,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import type { Chapter } from '../../types/content';
 import { useAppStore } from '../../store/useAppStore';
-import { Lock, CheckCircle } from 'lucide-react';
+import { Lock, CheckCircle, BookOpen } from 'lucide-react';
 
 interface ChapterCardProps {
     chapter: Chapter;
@@ -15,7 +15,7 @@ const ChapterCard: React.FC<ChapterCardProps> = ({
     isLocked = false,
 }) => {
     const navigate = useNavigate();
-    const { dbProgress, completedLessonIds } = useAppStore();
+    const { completedLessonIds } = useAppStore();
 
     // Количество уроков в главе (только тип 'lesson')
     const totalLessons =
@@ -53,7 +53,7 @@ const ChapterCard: React.FC<ChapterCardProps> = ({
                     ) : isFullyCompleted ? (
                         <CheckCircle className="w-5 h-5 text-olive" />
                     ) : (
-                        <span className="text-2xl">📖</span>
+                        <BookOpen className="w-5 h-5 text-terracotta" />
                     )}
                     <h2 className="text-xl font-semibold text-dark">
                         {chapter.title}

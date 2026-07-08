@@ -91,6 +91,32 @@ const ChoiceExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
                     ✅ Правильно!
                 </div>
             )}
+
+            {/* Дополнительная информация */}
+            {(exercise.translation ||
+                exercise.transcription ||
+                exercise.context) && (
+                <div className="p-3 mt-4 border rounded-lg bg-cream/50 border-cream">
+                    {exercise.translation && (
+                        <p className="text-sm text-dark/80">
+                            <span className="font-medium">Перевод:</span>{' '}
+                            {exercise.translation}
+                        </p>
+                    )}
+                    {exercise.transcription && (
+                        <p className="text-sm text-dark/80">
+                            <span className="font-medium">Транскрипция:</span>{' '}
+                            {exercise.transcription}
+                        </p>
+                    )}
+                    {exercise.context && (
+                        <p className="text-sm text-dark/80">
+                            <span className="font-medium">Пример:</span>{' '}
+                            {exercise.context}
+                        </p>
+                    )}
+                </div>
+            )}
         </div>
     );
 };

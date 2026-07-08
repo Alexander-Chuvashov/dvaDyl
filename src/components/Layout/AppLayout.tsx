@@ -2,12 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { useAppStore } from '../../store/useAppStore';
 import StatsHeader from './StatsHeader';
 import { supabase } from '../../lib/supabaseClient';
-import { LogOut, Moon, Sun, Settings } from 'lucide-react';
+import NetworkStatus from '../UI/NetworkStatus';
+import { LogOut, Moon, Sun, Settings, BarChart3 } from 'lucide-react';
+import { Repeat } from 'lucide-react';
 
 import { Link } from 'react-router-dom';
 
 const AppLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-    const { isAuthenticated, resetAll } = useAppStore();
+    const { isAuthenticated, resetAll, errorExercises } = useAppStore();
     const [isDark, setIsDark] = useState(() => {
         // Читаем тему из localStorage
         return localStorage.getItem('theme') === 'dark';
@@ -71,6 +73,30 @@ const AppLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                                 >
                                     <Settings className="w-5 h-5 text-dark/60" />
                                 </Link>
+                                <Link
+                                    to="/stats"
+                                    className="p-2 transition-colors rounded-full hover:bg-cream"
+                                    title="Статистика"
+                                >
+                                    <BarChart3 className="w-5 h-5 text-dark/60" />
+                                </Link>
+                                <Link
+                                    to="/repeat-errors"
+                                    className={`p-2 rounded-full transition-colors relative ${
+                                        errorExercises.length > 0
+                                            ? 'hover:bg-red-100'
+                                            : 'hover:bg-cream'
+                                    }`}
+                                    title="Повторить ошибки"
+                                >
+                                    <Repeat className="w-5 h-5 text-dark/60" />
+                                    {errorExercises.length > 0 && (
+                                        <span className="absolute flex items-center justify-center w-5 h-5 text-xs text-white bg-red-500 rounded-full -top-1 -right-1">
+                                            {errorExercises.length}
+                                        </span>
+                                    )}
+                                </Link>
+                                <NetworkStatus />
                                 <StatsHeader />
                                 <button
                                     onClick={toggleTheme}

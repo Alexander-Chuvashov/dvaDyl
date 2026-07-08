@@ -21,7 +21,10 @@ export const ExerciseSchema = z.object({
             }),
         )
         .optional(),
-    correctFill: z.string().optional(),
+    translation: z.string().optional(),
+    transcription: z.string().optional(),
+    context: z.string().optional(),
+    explanation: z.string().optional(),
 });
 
 // // Схема для урока
@@ -135,7 +138,7 @@ export interface Lesson {
     skill: string;
     order: number;
     isPublished: boolean;
-    difficulty?: number;
+    difficulty?: 1 | 2 | 3;
     estimatedTime?: number;
     exercises: Exercise[];
 }

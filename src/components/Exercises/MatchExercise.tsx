@@ -127,14 +127,14 @@ const MatchExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
                         Русский
                     </h3>
                     <div className="space-y-2">
-                        {leftItems.map(left => {
+                        {leftItems.map((left, idx) => {
                             const isMatched = matches.some(
                                 m => m.left === left,
                             );
                             if (isMatched) {
                                 return (
                                     <div
-                                        key={left}
+                                        key={idx}
                                         className="flex items-center justify-between px-4 py-2 text-gray-500 bg-gray-100 border-2 border-gray-200 rounded-lg"
                                     >
                                         <span>{left}</span>
@@ -146,7 +146,7 @@ const MatchExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
                             }
                             return (
                                 <button
-                                    key={left}
+                                    key={idx}
                                     onClick={() => handleLeftClick(left)}
                                     className={`w-full text-left px-4 py-2 rounded-lg border-2 transition-all duration-200 ${getLeftClass(left)}`}
                                 >
@@ -161,14 +161,14 @@ const MatchExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
                         Тувинский
                     </h3>
                     <div className="space-y-2">
-                        {rightItems.map(right => {
+                        {rightItems.map((right, idx) => {
                             const isMatched = matches.some(
                                 m => m.right === right,
                             );
                             if (isMatched) {
                                 return (
                                     <div
-                                        key={right}
+                                        key={idx}
                                         className="flex items-center justify-between px-4 py-2 text-gray-500 bg-gray-100 border-2 border-gray-200 rounded-lg"
                                     >
                                         <span>{right}</span>
@@ -180,7 +180,7 @@ const MatchExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
                             }
                             return (
                                 <button
-                                    key={right}
+                                    key={idx}
                                     onClick={() => handleRightClick(right)}
                                     className={`w-full text-left px-4 py-2 rounded-lg border-2 transition-all duration-200 ${getRightClass(right)}`}
                                 >

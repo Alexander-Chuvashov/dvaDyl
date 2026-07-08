@@ -1,7 +1,12 @@
+// src/components/Chapters/TheoryView.tsx
 import React from 'react';
 import type { Theory } from '../../types/content';
 
-const TheoryView: React.FC<{ theory: Theory }> = ({ theory }) => {
+interface TheoryViewProps {
+    theory: Theory;
+}
+
+const TheoryView: React.FC<TheoryViewProps> = ({ theory }) => {
     return (
         <div className="card">
             <h3 className="flex items-center gap-2 text-xl font-semibold text-dark">
@@ -18,8 +23,8 @@ const TheoryView: React.FC<{ theory: Theory }> = ({ theory }) => {
             />
             {theory.listItems && (
                 <ul className="mt-3 space-y-1 list-disc list-inside text-dark/80">
-                    {theory.listItems.map((item, i) => (
-                        <li key={i}>{item}</li>
+                    {theory.listItems.map((item, index) => (
+                        <li key={index}>{item}</li> // <-- используем index как ключ
                     ))}
                 </ul>
             )}

@@ -16,10 +16,15 @@ const LessonView: React.FC<LessonViewProps> = ({ lesson, onComplete }) => {
     const [completedExercises, setCompletedExercises] = useState<
         Record<string, boolean>
     >({});
+    const [wrongExerciseIds, setWrongExerciseIds] = useState<string[]>([]);
+    const [isReviewMode, setIsReviewMode] = useState(false);
+    const [reviewCompleted, setReviewCompleted] = useState<
+        Record<string, boolean>
+    >({});
     const [feedback, setFeedback] = useState<{
         type: 'correct' | 'incorrect';
         message: string;
-        correctAnswer?: string;
+        explanation?: string;
     } | null>(null);
     const isProcessingRef = useRef(false);
 
@@ -39,121 +44,169 @@ const LessonView: React.FC<LessonViewProps> = ({ lesson, onComplete }) => {
     const currentExercise = exercises[exerciseIndex];
     const isLast = exerciseIndex === exercises.length - 1;
 
-    // Все ли упражнения выполнены правильно?
+    // Режим повторения – берём только ошибочные упражнения
+    const reviewExercises = exercises.filter(ex =>
+        wrongExerciseIds.includes(ex.id),
+    );
+    const currentReviewExercise = reviewExercises[exerciseIndex] || null;
+    const isReviewLast = exerciseIndex === reviewExercises.length - 1;
+
+    // Все ли упражнения пройдены правильно в основном режиме
     const allCompleted = exercises.every(
         ex => completedExercises[ex.id] === true,
     );
+    // Все ли ошибки исправлены
+    const allReviewCompleted = reviewExercises.every(
+        ex => reviewCompleted[ex.id] === true,
+    );
 
-    // Эффект завершения урока
+    // Эффект: переход в режим повторения или завершение
     useEffect(() => {
         if (!userId) return;
         if (!allCompleted) return;
+        if (isReviewMode) return; // уже в режиме повторения
         if (completedLessonIds.includes(lesson.id)) return;
 
-        const completeLesson = async () => {
-            try {
-                await syncProgress(userId, lesson.id, 'completed', 100, 50);
-                await syncStreak(userId);
-                const stats = {
-                    lessonsCompleted: completedLessonIds.length + 1,
-                    streak: streak + 1,
-                    xp: xp + 50,
-                };
-                const newAchievements = await checkAndUnlockAchievements(
-                    userId,
-                    stats,
-                );
-                if (newAchievements.length > 0) {
-                    newAchievements.forEach(ach => {
-                        alert(`🎉 Новое достижение: ${ach.icon} ${ach.name}`);
-                    });
-                }
-                onComplete?.();
-            } catch (error) {
-                console.error('Ошибка завершения урока:', error);
-                alert('Ошибка сохранения прогресса. Попробуйте ещё раз.');
-            }
-        };
+        // Если есть ошибки → включаем режим повторения
+        if (wrongExerciseIds.length > 0) {
+            setIsReviewMode(true);
+            setExerciseIndex(0);
+            setReviewCompleted({});
+            setFeedback(null);
+            return;
+        }
 
+        // Ошибок нет → завершаем урок
         completeLesson();
-    }, [allCompleted, userId, lesson.id, completedLessonIds, onComplete]);
+    }, [
+        allCompleted,
+        userId,
+        lesson.id,
+        completedLessonIds,
+        isReviewMode,
+        wrongExerciseIds,
+    ]);
 
+    // Эффект: завершение урока из режима повторения
+    useEffect(() => {
+        if (!userId) return;
+        if (!isReviewMode) return;
+        if (!allReviewCompleted) return;
+        if (completedLessonIds.includes(lesson.id)) return;
+        completeLesson();
+    }, [
+        allReviewCompleted,
+        isReviewMode,
+        userId,
+        lesson.id,
+        completedLessonIds,
+    ]);
+
+    const completeLesson = async () => {
+        try {
+            if (!userId) return;
+            await syncProgress(userId, lesson.id, 'completed', 100, 50);
+            await syncStreak(userId);
+            const stats = {
+                lessonsCompleted: completedLessonIds.length + 1,
+                streak: streak + 1,
+                xp: xp + 50,
+            };
+            const newAchievements = await checkAndUnlockAchievements(
+                userId,
+                stats,
+            );
+            if (newAchievements.length > 0) {
+                newAchievements.forEach(ach => {
+                    alert(`🎉 Новое достижение: ${ach.icon} ${ach.name}`);
+                });
+            }
+            onComplete?.();
+        } catch (error) {
+            console.error('Ошибка завершения урока:', error);
+            alert('Ошибка сохранения прогресса. Попробуйте ещё раз.');
+        }
+    };
+
+    // Обработка ответа
     const handleAnswer = useCallback(
-        async (
-            isCorrect: boolean,
-            userAnswer?: string,
-            correctAnswer?: string,
-        ) => {
-            if (isProcessingRef.current) {
-                console.warn('⚠️ Уже обрабатывается ответ, пропускаем');
-                return;
-            }
-            if (!currentExercise) {
-                console.warn('⚠️ Нет текущего упражнения');
-                return;
-            }
-
+        async (isCorrect: boolean, userAnswer?: string) => {
+            if (isProcessingRef.current) return;
             const exerciseId = currentExercise.id;
 
-            if (completedExercises[exerciseId] === true) {
-                console.warn(`⚠️ Упражнение ${exerciseId} уже пройдено`);
+            // Если уже правильно отвечено – не обрабатываем повторно
+            if (completedExercises[exerciseId] === true && !isReviewMode)
                 return;
-            }
+            if (isReviewMode && reviewCompleted[exerciseId] === true) return;
 
             isProcessingRef.current = true;
 
-            // Если ответ правильный
+            // Сохраняем ответ в БД (если есть userId и ответ)
+            if (userId && userAnswer !== undefined) {
+                try {
+                    await syncAnswer(userId, exerciseId, userAnswer, isCorrect);
+                } catch (e) {
+                    console.error('Ошибка сохранения ответа:', e);
+                }
+            }
+
+            // Обновляем локальный прогресс (в сторе)
+            answerExercise(exerciseId, isCorrect, lesson);
+
+            // --- Обработка правильного ответа ---
             if (isCorrect) {
+                if (isReviewMode) {
+                    setReviewCompleted(prev => ({
+                        ...prev,
+                        [exerciseId]: true,
+                    }));
+                    setWrongExerciseIds(prev =>
+                        prev.filter(id => id !== exerciseId),
+                    );
+                } else {
+                    setCompletedExercises(prev => ({
+                        ...prev,
+                        [exerciseId]: true,
+                    }));
+                }
                 setFeedback({ type: 'correct', message: '✅ Правильно!' });
 
-                // Сохраняем ответ в БД
-                if (userId && userAnswer !== undefined) {
-                    await syncAnswer(userId, exerciseId, userAnswer, isCorrect);
-                }
-
-                // Обновляем локальный прогресс
-                answerExercise(exerciseId, isCorrect, lesson);
-
-                // Отмечаем как пройденное
-                setCompletedExercises(prev => ({
-                    ...prev,
-                    [exerciseId]: true,
-                }));
-
-                // Задержка перед переходом
+                // Автоматический переход через 700 мс
                 setTimeout(() => {
                     setFeedback(null);
-                    isProcessingRef.current = false;
-                    if (!isLast) {
+                    const list = isReviewMode ? reviewExercises : exercises;
+                    if (exerciseIndex < list.length - 1) {
                         setExerciseIndex(prev => prev + 1);
                     }
-                    // если последнее – завершение произойдёт через useEffect
+                    isProcessingRef.current = false;
                 }, 700);
-            } else {
-                // Неправильный ответ – показываем правильный ответ
-                const correctMsg = correctAnswer
-                    ? `Правильный ответ: ${correctAnswer}`
-                    : 'Попробуй ещё раз';
+            }
+
+            // --- Обработка неправильного ответа ---
+            else {
+                // Запоминаем ошибку (если ещё не запомнена)
+                if (!wrongExerciseIds.includes(exerciseId)) {
+                    setWrongExerciseIds(prev => [...prev, exerciseId]);
+                }
+                const correctAnswer = Array.isArray(currentExercise.correct)
+                    ? currentExercise.correct.join(' ')
+                    : currentExercise.correct || '';
+
                 setFeedback({
                     type: 'incorrect',
-                    message: `❌ Неправильно. ${correctMsg}`,
-                    correctAnswer,
+                    message: `❌ Неправильно. Правильный ответ: ${correctAnswer}`,
+                    explanation: currentExercise.explanation,
                 });
-
-                // Сохраняем ответ в БД (даже неправильный)
-                if (userId && userAnswer !== undefined) {
-                    await syncAnswer(userId, exerciseId, userAnswer, isCorrect);
-                }
-
-                // Обновляем локальный прогресс (неправильный ответ не засчитывается)
-                answerExercise(exerciseId, isCorrect, lesson);
+                // Не переходим автоматически – ждём кнопку "Продолжить"
+                isProcessingRef.current = false;
             }
         },
         [
             currentExercise,
-            completedExercises,
+            isReviewMode,
+            reviewExercises,
+            exercises,
             userId,
-            isLast,
             syncAnswer,
             answerExercise,
             lesson,
@@ -163,23 +216,14 @@ const LessonView: React.FC<LessonViewProps> = ({ lesson, onComplete }) => {
     // Кнопка "Продолжить" после ошибки
     const handleContinueAfterError = () => {
         setFeedback(null);
-        isProcessingRef.current = false;
-        if (!isLast) {
+        const list = isReviewMode ? reviewExercises : exercises;
+        if (exerciseIndex < list.length - 1) {
             setExerciseIndex(prev => prev + 1);
         }
-        // если последнее – остаёмся на месте, но завершение через useEffect не сработает, т.к. not allCompleted
-        // можно предложить завершить урок вручную через кнопку
+        // Если это было последнее упражнение и это не режим повторения – завершение произойдёт через useEffect
     };
 
-    // Защита
-    if (!currentExercise) {
-        return (
-            <div className="py-10 text-center text-dark/60">
-                Упражнение не найдено
-            </div>
-        );
-    }
-
+    // Если урок уже пройден
     if (completedLessonIds.includes(lesson.id)) {
         return (
             <div className="text-center card">
@@ -191,49 +235,74 @@ const LessonView: React.FC<LessonViewProps> = ({ lesson, onComplete }) => {
         );
     }
 
-    const isCurrentCompleted = completedExercises[currentExercise.id] === true;
+    // Определяем активное упражнение
+    const activeExercise = isReviewMode
+        ? currentReviewExercise
+        : currentExercise;
+    if (!activeExercise) {
+        return (
+            <div className="py-10 text-center text-dark/60">
+                Упражнение не найдено
+            </div>
+        );
+    }
+
+    const isCompleted = isReviewMode
+        ? reviewCompleted[activeExercise.id] === true
+        : completedExercises[activeExercise.id] === true;
+
+    const total = isReviewMode ? reviewExercises.length : exercises.length;
+    const completedCount = isReviewMode
+        ? Object.values(reviewCompleted).filter(Boolean).length
+        : Object.values(completedExercises).filter(Boolean).length;
 
     return (
         <div className="max-w-2xl p-6 mx-auto">
             <div className="flex items-center justify-between mb-4">
-                <h2 className="text-2xl font-bold text-dark">{lesson.title}</h2>
+                <h2 className="text-2xl font-bold text-dark">
+                    {isReviewMode ? '🔁 Повторение ошибок' : lesson.title}
+                </h2>
                 <span className="text-sm text-dark/60">
-                    {exerciseIndex + 1} / {exercises.length}
+                    {exerciseIndex + 1} / {total}
                 </span>
             </div>
+            {isReviewMode && (
+                <p className="mb-2 text-sm text-terracotta">
+                    Осталось ошибок: {wrongExerciseIds.length}
+                </p>
+            )}
             <ProgressBar
                 current={exerciseIndex + 1}
-                total={exercises.length}
-                correctCount={
-                    Object.values(completedExercises).filter(Boolean).length
-                }
+                total={total}
+                correctCount={completedCount}
             />
             <div className="mt-6">
                 <AnimatedWrapper key={exerciseIndex} animation="scaleIn">
-                    {isCurrentCompleted ? (
+                    {isCompleted ? (
                         <div className="text-center card">
                             <p className="font-semibold text-olive">
                                 ✅ Уже отвечено правильно!
                             </p>
                             <button
                                 onClick={() => {
-                                    if (isLast) {
-                                        // ничего
-                                    } else {
+                                    const list = isReviewMode
+                                        ? reviewExercises
+                                        : exercises;
+                                    if (exerciseIndex < list.length - 1) {
                                         setExerciseIndex(prev => prev + 1);
                                     }
                                 }}
                                 className="mt-3 btn-primary"
                             >
-                                {isLast
-                                    ? 'Завершить урок'
-                                    : 'Следующее упражнение →'}
+                                {exerciseIndex < total - 1
+                                    ? 'Следующее упражнение →'
+                                    : 'Завершить урок'}
                             </button>
                         </div>
                     ) : (
                         <>
                             <ExerciseRenderer
-                                exercise={currentExercise}
+                                exercise={activeExercise}
                                 onAnswer={handleAnswer}
                             />
                             {feedback && (
@@ -241,10 +310,15 @@ const LessonView: React.FC<LessonViewProps> = ({ lesson, onComplete }) => {
                                     className={`mt-3 text-center font-semibold ${feedback.type === 'correct' ? 'text-olive' : 'text-terracotta'}`}
                                 >
                                     {feedback.message}
+                                    {feedback.explanation && (
+                                        <div className="p-3 mt-2 text-sm text-blue-800 border border-blue-200 rounded-lg bg-blue-50">
+                                            💡 {feedback.explanation}
+                                        </div>
+                                    )}
                                     {feedback.type === 'incorrect' && (
                                         <button
                                             onClick={handleContinueAfterError}
-                                            className="block mx-auto mt-2 btn-secondary"
+                                            className="mt-3 btn-secondary"
                                         >
                                             Продолжить →
                                         </button>

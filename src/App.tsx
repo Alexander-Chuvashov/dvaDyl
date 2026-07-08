@@ -1,21 +1,25 @@
-import './index.css';
-
+// src/App.tsx
 import React, { useEffect } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { useAppStore } from './store/useAppStore';
-const { setUserId, loadUserData, loadUserSettings } = useAppStore();
+import { supabase } from './lib/supabaseClient';
 import AppLayout from './components/Layout/AppLayout';
 import ChapterList from './components/Chapters/ChapterList';
 import ChapterView from './components/Chapters/ChapterView';
 import Login from './pages/Login';
 import Register from './pages/Register';
-import { supabase } from './lib/supabaseClient';
 import ReviewPage from './pages/ReviewPage';
 import AchievementsPage from './pages/AchievementsPage';
 import SettingsPage from './pages/SettingsPage';
+import StatsPage from './pages/StatsPage';
+import LessonPage from './pages/LessonPage';
+import PageTransition from './components/UI/PageTransiton';
+import RepeatErrorsPage from './pages/RepeatErrorPage';
 
-// Компонент для защищённых маршрутов (вынесен за пределы App)
-const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
+// Компонент для защищённых маршрутов (вынесен за пределы App, чтобы не создавать компонент внутри рендера)
+const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({
+    children,
+}) => {
     const { isAuthenticated } = useAppStore();
     if (!isAuthenticated) {
         return <Navigate to="/login" replace />;
@@ -24,7 +28,7 @@ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
 };
 
 function App() {
-    const { isAuthenticated, userId, loadUserData, setUserId } = useAppStore();
+    const { setUserId, loadUserData, loadUserSettings } = useAppStore();
 
     // Проверяем сессию при загрузке
     useEffect(() => {
@@ -34,28 +38,29 @@ function App() {
             } = await supabase.auth.getSession();
             if (session?.user) {
                 setUserId(session.user.id);
-                await loadUserSettings(session.user.id);
                 await loadUserData(session.user.id);
+                await loadUserSettings(session.user.id);
             }
         };
         getSession();
 
         // Подписка на изменения авторизации
-        const { data: listener } = supabase.auth.onAuthStateChange(
-            (_event, session) => {
-                if (session?.user) {
-                    setUserId(session.user.id);
-                    loadUserData(session.user.id);
-                } else {
-                    setUserId(null);
-                }
-            },
-        );
+        const {
+            data: { subscription },
+        } = supabase.auth.onAuthStateChange(async (_event, session) => {
+            if (session?.user) {
+                setUserId(session.user.id);
+                await loadUserData(session.user.id);
+                await loadUserSettings(session.user.id);
+            } else {
+                setUserId(null);
+            }
+        });
 
         return () => {
-            listener?.subscription.unsubscribe();
+            subscription?.unsubscribe();
         };
-    }, []);
+    }, [setUserId, loadUserData, loadUserSettings]);
 
     return (
         <BrowserRouter>
@@ -67,7 +72,9 @@ function App() {
                         path="/"
                         element={
                             <ProtectedRoute>
-                                <ChapterList />
+                                <PageTransition>
+                                    <ChapterList />
+                                </PageTransition>
                             </ProtectedRoute>
                         }
                     />
@@ -75,7 +82,9 @@ function App() {
                         path="/chapter/:chapterId"
                         element={
                             <ProtectedRoute>
-                                <ChapterView />
+                                <PageTransition>
+                                    <ChapterView />
+                                </PageTransition>
                             </ProtectedRoute>
                         }
                     />
@@ -83,27 +92,61 @@ function App() {
                         path="/review"
                         element={
                             <ProtectedRoute>
-                                <ReviewPage />
+                                <PageTransition>
+                                    <ReviewPage />
+                                </PageTransition>
                             </ProtectedRoute>
                         }
-                    ></Route>
+                    />
                     <Route
                         path="/achievements"
                         element={
                             <ProtectedRoute>
-                                <AchievementsPage />
+                                <PageTransition>
+                                    <AchievementsPage />
+                                </PageTransition>
                             </ProtectedRoute>
                         }
                     />
-                    <Route path="*" element={<Navigate to="/" replace />} />
                     <Route
                         path="/settings"
                         element={
                             <ProtectedRoute>
-                                <SettingsPage />
+                                <PageTransition>
+                                    <SettingsPage />
+                                </PageTransition>
                             </ProtectedRoute>
                         }
                     />
+                    <Route
+                        path="/stats"
+                        element={
+                            <ProtectedRoute>
+                                <PageTransition>
+                                    <StatsPage />
+                                </PageTransition>
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path="/chapter/:chapterId/lesson/:lessonId"
+                        element={
+                            <ProtectedRoute>
+                                <PageTransition>
+                                    <LessonPage />
+                                </PageTransition>
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path="/repeat-errors"
+                        element={
+                            <ProtectedRoute>
+                                <RepeatErrorsPage />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route path="*" element={<Navigate to="/" replace />} />
                 </Routes>
             </AppLayout>
         </BrowserRouter>

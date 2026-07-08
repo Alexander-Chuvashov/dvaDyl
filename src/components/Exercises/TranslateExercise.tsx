@@ -1,7 +1,8 @@
 // src/components/Exercises/TranslateExercise.tsx
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import type { Exercise } from '../../types/content';
 import AudioButton from '../UI/AudioButton';
+import TuvanKeyboard from '../UI/TuvanKeyboard';
 
 interface Props {
     exercise: Exercise;
@@ -16,6 +17,7 @@ const TranslateExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
     const [userAnswer, setUserAnswer] = useState('');
     const [submitted, setSubmitted] = useState(false);
     const [isCorrect, setIsCorrect] = useState(false);
+    const inputRef = useRef<HTMLInputElement>(null);
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
@@ -43,6 +45,35 @@ const TranslateExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
                         <span className="font-bold">{exercise.correct}</span>
                     </div>
                 )}
+
+                {/* Дополнительная информация */}
+                {(exercise.translation ||
+                    exercise.transcription ||
+                    exercise.context) && (
+                    <div className="p-3 mt-4 border rounded-lg bg-cream/50 border-cream">
+                        {exercise.translation && (
+                            <p className="text-sm text-dark/80">
+                                <span className="font-medium">Перевод:</span>{' '}
+                                {exercise.translation}
+                            </p>
+                        )}
+                        {exercise.transcription && (
+                            <p className="text-sm text-dark/80">
+                                <span className="font-medium">
+                                    Транскрипция:
+                                </span>{' '}
+                                {exercise.transcription}
+                            </p>
+                        )}
+                        {exercise.context && (
+                            <p className="text-sm text-dark/80">
+                                <span className="font-medium">Пример:</span>{' '}
+                                {exercise.context}
+                            </p>
+                        )}
+                    </div>
+                )}
+
                 <button
                     onClick={() => {
                         setSubmitted(false);
@@ -66,12 +97,17 @@ const TranslateExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
                 <p className="mt-1 text-sm text-dark/60">💡 {exercise.hint}</p>
             )}
             <input
+                ref={inputRef}
                 type="text"
                 value={userAnswer}
                 onChange={e => setUserAnswer(e.target.value)}
                 placeholder="Введи перевод..."
                 className="mt-3 input-field"
                 autoFocus
+            />
+            <TuvanKeyboard
+                inputRef={inputRef}
+                onInput={newValue => setUserAnswer(newValue)}
             />
             <button type="submit" className="mt-3 btn-primary">
                 Проверить

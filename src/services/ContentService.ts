@@ -1,7 +1,8 @@
+// src/services/ContentService.ts
 import type { Chapter, Lesson, Theory } from '../types/content';
 import { ChapterSchema, LessonSchema, TheorySchema } from '../types/content';
 
-// Загружаем все JSON-файлы из папки chapters (рекурсивно)
+// Используем один статический glob для всех JSON-файлов в папке chapters
 const allModules = import.meta.glob('../../content/chapters/**/*.json', {
     eager: true,
 });

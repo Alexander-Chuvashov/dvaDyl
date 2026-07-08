@@ -1,3 +1,4 @@
+// src/components/LevelTabs.tsx
 import React from 'react';
 
 interface LevelTabsProps {
@@ -12,15 +13,15 @@ const LevelTabs: React.FC<LevelTabsProps> = ({
     onLevelChange,
 }) => {
     return (
-        <div className="flex flex-wrap gap-2 mb-6">
+        <div className="flex flex-wrap gap-2 pb-2 mb-6 border-b border-cream">
             {levels.map(level => (
                 <button
                     key={level}
                     onClick={() => onLevelChange(level)}
-                    className={`px-4 py-2 rounded-full font-medium transition-all ${
+                    className={`px-4 py-2 rounded-t-lg font-medium transition-all ${
                         activeLevel === level
                             ? 'bg-terracotta text-white shadow-button'
-                            : 'bg-cream text-dark/60 hover:bg-cream/80'
+                            : 'bg-transparent text-dark/60 hover:text-dark hover:bg-cream/50'
                     }`}
                 >
                     {level}

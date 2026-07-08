@@ -7,6 +7,7 @@ import AnimatedWrapper from '../UI/AnimatedWrapper';
 import ChapterCard from './ChapterCard';
 import Skeleton from '../UI/Skeleton';
 import LevelTabs from '../Leveltabs';
+import StatsSummary from '../Layout/StatsSummary';
 
 const ChapterList: React.FC = () => {
     const [allChapters, setAllChapters] = useState<Chapter[]>([]);
@@ -38,7 +39,6 @@ const ChapterList: React.FC = () => {
         setFilteredChapters(allChapters.filter(ch => ch.level === level));
     };
 
-    // Проверяем, завершена ли глава (все уроки пройдены)
     const isChapterCompleted = (chapter: Chapter) => {
         const lessons =
             chapter.lessons?.filter(item => item.type === 'lesson') || [];
@@ -48,13 +48,12 @@ const ChapterList: React.FC = () => {
         );
     };
 
-    // Проверяем, заблокирована ли глава
     const isChapterLocked = (
         chapter: Chapter,
         index: number,
         list: Chapter[],
     ) => {
-        if (index === 0) return false; // первая глава всегда открыта
+        if (index === 0) return false;
         const prevChapter = list[index - 1];
         return !isChapterCompleted(prevChapter);
     };
@@ -111,6 +110,7 @@ const ChapterList: React.FC = () => {
                     Нет уроков для этого уровня
                 </div>
             )}
+            <StatsSummary />
         </div>
     );
 };
