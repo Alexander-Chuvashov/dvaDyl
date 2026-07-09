@@ -1,0 +1,101 @@
+{
+    "type": "lesson",
+    "id": "lesson_10_115_shopping",
+    "chapterId": "ch_115_shopping",
+    "title": "Урок 10: Повторение",
+    "titleTuvan": "Кичээл 10: Катаптаа",
+    "description": "Закрепление материала юнита 15",
+    "skill": "review",
+    "order": 14,
+    "isPublished": true,
+    "difficulty": 3,
+    "estimatedTime": 10,
+    "exercises": [
+        {
+            "id": "ex_sh10_1",
+            "type": "order",
+            "order": 0,
+            "question": "Собери: 'Сколько стоит?'",
+            "orderItems": ["Үнези", "хире?"],
+            "correct": ["Үнези", "хире?"]
+        },
+        {
+            "id": "ex_sh10_2",
+            "type": "choice",
+            "order": 1,
+            "question": "Выбери перевод: 'Мен акша төлеп тур мен'",
+            "options": ["Я получаю деньги", "Я плачу деньги", "Я меняю деньги"],
+            "correct": "Я плачу деньги"
+        },
+        {
+            "id": "ex_sh10_3",
+            "type": "match",
+            "order": 2,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Магазин", "right": "Магазин" },
+                { "left": "Акша", "right": "Деньги" },
+                { "left": "Үне", "right": "Цена" }
+            ]
+        },
+        {
+            "id": "ex_sh10_4",
+            "type": "translate",
+            "order": 3,
+            "question": "Купить",
+            "correct": "Садып алыр"
+        },
+        {
+            "id": "ex_sh10_5",
+            "type": "translate",
+            "order": 4,
+            "question": "Скидка",
+            "correct": "Доозал"
+        },
+        {
+            "id": "ex_sh10_6",
+            "type": "order",
+            "order": 5,
+            "question": "Собери: 'Дайте, пожалуйста, воду'",
+            "orderItems": ["Суг", "бээр", "сил,", "бе"],
+            "correct": ["Суг", "бээр", "сил,", "бе"]
+        },
+        {
+            "id": "ex_sh10_7",
+            "type": "choice",
+            "order": 6,
+            "question": "Как сказать 'Есть ли скидка?'",
+            "options": ["Үнези хире?", "Доозал бар бе?", "Хемчээл хире?"],
+            "correct": "Доозал бар бе?"
+        },
+        {
+            "id": "ex_sh10_8",
+            "type": "match",
+            "order": 7,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Садыр", "right": "Продать" },
+                { "left": "Садып алыр", "right": "Купить" }
+            ]
+        },
+        {
+            "id": "ex_sh10_9",
+            "type": "translate",
+            "order": 8,
+            "question": "Вчера я купил хлеб",
+            "correct": "Дүъш мен нан садып алдым"
+        },
+        {
+            "id": "ex_sh10_10",
+            "type": "choice",
+            "order": 9,
+            "question": "Выбери правильный перевод: 'Эртен мен эт садып алыр мен'",
+            "options": [
+                "Вчера я купил мясо",
+                "Завтра я куплю мясо",
+                "Сегодня я покупаю мясо"
+            ],
+            "correct": "Завтра я куплю мясо"
+        }
+    ]
+}

@@ -1,0 +1,99 @@
+{
+    "type": "lesson",
+    "id": "lesson_8_112_future_tense",
+    "chapterId": "ch_112_future_tense",
+    "title": "Урок 8: Вопросы в будущем",
+    "titleTuvan": "Кичээл 8: Айтырыглар",
+    "description": "Вопросы с частицей бе",
+    "skill": "grammar",
+    "order": 12,
+    "isPublished": true,
+    "difficulty": 3,
+    "estimatedTime": 7,
+    "exercises": [
+        {
+            "id": "ex_ft8_1",
+            "type": "order",
+            "order": 0,
+            "question": "Собери: 'Ты пойдешь?'",
+            "orderItems": ["бе?", "баар", "Сен", "сен"],
+            "correct": ["Сен", "баар", "сен", "бе?"]
+        },
+        {
+            "id": "ex_ft8_2",
+            "type": "order",
+            "order": 1,
+            "question": "Собери: 'Ты будешь есть?'",
+            "orderItems": ["бе?", "чиир", "Сен", "сен"],
+            "correct": ["Сен", "чиир", "сен", "бе?"]
+        },
+        {
+            "id": "ex_ft8_3",
+            "type": "choice",
+            "order": 2,
+            "question": "Выбери перевод: 'Сен баар сен бе?'",
+            "options": ["Ты идешь?", "Ты пойдешь?", "Ты ушел?"],
+            "correct": "Ты пойдешь?"
+        },
+        {
+            "id": "ex_ft8_4",
+            "type": "choice",
+            "order": 3,
+            "question": "Выбери перевод: 'Сен чиир сен бе?'",
+            "options": ["Ты ешь?", "Ты будешь есть?", "Ты ел?"],
+            "correct": "Ты будешь есть?"
+        },
+        {
+            "id": "ex_ft8_5",
+            "type": "translate",
+            "order": 4,
+            "question": "Ты пойдешь?",
+            "correct": "Сен баар сен бе?"
+        },
+        {
+            "id": "ex_ft8_6",
+            "type": "translate",
+            "order": 5,
+            "question": "Ты будешь есть?",
+            "correct": "Сен чиир сен бе?"
+        },
+        {
+            "id": "ex_ft8_7",
+            "type": "order",
+            "order": 6,
+            "question": "Собери: 'Вы будете есть?'",
+            "orderItems": ["бе?", "чиир", "Силер", "силер"],
+            "correct": ["Силер", "чиир", "силер", "бе?"]
+        },
+        {
+            "id": "ex_ft8_8",
+            "type": "order",
+            "order": 7,
+            "question": "Собери: 'Они пойдут?'",
+            "orderItems": ["бе?", "баарлар", "Олар"],
+            "correct": ["Олар", "баарлар", "бе?"]
+        },
+        {
+            "id": "ex_ft8_9",
+            "type": "match",
+            "order": 8,
+            "question": "Сопоставь вопросы",
+            "matchPairs": [
+                { "left": "Сен баар сен бе?", "right": "Ты пойдешь?" },
+                { "left": "Олар чиирлар бе?", "right": "Они будут есть?" }
+            ]
+        },
+        {
+            "id": "ex_ft8_10",
+            "type": "choice",
+            "order": 9,
+            "question": "Как спросить 'Вы будете пить?' (ижер - пить)?",
+            "options": [
+                "Силер ижер силер бе?",
+                "Силер ижедингер бе?",
+                "Силер ижип тур силер бе?"
+            ],
+            "correct": "Силер ижер силер бе?"
+        }
+    ]
+}

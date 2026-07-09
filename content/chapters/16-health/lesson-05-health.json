@@ -1,96 +1,42 @@
 {
     "type": "lesson",
-    "id": "lesson_5_116_health",
+    "id": "sc_1_116_health",
     "chapterId": "ch_116_health",
-    "title": "Урок 5: Врач и больница",
-    "titleTuvan": "Кичээл 5: Эмчи болгаш эмнелге",
-    "description": "Медицинские учреждения",
-    "skill": "vocabulary",
-    "order": 6,
+    "title": "Карточка 1: Самочувствие",
+    "titleTuvan": "Картазы 1: Денсаулығ",
+    "description": "Жалобы на здоровье",
+    "skill": "speaking",
+    "order": 5,
     "isPublished": true,
     "difficulty": 2,
-    "estimatedTime": 7,
+    "estimatedTime": 5,
     "exercises": [
         {
-            "id": "ex_h5_1",
-            "type": "translate",
+            "id": "sc_1",
+            "type": "speaking_card",
             "order": 0,
-            "question": "Врач",
-            "correct": "Эмчи"
-        },
-        {
-            "id": "ex_h5_2",
-            "type": "translate",
-            "order": 1,
-            "question": "Больница",
-            "correct": "Эмнелге"
-        },
-        {
-            "id": "ex_h5_3",
-            "type": "choice",
-            "order": 2,
-            "question": "Выбери 'Врач'",
-            "options": ["Эмнелге", "Эмчи", "Аарыг"],
-            "correct": "Эмчи"
-        },
-        {
-            "id": "ex_h5_4",
-            "type": "choice",
-            "order": 3,
-            "question": "Выбери 'Больница'",
-            "options": ["Эмчи", "Эмнелге", "Аптека"],
-            "correct": "Эмнелге"
-        },
-        {
-            "id": "ex_h5_5",
-            "type": "match",
-            "order": 4,
-            "question": "Сопоставь",
-            "matchPairs": [
-                { "left": "Эмчи", "right": "Врач" },
-                { "left": "Эмнелге", "right": "Больница" }
+            "cards": [
+                {
+                    "promptRu": "Скажи: У меня болит голова.",
+                    "targetTuvan": "Мээң башым аарып тур.",
+                    "hint": "аарып тур"
+                },
+                {
+                    "promptRu": "Спроси: Ты болен?",
+                    "targetTuvan": "Сен аарыг сен бе?",
+                    "hint": "аарыг сен бе?"
+                },
+                {
+                    "promptRu": "Ответь: Да, я болен.",
+                    "targetTuvan": "Ийе, мен аарыг мен.",
+                    "hint": "аарыг мен"
+                },
+                {
+                    "promptRu": "Спроси: У тебя болит рука?",
+                    "targetTuvan": "Сээң холуң аарып тур бе?",
+                    "hint": "холуң"
+                }
             ]
-        },
-        {
-            "id": "ex_h5_6",
-            "type": "translate",
-            "order": 5,
-            "question": "Эмчи",
-            "correct": "Врач"
-        },
-        {
-            "id": "ex_h5_7",
-            "type": "translate",
-            "order": 6,
-            "question": "Эмнелге",
-            "correct": "Больница"
-        },
-        {
-            "id": "ex_h5_8",
-            "type": "order",
-            "order": 7,
-            "question": "Собери: 'Я иду к врачу' (эмчиге)",
-            "orderItems": ["Мен", "эмчиге", "бар", "мен"],
-            "correct": ["Мен", "эмчиге", "бар", "мен"]
-        },
-        {
-            "id": "ex_h5_9",
-            "type": "choice",
-            "order": 8,
-            "question": "Выбери перевод: 'Мен эмчиге баар мен'",
-            "options": [
-                "Я работаю врачом",
-                "Я иду к врачу",
-                "Я покупаю лекарство"
-            ],
-            "correct": "Я иду к врачу"
-        },
-        {
-            "id": "ex_h5_10",
-            "type": "match",
-            "order": 9,
-            "question": "Сопоставь",
-            "matchPairs": [{ "left": "Эмнелге", "right": "Больница" }]
         }
     ]
 }

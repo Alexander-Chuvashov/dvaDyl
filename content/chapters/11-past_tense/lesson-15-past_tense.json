@@ -1,0 +1,84 @@
+{
+    "type": "lesson",
+    "id": "lesson_15_dialogue_past",
+    "chapterId": "ch_111_past_tense",
+    "title": "Диалог: Вчера",
+    "titleTuvan": "Чугаа: Дүъш",
+    "description": "Разговор о вчерашнем дне",
+    "skill": "speaking",
+    "order": 15,
+    "isPublished": true,
+    "difficulty": 2,
+    "estimatedTime": 10,
+    "exercises": [
+        {
+            "id": "dialogue_exercise",
+            "type": "dialogue_lesson",
+            "order": 0,
+            "dialogueLines": [
+                {
+                    "speaker": "Айлан",
+                    "textTuvan": "Дүъш сен кайыан турган сен?",
+                    "textRu": "Вчера где ты был?"
+                },
+                {
+                    "speaker": "Чаяна",
+                    "textTuvan": "Мен бажыңга турган мен. А сен?",
+                    "textRu": "Я была дома. А ты?"
+                },
+                {
+                    "speaker": "Айлан",
+                    "textTuvan": "Мен ажылдаадым. Чүү кылдың?",
+                    "textRu": "Я работал. Что делала?"
+                },
+                {
+                    "speaker": "Чаяна",
+                    "textTuvan": "Мен ном номчудум болгаш чай ижедим.",
+                    "textRu": "Я читала книгу и пила чай."
+                }
+            ],
+            "exercises": [
+                {
+                    "id": "ex_d_pt1",
+                    "type": "translate",
+                    "order": 0,
+                    "question": "Вчера где ты был?",
+                    "correct": "Дүъш сен кайыан турган сен?"
+                },
+                {
+                    "id": "ex_d_pt2",
+                    "type": "choice",
+                    "order": 1,
+                    "question": "Что делала Чаяна вчера?",
+                    "options": ["Работала", "Пила чай и читала", "Спала"],
+                    "correct": "Пила чай и читала"
+                },
+                {
+                    "id": "ex_d_pt3",
+                    "type": "order",
+                    "order": 2,
+                    "question": "Собери фразу: 'Я работал'",
+                    "orderItems": ["ажылдаадым", "Мен"],
+                    "correct": ["Мен", "ажылдаадым"]
+                },
+                {
+                    "id": "ex_d_pt4",
+                    "type": "match",
+                    "order": 3,
+                    "question": "Сопоставь фразы из диалога",
+                    "matchPairs": [
+                        {
+                            "left": "Мен бажыңга турган мен",
+                            "right": "Я была дома"
+                        },
+                        { "left": "Чүү кылдың?", "right": "Что делала?" },
+                        {
+                            "left": "Мен ном номчудум",
+                            "right": "Я читала книгу"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

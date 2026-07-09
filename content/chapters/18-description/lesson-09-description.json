@@ -1,90 +1,95 @@
 {
     "type": "lesson",
-    "id": "lesson_9_118_description",
+    "id": "lesson_6_118_description",
     "chapterId": "ch_118_description",
-    "title": "Урок 9: Очень и мало",
-    "titleTuvan": "Кичээл 9: Эң болгаш биче",
-    "description": "Степени сравнения и интенсивности",
+    "title": "Урок 6: Описание вещей",
+    "titleTuvan": "Кичээл 6: Чүүлдерни тодарадыры",
+    "description": "Прилагательные с предметами",
     "skill": "grammar",
-    "order": 10,
+    "order": 9,
     "isPublished": true,
-    "difficulty": 3,
+    "difficulty": 2,
     "estimatedTime": 7,
     "exercises": [
         {
-            "id": "ex_de9_1",
-            "type": "translate",
-            "order": 0,
-            "question": "Очень (эң)",
-            "correct": "Эң"
-        },
-        {
-            "id": "ex_de9_2",
-            "type": "choice",
-            "order": 1,
-            "question": "Выбери 'Очень'",
-            "options": ["Эң", "Биче", "Чаа"],
-            "correct": "Эң"
-        },
-        {
-            "id": "ex_de9_3",
-            "type": "translate",
-            "order": 2,
-            "question": "Эң",
-            "correct": "Очень"
-        },
-        {
-            "id": "ex_de9_4",
+            "id": "ex_de6_1",
             "type": "order",
+            "order": 0,
+            "question": "Собери: 'Большой стол'",
+            "orderItems": ["стол", "Улуг"],
+            "correct": ["Улуг", "стол"]
+        },
+        {
+            "id": "ex_de6_2",
+            "type": "order",
+            "order": 1,
+            "question": "Собери: 'Маленькая чашка'",
+            "orderItems": ["аяк", "Биче"],
+            "correct": ["Биче", "аяк"]
+        },
+        {
+            "id": "ex_de6_3",
+            "type": "choice",
+            "order": 2,
+            "question": "Выбери перевод: 'Чараш бажың'",
+            "options": ["Большой дом", "Красивый дом", "Старый дом"],
+            "correct": "Красивый дом"
+        },
+        {
+            "id": "ex_de6_4",
+            "type": "translate",
             "order": 3,
-            "question": "Собери: 'Очень красивый'",
-            "orderItems": ["чараш", "эң"],
-            "correct": ["эң", "чараш"]
+            "question": "Маленькая чашка",
+            "correct": "Биче аяк"
         },
         {
-            "id": "ex_de9_5",
-            "type": "match",
+            "id": "ex_de6_5",
+            "type": "order",
             "order": 4,
-            "question": "Сопоставь",
-            "matchPairs": [{ "left": "Эң", "right": "Очень" }]
+            "question": "Собери: 'Красивая машина' (машина - машина)",
+            "orderItems": ["машина", "Чараш"],
+            "correct": ["Чараш", "машина"]
         },
         {
-            "id": "ex_de9_6",
+            "id": "ex_de6_6",
             "type": "choice",
             "order": 5,
-            "question": "Как сказать 'Очень большой'?",
-            "options": ["Эң улуг", "Эң биче", "Эң чараш"],
-            "correct": "Эң улуг"
+            "question": "Как сказать 'Старый шкаф' (кагар)?",
+            "options": ["Кырган кагар", "Аныяк кагар", "Биче кагар"],
+            "correct": "Кырган кагар"
         },
         {
-            "id": "ex_de9_7",
+            "id": "ex_de6_7",
             "type": "translate",
             "order": 6,
-            "question": "Очень большой",
-            "correct": "Эң улуг"
+            "question": "Старый шкаф",
+            "correct": "Кырган кагар"
         },
         {
-            "id": "ex_de9_8",
+            "id": "ex_de6_8",
             "type": "order",
             "order": 7,
-            "question": "Собери: 'Очень высокий'",
-            "orderItems": ["өр", "эң"],
-            "correct": ["эң", "өр"]
+            "question": "Собери: 'Новый стол' (чаа - новый)",
+            "orderItems": ["стол", "Чаа"],
+            "correct": ["Чаа", "стол"]
         },
         {
-            "id": "ex_de9_9",
-            "type": "choice",
-            "order": 8,
-            "question": "Выбери перевод: 'Эң чараш'",
-            "options": ["Очень большой", "Очень красивый", "Очень старый"],
-            "correct": "Очень красивый"
-        },
-        {
-            "id": "ex_de9_10",
+            "id": "ex_de6_9",
             "type": "match",
-            "order": 9,
+            "order": 8,
             "question": "Сопоставь",
-            "matchPairs": [{ "left": "Эң улуг", "right": "Очень большой" }]
+            "matchPairs": [
+                { "left": "Улуг стол", "right": "Большой стол" },
+                { "left": "Чаа стол", "right": "Новый стол" }
+            ]
+        },
+        {
+            "id": "ex_de6_10",
+            "type": "choice",
+            "order": 9,
+            "question": "Выбери правильный перевод: 'Чаа машина'",
+            "options": ["Старая машина", "Новая машина", "Красивая машина"],
+            "correct": "Новая машина"
         }
     ]
 }

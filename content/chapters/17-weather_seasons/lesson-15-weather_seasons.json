@@ -1,0 +1,85 @@
+{
+    "type": "lesson",
+    "id": "dialogue_117_weather_seasons",
+    "chapterId": "ch_117_weather_seasons",
+    "title": "Диалог: Какая сегодня погода?",
+    "titleTuvan": "Чугаа: Бүгү агаар кандыг-дыр?",
+    "description": "Разговор о погоде сегодня и завтра",
+    "skill": "speaking",
+    "order": 15,
+    "isPublished": true,
+    "difficulty": 2,
+    "estimatedTime": 10,
+    "exercises": [
+        {
+            "id": "dialogue_exercise",
+            "type": "dialogue_lesson",
+            "order": 5,
+            "dialogueLines": [
+                {
+                    "speaker": "Айлан",
+                    "textTuvan": "Бүгү агаар кандыг-дыр?",
+                    "textRu": "Сегодня какая погода?"
+                },
+                {
+                    "speaker": "Чаяна",
+                    "textTuvan": "Бүгү соок бооп тур. Кар чаар.",
+                    "textRu": "Сегодня холодно. Будет снег."
+                },
+                {
+                    "speaker": "Айлан",
+                    "textTuvan": "Эртен база соок бе?",
+                    "textRu": "Завтра тоже холодно?"
+                },
+                {
+                    "speaker": "Чаяна",
+                    "textTuvan": "Чок, эртен изиг бооп тур. Хүн үнүп тур.",
+                    "textRu": "Нет, завтра будет жарко. Светит солнце."
+                }
+            ],
+            "exercises": [
+                {
+                    "id": "ex_d_ws1",
+                    "type": "translate",
+                    "order": 0,
+                    "question": "Сегодня какая погода?",
+                    "correct": "Бүгү агаар кандыг-дыр?"
+                },
+                {
+                    "id": "ex_d_ws2",
+                    "type": "choice",
+                    "order": 1,
+                    "question": "Какая погода будет завтра?",
+                    "options": [
+                        "Холодно и снег",
+                        "Жарко и солнце",
+                        "Дождь и ветер"
+                    ],
+                    "correct": "Жарко и солнце"
+                },
+                {
+                    "id": "ex_d_ws3",
+                    "type": "order",
+                    "order": 2,
+                    "question": "Собери фразу: 'Сегодня холодно'",
+                    "orderItems": ["бооп", "Бүгү", "соок", "тур"],
+                    "correct": ["Бүгү", "соок", "бооп", "тур"]
+                },
+                {
+                    "id": "ex_d_ws4",
+                    "type": "match",
+                    "order": 3,
+                    "question": "Сопоставь фразы из диалога",
+                    "matchPairs": [
+                        { "left": "Кар чаар", "right": "Будет снег" },
+                        {
+                            "left": "Эртен изиг бооп тур",
+                            "right": "Завтра будет жарко"
+                        },
+                        { "left": "Хүн үнүп тур", "right": "Светит солнце" }
+                    ]
+                }
+            ]
+        }
+    ]
+}

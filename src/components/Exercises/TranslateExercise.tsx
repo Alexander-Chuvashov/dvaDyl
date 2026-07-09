@@ -1,7 +1,7 @@
 // src/components/Exercises/TranslateExercise.tsx
 import React, { useState, useRef } from 'react';
 import type { Exercise } from '../../types/content';
-import AudioButton from '../UI/AudioButton';
+// import AudioButton from '../UI/AudioButton';
 import TuvanKeyboard from '../UI/TuvanKeyboard';
 import ClickableWord from '../UI/ClickableWord';
 
@@ -65,7 +65,7 @@ const TranslateExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
         <form onSubmit={handleSubmit} className="card">
             <div className="flex items-center gap-2 text-lg font-medium text-dark">
                 <ClickableWord word={exercise.question} />
-                <AudioButton text={exercise.question} lang="ru-RU" size="sm" />
+                {/* <AudioButton text={exercise.question} lang="ru-RU" size="sm" /> */}
             </div>
             {exercise.hint && (
                 <p className="mt-1 text-sm text-dark/60">💡 {exercise.hint}</p>

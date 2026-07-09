@@ -1,95 +1,41 @@
 {
     "type": "lesson",
-    "id": "lesson_5_113_daily_routine",
+    "id": "sc_1_113_daily_routine",
     "chapterId": "ch_113_daily_routine",
-    "title": "Урок 5: Отдыхать",
-    "titleTuvan": "Кичээл 5: Амыраар",
-    "description": "Свободное время",
-    "skill": "vocabulary",
-    "order": 6,
+    "title": "Карточка 1: Утро",
+    "titleTuvan": "Картазы 1: Эртен",
+    "description": "Утренние дела",
+    "skill": "speaking",
+    "order": 5,
     "isPublished": true,
     "difficulty": 2,
-    "estimatedTime": 7,
+    "estimatedTime": 5,
     "exercises": [
         {
-            "id": "ex_dr5_1",
-            "type": "translate",
+            "id": "sc_1",
+            "type": "speaking_card",
             "order": 0,
-            "question": "Отдыхать",
-            "correct": "Амыраар"
-        },
-        {
-            "id": "ex_dr5_2",
-            "type": "choice",
-            "order": 1,
-            "question": "Выбери 'Отдыхать'",
-            "options": ["Ажылдаар", "Амыраар", "Узар"],
-            "correct": "Амыраар"
-        },
-        {
-            "id": "ex_dr5_3",
-            "type": "translate",
-            "order": 2,
-            "question": "Амыраар",
-            "correct": "Отдыхать"
-        },
-        {
-            "id": "ex_dr5_4",
-            "type": "order",
-            "order": 3,
-            "question": "Собери: 'Я отдыхаю'",
-            "orderItems": ["тур", "Мен", "амыраап", "мен"],
-            "correct": ["Мен", "амыраап", "тур", "мен"]
-        },
-        {
-            "id": "ex_dr5_5",
-            "type": "match",
-            "order": 4,
-            "question": "Сопоставь",
-            "matchPairs": [{ "left": "Амыраар", "right": "Отдыхать" }]
-        },
-        {
-            "id": "ex_dr5_6",
-            "type": "choice",
-            "order": 5,
-            "question": "Как сказать 'Я отдыхаю'?",
-            "options": [
-                "Мен ажылдаап тур мен",
-                "Мен амыраап тур мен",
-                "Мен узап тур мен"
-            ],
-            "correct": "Мен амыраап тур мен"
-        },
-        {
-            "id": "ex_dr5_7",
-            "type": "translate",
-            "order": 6,
-            "question": "Я отдыхаю",
-            "correct": "Мен амыраап тур мен"
-        },
-        {
-            "id": "ex_dr5_8",
-            "type": "order",
-            "order": 7,
-            "question": "Собери: 'Я не работаю' (эвес)",
-            "orderItems": ["мен", "ажылдаваан", "Мен"],
-            "correct": ["Мен", "ажылдаваан", "мен"]
-        },
-        {
-            "id": "ex_dr5_9",
-            "type": "choice",
-            "order": 8,
-            "question": "Выбери перевод: 'Мен ажылдаваан мен'",
-            "options": ["Я работаю", "Я не работаю", "Я буду работать"],
-            "correct": "Я не работаю"
-        },
-        {
-            "id": "ex_dr5_10",
-            "type": "match",
-            "order": 9,
-            "question": "Сопоставь",
-            "matchPairs": [
-                { "left": "Мен амыраап тур мен", "right": "Я отдыхаю" }
+            "cards": [
+                {
+                    "promptRu": "Спроси: Что ты делаешь утром?",
+                    "targetTuvan": "Эртен сен чүү кылыр сен?",
+                    "hint": "кылыр сен?"
+                },
+                {
+                    "promptRu": "Ответь: Утром я встаю.",
+                    "targetTuvan": "Эртен мен турар мен.",
+                    "hint": "турар мен"
+                },
+                {
+                    "promptRu": "Спроси: Ты умываешься утром?",
+                    "targetTuvan": "Эртен сен чуур сен бе?",
+                    "hint": "чуур сен бе?"
+                },
+                {
+                    "promptRu": "Ответь: Да, я умываюсь.",
+                    "targetTuvan": "Ийе, мен чуур мен.",
+                    "hint": "чуур мен"
+                }
             ]
         }
     ]

@@ -1,12 +1,51 @@
 // src/types/content.ts
 import { z } from 'zod';
 
-// Схема для упражнения
-export const ExerciseSchema = z.object({
+export interface Exercise {
+    id: string;
+    type: ExerciseType;
+    order: number;
+    question?: string;
+    correct?: string | string[];
+    options?: string[];
+    audioUrl?: string;
+    hint?: string;
+    imageUrl?: string;
+    orderItems?: string[];
+    matchPairs?: { left: string; right: string }[];
+    correctFill?: string;
+    explanation?: string;
+    dialogueLines?: { speaker: string; textTuvan: string; textRu: string }[];
+    exercises?: Exercise[];
+    cards?: { promptRu: string; targetTuvan: string; hint?: string }[];
+}
+
+// Типы упражнений
+export type ExerciseType =
+    | 'translate'
+    | 'choice'
+    | 'listen'
+    | 'order'
+    | 'match'
+    | 'fill'
+    | 'dialogue_lesson'
+    | 'speaking_card';
+
+// Схема для упражнения (Zod)
+export const ExerciseSchema: z.ZodType<Exercise> = z.object({
     id: z.string(),
-    type: z.enum(['translate', 'choice', 'listen', 'order', 'match', 'fill']),
+    type: z.enum([
+        'translate',
+        'choice',
+        'listen',
+        'order',
+        'match',
+        'fill',
+        'dialogue_lesson',
+        'speaking_card',
+    ]),
     order: z.number().int().nonnegative(),
-    question: z.string(),
+    question: z.string().optional(),
     correct: z.union([z.string(), z.array(z.string())]).optional(),
     options: z.array(z.string()).optional(),
     audioUrl: z.string().optional(),
@@ -21,67 +60,43 @@ export const ExerciseSchema = z.object({
             }),
         )
         .optional(),
-    translation: z.string().optional(),
-    transcription: z.string().optional(),
-    context: z.string().optional(),
+    correctFill: z.string().optional(),
     explanation: z.string().optional(),
-});
-
-// // Схема для урока
-// export const LessonSchema = z.object({
-//     id: z.string(),
-//     title: z.string(),
-//     titleTuvan: z.string(),
-//     description: z.string().optional(),
-//     skill: z.string(),
-//     order: z.number().int(),
-//     isPublished: z.boolean().default(true),
-//     difficulty: z.number().int().min(1).max(3).optional(),
-//     estimatedTime: z.number().int().optional(),
-//     tags: z.array(z.string()).optional(),
-//     exercises: z.array(ExerciseSchema),
-// });
-
-// Схема для словарного слова
-export const VocabularyWordSchema = z.object({
-    id: z.string(),
-    wordTuvan: z.string(),
-    wordRussian: z.string(),
-    transcription: z.string().optional(),
-    audioUrl: z.string().optional(),
-    partOfSpeech: z
-        .enum([
-            'noun',
-            'verb',
-            'adjective',
-            'adverb',
-            'pronoun',
-            'other',
-            'interjection',
-            'numeral',
-            'phrase',
-        ])
+    dialogueLines: z
+        .array(
+            z.object({
+                speaker: z.string(),
+                textTuvan: z.string(),
+                textRu: z.string(),
+            }),
+        )
         .optional(),
-    difficulty: z.number().int().min(1).max(5),
-    categories: z.array(z.string()),
-    exampleSentence: z.string().optional(),
-    exampleTranslation: z.string().optional(),
+    exercises: z.array(z.lazy(() => ExerciseSchema)).optional(),
+    cards: z
+        .array(
+            z.object({
+                promptRu: z.string(),
+                targetTuvan: z.string(),
+                hint: z.string().optional(),
+            }),
+        )
+        .optional(),
 });
 
-// Схема для конфига
-export const AppConfigSchema = z.object({
-    version: z.string(),
-    languages: z.object({
-        source: z.string(),
-        target: z.string(),
-    }),
-    categories: z.array(z.string()),
-    skills: z.array(z.string()),
-});
+// Остальные интерфейсы (без изменений)
+export interface Theory {
+    type: 'theory';
+    id: string;
+    chapterId: string;
+    title: string;
+    titleTuvan?: string;
+    content: string;
+    order: number;
+    tableData?: { headers: string[]; rows: string[][] };
+    listItems?: string[];
+    audioUrl?: string;
+}
 
-// src/types/content.ts
-
-// ─── Теоретический блок ───────────────────────────────────────────────────────
 export const TheorySchema = z.object({
     type: z.literal('theory'),
     id: z.string(),
@@ -100,34 +115,6 @@ export const TheorySchema = z.object({
     audioUrl: z.string().optional(),
 });
 
-export const LessonSchema = z.object({
-    type: z.literal('lesson'),
-    id: z.string(),
-    chapterId: z.string(),
-    title: z.string(),
-    titleTuvan: z.string(),
-    description: z.string().optional(),
-    skill: z.string(),
-    order: z.number().int(),
-    isPublished: z.boolean().default(true),
-    difficulty: z.union([z.literal(1), z.literal(2), z.literal(3)]).optional(),
-    estimatedTime: z.number().int().optional(),
-    exercises: z.array(ExerciseSchema),
-});
-
-// ─── Глава (модуль) ───────────────────────────────────────────────────────────
-export const ChapterSchema = z.object({
-    id: z.string(),
-    title: z.string(),
-    titleTuvan: z.string(),
-    description: z.string(),
-    level: z.enum(['A1', 'A2', 'B1', 'B2', 'C1']),
-    order: z.number().int(),
-    coverImage: z.string().optional(),
-    lessons: z.array(z.union([TheorySchema, LessonSchema])).optional(), // <-- делаем optional
-});
-
-// ─── Урок
 export interface Lesson {
     type: 'lesson';
     id: string;
@@ -143,12 +130,116 @@ export interface Lesson {
     exercises: Exercise[];
 }
 
-// Достижение
+export const LessonSchema = z.object({
+    type: z.literal('lesson'),
+    id: z.string(),
+    chapterId: z.string(),
+    title: z.string(),
+    titleTuvan: z.string(),
+    description: z.string().optional(),
+    skill: z.string(),
+    order: z.number().int(),
+    isPublished: z.boolean().default(true),
+    difficulty: z.union([z.literal(1), z.literal(2), z.literal(3)]).optional(),
+    estimatedTime: z.number().int().optional(),
+    exercises: z.array(ExerciseSchema),
+});
+
+export interface Chapter {
+    id: string;
+    title: string;
+    titleTuvan: string;
+    description: string;
+    level: 'A1' | 'A2' | 'B1' | 'B2' | 'C1';
+    order: number;
+    coverImage?: string;
+    lessons?: (Lesson | Theory)[];
+}
+
+export const ChapterSchema = z.object({
+    id: z.string(),
+    title: z.string(),
+    titleTuvan: z.string(),
+    description: z.string(),
+    level: z.enum(['A1', 'A2', 'B1', 'B2', 'C1']),
+    order: z.number().int(),
+    coverImage: z.string().optional(),
+    lessons: z.array(z.union([TheorySchema, LessonSchema])).optional(),
+});
+
+// Словарное слово
+export interface VocabularyWord {
+    id: string;
+    wordTuvan: string;
+    wordRussian: string;
+    transcription?: string;
+    audioUrl?: string;
+    partOfSpeech?:
+        | 'noun'
+        | 'verb'
+        | 'adjective'
+        | 'adverb'
+        | 'pronoun'
+        | 'other';
+    difficulty: 1 | 2 | 3 | 4 | 5;
+    categories: string[];
+    exampleSentence?: string;
+    exampleTranslation?: string;
+}
+export const VocabularyWordSchema = z.object({
+    id: z.string(),
+    wordTuvan: z.string(),
+    wordRussian: z.string(),
+    transcription: z.string().optional(),
+    audioUrl: z.string().optional(),
+    partOfSpeech: z
+        .enum([
+            'noun',
+            'verb',
+            'adjective',
+            'adverb',
+            'pronoun',
+            'other',
+            'interjection',
+            'numeral',
+            'phrase',
+            'conjunction',
+            'preposition',
+        ])
+        .optional(),
+    difficulty: z.number().int().min(1).max(5),
+    categories: z.array(z.string()),
+    exampleSentence: z.string().optional(),
+    exampleTranslation: z.string().optional(),
+});
+
+// Конфиг приложения
+export interface AppConfig {
+    version: string;
+    languages: {
+        source: string;
+        target: string;
+    };
+    categories: string[];
+    skills: string[];
+}
+
+export const AppConfigSchema = z.object({
+    version: z.string(),
+    languages: z.object({
+        source: z.string(),
+        target: z.string(),
+    }),
+    categories: z.array(z.string()),
+    skills: z.array(z.string()),
+});
+
+// Достижения
 export interface Achievement {
     id: string;
     name: string;
     description: string;
-    icon: string; // emoji или путь к иконке
+    icon: string;
     condition: {
         type:
             | 'lessons_completed'
@@ -157,21 +248,11 @@ export interface Achievement {
             | 'chapter_completed'
             | 'perfect_lesson';
         target: number;
-        chapterId?: string; // для chapter_completed
+        chapterId?: string;
     };
 }
 
-// Выданное достижение пользователю
 export interface UserAchievement {
     achievementId: string;
     unlockedAt: string;
 }
-// ─────────────────────────────────────────────────────────────────────
-
-export type Theory = z.infer<typeof TheorySchema>;
-export type Chapter = z.infer<typeof ChapterSchema>;
-// Типы (выводятся автоматически из схем)
-export type Exercise = z.infer<typeof ExerciseSchema>;
-// export type Lesson = z.infer<typeof LessonSchema>;
-export type VocabularyWord = z.infer<typeof VocabularyWordSchema>;
-export type AppConfig = z.infer<typeof AppConfigSchema>;

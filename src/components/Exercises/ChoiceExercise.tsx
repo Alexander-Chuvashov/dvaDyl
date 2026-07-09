@@ -1,7 +1,7 @@
 // src/components/Exercises/ChoiceExercise.tsx
 import React, { useState } from 'react';
 import type { Exercise } from '../../types/content';
-import AudioButton from '../UI/AudioButton';
+// import AudioButton from '../UI/AudioButton';
 import ClickableWord from '../UI/ClickableWord';
 
 interface Props {
@@ -58,14 +58,14 @@ const ChoiceExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
                         className={`w-full text-left px-4 py-3 rounded-lg border-2 transition-all cursor-pointer ${getOptionClass(option)}`}
                     >
                         <ClickableWord word={option} />
-                        {!submitted && (
+                        {/* {!submitted && (
                             <AudioButton
                                 text={option}
                                 lang="tuv"
                                 size="sm"
                                 className="float-right"
                             />
-                        )}
+                        )} */}
                         {submitted && option === exercise.correct && ' ✅'}
                         {submitted &&
                             selected === option &&

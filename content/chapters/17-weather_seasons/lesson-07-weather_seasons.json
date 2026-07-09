@@ -1,99 +1,92 @@
 {
     "type": "lesson",
-    "id": "lesson_7_117_weather_seasons",
+    "id": "lesson_5_117_weather_seasons",
     "chapterId": "ch_117_weather_seasons",
-    "title": "Урок 7: Зимой идет снег",
-    "titleTuvan": "Кичээл 7: Кышта кар чаар",
-    "description": "Погода в сезонах",
-    "skill": "grammar",
-    "order": 8,
+    "title": "Урок 5: Осень и зима",
+    "titleTuvan": "Кичээл 5: Күс болгаш кыш",
+    "description": "Холодные сезоны",
+    "skill": "vocabulary",
+    "order": 7,
     "isPublished": true,
-    "difficulty": 3,
+    "difficulty": 2,
     "estimatedTime": 7,
     "exercises": [
         {
-            "id": "ex_ws7_1",
-            "type": "order",
+            "id": "ex_ws5_1",
+            "type": "translate",
             "order": 0,
-            "question": "Собери: 'Зимой идет снег' (кышта - зимой)",
-            "orderItems": ["Кышта", "кар", "чаар"],
-            "correct": ["Кышта", "кар", "чаар"]
+            "question": "Осень",
+            "correct": "Күс"
         },
         {
-            "id": "ex_ws7_2",
-            "type": "order",
+            "id": "ex_ws5_2",
+            "type": "translate",
             "order": 1,
-            "question": "Собери: 'Летом жарко'",
-            "orderItems": ["Чайда", "изиг", "бооп", "тур"],
-            "correct": ["Чайда", "изиг", "бооп", "тур"]
+            "question": "Зима",
+            "correct": "Кыш"
         },
         {
-            "id": "ex_ws7_3",
+            "id": "ex_ws5_3",
             "type": "choice",
             "order": 2,
-            "question": "Выбери перевод: 'Кышта кар чаар'",
-            "options": ["Летом жарко", "Зимой идет снег", "Осенью дождь"],
-            "correct": "Зимой идет снег"
+            "question": "Выбери 'Осень'",
+            "options": ["Кыш", "Күс", "Час"],
+            "correct": "Күс"
         },
         {
-            "id": "ex_ws7_4",
-            "type": "translate",
-            "order": 3,
-            "question": "Зимой идет снег",
-            "correct": "Кышта кар чаар"
-        },
-        {
-            "id": "ex_ws7_5",
-            "type": "order",
-            "order": 4,
-            "question": "Собери: 'Весной идет дождь'",
-            "orderItems": ["Часта", "чаъс", "чаар"],
-            "correct": ["Часта", "чаъс", "чаар"]
-        },
-        {
-            "id": "ex_ws7_6",
+            "id": "ex_ws5_4",
             "type": "choice",
-            "order": 5,
-            "question": "Как сказать 'Летом жарко'?",
-            "options": [
-                "Чайда изиг бооп тур",
-                "Кышта соок бооп тур",
-                "Часта чаъс чаар"
-            ],
-            "correct": "Чайда изиг бооп тур"
+            "order": 3,
+            "question": "Выбери 'Зима'",
+            "options": ["Күс", "Кыш", "Чай"],
+            "correct": "Кыш"
         },
         {
-            "id": "ex_ws7_7",
-            "type": "translate",
-            "order": 6,
-            "question": "Летом жарко",
-            "correct": "Чайда изиг бооп тур"
-        },
-        {
-            "id": "ex_ws7_8",
-            "type": "order",
-            "order": 7,
-            "question": "Собери: 'Осенью холодно'",
-            "orderItems": ["Күсте", "соок", "бооп", "тур"],
-            "correct": ["Күсте", "соок", "бооп", "тур"]
-        },
-        {
-            "id": "ex_ws7_9",
+            "id": "ex_ws5_5",
             "type": "match",
-            "order": 8,
+            "order": 4,
             "question": "Сопоставь",
             "matchPairs": [
-                { "left": "Кышта кар чаар", "right": "Зимой идет снег" },
-                { "left": "Чайда изиг бооп тур", "right": "Летом жарко" }
+                { "left": "Күс", "right": "Осень" },
+                { "left": "Кыш", "right": "Зима" }
             ]
         },
         {
-            "id": "ex_ws7_10",
+            "id": "ex_ws5_6",
+            "type": "translate",
+            "order": 5,
+            "question": "Күс",
+            "correct": "Осень"
+        },
+        {
+            "id": "ex_ws5_7",
+            "type": "translate",
+            "order": 6,
+            "question": "Кыш",
+            "correct": "Зима"
+        },
+        {
+            "id": "ex_ws5_8",
+            "type": "order",
+            "order": 7,
+            "question": "Собери: 'Осень и зима'",
+            "orderItems": ["Күс", "болгаш", "кыш"],
+            "correct": ["Күс", "болгаш", "кыш"]
+        },
+        {
+            "id": "ex_ws5_9",
             "type": "choice",
+            "order": 8,
+            "question": "Выбери перевод: 'Күс болгаш кыш'",
+            "options": ["Весна и лето", "Осень и зима", "Лето и осень"],
+            "correct": "Осень и зима"
+        },
+        {
+            "id": "ex_ws5_10",
+            "type": "match",
             "order": 9,
-            "question": "Выбери правильный перевод: 'Күсте соок бооп тур'",
-            "options": ["Осенью холодно", "Весной дождь", "Зимой снег"],
-            "correct": "Осенью холодно"
+            "question": "Сопоставь",
+            "matchPairs": [{ "left": "Кыш", "right": "Зима" }]
         }
     ]
 }

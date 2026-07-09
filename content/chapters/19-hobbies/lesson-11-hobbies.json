@@ -1,0 +1,42 @@
+{
+    "type": "lesson",
+    "id": "sc_3_119_hobbies",
+    "chapterId": "ch_119_hobbies",
+    "title": "Карточка 3: Вчера и завтра",
+    "titleTuvan": "Картазы 3: Дүъш болгаш эртен",
+    "description": "Хобби в разных временах",
+    "skill": "speaking",
+    "order": 11,
+    "isPublished": true,
+    "difficulty": 3,
+    "estimatedTime": 5,
+    "exercises": [
+        {
+            "id": "sc_3",
+            "type": "speaking_card",
+            "order": 2,
+            "cards": [
+                {
+                    "promptRu": "Скажи: Вчера я читал книгу.",
+                    "targetTuvan": "Дүъш мен ном номчудум.",
+                    "hint": "номчудум"
+                },
+                {
+                    "promptRu": "Спроси: Ты вчера слушал музыку?",
+                    "targetTuvan": "Дүъш сен хөгжүм сонустадың бе?",
+                    "hint": "сонустадың бе?"
+                },
+                {
+                    "promptRu": "Скажи: Завтра я буду играть.",
+                    "targetTuvan": "Эртен мен оюннар ойнаар мен.",
+                    "hint": "ойнаар мен"
+                },
+                {
+                    "promptRu": "Скажи: Вчера мы гуляли.",
+                    "targetTuvan": "Дүъш бис чордук.",
+                    "hint": "чордук"
+                }
+            ]
+        }
+    ]
+}

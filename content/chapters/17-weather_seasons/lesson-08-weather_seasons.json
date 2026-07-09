@@ -1,107 +1,42 @@
 {
     "type": "lesson",
-    "id": "lesson_8_117_weather_seasons",
+    "id": "sc_2_117_weather_seasons",
     "chapterId": "ch_117_weather_seasons",
-    "title": "Урок 8: Вчера шел дождь",
-    "titleTuvan": "Кичээл 8: Дүъш чаъс чаан",
-    "description": "Погода в прошедшем времени",
-    "skill": "grammar",
-    "order": 9,
+    "title": "Карточка 2: Времена года",
+    "titleTuvan": "Картазы 2: Чылдың үелери",
+    "description": "Погода в разные сезоны",
+    "skill": "speaking",
+    "order": 8,
     "isPublished": true,
-    "difficulty": 3,
-    "estimatedTime": 7,
+    "difficulty": 2,
+    "estimatedTime": 5,
     "exercises": [
         {
-            "id": "ex_ws8_1",
-            "type": "order",
-            "order": 0,
-            "question": "Собери: 'Вчера шел дождь' (чаан - шел/был)",
-            "orderItems": ["Дүъш", "чаъс", "чаан"],
-            "correct": ["Дүъш", "чаъс", "чаан"]
-        },
-        {
-            "id": "ex_ws8_2",
-            "type": "order",
+            "id": "sc_2",
+            "type": "speaking_card",
             "order": 1,
-            "question": "Собери: 'Вчера шел снег'",
-            "orderItems": ["Дүъш", "кар", "чаан"],
-            "correct": ["Дүъш", "кар", "чаан"]
-        },
-        {
-            "id": "ex_ws8_3",
-            "type": "choice",
-            "order": 2,
-            "question": "Выбери перевод: 'Дүъш чаъс чаан'",
-            "options": [
-                "Завтра пойдет дождь",
-                "Вчера шел дождь",
-                "Сегодня идет снег"
-            ],
-            "correct": "Вчера шел дождь"
-        },
-        {
-            "id": "ex_ws8_4",
-            "type": "translate",
-            "order": 3,
-            "question": "Вчера шел дождь",
-            "correct": "Дүъш чаъс чаан"
-        },
-        {
-            "id": "ex_ws8_5",
-            "type": "order",
-            "order": 4,
-            "question": "Собери: 'Вчера было холодно' (турган - было)",
-            "orderItems": ["Дүъш", "соок", "бооп", "турган"],
-            "correct": ["Дүъш", "соок", "бооп", "турган"]
-        },
-        {
-            "id": "ex_ws8_6",
-            "type": "choice",
-            "order": 5,
-            "question": "Как сказать 'Вчера было жарко'?",
-            "options": [
-                "Дүъш изиг бооп турган",
-                "Эртен изиг бооп тур",
-                "Бүгү соок бооп тур"
-            ],
-            "correct": "Дүъш изиг бооп турган"
-        },
-        {
-            "id": "ex_ws8_7",
-            "type": "translate",
-            "order": 6,
-            "question": "Вчера было жарко",
-            "correct": "Дүъш изиг бооп турган"
-        },
-        {
-            "id": "ex_ws8_8",
-            "type": "order",
-            "order": 7,
-            "question": "Собери: 'Вчера дул ветер' (салык үзүп турган)",
-            "orderItems": ["Дүъш", "салык", "үзүп", "турган"],
-            "correct": ["Дүъш", "салык", "үзүп", "турган"]
-        },
-        {
-            "id": "ex_ws8_9",
-            "type": "match",
-            "order": 8,
-            "question": "Сопоставь",
-            "matchPairs": [
-                { "left": "чаан", "right": "шел (дождь/снег)" },
-                { "left": "бооп турган", "right": "было (погода)" }
+            "cards": [
+                {
+                    "promptRu": "Спроси: Зимой идет снег?",
+                    "targetTuvan": "Кышта кар чаар бе?",
+                    "hint": "кышта"
+                },
+                {
+                    "promptRu": "Ответь: Да, зимой идет снег.",
+                    "targetTuvan": "Ийе, кышта кар чаар.",
+                    "hint": "кар чаар"
+                },
+                {
+                    "promptRu": "Скажи: Летом жарко.",
+                    "targetTuvan": "Чайда изиг бооп тур.",
+                    "hint": "изиг бооп тур"
+                },
+                {
+                    "promptRu": "Спроси: Весной хорошая погода?",
+                    "targetTuvan": "Часта агаар эки бе?",
+                    "hint": "агаар эки бе?"
+                }
             ]
-        },
-        {
-            "id": "ex_ws8_10",
-            "type": "choice",
-            "order": 9,
-            "question": "Выбери правильный перевод: 'Дүъш кар чаан'",
-            "options": [
-                "Вчера шел снег",
-                "Завтра пойдет снег",
-                "Сегодня дождь"
-            ],
-            "correct": "Вчера шел снег"
         }
     ]
 }

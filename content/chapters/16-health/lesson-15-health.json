@@ -1,0 +1,87 @@
+{
+    "type": "lesson",
+    "id": "dialogue_116_health",
+    "chapterId": "ch_116_health",
+    "title": "Диалог: У врача",
+    "titleTuvan": "Чугаа: Эмчиде",
+    "description": "Прием у врача и жалобы на здоровье",
+    "skill": "speaking",
+    "order": 15,
+    "isPublished": true,
+    "difficulty": 2,
+    "estimatedTime": 10,
+    "exercises": [
+        {
+            "id": "dialogue_exercise",
+            "type": "dialogue_lesson",
+            "order": 4,
+            "dialogueLines": [
+                {
+                    "speaker": "Эмчи",
+                    "textTuvan": "Чүге келдинг?",
+                    "textRu": "Почему ты пришел?"
+                },
+                {
+                    "speaker": "Чаяна",
+                    "textTuvan": "Мээң башым аарып тур.",
+                    "textRu": "У меня болит голова."
+                },
+                {
+                    "speaker": "Эмчи",
+                    "textTuvan": "Эм ижер сен бе?",
+                    "textRu": "Ты будешь пить лекарство?"
+                },
+                {
+                    "speaker": "Чаяна",
+                    "textTuvan": "Ийе, мен эм аптекаже баар мен. Эм садып алыр мен.",
+                    "textRu": "Да, я пойду в аптеку. Я куплю лекарство."
+                }
+            ],
+            "exercises": [
+                {
+                    "id": "ex_d_h1",
+                    "type": "translate",
+                    "order": 0,
+                    "question": "У меня болит голова.",
+                    "correct": "Мээң башым аарып тур"
+                },
+                {
+                    "id": "ex_d_h2",
+                    "type": "choice",
+                    "order": 1,
+                    "question": "Куда пойдет Чаяна после врача?",
+                    "options": ["Домой", "На работу", "В аптеку"],
+                    "correct": "В аптеку"
+                },
+                {
+                    "id": "ex_d_h3",
+                    "type": "order",
+                    "order": 2,
+                    "question": "Собери фразу: 'Я куплю лекарство'",
+                    "orderItems": ["Мен", "эм", "садып", "алыр", "мен"],
+                    "correct": ["Мен", "эм", "садып", "алыр", "мен"]
+                },
+                {
+                    "id": "ex_d_h4",
+                    "type": "match",
+                    "order": 3,
+                    "question": "Сопоставь фразы из диалога",
+                    "matchPairs": [
+                        {
+                            "left": "Чүге келдинг?",
+                            "right": "Почему ты пришел?"
+                        },
+                        {
+                            "left": "Эм ижер сен бе?",
+                            "right": "Ты будешь пить лекарство?"
+                        },
+                        {
+                            "left": "Мен эм аптекаже баар мен",
+                            "right": "Я пойду в аптеку"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

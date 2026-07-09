@@ -1,0 +1,42 @@
+{
+    "type": "lesson",
+    "id": "sc_3_113_daily_routine",
+    "chapterId": "ch_113_daily_routine",
+    "title": "Карточка 3: Вчера и завтра",
+    "titleTuvan": "Картазы 3: Дүъш болгаш эртен",
+    "description": "Сравнение времен в распорядке дня",
+    "skill": "speaking",
+    "order": 11,
+    "isPublished": true,
+    "difficulty": 3,
+    "estimatedTime": 5,
+    "exercises": [
+        {
+            "id": "sc_3",
+            "type": "speaking_card",
+            "order": 2,
+            "cards": [
+                {
+                    "promptRu": "Скажи: Вчера я работал.",
+                    "targetTuvan": "Дүъш мен ажылдаадым.",
+                    "hint": "ажылдаадым"
+                },
+                {
+                    "promptRu": "Скажи: Завтра я буду отдыхать.",
+                    "targetTuvan": "Эртен мен амыраар мен.",
+                    "hint": "амыраар мен"
+                },
+                {
+                    "promptRu": "Спроси: Ты вчера спал?",
+                    "targetTuvan": "Дүъш сен узадың бе?",
+                    "hint": "узадың бе?"
+                },
+                {
+                    "promptRu": "Ответь: Да, я спал ночью.",
+                    "targetTuvan": "Ийе, мен соңгу узадым.",
+                    "hint": "узадым"
+                }
+            ]
+        }
+    ]
+}

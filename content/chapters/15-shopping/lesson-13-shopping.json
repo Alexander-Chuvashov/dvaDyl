@@ -1,0 +1,99 @@
+{
+    "type": "lesson",
+    "id": "lesson_9_115_shopping",
+    "chapterId": "ch_115_shopping",
+    "title": "Урок 9: Диалог в магазине",
+    "titleTuvan": "Кичээл 9: Магазинда чугаа",
+    "description": "Полезные фразы",
+    "skill": "phrases",
+    "order": 13,
+    "isPublished": true,
+    "difficulty": 3,
+    "estimatedTime": 7,
+    "exercises": [
+        {
+            "id": "ex_sh9_1",
+            "type": "order",
+            "order": 0,
+            "question": "Собери: 'Сколько стоит?'",
+            "orderItems": ["Үнези", "хире?"],
+            "correct": ["Үнези", "хире?"]
+        },
+        {
+            "id": "ex_sh9_2",
+            "type": "order",
+            "order": 1,
+            "question": "Собери: 'Есть ли скидка?'",
+            "orderItems": ["Доозал", "бар", "бе?"],
+            "correct": ["Доозал", "бар", "бе?"]
+        },
+        {
+            "id": "ex_sh9_3",
+            "type": "choice",
+            "order": 2,
+            "question": "Выбери перевод: 'Үнези хире?'",
+            "options": ["Какой размер?", "Сколько стоит?", "Есть ли скидка?"],
+            "correct": "Сколько стоит?"
+        },
+        {
+            "id": "ex_sh9_4",
+            "type": "translate",
+            "order": 3,
+            "question": "Есть ли скидка?",
+            "correct": "Доозал бар бе?"
+        },
+        {
+            "id": "ex_sh9_5",
+            "type": "order",
+            "order": 4,
+            "question": "Собери: 'Дайте, пожалуйста, хлеб'",
+            "orderItems": ["Нан", "бээр", "сил,", "бе"],
+            "correct": ["Нан", "бээр", "сил,", "бе"]
+        },
+        {
+            "id": "ex_sh9_6",
+            "type": "choice",
+            "order": 5,
+            "question": "Как сказать 'Я куплю это'?",
+            "options": [
+                "Мен боо садып алыр мен",
+                "Мен боо садып алдым",
+                "Мен боо садыр мен"
+            ],
+            "correct": "Мен боо садып алыр мен"
+        },
+        {
+            "id": "ex_sh9_7",
+            "type": "translate",
+            "order": 6,
+            "question": "Я куплю это (боо)",
+            "correct": "Мен боо садып алыр мен"
+        },
+        {
+            "id": "ex_sh9_8",
+            "type": "order",
+            "order": 7,
+            "question": "Собери: 'Я плачу деньги'",
+            "orderItems": ["Мен", "акша", "төлеп", "тур", "мен"],
+            "correct": ["Мен", "акша", "төлеп", "тур", "мен"]
+        },
+        {
+            "id": "ex_sh9_9",
+            "type": "match",
+            "order": 8,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Үнези хире?", "right": "Сколько стоит?" },
+                { "left": "Доозал бар бе?", "right": "Есть ли скидка?" }
+            ]
+        },
+        {
+            "id": "ex_sh9_10",
+            "type": "choice",
+            "order": 9,
+            "question": "Выбери правильный перевод: 'Мен боо садып алыр мен'",
+            "options": ["Я куплю это", "Я продаю это", "Я плачу за это"],
+            "correct": "Я куплю это"
+        }
+    ]
+}

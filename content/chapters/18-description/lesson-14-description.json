@@ -1,0 +1,97 @@
+{
+    "type": "lesson",
+    "id": "lesson_10_118_description",
+    "chapterId": "ch_118_description",
+    "title": "Урок 10: Повторение",
+    "titleTuvan": "Кичээл 10: Катаптаа",
+    "description": "Закрепление материала юнита 18",
+    "skill": "review",
+    "order": 14,
+    "isPublished": true,
+    "difficulty": 3,
+    "estimatedTime": 10,
+    "exercises": [
+        {
+            "id": "ex_de10_1",
+            "type": "order",
+            "order": 0,
+            "question": "Собери: 'Высокий мальчик'",
+            "orderItems": ["оол", "Өр"],
+            "correct": ["Өр", "оол"]
+        },
+        {
+            "id": "ex_de10_2",
+            "type": "choice",
+            "order": 1,
+            "question": "Выбери перевод: 'Кандыг-дыр ол?'",
+            "options": ["Где он?", "Какой он?", "Кто он?"],
+            "correct": "Какой он?"
+        },
+        {
+            "id": "ex_de10_3",
+            "type": "match",
+            "order": 2,
+            "question": "Сопоставь прилагательные",
+            "matchPairs": [
+                { "left": "Өр", "right": "Высокий" },
+                { "left": "Биче", "right": "Маленький" },
+                { "left": "Чараш", "right": "Красивый" }
+            ]
+        },
+        {
+            "id": "ex_de10_4",
+            "type": "translate",
+            "order": 3,
+            "question": "Старый",
+            "correct": "Кырган"
+        },
+        {
+            "id": "ex_de10_5",
+            "type": "translate",
+            "order": 4,
+            "question": "Молодой",
+            "correct": "Аныяк"
+        },
+        {
+            "id": "ex_de10_6",
+            "type": "order",
+            "order": 5,
+            "question": "Собери: 'Очень красивый'",
+            "orderItems": ["чараш", "эң"],
+            "correct": ["эң", "чараш"]
+        },
+        {
+            "id": "ex_de10_7",
+            "type": "choice",
+            "order": 6,
+            "question": "Как сказать 'Он не высокий'?",
+            "options": ["Ол өр эвес", "Ол эң өр", "Ол кырган"],
+            "correct": "Ол өр эвес"
+        },
+        {
+            "id": "ex_de10_8",
+            "type": "match",
+            "order": 7,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Улуг", "right": "Большой" },
+                { "left": "Ээжик", "right": "Низкий" }
+            ]
+        },
+        {
+            "id": "ex_de10_9",
+            "type": "translate",
+            "order": 8,
+            "question": "Очень большой",
+            "correct": "Эң улуг"
+        },
+        {
+            "id": "ex_de10_10",
+            "type": "choice",
+            "order": 9,
+            "question": "Выбери правильный перевод: 'Ол чараш эвес'",
+            "options": ["Он красивый", "Он некрасивый", "Он очень красивый"],
+            "correct": "Он некрасивый"
+        }
+    ]
+}

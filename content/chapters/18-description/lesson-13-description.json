@@ -1,0 +1,90 @@
+{
+    "type": "lesson",
+    "id": "lesson_9_118_description",
+    "chapterId": "ch_118_description",
+    "title": "Урок 9: Очень и мало",
+    "titleTuvan": "Кичээл 9: Эң болгаш биче",
+    "description": "Степени сравнения и интенсивности",
+    "skill": "grammar",
+    "order": 13,
+    "isPublished": true,
+    "difficulty": 3,
+    "estimatedTime": 7,
+    "exercises": [
+        {
+            "id": "ex_de9_1",
+            "type": "translate",
+            "order": 0,
+            "question": "Очень (эң)",
+            "correct": "Эң"
+        },
+        {
+            "id": "ex_de9_2",
+            "type": "choice",
+            "order": 1,
+            "question": "Выбери 'Очень'",
+            "options": ["Эң", "Биче", "Чаа"],
+            "correct": "Эң"
+        },
+        {
+            "id": "ex_de9_3",
+            "type": "translate",
+            "order": 2,
+            "question": "Эң",
+            "correct": "Очень"
+        },
+        {
+            "id": "ex_de9_4",
+            "type": "order",
+            "order": 3,
+            "question": "Собери: 'Очень красивый'",
+            "orderItems": ["чараш", "эң"],
+            "correct": ["эң", "чараш"]
+        },
+        {
+            "id": "ex_de9_5",
+            "type": "match",
+            "order": 4,
+            "question": "Сопоставь",
+            "matchPairs": [{ "left": "Эң", "right": "Очень" }]
+        },
+        {
+            "id": "ex_de9_6",
+            "type": "choice",
+            "order": 5,
+            "question": "Как сказать 'Очень большой'?",
+            "options": ["Эң улуг", "Эң биче", "Эң чараш"],
+            "correct": "Эң улуг"
+        },
+        {
+            "id": "ex_de9_7",
+            "type": "translate",
+            "order": 6,
+            "question": "Очень большой",
+            "correct": "Эң улуг"
+        },
+        {
+            "id": "ex_de9_8",
+            "type": "order",
+            "order": 7,
+            "question": "Собери: 'Очень высокий'",
+            "orderItems": ["өр", "эң"],
+            "correct": ["эң", "өр"]
+        },
+        {
+            "id": "ex_de9_9",
+            "type": "choice",
+            "order": 8,
+            "question": "Выбери перевод: 'Эң чараш'",
+            "options": ["Очень большой", "Очень красивый", "Очень старый"],
+            "correct": "Очень красивый"
+        },
+        {
+            "id": "ex_de9_10",
+            "type": "match",
+            "order": 9,
+            "question": "Сопоставь",
+            "matchPairs": [{ "left": "Эң улуг", "right": "Очень большой" }]
+        }
+    ]
+}

@@ -1,0 +1,42 @@
+{
+    "type": "lesson",
+    "id": "sc_3_112_future_tense",
+    "chapterId": "ch_112_future_tense",
+    "title": "Карточка 3: Я не пойду",
+    "titleTuvan": "Картазы 3: Мен барбас мен",
+    "description": "Отрицание в будущем времени",
+    "skill": "speaking",
+    "order": 11,
+    "isPublished": true,
+    "difficulty": 3,
+    "estimatedTime": 5,
+    "exercises": [
+        {
+            "id": "sc_3",
+            "type": "speaking_card",
+            "order": 2,
+            "cards": [
+                {
+                    "promptRu": "Скажи: Я не пойду завтра.",
+                    "targetTuvan": "Эртен мен барбас мен.",
+                    "hint": "барбас мен"
+                },
+                {
+                    "promptRu": "Спроси: Ты не будешь есть хлеб?",
+                    "targetTuvan": "Сен нан чийвес сен бе?",
+                    "hint": "чийвес сен бе?"
+                },
+                {
+                    "promptRu": "Ответь: Нет, я не буду есть.",
+                    "targetTuvan": "Чок, мен чийвес мен.",
+                    "hint": "чийвес мен"
+                },
+                {
+                    "promptRu": "Скажи: Мы не будем пить воду.",
+                    "targetTuvan": "Бис суг ижевес бис.",
+                    "hint": "ижевес бис"
+                }
+            ]
+        }
+    ]
+}

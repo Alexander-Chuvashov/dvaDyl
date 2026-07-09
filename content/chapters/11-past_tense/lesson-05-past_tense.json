@@ -1,94 +1,42 @@
 {
     "type": "lesson",
-    "id": "lesson_5_111_past_tense",
+    "id": "lesson_5_speaking_card",
     "chapterId": "ch_111_past_tense",
-    "title": "Урок 5: Вы ушли",
-    "titleTuvan": "Кичээл 5: Силер бардыңар",
-    "description": "2-е лицо множественного числа",
-    "skill": "grammar",
-    "order": 6,
+    "title": "Карточка 1: Вчера",
+    "titleTuvan": "Картазы 1: Дүъш",
+    "description": "Ответь на вопросы о вчерашнем дне",
+    "skill": "speaking",
+    "order": 5,
     "isPublished": true,
     "difficulty": 2,
-    "estimatedTime": 7,
+    "estimatedTime": 5,
     "exercises": [
         {
-            "id": "ex_pt5_1",
-            "type": "translate",
+            "id": "sc_1",
+            "type": "speaking_card",
             "order": 0,
-            "question": "Вы ушли",
-            "correct": "Силер бардыңар"
-        },
-        {
-            "id": "ex_pt5_2",
-            "type": "choice",
-            "order": 1,
-            "question": "Выбери 'Вы ушли'",
-            "options": ["Силер бардыңар", "Бис бардық", "Олар бардылар"],
-            "correct": "Силер бардыңар"
-        },
-        {
-            "id": "ex_pt5_3",
-            "type": "order",
-            "order": 2,
-            "question": "Собери: 'Вы ушли'",
-            "orderItems": ["бардыңар", "Силер"],
-            "correct": ["Силер", "бардыңар"]
-        },
-        {
-            "id": "ex_pt5_4",
-            "type": "translate",
-            "order": 3,
-            "question": "Силер бардыңар",
-            "correct": "Вы ушли"
-        },
-        {
-            "id": "ex_pt5_5",
-            "type": "match",
-            "order": 4,
-            "question": "Сопоставь",
-            "matchPairs": [{ "left": "Силер бардыңар", "right": "Вы ушли" }]
-        },
-        {
-            "id": "ex_pt5_6",
-            "type": "choice",
-            "order": 5,
-            "question": "Как сказать 'Вы ели'?",
-            "options": [
-                "Силер чиидингер",
-                "Силер чиип тур силер",
-                "Силер чиир силер"
-            ],
-            "correct": "Силер чиидингер"
-        },
-        {
-            "id": "ex_pt5_7",
-            "type": "translate",
-            "order": 6,
-            "question": "Вы ели",
-            "correct": "Силер чиидингер"
-        },
-        {
-            "id": "ex_pt5_8",
-            "type": "order",
-            "order": 7,
-            "question": "Собери: 'Вы ели'",
-            "orderItems": ["чиидингер", "Силер"],
-            "correct": ["Силер", "чиидингер"]
-        },
-        {
-            "id": "ex_pt5_9",
-            "type": "choice",
-            "order": 8,
-            "question": "Выбери перевод: 'Силер чиидингер'",
-            "options": ["Вы едите", "Вы ели", "Вы будете есть"],
-            "correct": "Вы ели"
-        },
-        {
-            "id": "ex_pt5_10",
-            "type": "match",
-            "order": 9,
-            "question": "Сопоставь",
-            "matchPairs": [{ "left": "Силер чиидингер", "right": "Вы ели" }]
+            "cards": [
+                {
+                    "promptRu": "Спроси: Ты вчера был дома?",
+                    "targetTuvan": "Дүъш сен бажыңга турган сен бе?",
+                    "hint": "Дүъш... бажыңга..."
+                },
+                {
+                    "promptRu": "Ответь: Да, я был дома.",
+                    "targetTuvan": "Ийе, мен бажыңга турган мен.",
+                    "hint": "Ийе... турган мен"
+                },
+                {
+                    "promptRu": "Спроси: Что ты ел вчера?",
+                    "targetTuvan": "Дүъш сен чүү чиидинг?",
+                    "hint": "чиидинг"
+                },
+                {
+                    "promptRu": "Ответь: Я ел хлеб и мясо.",
+                    "targetTuvan": "Мен нан болгаш эт чиидим.",
+                    "hint": "чиидим"
+                }
+            ]
         }
     ]
 }

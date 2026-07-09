@@ -1,92 +1,42 @@
 {
     "type": "lesson",
-    "id": "lesson_5_117_weather_seasons",
+    "id": "sc_1_117_weather_seasons",
     "chapterId": "ch_117_weather_seasons",
-    "title": "Урок 5: Осень и зима",
-    "titleTuvan": "Кичээл 5: Күс болгаш кыш",
-    "description": "Холодные сезоны",
-    "skill": "vocabulary",
-    "order": 6,
+    "title": "Карточка 1: Погода",
+    "titleTuvan": "Картазы 1: Агаар",
+    "description": "Описание погоды",
+    "skill": "speaking",
+    "order": 5,
     "isPublished": true,
     "difficulty": 2,
-    "estimatedTime": 7,
+    "estimatedTime": 5,
     "exercises": [
         {
-            "id": "ex_ws5_1",
-            "type": "translate",
+            "id": "sc_1",
+            "type": "speaking_card",
             "order": 0,
-            "question": "Осень",
-            "correct": "Күс"
-        },
-        {
-            "id": "ex_ws5_2",
-            "type": "translate",
-            "order": 1,
-            "question": "Зима",
-            "correct": "Кыш"
-        },
-        {
-            "id": "ex_ws5_3",
-            "type": "choice",
-            "order": 2,
-            "question": "Выбери 'Осень'",
-            "options": ["Кыш", "Күс", "Час"],
-            "correct": "Күс"
-        },
-        {
-            "id": "ex_ws5_4",
-            "type": "choice",
-            "order": 3,
-            "question": "Выбери 'Зима'",
-            "options": ["Күс", "Кыш", "Чай"],
-            "correct": "Кыш"
-        },
-        {
-            "id": "ex_ws5_5",
-            "type": "match",
-            "order": 4,
-            "question": "Сопоставь",
-            "matchPairs": [
-                { "left": "Күс", "right": "Осень" },
-                { "left": "Кыш", "right": "Зима" }
+            "cards": [
+                {
+                    "promptRu": "Спроси: Какая погода?",
+                    "targetTuvan": "Агаар кандыг-дыр?",
+                    "hint": "кандыг-дыр?"
+                },
+                {
+                    "promptRu": "Ответь: Сегодня холодно.",
+                    "targetTuvan": "Бүгү соок бооп тур.",
+                    "hint": "соок бооп тур"
+                },
+                {
+                    "promptRu": "Спроси: Идет дождь?",
+                    "targetTuvan": "Чаъс чаар бе?",
+                    "hint": "чаар бе?"
+                },
+                {
+                    "promptRu": "Ответь: Нет, светит солнце.",
+                    "targetTuvan": "Чок, хүн үнүп тур.",
+                    "hint": "хүн үнүп тур"
+                }
             ]
-        },
-        {
-            "id": "ex_ws5_6",
-            "type": "translate",
-            "order": 5,
-            "question": "Күс",
-            "correct": "Осень"
-        },
-        {
-            "id": "ex_ws5_7",
-            "type": "translate",
-            "order": 6,
-            "question": "Кыш",
-            "correct": "Зима"
-        },
-        {
-            "id": "ex_ws5_8",
-            "type": "order",
-            "order": 7,
-            "question": "Собери: 'Осень и зима'",
-            "orderItems": ["Күс", "болгаш", "кыш"],
-            "correct": ["Күс", "болгаш", "кыш"]
-        },
-        {
-            "id": "ex_ws5_9",
-            "type": "choice",
-            "order": 8,
-            "question": "Выбери перевод: 'Күс болгаш кыш'",
-            "options": ["Весна и лето", "Осень и зима", "Лето и осень"],
-            "correct": "Осень и зима"
-        },
-        {
-            "id": "ex_ws5_10",
-            "type": "match",
-            "order": 9,
-            "question": "Сопоставь",
-            "matchPairs": [{ "left": "Кыш", "right": "Зима" }]
         }
     ]
 }

@@ -1,95 +1,41 @@
 {
     "type": "lesson",
-    "id": "lesson_5_115_shopping",
+    "id": "sc_1_115_shopping",
     "chapterId": "ch_115_shopping",
-    "title": "Урок 5: Я плачу",
-    "titleTuvan": "Кичээл 5: Мен төлеп тур мен",
-    "description": "Оплата покупки",
-    "skill": "grammar",
-    "order": 6,
+    "title": "Карточка 1: В магазине",
+    "titleTuvan": "Картазы 1: Магазинде",
+    "description": "Покупка продуктов",
+    "skill": "speaking",
+    "order": 5,
     "isPublished": true,
     "difficulty": 2,
-    "estimatedTime": 7,
+    "estimatedTime": 5,
     "exercises": [
         {
-            "id": "ex_sh5_1",
-            "type": "translate",
+            "id": "sc_1",
+            "type": "speaking_card",
             "order": 0,
-            "question": "Платить",
-            "correct": "Төлээр"
-        },
-        {
-            "id": "ex_sh5_2",
-            "type": "choice",
-            "order": 1,
-            "question": "Выбери 'Платить'",
-            "options": ["Садыр", "Төлээр", "Алыр"],
-            "correct": "Төлээр"
-        },
-        {
-            "id": "ex_sh5_3",
-            "type": "translate",
-            "order": 2,
-            "question": "Төлээр",
-            "correct": "Платить"
-        },
-        {
-            "id": "ex_sh5_4",
-            "type": "order",
-            "order": 3,
-            "question": "Собери: 'Я плачу деньги'",
-            "orderItems": ["Мен", "акша", "төлеп", "тур", "мен"],
-            "correct": ["Мен", "акша", "төлеп", "тур", "мен"]
-        },
-        {
-            "id": "ex_sh5_5",
-            "type": "match",
-            "order": 4,
-            "question": "Сопоставь",
-            "matchPairs": [{ "left": "Төлээр", "right": "Платить" }]
-        },
-        {
-            "id": "ex_sh5_6",
-            "type": "choice",
-            "order": 5,
-            "question": "Как сказать 'Я плачу деньги'?",
-            "options": [
-                "Мен акша садып тур мен",
-                "Мен акша төлеп тур мен",
-                "Мен акша алыр мен"
-            ],
-            "correct": "Мен акша төлеп тур мен"
-        },
-        {
-            "id": "ex_sh5_7",
-            "type": "translate",
-            "order": 6,
-            "question": "Я плачу деньги",
-            "correct": "Мен акша төлеп тур мен"
-        },
-        {
-            "id": "ex_sh5_8",
-            "type": "order",
-            "order": 7,
-            "question": "Собери: 'Я куплю воду'",
-            "orderItems": ["Мен", "суг", "садып", "алыр", "мен"],
-            "correct": ["Мен", "суг", "садып", "алыр", "мен"]
-        },
-        {
-            "id": "ex_sh5_9",
-            "type": "choice",
-            "order": 8,
-            "question": "Выбери перевод: 'Мен суг садып алыр мен'",
-            "options": ["Я продаю воду", "Я покупаю воду", "Я пью воду"],
-            "correct": "Я покупаю воду"
-        },
-        {
-            "id": "ex_sh5_10",
-            "type": "match",
-            "order": 9,
-            "question": "Сопоставь",
-            "matchPairs": [
-                { "left": "Мен акша төлеп тур мен", "right": "Я плачу деньги" }
+            "cards": [
+                {
+                    "promptRu": "Спроси: Сколько стоит?",
+                    "targetTuvan": "Үнези хире?",
+                    "hint": "Үнези"
+                },
+                {
+                    "promptRu": "Ответь: Дайте, пожалуйста, хлеб.",
+                    "targetTuvan": "Нан бээр сил, бе.",
+                    "hint": "бээр сил, бе"
+                },
+                {
+                    "promptRu": "Спроси: Ты покупаешь воду?",
+                    "targetTuvan": "Сен суг садып алыр сен бе?",
+                    "hint": "садып алыр сен бе?"
+                },
+                {
+                    "promptRu": "Ответь: Да, я покупаю воду.",
+                    "targetTuvan": "Ийе, мен суг садып алыр мен.",
+                    "hint": "садып алыр мен"
+                }
             ]
         }
     ]

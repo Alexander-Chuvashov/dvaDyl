@@ -1,0 +1,84 @@
+{
+    "type": "lesson",
+    "id": "dialogue_112_future_tense",
+    "chapterId": "ch_112_future_tense",
+    "title": "Диалог: Планы на завтра",
+    "titleTuvan": "Чугаа: Эртенниң планнары",
+    "description": "Обсуждение планов на завтра",
+    "skill": "speaking",
+    "order": 15,
+    "isPublished": true,
+    "difficulty": 2,
+    "estimatedTime": 10,
+    "exercises": [
+        {
+            "id": "dialogue_exercise",
+            "type": "dialogue_lesson",
+            "order": 1,
+            "dialogueLines": [
+                {
+                    "speaker": "Айлан",
+                    "textTuvan": "Эртен сен кайыан чор сен?",
+                    "textRu": "Завтра куда ты пойдешь?"
+                },
+                {
+                    "speaker": "Чаяна",
+                    "textTuvan": "Мен ажылче баар мен. А сен?",
+                    "textRu": "Я пойду на работу. А ты?"
+                },
+                {
+                    "speaker": "Айлан",
+                    "textTuvan": "Мен эмнелгеге баар мен. Мээң башым аарып тур.",
+                    "textRu": "Я пойду в больницу. У меня болит голова."
+                },
+                {
+                    "speaker": "Чаяна",
+                    "textTuvan": "Эки болзун! Эртен сен чиир сен бе?",
+                    "textRu": "Поправляйся! Завтра ты будешь есть?"
+                }
+            ],
+            "exercises": [
+                {
+                    "id": "ex_d_ft1",
+                    "type": "translate",
+                    "order": 0,
+                    "question": "Завтра куда ты пойдешь?",
+                    "correct": "Эртен сен кайыан чор сен?"
+                },
+                {
+                    "id": "ex_d_ft2",
+                    "type": "choice",
+                    "order": 1,
+                    "question": "Куда пойдет Айлан завтра?",
+                    "options": ["На работу", "В больницу", "Домой"],
+                    "correct": "В больницу"
+                },
+                {
+                    "id": "ex_d_ft3",
+                    "type": "order",
+                    "order": 2,
+                    "question": "Собери фразу: 'Я пойду на работу'",
+                    "orderItems": ["мен", "Мен", "ажылче", "баар"],
+                    "correct": ["Мен", "ажылче", "баар", "мен"]
+                },
+                {
+                    "id": "ex_d_ft4",
+                    "type": "match",
+                    "order": 3,
+                    "question": "Сопоставь фразы из диалога",
+                    "matchPairs": [
+                        {
+                            "left": "Мен эмнелгеге баар мен",
+                            "right": "Я пойду в больницу"
+                        },
+                        {
+                            "left": "Мээң башым аарып тур",
+                            "right": "У меня болит голова"
+                        },
+                        { "left": "Эки болзун!", "right": "Поправляйся!" }
+                    ]
+                }
+            ]
+        }
+    ]
+}

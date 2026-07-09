@@ -1,95 +1,99 @@
 {
     "type": "lesson",
-    "id": "lesson_7_118_description",
+    "id": "lesson_5_118_description",
     "chapterId": "ch_118_description",
-    "title": "Урок 7: Какой он?",
-    "titleTuvan": "Кичээл 7: Кандыг-дыр ол?",
-    "description": "Вопросы с прилагательными",
+    "title": "Урок 5: Описание людей",
+    "titleTuvan": "Кичээл 5: Кижилерни тодарадыры",
+    "description": "Комбинации прилагательных",
     "skill": "grammar",
-    "order": 8,
+    "order": 7,
     "isPublished": true,
-    "difficulty": 3,
+    "difficulty": 2,
     "estimatedTime": 7,
     "exercises": [
         {
-            "id": "ex_de7_1",
+            "id": "ex_de5_1",
             "type": "order",
             "order": 0,
-            "question": "Собери: 'Какой он?'",
-            "orderItems": ["ол?", "Кандыг-дыр"],
-            "correct": ["Кандыг-дыр", "ол?"]
+            "question": "Собери: 'Высокий мальчик'",
+            "orderItems": ["оол", "Өр"],
+            "correct": ["Өр", "оол"]
         },
         {
-            "id": "ex_de7_2",
+            "id": "ex_de5_2",
             "type": "order",
             "order": 1,
-            "question": "Собери: 'Он высокий'",
-            "orderItems": ["Ол", "өр"],
-            "correct": ["Ол", "өр"]
+            "question": "Собери: 'Маленькая девочка'",
+            "orderItems": ["кыс", "Биче"],
+            "correct": ["Биче", "кыс"]
         },
         {
-            "id": "ex_de7_3",
+            "id": "ex_de5_3",
             "type": "choice",
             "order": 2,
-            "question": "Выбери перевод: 'Кандыг-дыр ол?'",
-            "options": ["Где он?", "Какой он?", "Кто он?"],
-            "correct": "Какой он?"
+            "question": "Выбери перевод: 'Аныяк эр кижи'",
+            "options": ["Старый мужчина", "Молодой мужчина", "Высокий мальчик"],
+            "correct": "Молодой мужчина"
         },
         {
-            "id": "ex_de7_4",
+            "id": "ex_de5_4",
             "type": "translate",
             "order": 3,
-            "question": "Какой он?",
-            "correct": "Кандыг-дыр ол?"
+            "question": "Старая женщина",
+            "correct": "Кырган кыс кижи"
         },
         {
-            "id": "ex_de7_5",
+            "id": "ex_de5_5",
             "type": "order",
             "order": 4,
-            "question": "Собери: 'Она красивая'",
-            "orderItems": ["Ол", "чараш"],
-            "correct": ["Ол", "чараш"]
+            "question": "Собери: 'Красивая женщина'",
+            "orderItems": ["кыс кижи", "Чараш"],
+            "correct": ["Чараш", "кыс кижи"]
         },
         {
-            "id": "ex_de7_6",
+            "id": "ex_de5_6",
             "type": "choice",
             "order": 5,
-            "question": "Как ответить 'Он старый'?",
-            "options": ["Ол аныяк", "Ол кырган", "Ол улуг"],
-            "correct": "Ол кырган"
+            "question": "Как сказать 'Низкий мальчик'?",
+            "options": ["Өр оол", "Ээжик оол", "Биче кыс"],
+            "correct": "Ээжик оол"
         },
         {
-            "id": "ex_de7_7",
+            "id": "ex_de5_7",
             "type": "translate",
             "order": 6,
-            "question": "Она красивая",
-            "correct": "Ол чараш"
+            "question": "Низкий мальчик",
+            "correct": "Ээжик оол"
         },
         {
-            "id": "ex_de7_8",
+            "id": "ex_de5_8",
             "type": "order",
             "order": 7,
-            "question": "Собери: 'Дом большой'",
-            "orderItems": ["Бажың", "улуг"],
-            "correct": ["Бажың", "улуг"]
+            "question": "Собери: 'Высокая девушка'",
+            "orderItems": ["кыс", "Өр"],
+            "correct": ["Өр", "кыс"]
         },
         {
-            "id": "ex_de7_9",
+            "id": "ex_de5_9",
             "type": "match",
             "order": 8,
             "question": "Сопоставь",
             "matchPairs": [
-                { "left": "Кандыг-дыр ол?", "right": "Какой он?" },
-                { "left": "Ол өр", "right": "Он высокий" }
+                { "left": "Аныяк эр кижи", "right": "Молодой мужчина" },
+                { "left": "Чараш кыс кижи", "right": "Красивая женщина" }
             ]
         },
         {
-            "id": "ex_de7_10",
+            "id": "ex_de5_10",
             "type": "choice",
             "order": 9,
-            "question": "Выбери правильный перевод: 'Бажың улуг'",
-            "options": ["Дом маленький", "Дом большой", "Дом красивый"],
-            "correct": "Дом большой"
+            "question": "Выбери правильный перевод: 'Кырган кыс кижи'",
+            "options": [
+                "Молодая женщина",
+                "Старая женщина",
+                "Красивая девушка"
+            ],
+            "correct": "Старая женщина"
         }
     ]
 }

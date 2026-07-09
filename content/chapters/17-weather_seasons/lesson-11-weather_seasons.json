@@ -1,0 +1,42 @@
+{
+    "type": "lesson",
+    "id": "sc_3_117_weather_seasons",
+    "chapterId": "ch_117_weather_seasons",
+    "title": "Карточка 3: Прогноз",
+    "titleTuvan": "Картазы 3: Агаар чоруду",
+    "description": "Погода в прошлом и будущем",
+    "skill": "speaking",
+    "order": 11,
+    "isPublished": true,
+    "difficulty": 3,
+    "estimatedTime": 5,
+    "exercises": [
+        {
+            "id": "sc_3",
+            "type": "speaking_card",
+            "order": 2,
+            "cards": [
+                {
+                    "promptRu": "Скажи: Вчера шел дождь.",
+                    "targetTuvan": "Дүъш чаъс чаан.",
+                    "hint": "чаан"
+                },
+                {
+                    "promptRu": "Спроси: Завтра будет снег?",
+                    "targetTuvan": "Эртен кар чаар бе?",
+                    "hint": "чаар бе?"
+                },
+                {
+                    "promptRu": "Ответь: Да, завтра будет снег.",
+                    "targetTuvan": "Ийе, эртен кар чаар.",
+                    "hint": "кар чаар"
+                },
+                {
+                    "promptRu": "Скажи: Вчера было холодно.",
+                    "targetTuvan": "Дүъш соок бооп турган.",
+                    "hint": "бооп турган"
+                }
+            ]
+        }
+    ]
+}

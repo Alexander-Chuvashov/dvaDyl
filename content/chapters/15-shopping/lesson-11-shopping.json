@@ -1,0 +1,42 @@
+{
+    "type": "lesson",
+    "id": "sc_3_115_shopping",
+    "chapterId": "ch_115_shopping",
+    "title": "Карточка 3: Покупки вчера",
+    "titleTuvan": "Картазы 3: Дүъш садыг",
+    "description": "Покупки в прошедшем времени",
+    "skill": "speaking",
+    "order": 11,
+    "isPublished": true,
+    "difficulty": 3,
+    "estimatedTime": 5,
+    "exercises": [
+        {
+            "id": "sc_3",
+            "type": "speaking_card",
+            "order": 2,
+            "cards": [
+                {
+                    "promptRu": "Скажи: Вчера я купил мясо.",
+                    "targetTuvan": "Дүъш мен эт садып алдым.",
+                    "hint": "садып алдым"
+                },
+                {
+                    "promptRu": "Спроси: Ты вчера купил чай?",
+                    "targetTuvan": "Дүъш сен чай садып алдың бе?",
+                    "hint": "алдың бе?"
+                },
+                {
+                    "promptRu": "Ответь: Нет, я не купил чай.",
+                    "targetTuvan": "Чок, мен чай садып албаан мен.",
+                    "hint": "албаан мен"
+                },
+                {
+                    "promptRu": "Скажи: Завтра я куплю хлеб.",
+                    "targetTuvan": "Эртен мен нан садып алыр мен.",
+                    "hint": "алыр мен"
+                }
+            ]
+        }
+    ]
+}

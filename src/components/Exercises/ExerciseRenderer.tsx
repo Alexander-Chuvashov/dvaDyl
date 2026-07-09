@@ -6,6 +6,8 @@ import ChoiceExercise from './ChoiceExercise';
 import OrderExercise from './OrderExercise';
 import MatchExercise from './MatchExercise';
 import ListenExercise from './ListenExercise'; // если есть
+import DialogueLesson from './DialogueLesson';
+import SpeakingCard from './SpeakingCard';
 
 interface Props {
     exercise: Exercise;
@@ -31,6 +33,11 @@ const ExerciseRenderer: React.FC<Props> = ({ exercise, onAnswer }) => {
         case 'listen':
             // если есть компонент ListenExercise, передаём туда
             return <ListenExercise exercise={exercise} onAnswer={onAnswer} />;
+        case 'dialogue_lesson':
+            return <DialogueLesson exercise={exercise} onAnswer={onAnswer} />;
+        case 'speaking_card':
+            return <SpeakingCard exercise={exercise} onAnswer={onAnswer} />;
+
         default:
             return (
                 <div className="p-4 border border-yellow-300 rounded-lg bg-yellow-50">

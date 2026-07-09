@@ -1,95 +1,90 @@
 {
     "type": "lesson",
-    "id": "lesson_9_111_past_tense",
+    "id": "lesson_6_111_past_tense",
     "chapterId": "ch_111_past_tense",
-    "title": "Урок 9: Отрицание в прошедшем",
-    "titleTuvan": "Кичээл 9: Эвес",
-    "description": "Отрицание в прошедшем времени",
+    "title": "Урок 6: Они ушли",
+    "titleTuvan": "Кичээл 6: Олар бардылар",
+    "description": "3-е лицо множественного числа",
     "skill": "grammar",
-    "order": 10,
+    "order": 9,
     "isPublished": true,
-    "difficulty": 3,
+    "difficulty": 2,
     "estimatedTime": 7,
     "exercises": [
         {
-            "id": "ex_pt9_1",
-            "type": "order",
+            "id": "ex_pt6_1",
+            "type": "translate",
             "order": 0,
-            "question": "Собери: 'Я не ушел' (барбаан мен)",
-            "orderItems": ["мен", "барбаан", "Мен"],
-            "correct": ["Мен", "барбаан", "мен"]
+            "question": "Они ушли",
+            "correct": "Олар бардылар"
         },
         {
-            "id": "ex_pt9_2",
-            "type": "order",
+            "id": "ex_pt6_2",
+            "type": "choice",
             "order": 1,
-            "question": "Собери: 'Я не ел' (чийвээн мен)",
-            "orderItems": ["мен", "чийвээн", "Мен"],
-            "correct": ["Мен", "чийвээн", "мен"]
+            "question": "Выбери 'Они ушли'",
+            "options": ["Олар бардылар", "Ол барды", "Бис бардық"],
+            "correct": "Олар бардылар"
         },
         {
-            "id": "ex_pt9_3",
-            "type": "choice",
-            "order": 2,
-            "question": "Выбери перевод: 'Мен барбаан мен'",
-            "options": ["Я иду", "Я не ушел", "Я ушел"],
-            "correct": "Я не ушел"
-        },
-        {
-            "id": "ex_pt9_4",
-            "type": "choice",
-            "order": 3,
-            "question": "Выбери перевод: 'Мен чийвээн мен'",
-            "options": ["Я ем", "Я не ел", "Я ел"],
-            "correct": "Я не ел"
-        },
-        {
-            "id": "ex_pt9_5",
-            "type": "translate",
-            "order": 4,
-            "question": "Я не ушел",
-            "correct": "Мен барбаан мен"
-        },
-        {
-            "id": "ex_pt9_6",
-            "type": "translate",
-            "order": 5,
-            "question": "Я не ел",
-            "correct": "Мен чийвээн мен"
-        },
-        {
-            "id": "ex_pt9_7",
+            "id": "ex_pt6_3",
             "type": "order",
-            "order": 6,
-            "question": "Собери: 'Ты не ушел'",
-            "orderItems": ["сен", "барбаан", "Сен"],
-            "correct": ["Сен", "барбаан", "сен"]
+            "order": 2,
+            "question": "Собери: 'Они ушли'",
+            "orderItems": ["бардылар", "Олар"],
+            "correct": ["Олар", "бардылар"]
         },
         {
-            "id": "ex_pt9_8",
+            "id": "ex_pt6_4",
+            "type": "translate",
+            "order": 3,
+            "question": "Олар бардылар",
+            "correct": "Они ушли"
+        },
+        {
+            "id": "ex_pt6_5",
+            "type": "match",
+            "order": 4,
+            "question": "Сопоставь",
+            "matchPairs": [{ "left": "Олар бардылар", "right": "Они ушли" }]
+        },
+        {
+            "id": "ex_pt6_6",
+            "type": "choice",
+            "order": 5,
+            "question": "Как сказать 'Они ели'?",
+            "options": ["Олар чиидилер", "Олар чиип турлар", "Олар чиирлар"],
+            "correct": "Олар чиидилер"
+        },
+        {
+            "id": "ex_pt6_7",
+            "type": "translate",
+            "order": 6,
+            "question": "Они ели",
+            "correct": "Олар чиидилер"
+        },
+        {
+            "id": "ex_pt6_8",
             "type": "order",
             "order": 7,
-            "question": "Собери: 'Они не ели'",
-            "orderItems": ["чийвээн", "Олар"],
-            "correct": ["Олар", "чийвээн"]
+            "question": "Собери: 'Они ели'",
+            "orderItems": ["чиидилер", "Олар"],
+            "correct": ["Олар", "чиидилер"]
         },
         {
-            "id": "ex_pt9_9",
-            "type": "match",
-            "order": 8,
-            "question": "Сопоставь",
-            "matchPairs": [
-                { "left": "Мен барбаан мен", "right": "Я не ушел" },
-                { "left": "Мен чийвээн мен", "right": "Я не ел" }
-            ]
-        },
-        {
-            "id": "ex_pt9_10",
+            "id": "ex_pt6_9",
             "type": "choice",
+            "order": 8,
+            "question": "Выбери перевод: 'Олар чиидилер'",
+            "options": ["Они едят", "Они ели", "Они будут есть"],
+            "correct": "Они ели"
+        },
+        {
+            "id": "ex_pt6_10",
+            "type": "match",
             "order": 9,
-            "question": "Выбери правильный перевод: 'Олар чийвээн'",
-            "options": ["Они не ели", "Они едят", "Они ели"],
-            "correct": "Они не ели"
+            "question": "Сопоставь",
+            "matchPairs": [{ "left": "Олар чиидилер", "right": "Они ели" }]
         }
     ]
 }

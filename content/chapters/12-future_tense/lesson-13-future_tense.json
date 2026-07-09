@@ -1,0 +1,95 @@
+{
+    "type": "lesson",
+    "id": "lesson_9_112_future_tense",
+    "chapterId": "ch_112_future_tense",
+    "title": "Урок 9: Отрицание в будущем",
+    "titleTuvan": "Кичээл 9: Бас",
+    "description": "Отрицание в будущем времени",
+    "skill": "grammar",
+    "order": 13,
+    "isPublished": true,
+    "difficulty": 3,
+    "estimatedTime": 7,
+    "exercises": [
+        {
+            "id": "ex_ft9_1",
+            "type": "order",
+            "order": 0,
+            "question": "Собери: 'Я не пойду' (барбас мен)",
+            "orderItems": ["мен", "барбас", "Мен"],
+            "correct": ["Мен", "барбас", "мен"]
+        },
+        {
+            "id": "ex_ft9_2",
+            "type": "order",
+            "order": 1,
+            "question": "Собери: 'Я не буду есть' (чийвес мен)",
+            "orderItems": ["мен", "чийвес", "Мен"],
+            "correct": ["Мен", "чийвес", "мен"]
+        },
+        {
+            "id": "ex_ft9_3",
+            "type": "choice",
+            "order": 2,
+            "question": "Выбери перевод: 'Мен барбас мен'",
+            "options": ["Я иду", "Я не пойду", "Я ушел"],
+            "correct": "Я не пойду"
+        },
+        {
+            "id": "ex_ft9_4",
+            "type": "choice",
+            "order": 3,
+            "question": "Выбери перевод: 'Мен чийвес мен'",
+            "options": ["Я ем", "Я не буду есть", "Я ел"],
+            "correct": "Я не буду есть"
+        },
+        {
+            "id": "ex_ft9_5",
+            "type": "translate",
+            "order": 4,
+            "question": "Я не пойду",
+            "correct": "Мен барбас мен"
+        },
+        {
+            "id": "ex_ft9_6",
+            "type": "translate",
+            "order": 5,
+            "question": "Я не буду есть",
+            "correct": "Мен чийвес мен"
+        },
+        {
+            "id": "ex_ft9_7",
+            "type": "order",
+            "order": 6,
+            "question": "Собери: 'Ты не пойдешь'",
+            "orderItems": ["сен", "барбас", "Сен"],
+            "correct": ["Сен", "барбас", "сен"]
+        },
+        {
+            "id": "ex_ft9_8",
+            "type": "order",
+            "order": 7,
+            "question": "Собери: 'Они не будут есть'",
+            "orderItems": ["чийвес", "Олар"],
+            "correct": ["Олар", "чийвес"]
+        },
+        {
+            "id": "ex_ft9_9",
+            "type": "match",
+            "order": 8,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Мен барбас мен", "right": "Я не пойду" },
+                { "left": "Мен чийвес мен", "right": "Я не буду есть" }
+            ]
+        },
+        {
+            "id": "ex_ft9_10",
+            "type": "choice",
+            "order": 9,
+            "question": "Выбери правильный перевод: 'Олар чийвес'",
+            "options": ["Они не будут есть", "Они едят", "Они ели"],
+            "correct": "Они не будут есть"
+        }
+    ]
+}

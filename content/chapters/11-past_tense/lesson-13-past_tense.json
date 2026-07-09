@@ -1,0 +1,95 @@
+{
+    "type": "lesson",
+    "id": "lesson_9_111_past_tense",
+    "chapterId": "ch_111_past_tense",
+    "title": "Урок 9: Отрицание в прошедшем",
+    "titleTuvan": "Кичээл 9: Эвес",
+    "description": "Отрицание в прошедшем времени",
+    "skill": "grammar",
+    "order": 13,
+    "isPublished": true,
+    "difficulty": 3,
+    "estimatedTime": 7,
+    "exercises": [
+        {
+            "id": "ex_pt9_1",
+            "type": "order",
+            "order": 0,
+            "question": "Собери: 'Я не ушел' (барбаан мен)",
+            "orderItems": ["мен", "барбаан", "Мен"],
+            "correct": ["Мен", "барбаан", "мен"]
+        },
+        {
+            "id": "ex_pt9_2",
+            "type": "order",
+            "order": 1,
+            "question": "Собери: 'Я не ел' (чийвээн мен)",
+            "orderItems": ["мен", "чийвээн", "Мен"],
+            "correct": ["Мен", "чийвээн", "мен"]
+        },
+        {
+            "id": "ex_pt9_3",
+            "type": "choice",
+            "order": 2,
+            "question": "Выбери перевод: 'Мен барбаан мен'",
+            "options": ["Я иду", "Я не ушел", "Я ушел"],
+            "correct": "Я не ушел"
+        },
+        {
+            "id": "ex_pt9_4",
+            "type": "choice",
+            "order": 3,
+            "question": "Выбери перевод: 'Мен чийвээн мен'",
+            "options": ["Я ем", "Я не ел", "Я ел"],
+            "correct": "Я не ел"
+        },
+        {
+            "id": "ex_pt9_5",
+            "type": "translate",
+            "order": 4,
+            "question": "Я не ушел",
+            "correct": "Мен барбаан мен"
+        },
+        {
+            "id": "ex_pt9_6",
+            "type": "translate",
+            "order": 5,
+            "question": "Я не ел",
+            "correct": "Мен чийвээн мен"
+        },
+        {
+            "id": "ex_pt9_7",
+            "type": "order",
+            "order": 6,
+            "question": "Собери: 'Ты не ушел'",
+            "orderItems": ["сен", "барбаан", "Сен"],
+            "correct": ["Сен", "барбаан", "сен"]
+        },
+        {
+            "id": "ex_pt9_8",
+            "type": "order",
+            "order": 7,
+            "question": "Собери: 'Они не ели'",
+            "orderItems": ["чийвээн", "Олар"],
+            "correct": ["Олар", "чийвээн"]
+        },
+        {
+            "id": "ex_pt9_9",
+            "type": "match",
+            "order": 8,
+            "question": "Сопоставь",
+            "matchPairs": [
+                { "left": "Мен барбаан мен", "right": "Я не ушел" },
+                { "left": "Мен чийвээн мен", "right": "Я не ел" }
+            ]
+        },
+        {
+            "id": "ex_pt9_10",
+            "type": "choice",
+            "order": 9,
+            "question": "Выбери правильный перевод: 'Олар чийвээн'",
+            "options": ["Они не ели", "Они едят", "Они ели"],
+            "correct": "Они не ели"
+        }
+    ]
+}

@@ -1,0 +1,84 @@
+{
+    "type": "lesson",
+    "id": "dialogue_118_description",
+    "chapterId": "ch_118_description",
+    "title": "Диалог: Описание друга",
+    "titleTuvan": "Чугаа: Найысылды тодарадыры",
+    "description": "Разговор о внешности знакомого",
+    "skill": "speaking",
+    "order": 15,
+    "isPublished": true,
+    "difficulty": 2,
+    "estimatedTime": 10,
+    "exercises": [
+        {
+            "id": "dialogue_exercise",
+            "type": "dialogue_lesson",
+            "order": 5,
+            "dialogueLines": [
+                {
+                    "speaker": "Айлан",
+                    "textTuvan": "Ол кандыг-дыр?",
+                    "textRu": "Какой он?"
+                },
+                {
+                    "speaker": "Чаяна",
+                    "textTuvan": "Ол өр болгаш чараш кижи.",
+                    "textRu": "Он высокий и красивый человек."
+                },
+                {
+                    "speaker": "Айлан",
+                    "textTuvan": "Ол аныяк бе?",
+                    "textRu": "Он молодой?"
+                },
+                {
+                    "speaker": "Чаяна",
+                    "textTuvan": "Ийе, ол аныяк. Ол спорт кылыр.",
+                    "textRu": "Да, он молодой. Он занимается спортом."
+                }
+            ],
+            "exercises": [
+                {
+                    "id": "ex_d_de1",
+                    "type": "translate",
+                    "order": 0,
+                    "question": "Он высокий и красивый человек.",
+                    "correct": "Ол өр болгаш чараш кижи"
+                },
+                {
+                    "id": "ex_d_de2",
+                    "type": "choice",
+                    "order": 1,
+                    "question": "Чем занимается человек, о котором говорят?",
+                    "options": ["Читает", "Занимается спортом", "Работает"],
+                    "correct": "Занимается спортом"
+                },
+                {
+                    "id": "ex_d_de3",
+                    "type": "order",
+                    "order": 2,
+                    "question": "Собери вопрос: 'Какой он?'",
+                    "orderItems": ["ол?", "Кандыг-дыр"],
+                    "correct": ["Кандыг-дыр", "ол?"]
+                },
+                {
+                    "id": "ex_d_de4",
+                    "type": "match",
+                    "order": 3,
+                    "question": "Сопоставь фразы из диалога",
+                    "matchPairs": [
+                        {
+                            "left": "Ол өр болгаш чараш кижи",
+                            "right": "Он высокий и красивый человек"
+                        },
+                        { "left": "Ол аныяк бе?", "right": "Он молодой?" },
+                        {
+                            "left": "Ол спорт кылыр",
+                            "right": "Он занимается спортом"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

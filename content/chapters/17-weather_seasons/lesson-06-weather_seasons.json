@@ -1,95 +1,92 @@
 {
     "type": "lesson",
-    "id": "lesson_6_117_weather_seasons",
+    "id": "lesson_4_117_weather_seasons",
     "chapterId": "ch_117_weather_seasons",
-    "title": "Урок 6: Какая погода?",
-    "titleTuvan": "Кичээл 6: Агаар кандыг-дыр?",
-    "description": "Вопросы о погоде",
-    "skill": "grammar",
-    "order": 7,
+    "title": "Урок 4: Весна и лето",
+    "titleTuvan": "Кичээл 4: Час болгаш чай",
+    "description": "Теплые сезоны",
+    "skill": "vocabulary",
+    "order": 6,
     "isPublished": true,
     "difficulty": 2,
     "estimatedTime": 7,
     "exercises": [
         {
-            "id": "ex_ws6_1",
-            "type": "order",
+            "id": "ex_ws4_1",
+            "type": "translate",
             "order": 0,
-            "question": "Собери: 'Какая погода?'",
-            "orderItems": ["Агаар", "кандыг-дыр?"],
-            "correct": ["Агаар", "кандыг-дыр?"]
+            "question": "Весна",
+            "correct": "Час"
         },
         {
-            "id": "ex_ws6_2",
-            "type": "order",
+            "id": "ex_ws4_2",
+            "type": "translate",
             "order": 1,
-            "question": "Собери: 'Погода хорошая' (эки)",
-            "orderItems": ["Агаар", "эки"],
-            "correct": ["Агаар", "эки"]
+            "question": "Лето",
+            "correct": "Чай"
         },
         {
-            "id": "ex_ws6_3",
+            "id": "ex_ws4_3",
             "type": "choice",
             "order": 2,
-            "question": "Выбери перевод: 'Агаар кандыг-дыр?'",
-            "options": ["Который час?", "Какая погода?", "Где ты?"],
-            "correct": "Какая погода?"
+            "question": "Выбери 'Весна'",
+            "options": ["Чай", "Час", "Күс"],
+            "correct": "Час"
         },
         {
-            "id": "ex_ws6_4",
-            "type": "translate",
-            "order": 3,
-            "question": "Какая погода?",
-            "correct": "Агаар кандыг-дыр?"
-        },
-        {
-            "id": "ex_ws6_5",
-            "type": "order",
-            "order": 4,
-            "question": "Собери: 'Погода плохая' (багай)",
-            "orderItems": ["Агаар", "багай"],
-            "correct": ["Агаар", "багай"]
-        },
-        {
-            "id": "ex_ws6_6",
+            "id": "ex_ws4_4",
             "type": "choice",
-            "order": 5,
-            "question": "Как сказать 'Погода хорошая'?",
-            "options": ["Агаар эки", "Агаар багай", "Агаар соок"],
-            "correct": "Агаар эки"
+            "order": 3,
+            "question": "Выбери 'Лето'",
+            "options": ["Час", "Чай", "Кыш"],
+            "correct": "Чай"
         },
         {
-            "id": "ex_ws6_7",
-            "type": "translate",
-            "order": 6,
-            "question": "Погода хорошая",
-            "correct": "Агаар эки"
-        },
-        {
-            "id": "ex_ws6_8",
-            "type": "order",
-            "order": 7,
-            "question": "Собери: 'Сегодня холодно'",
-            "orderItems": ["Бүгү", "соок", "бооп", "тур"],
-            "correct": ["Бүгү", "соок", "бооп", "тур"]
-        },
-        {
-            "id": "ex_ws6_9",
+            "id": "ex_ws4_5",
             "type": "match",
-            "order": 8,
+            "order": 4,
             "question": "Сопоставь",
             "matchPairs": [
-                { "left": "Агаар кандыг-дыр?", "right": "Какая погода?" },
-                { "left": "Агаар эки", "right": "Погода хорошая" }
+                { "left": "Час", "right": "Весна" },
+                { "left": "Чай", "right": "Лето" }
             ]
         },
         {
-            "id": "ex_ws6_10",
+            "id": "ex_ws4_6",
+            "type": "translate",
+            "order": 5,
+            "question": "Час",
+            "correct": "Весна"
+        },
+        {
+            "id": "ex_ws4_7",
+            "type": "translate",
+            "order": 6,
+            "question": "Чай",
+            "correct": "Лето"
+        },
+        {
+            "id": "ex_ws4_8",
+            "type": "order",
+            "order": 7,
+            "question": "Собери: 'Весна и лето'",
+            "orderItems": ["Час", "болгаш", "чай"],
+            "correct": ["Час", "болгаш", "чай"]
+        },
+        {
+            "id": "ex_ws4_9",
             "type": "choice",
+            "order": 8,
+            "question": "Выбери перевод: 'Час болгаш чай'",
+            "options": ["Осень и зима", "Весна и лето", "Весна и осень"],
+            "correct": "Весна и лето"
+        },
+        {
+            "id": "ex_ws4_10",
+            "type": "match",
             "order": 9,
-            "question": "Выбери правильный перевод: 'Бүгү соок бооп тур'",
-            "options": ["Сегодня жарко", "Сегодня холодно", "Завтра снег"],
-            "correct": "Сегодня холодно"
+            "question": "Сопоставь",
+            "matchPairs": [{ "left": "Чай", "right": "Лето" }]
         }
     ]
 }

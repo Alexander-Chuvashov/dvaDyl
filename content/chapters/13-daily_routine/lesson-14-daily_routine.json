@@ -1,0 +1,106 @@
+{
+    "type": "lesson",
+    "id": "lesson_10_113_daily_routine",
+    "chapterId": "ch_113_daily_routine",
+    "title": "Урок 10: Повторение",
+    "titleTuvan": "Кичээл 10: Катаптаа",
+    "description": "Закрепление материала юнита 13",
+    "skill": "review",
+    "order": 14,
+    "isPublished": true,
+    "difficulty": 3,
+    "estimatedTime": 10,
+    "exercises": [
+        {
+            "id": "ex_dr10_1",
+            "type": "order",
+            "order": 0,
+            "question": "Собери: 'Утром я завтракаю'",
+            "orderItems": ["Эртен", "мен", "эртенги", "чем", "чиир", "мен"],
+            "correct": ["Эртен", "мен", "эртенги", "чем", "чиир", "мен"]
+        },
+        {
+            "id": "ex_dr10_2",
+            "type": "choice",
+            "order": 1,
+            "question": "Выбери перевод: 'Кежээ мен узап тур мен'",
+            "options": ["Утром я встаю", "Ночью я сплю", "Вечером я работаю"],
+            "correct": "Ночью я сплю"
+        },
+        {
+            "id": "ex_dr10_3",
+            "type": "match",
+            "order": 2,
+            "question": "Сопоставь действия",
+            "matchPairs": [
+                { "left": "Турар", "right": "Вставать" },
+                { "left": "Ажылдаар", "right": "Работать" },
+                { "left": "Узар", "right": "Спать" }
+            ]
+        },
+        {
+            "id": "ex_dr10_4",
+            "type": "translate",
+            "order": 3,
+            "question": "Завтрак",
+            "correct": "Эртенги чем"
+        },
+        {
+            "id": "ex_dr10_5",
+            "type": "translate",
+            "order": 4,
+            "question": "Ужин",
+            "correct": "Кежээки чем"
+        },
+        {
+            "id": "ex_dr10_6",
+            "type": "order",
+            "order": 5,
+            "question": "Собери: 'Днем я работаю'",
+            "orderItems": ["Хүн", "мен", "ажылдаап", "тур", "мен"],
+            "correct": ["Хүн", "мен", "ажылдаап", "тур", "мен"]
+        },
+        {
+            "id": "ex_dr10_7",
+            "type": "choice",
+            "order": 6,
+            "question": "Как сказать 'Утром я умываюсь'?",
+            "options": [
+                "Эртен мен чуур мен",
+                "Кежээ мен амыраап тур мен",
+                "Хүн мен өөренип тур мен"
+            ],
+            "correct": "Эртен мен чуур мен"
+        },
+        {
+            "id": "ex_dr10_8",
+            "type": "match",
+            "order": 7,
+            "question": "Сопоставь времена",
+            "matchPairs": [
+                { "left": "Эртен", "right": "Утром" },
+                { "left": "Хүн", "right": "Днем" },
+                { "left": "Кежээ", "right": "Вечером" }
+            ]
+        },
+        {
+            "id": "ex_dr10_9",
+            "type": "translate",
+            "order": 8,
+            "question": "Вчера я работал",
+            "correct": "Дүъш мен ажылдаадым"
+        },
+        {
+            "id": "ex_dr10_10",
+            "type": "choice",
+            "order": 9,
+            "question": "Выбери правильный перевод: 'Эртен мен ажылдаар мен'",
+            "options": [
+                "Вчера я работал",
+                "Завтра я буду работать",
+                "Сегодня я не работаю"
+            ],
+            "correct": "Завтра я буду работать"
+        }
+    ]
+}

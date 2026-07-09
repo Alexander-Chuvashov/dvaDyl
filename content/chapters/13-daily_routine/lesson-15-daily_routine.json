@@ -1,0 +1,87 @@
+{
+    "type": "lesson",
+    "id": "dialogue_113_daily_routine",
+    "chapterId": "ch_113_daily_routine",
+    "title": "Диалог: Распорядок дня",
+    "titleTuvan": "Чугаа: Хүн бүрү ажылдар",
+    "description": "Разговор о том, кто что делает в течение дня",
+    "skill": "speaking",
+    "order": 15,
+    "isPublished": true,
+    "difficulty": 2,
+    "estimatedTime": 10,
+    "exercises": [
+        {
+            "id": "dialogue_exercise",
+            "type": "dialogue_lesson",
+            "order": 2,
+            "dialogueLines": [
+                {
+                    "speaker": "Айлан",
+                    "textTuvan": "Эртен сен кандыг кылыр сен?",
+                    "textRu": "Утром что ты делаешь?"
+                },
+                {
+                    "speaker": "Чаяна",
+                    "textTuvan": "Мен эртен турар мен болгаш чуур мен.",
+                    "textRu": "Утром я встаю и умываюсь."
+                },
+                {
+                    "speaker": "Айлан",
+                    "textTuvan": "А хүн ортузунда?",
+                    "textRu": "А днем?"
+                },
+                {
+                    "speaker": "Чаяна",
+                    "textTuvan": "Хүн мен ажылдаап тур мен. Кежээ мен амыраап тур мен.",
+                    "textRu": "Днем я работаю. Вечером я отдыхаю."
+                }
+            ],
+            "exercises": [
+                {
+                    "id": "ex_d_dr1",
+                    "type": "translate",
+                    "order": 0,
+                    "question": "Утром я встаю и умываюсь.",
+                    "correct": "Эртен мен турар мен болгаш чуур мен"
+                },
+                {
+                    "id": "ex_d_dr2",
+                    "type": "choice",
+                    "order": 1,
+                    "question": "Что Чаяна делает днем?",
+                    "options": ["Отдыхает", "Работает", "Спит"],
+                    "correct": "Работает"
+                },
+                {
+                    "id": "ex_d_dr3",
+                    "type": "order",
+                    "order": 2,
+                    "question": "Собери фразу: 'Вечером я отдыхаю'",
+                    "orderItems": ["мен", "Кежээ", "амыраап", "тур", "мен"],
+                    "correct": ["Кежээ", "мен", "амыраап", "тур", "мен"]
+                },
+                {
+                    "id": "ex_d_dr4",
+                    "type": "match",
+                    "order": 3,
+                    "question": "Сопоставь фразы из диалога",
+                    "matchPairs": [
+                        {
+                            "left": "Эртен сен кандыг кылыр сен?",
+                            "right": "Утром что ты делаешь?"
+                        },
+                        {
+                            "left": "Хүн мен ажылдаап тур мен",
+                            "right": "Днем я работаю"
+                        },
+                        {
+                            "left": "Кежээ мен амыраап тур мен",
+                            "right": "Вечером я отдыхаю"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

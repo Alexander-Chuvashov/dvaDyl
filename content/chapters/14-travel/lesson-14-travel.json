@@ -1,0 +1,84 @@
+{
+    "type": "lesson",
+    "id": "dialogue_114_travel",
+    "chapterId": "ch_114_travel",
+    "title": "Диалог: На вокзале",
+    "titleTuvan": "Чугаа: Вокзалда",
+    "description": "Покупка билета и вопросы о поездке",
+    "skill": "speaking",
+    "order": 15,
+    "isPublished": true,
+    "difficulty": 2,
+    "estimatedTime": 10,
+    "exercises": [
+        {
+            "id": "dialogue_exercise",
+            "type": "dialogue_lesson",
+            "order": 3,
+            "dialogueLines": [
+                {
+                    "speaker": "Айлан",
+                    "textTuvan": "Кудаа сен чор сен?",
+                    "textRu": "Куда ты едешь?"
+                },
+                {
+                    "speaker": "Чаяна",
+                    "textTuvan": "Мен Кызылче чор мен. Мен поезд-биле чор мен.",
+                    "textRu": "Я еду в Кызыл. Я еду на поезде."
+                },
+                {
+                    "speaker": "Айлан",
+                    "textTuvan": "Сен билет садып алдың бе?",
+                    "textRu": "Ты купила билет?"
+                },
+                {
+                    "speaker": "Чаяна",
+                    "textTuvan": "Ийе, мен билет садып алдым. Бир билет.",
+                    "textRu": "Да, я купила билет. Один билет."
+                }
+            ],
+            "exercises": [
+                {
+                    "id": "ex_d_tr1",
+                    "type": "translate",
+                    "order": 0,
+                    "question": "Я еду в Кызыл на поезде.",
+                    "correct": "Мен Кызылче поезд-биле чор мен"
+                },
+                {
+                    "id": "ex_d_tr2",
+                    "type": "choice",
+                    "order": 1,
+                    "question": "На чем едет Чаяна?",
+                    "options": ["На автобусе", "На самолете", "На поезде"],
+                    "correct": "На поезде"
+                },
+                {
+                    "id": "ex_d_tr3",
+                    "type": "order",
+                    "order": 2,
+                    "question": "Собери вопрос: 'Ты купила билет?'",
+                    "orderItems": ["бе?", "Сен", "билет", "садып", "алдың"],
+                    "correct": ["Сен", "билет", "садып", "алдың", "бе?"]
+                },
+                {
+                    "id": "ex_d_tr4",
+                    "type": "match",
+                    "order": 3,
+                    "question": "Сопоставь фразы из диалога",
+                    "matchPairs": [
+                        {
+                            "left": "Кудаа сен чор сен?",
+                            "right": "Куда ты едешь?"
+                        },
+                        {
+                            "left": "Мен поезд-биле чор мен",
+                            "right": "Я еду на поезде"
+                        },
+                        { "left": "Бир билет", "right": "Один билет" }
+                    ]
+                }
+            ]
+        }
+    ]
+}

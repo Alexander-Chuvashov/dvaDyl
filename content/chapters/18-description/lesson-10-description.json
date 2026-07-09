@@ -1,97 +1,95 @@
 {
     "type": "lesson",
-    "id": "lesson_10_118_description",
+    "id": "lesson_7_118_description",
     "chapterId": "ch_118_description",
-    "title": "Урок 10: Повторение",
-    "titleTuvan": "Кичээл 10: Катаптаа",
-    "description": "Закрепление материала юнита 18",
-    "skill": "review",
-    "order": 11,
+    "title": "Урок 7: Какой он?",
+    "titleTuvan": "Кичээл 7: Кандыг-дыр ол?",
+    "description": "Вопросы с прилагательными",
+    "skill": "grammar",
+    "order": 10,
     "isPublished": true,
     "difficulty": 3,
-    "estimatedTime": 10,
+    "estimatedTime": 7,
     "exercises": [
         {
-            "id": "ex_de10_1",
+            "id": "ex_de7_1",
             "type": "order",
             "order": 0,
-            "question": "Собери: 'Высокий мальчик'",
-            "orderItems": ["оол", "Өр"],
-            "correct": ["Өр", "оол"]
+            "question": "Собери: 'Какой он?'",
+            "orderItems": ["ол?", "Кандыг-дыр"],
+            "correct": ["Кандыг-дыр", "ол?"]
         },
         {
-            "id": "ex_de10_2",
-            "type": "choice",
+            "id": "ex_de7_2",
+            "type": "order",
             "order": 1,
+            "question": "Собери: 'Он высокий'",
+            "orderItems": ["Ол", "өр"],
+            "correct": ["Ол", "өр"]
+        },
+        {
+            "id": "ex_de7_3",
+            "type": "choice",
+            "order": 2,
             "question": "Выбери перевод: 'Кандыг-дыр ол?'",
             "options": ["Где он?", "Какой он?", "Кто он?"],
             "correct": "Какой он?"
         },
         {
-            "id": "ex_de10_3",
-            "type": "match",
-            "order": 2,
-            "question": "Сопоставь прилагательные",
-            "matchPairs": [
-                { "left": "Өр", "right": "Высокий" },
-                { "left": "Биче", "right": "Маленький" },
-                { "left": "Чараш", "right": "Красивый" }
-            ]
-        },
-        {
-            "id": "ex_de10_4",
+            "id": "ex_de7_4",
             "type": "translate",
             "order": 3,
-            "question": "Старый",
-            "correct": "Кырган"
+            "question": "Какой он?",
+            "correct": "Кандыг-дыр ол?"
         },
         {
-            "id": "ex_de10_5",
-            "type": "translate",
-            "order": 4,
-            "question": "Молодой",
-            "correct": "Аныяк"
-        },
-        {
-            "id": "ex_de10_6",
+            "id": "ex_de7_5",
             "type": "order",
-            "order": 5,
-            "question": "Собери: 'Очень красивый'",
-            "orderItems": ["чараш", "эң"],
-            "correct": ["эң", "чараш"]
+            "order": 4,
+            "question": "Собери: 'Она красивая'",
+            "orderItems": ["Ол", "чараш"],
+            "correct": ["Ол", "чараш"]
         },
         {
-            "id": "ex_de10_7",
+            "id": "ex_de7_6",
             "type": "choice",
-            "order": 6,
-            "question": "Как сказать 'Он не высокий'?",
-            "options": ["Ол өр эвес", "Ол эң өр", "Ол кырган"],
-            "correct": "Ол өр эвес"
+            "order": 5,
+            "question": "Как ответить 'Он старый'?",
+            "options": ["Ол аныяк", "Ол кырган", "Ол улуг"],
+            "correct": "Ол кырган"
         },
         {
-            "id": "ex_de10_8",
-            "type": "match",
+            "id": "ex_de7_7",
+            "type": "translate",
+            "order": 6,
+            "question": "Она красивая",
+            "correct": "Ол чараш"
+        },
+        {
+            "id": "ex_de7_8",
+            "type": "order",
             "order": 7,
+            "question": "Собери: 'Дом большой'",
+            "orderItems": ["Бажың", "улуг"],
+            "correct": ["Бажың", "улуг"]
+        },
+        {
+            "id": "ex_de7_9",
+            "type": "match",
+            "order": 8,
             "question": "Сопоставь",
             "matchPairs": [
-                { "left": "Улуг", "right": "Большой" },
-                { "left": "Ээжик", "right": "Низкий" }
+                { "left": "Кандыг-дыр ол?", "right": "Какой он?" },
+                { "left": "Ол өр", "right": "Он высокий" }
             ]
         },
         {
-            "id": "ex_de10_9",
-            "type": "translate",
-            "order": 8,
-            "question": "Очень большой",
-            "correct": "Эң улуг"
-        },
-        {
-            "id": "ex_de10_10",
+            "id": "ex_de7_10",
             "type": "choice",
             "order": 9,
-            "question": "Выбери правильный перевод: 'Ол чараш эвес'",
-            "options": ["Он красивый", "Он некрасивый", "Он очень красивый"],
-            "correct": "Он некрасивый"
+            "question": "Выбери правильный перевод: 'Бажың улуг'",
+            "options": ["Дом маленький", "Дом большой", "Дом красивый"],
+            "correct": "Дом большой"
         }
     ]
 }

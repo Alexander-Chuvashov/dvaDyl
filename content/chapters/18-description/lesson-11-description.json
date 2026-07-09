@@ -1,0 +1,42 @@
+{
+    "type": "lesson",
+    "id": "sc_3_118_description",
+    "chapterId": "ch_118_description",
+    "title": "Карточка 3: Отрицание",
+    "titleTuvan": "Картазы 3: Эвес",
+    "description": "Отрицание свойств",
+    "skill": "speaking",
+    "order": 11,
+    "isPublished": true,
+    "difficulty": 3,
+    "estimatedTime": 5,
+    "exercises": [
+        {
+            "id": "sc_3",
+            "type": "speaking_card",
+            "order": 2,
+            "cards": [
+                {
+                    "promptRu": "Скажи: Он не высокий.",
+                    "targetTuvan": "Ол өр эвес.",
+                    "hint": "эвес"
+                },
+                {
+                    "promptRu": "Спроси: Дом не большой?",
+                    "targetTuvan": "Бажың улуг эвес бе?",
+                    "hint": "эвес бе?"
+                },
+                {
+                    "promptRu": "Скажи: Очень красивый.",
+                    "targetTuvan": "Эң чараш.",
+                    "hint": "Эң"
+                },
+                {
+                    "promptRu": "Скажи: Она не старая.",
+                    "targetTuvan": "Ол кырган эвес.",
+                    "hint": "эвес"
+                }
+            ]
+        }
+    ]
+}

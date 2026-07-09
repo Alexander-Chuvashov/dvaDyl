@@ -1,0 +1,84 @@
+{
+    "type": "lesson",
+    "id": "dialogue_115_shopping",
+    "chapterId": "ch_115_shopping",
+    "title": "Диалог: В магазине",
+    "titleTuvan": "Чугаа: Магазинде",
+    "description": "Покупка продуктов и вопрос о цене",
+    "skill": "speaking",
+    "order": 15,
+    "isPublished": true,
+    "difficulty": 2,
+    "estimatedTime": 10,
+    "exercises": [
+        {
+            "id": "dialogue_exercise",
+            "type": "dialogue_lesson",
+            "order": 4,
+            "dialogueLines": [
+                {
+                    "speaker": "Айлан",
+                    "textTuvan": "Сен кайыан чор сен?",
+                    "textRu": "Куда ты идешь?"
+                },
+                {
+                    "speaker": "Чаяна",
+                    "textTuvan": "Мен магазинче баар мен. Мен нан садып алыр мен.",
+                    "textRu": "Я иду в магазин. Я куплю хлеб."
+                },
+                {
+                    "speaker": "Айлан",
+                    "textTuvan": "Үнези хире?",
+                    "textRu": "Сколько стоит?"
+                },
+                {
+                    "speaker": "Чаяна",
+                    "textTuvan": "Мен медербес. Үнези эки болза, мен эт база садып алыр мен.",
+                    "textRu": "Я не знаю. Если цена хорошая, я также куплю мясо."
+                }
+            ],
+            "exercises": [
+                {
+                    "id": "ex_d_sh1",
+                    "type": "translate",
+                    "order": 0,
+                    "question": "Я иду в магазин купить хлеб.",
+                    "correct": "Мен магазинче баар мен нан садып алыр"
+                },
+                {
+                    "id": "ex_d_sh2",
+                    "type": "choice",
+                    "order": 1,
+                    "question": "Что Чаяна купит, если цена хорошая?",
+                    "options": ["Чай", "Мясо", "Воду"],
+                    "correct": "Мясо"
+                },
+                {
+                    "id": "ex_d_sh3",
+                    "type": "order",
+                    "order": 2,
+                    "question": "Собери вопрос: 'Сколько стоит?'",
+                    "orderItems": ["хире?", "Үнези"],
+                    "correct": ["Үнези", "хире?"]
+                },
+                {
+                    "id": "ex_d_sh4",
+                    "type": "match",
+                    "order": 3,
+                    "question": "Сопоставь фразы из диалога",
+                    "matchPairs": [
+                        {
+                            "left": "Мен магазинче баар мен",
+                            "right": "Я иду в магазин"
+                        },
+                        {
+                            "left": "Мен нан садып алыр мен",
+                            "right": "Я куплю хлеб"
+                        },
+                        { "left": "Үнези хире?", "right": "Сколько стоит?" }
+                    ]
+                }
+            ]
+        }
+    ]
+}

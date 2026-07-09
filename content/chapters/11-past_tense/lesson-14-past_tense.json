@@ -1,0 +1,101 @@
+{
+    "type": "lesson",
+    "id": "lesson_10_111_past_tense",
+    "chapterId": "ch_111_past_tense",
+    "title": "Урок 10: Повторение",
+    "titleTuvan": "Кичээл 10: Катаптаа",
+    "description": "Закрепление материала юнита 11",
+    "skill": "review",
+    "order": 14,
+    "isPublished": true,
+    "difficulty": 3,
+    "estimatedTime": 10,
+    "exercises": [
+        {
+            "id": "ex_pt10_1",
+            "type": "order",
+            "order": 0,
+            "question": "Собери: 'Вчера я ел мясо'",
+            "orderItems": ["Дүъш", "мен", "эт", "чиидим"],
+            "correct": ["Дүъш", "мен", "эт", "чиидим"]
+        },
+        {
+            "id": "ex_pt10_2",
+            "type": "choice",
+            "order": 1,
+            "question": "Выбери перевод: 'Сен бардың бе?'",
+            "options": ["Ты идешь?", "Ты ушел?", "Ты будешь идти?"],
+            "correct": "Ты ушел?"
+        },
+        {
+            "id": "ex_pt10_3",
+            "type": "match",
+            "order": 2,
+            "question": "Сопоставь формы глагола 'бар'",
+            "matchPairs": [
+                { "left": "Мен бардым", "right": "Я ушел" },
+                { "left": "Сен бардың", "right": "Ты ушел" },
+                { "left": "Ол барды", "right": "Он ушел" }
+            ]
+        },
+        {
+            "id": "ex_pt10_4",
+            "type": "translate",
+            "order": 3,
+            "question": "Мы ели",
+            "correct": "Бис чиидик"
+        },
+        {
+            "id": "ex_pt10_5",
+            "type": "translate",
+            "order": 4,
+            "question": "Я не ушел",
+            "correct": "Мен барбаан мен"
+        },
+        {
+            "id": "ex_pt10_6",
+            "type": "order",
+            "order": 5,
+            "question": "Собери: 'Они ушли?'",
+            "orderItems": ["бе?", "бардылар", "Олар"],
+            "correct": ["Олар", "бардылар", "бе?"]
+        },
+        {
+            "id": "ex_pt10_7",
+            "type": "choice",
+            "order": 6,
+            "question": "Как сказать 'Вы ели'?",
+            "options": [
+                "Силер чиидингер",
+                "Силер чиип тур силер",
+                "Силер чиир силер"
+            ],
+            "correct": "Силер чиидингер"
+        },
+        {
+            "id": "ex_pt10_8",
+            "type": "match",
+            "order": 7,
+            "question": "Сопоставь отрицание",
+            "matchPairs": [
+                { "left": "Мен барбаан мен", "right": "Я не ушел" },
+                { "left": "Мен чийвээн мен", "right": "Я не ел" }
+            ]
+        },
+        {
+            "id": "ex_pt10_9",
+            "type": "translate",
+            "order": 8,
+            "question": "Вчера мы пили чай",
+            "correct": "Дүъш бис чай ижедик"
+        },
+        {
+            "id": "ex_pt10_10",
+            "type": "choice",
+            "order": 9,
+            "question": "Выбери правильный перевод: 'Ол чийвээн'",
+            "options": ["Он ест", "Он не ел", "Он ел"],
+            "correct": "Он не ел"
+        }
+    ]
+}

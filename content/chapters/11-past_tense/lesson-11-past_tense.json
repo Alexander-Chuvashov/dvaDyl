@@ -1,0 +1,42 @@
+{
+    "type": "lesson",
+    "id": "sc_3_111_past_tense",
+    "chapterId": "ch_111_past_tense",
+    "title": "Карточка 3: Отрицание",
+    "titleTuvan": "Картазы 3: Эвес",
+    "description": "Тренировка отрицания в прошедшем времени",
+    "skill": "speaking",
+    "order": 11,
+    "isPublished": true,
+    "difficulty": 3,
+    "estimatedTime": 5,
+    "exercises": [
+        {
+            "id": "sc_1",
+            "type": "speaking_card",
+            "order": 3,
+            "cards": [
+                {
+                    "promptRu": "Скажи: Я не ел хлеб.",
+                    "targetTuvan": "Мен нан чийвээн мен.",
+                    "hint": "чийвээн"
+                },
+                {
+                    "promptRu": "Спроси: Ты не работал вчера?",
+                    "targetTuvan": "Дүъш сен ажылдаваан сен бе?",
+                    "hint": "ажылдаваан"
+                },
+                {
+                    "promptRu": "Ответь: Нет, я не работал.",
+                    "targetTuvan": "Чок, мен ажылдаваан мен.",
+                    "hint": "ажылдаваан"
+                },
+                {
+                    "promptRu": "Скажи: Мы не пили воду.",
+                    "targetTuvan": "Бис суг ижевээн бис.",
+                    "hint": "ижевээн"
+                }
+            ]
+        }
+    ]
+}
