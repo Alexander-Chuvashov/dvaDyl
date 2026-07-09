@@ -4,43 +4,33 @@ export default {
     theme: {
         extend: {
             colors: {
-                // Основная палитра
-                cream: '#E8DCC8',
-                terracotta: '#B8734A',
-                dark: '#2C241B',
-                olive: '#556B4A',
-                gold: '#C9A961',
-
-                // Системные цвета (на основе палитры)
-                primary: {
-                    DEFAULT: '#B8734A', // терракотовый
-                    light: '#D4A07A',
-                    dark: '#8B5A3A',
+                'dark-bg': '#0A0F1C',
+                'dark-card': '#121A2E',
+                'dark-cardHover': '#1A2744',
+                gold: {
+                    DEFAULT: '#F59E0B',
+                    dark: '#D97706',
+                    light: '#FBBF24',
                 },
-                secondary: {
-                    DEFAULT: '#C9A961', // золотистый
-                    light: '#DDC98A',
-                    dark: '#A8884A',
-                },
-                success: {
-                    DEFAULT: '#556B4A', // оливковый
-                    light: '#7A8F6A',
-                    dark: '#3A4F30',
-                },
-                background: '#E8DCC8',
-                surface: '#F5EFE4', // чуть светлее для карточек
-                text: '#2C241B',
+                success: '#22C55E',
+                error: '#EF4444',
+                'text-primary': '#E2E8F0',
+                'text-secondary': '#94A3B8',
             },
             fontFamily: {
-                // Можно добавить шрифт с поддержкой кириллицы и тувинского
-                sans: ['Inter', 'system-ui', 'sans-serif'],
+                sans: ['Inter', 'sans-serif'],
+            },
+            backgroundImage: {
+                'steppe-gradient':
+                    'linear-gradient(135deg, #0A0F1C 0%, #121A2E 50%, #1A2744 100%)',
+                'gold-gradient':
+                    'linear-gradient(90deg, #F59E0B 0%, #D97706 100%)',
             },
             boxShadow: {
-                card: '0 4px 12px rgba(44, 36, 27, 0.08)',
-                button: '0 2px 8px rgba(184, 115, 74, 0.3)',
-            },
-            borderRadius: {
-                xl: '16px',
+                gold: '0 4px 20px rgba(245, 158, 11, 0.3)',
+                'gold-lg': '0 8px 40px rgba(245, 158, 11, 0.4)',
+                card: '0 8px 32px rgba(0, 0, 0, 0.4)',
+                'card-lg': '0 12px 48px rgba(0, 0, 0, 0.6)',
             },
         },
     },

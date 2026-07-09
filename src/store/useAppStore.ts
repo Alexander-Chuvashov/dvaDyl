@@ -36,6 +36,9 @@ interface AppState {
     dailyGoal: number;
     username: string;
 
+    theme: 'dark' | 'light';
+    toggleTheme: () => void;
+
     // === Данные из БД ===
     userId: string | null;
     isAuthenticated: boolean;
@@ -123,6 +126,7 @@ const initialState = {
     dbXp: 0,
     userAchievements: [],
     errorExercises: [],
+    theme: 'dark' as 'dark',
 };
 
 // Вспомогательная функция для стрика (локальная)
@@ -207,6 +211,17 @@ export const useAppStore = create<AppState>()(
                         });
                     }
                 }
+            },
+
+            toggleTheme: () => {
+                const newTheme = get().theme === 'dark' ? 'light' : 'dark';
+                set({ theme: newTheme });
+                if (newTheme === 'light') {
+                    document.documentElement.classList.add('light');
+                } else {
+                    document.documentElement.classList.remove('light');
+                }
+                localStorage.setItem('theme', newTheme);
             },
 
             nextExercise: () =>
@@ -536,6 +551,7 @@ export const useAppStore = create<AppState>()(
                 username: state.username,
                 userAchievements: state.userAchievements,
                 errorExercises: state.errorExercises,
+                theme: state.theme,
             }),
         },
     ),

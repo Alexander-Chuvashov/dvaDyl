@@ -1,9 +1,8 @@
 // src/components/Layout/AppLayout.tsx
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAppStore } from '../../store/useAppStore';
 import { supabase } from '../../lib/supabaseClient';
-import Mascot from '../UI/Mascot';
 import {
     Home,
     BarChart3,
@@ -14,6 +13,8 @@ import {
     Flame,
     Star,
     Settings,
+    Sun,
+    Moon,
 } from 'lucide-react';
 
 interface NavLinkProps {
@@ -27,13 +28,13 @@ const NavLink: React.FC<NavLinkProps> = ({ to, icon, label, badge }) => {
     return (
         <Link
             to={to}
-            className="flex flex-col items-center gap-0.5 text-dark/60 hover:text-terracotta transition-colors relative"
+            className="flex flex-col items-center gap-0.5 text-text-secondary hover:text-gold transition-colors relative"
             title={label}
         >
             <div className="relative">
                 {icon}
                 {badge !== undefined && badge > 0 && (
-                    <span className="absolute -top-1 -right-2 bg-red-500 text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">
+                    <span className="absolute -top-1 -right-2 bg-error text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">
                         {badge}
                     </span>
                 )}
@@ -44,9 +45,26 @@ const NavLink: React.FC<NavLinkProps> = ({ to, icon, label, badge }) => {
 };
 
 const AppLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-    const { isAuthenticated, resetAll, xp, streak, errorExercises, username } =
-        useAppStore();
+    const {
+        isAuthenticated,
+        resetAll,
+        xp,
+        streak,
+        errorExercises,
+        username,
+        theme,
+        toggleTheme,
+    } = useAppStore();
     const navigate = useNavigate();
+
+    useEffect(() => {
+        // При монтировании применяем сохранённую тему
+        if (theme === 'light') {
+            document.documentElement.classList.add('light');
+        } else {
+            document.documentElement.classList.remove('light');
+        }
+    }, [theme]);
 
     const handleLogout = async () => {
         await supabase.auth.signOut();
@@ -56,24 +74,29 @@ const AppLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 
     if (!isAuthenticated) {
         return (
-            <div className="min-h-screen bg-cream">
-                <header className="px-6 py-4 border-b bg-surface shadow-card border-cream">
+            <div
+                className="min-h-screen"
+                style={{ backgroundColor: 'var(--bg-primary)' }}
+            >
+                <header
+                    className="px-6 py-4 border-b border-gold/10"
+                    style={{ backgroundColor: 'var(--bg-card)' }}
+                >
                     <div className="flex items-center max-w-6xl gap-3 mx-auto">
                         <Link to="/" className="flex items-center gap-3">
                             <img
                                 src="/images/logo.png"
-                                alt="дваДЫЛ"
-                                className="w-auto h-20"
+                                alt="DVA-DYL"
+                                className="w-auto h-10"
                             />
                             <div>
-                                <h1 className="text-2xl font-bold text-dark">
-                                    дваДЫЛ
+                                <h1 className="text-2xl font-bold text-primary">
+                                    DVA-DYL
                                 </h1>
-                                <span className="text-sm font-medium text-terracotta">
+                                <span className="text-sm font-medium text-gold">
                                     Тувинский язык
                                 </span>
                             </div>
-                            <Mascot state="idle" size="sm" className="ml-2" />
                         </Link>
                     </div>
                 </header>
@@ -83,10 +106,15 @@ const AppLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     }
 
     return (
-        <div className="min-h-screen bg-cream">
-            <header className="sticky top-0 z-40 px-4 py-3 border-b bg-surface shadow-card border-cream">
+        <div
+            className="min-h-screen"
+            style={{ backgroundColor: 'var(--bg-primary)' }}
+        >
+            <header
+                className="sticky top-0 z-50 px-4 py-3 border-b border-gold/10"
+                style={{ backgroundColor: 'var(--bg-card)' }}
+            >
                 <div className="flex items-center justify-between max-w-6xl gap-4 mx-auto">
-                    {/* Левая часть: логотип + название (ссылка на главную) */}
                     <Link to="/" className="flex items-center gap-3 shrink-0">
                         <img
                             src="/images/logo.png"
@@ -94,16 +122,15 @@ const AppLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                             className="w-auto h-10"
                         />
                         <div className="hidden sm:block">
-                            <h1 className="text-lg font-bold leading-tight text-dark">
+                            <h1 className="text-lg font-bold leading-tight text-primary">
                                 DVA-DYL
                             </h1>
-                            <span className="text-xs font-medium text-terracotta">
+                            <span className="text-xs font-medium text-gold">
                                 Тувинский язык
                             </span>
                         </div>
                     </Link>
 
-                    {/* Центр: навигация */}
                     <nav className="flex items-center gap-2 md:gap-4">
                         <NavLink
                             to="/"
@@ -133,31 +160,48 @@ const AppLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                         />
                     </nav>
 
-                    {/* Правая часть: профиль и статистика */}
                     <div className="flex items-center gap-3 shrink-0">
-                        <div className="flex items-center gap-3 text-sm bg-cream/60  px-3 py-1.5 rounded-full">
+                        <div
+                            className="flex items-center gap-3 text-sm px-3 py-1.5 rounded-full border border-gold/10"
+                            style={{ backgroundColor: 'var(--bg-primary)' }}
+                        >
                             <div className="flex items-center gap-1">
                                 <Star className="w-4 h-4 text-gold fill-gold" />
-                                <span className="font-bold text-dark">
+                                <span className="font-bold text-primary">
                                     {xp}
                                 </span>
                             </div>
                             <div className="flex items-center gap-1">
-                                <Flame className="w-4 h-4 text-terracotta" />
-                                <span className="font-bold text-terracotta">
+                                <Flame className="w-4 h-4 text-gold" />
+                                <span className="font-bold text-gold">
                                     {streak}
                                 </span>
                             </div>
                             <div className="items-center hidden gap-1 sm:flex">
-                                <User className="w-4 h-4 text-dark/60" />
-                                <span className="font-medium text-dark/80">
-                                    {username || 'Пользователь'}
+                                <User className="w-4 h-4 text-secondary" />
+                                <span className="font-medium text-primary">
+                                    {username || 'Путник'}
                                 </span>
                             </div>
                         </div>
                         <button
+                            onClick={toggleTheme}
+                            className="p-2 transition-colors rounded-full hover:bg-primary/10 text-secondary hover:text-gold"
+                            title={
+                                theme === 'dark'
+                                    ? 'Светлая тема'
+                                    : 'Тёмная тема'
+                            }
+                        >
+                            {theme === 'dark' ? (
+                                <Sun className="w-5 h-5" />
+                            ) : (
+                                <Moon className="w-5 h-5" />
+                            )}
+                        </button>
+                        <button
                             onClick={handleLogout}
-                            className="p-2 transition-colors rounded-full hover:bg-cream text-dark/60 hover:text-terracotta"
+                            className="p-2 transition-colors rounded-full hover:bg-primary/10 text-secondary hover:text-gold"
                             title="Выйти"
                         >
                             <LogOut className="w-5 h-5" />
@@ -165,7 +209,6 @@ const AppLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                     </div>
                 </div>
             </header>
-
             <main className="max-w-6xl px-4 py-8 mx-auto">{children}</main>
         </div>
     );

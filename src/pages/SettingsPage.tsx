@@ -1,8 +1,11 @@
+// src/pages/SettingsPage.tsx
 import React, { useState, useEffect } from 'react';
 import { useAppStore } from '../store/useAppStore';
 import AnimatedWrapper from '../components/UI/AnimatedWrapper';
 import { supabase } from '../lib/supabaseClient';
 import { useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import { User, Target, Trash2, Save } from 'lucide-react';
 
 const SettingsPage: React.FC = () => {
     const navigate = useNavigate();
@@ -64,7 +67,6 @@ const SettingsPage: React.FC = () => {
         )
             return;
         try {
-            // Сброс в БД
             if (userId) {
                 await supabase
                     .from('user_progress')
@@ -87,9 +89,7 @@ const SettingsPage: React.FC = () => {
                     .delete()
                     .eq('user_id', userId);
             }
-            // Сброс локального состояния
             resetAll();
-            // Перенаправление на главную
             navigate('/');
         } catch (error) {
             console.error('Ошибка сброса прогресса:', error);
@@ -98,17 +98,20 @@ const SettingsPage: React.FC = () => {
     };
 
     return (
-        <div className="max-w-2xl p-6 mx-auto">
+        <div className="max-w-2xl mx-auto space-y-8">
             <AnimatedWrapper animation="slideUp">
-                <h1 className="mb-6 text-3xl font-bold text-dark">
+                <h1 className="text-3xl font-bold text-primary">
                     ⚙️ Настройки
                 </h1>
+                <p className="mt-1 text-secondary">
+                    Управляй своим профилем и прогрессом
+                </p>
             </AnimatedWrapper>
 
             <div className="space-y-6 card">
-                {/* Имя пользователя */}
                 <div>
-                    <label className="block mb-1 text-sm font-medium text-dark/70">
+                    <label className="flex items-center block gap-2 mb-1 text-sm font-medium text-primary">
+                        <User className="w-4 h-4 text-gold" />
                         Имя пользователя
                     </label>
                     <input
@@ -120,9 +123,9 @@ const SettingsPage: React.FC = () => {
                     />
                 </div>
 
-                {/* Ежедневная цель */}
                 <div>
-                    <label className="block mb-1 text-sm font-medium text-dark/70">
+                    <label className="flex items-center block gap-2 mb-1 text-sm font-medium text-primary">
+                        <Target className="w-4 h-4 text-gold" />
                         Ежедневная цель (XP)
                     </label>
                     <input
@@ -136,74 +139,83 @@ const SettingsPage: React.FC = () => {
                         max={200}
                         step={5}
                     />
-                    <p className="mt-1 text-xs text-dark/50">
+                    <p className="mt-1 text-xs text-secondary">
                         Рекомендуемое значение: 20–50 XP в день
                     </p>
                 </div>
 
-                {/* Кнопка сохранения */}
                 <button
                     onClick={handleSave}
                     disabled={isSaving}
-                    className="w-full btn-primary disabled:opacity-50"
+                    className="flex items-center justify-center w-full gap-2 btn-primary"
                 >
+                    <Save className="w-4 h-4" />
                     {isSaving ? 'Сохранение...' : 'Сохранить настройки'}
                 </button>
 
                 {message && (
                     <div
-                        className={`p-3 rounded-lg ${message.type === 'success' ? 'bg-olive/10 text-olive' : 'bg-terracotta/10 text-terracotta'}`}
+                        className={`p-3 rounded-xl ${
+                            message.type === 'success'
+                                ? 'bg-success/10 border border-success/30 text-success'
+                                : 'bg-error/10 border border-error/30 text-error'
+                        }`}
                     >
                         {message.text}
                     </div>
                 )}
             </div>
 
-            {/* Статистика */}
-            <div className="mt-6 card">
-                <h2 className="mb-4 text-xl font-semibold text-dark">
+            <div className="card">
+                <h2 className="mb-4 text-xl font-bold text-primary">
                     📊 Ваша статистика
                 </h2>
                 <div className="grid grid-cols-2 gap-4">
-                    <div className="p-3 text-center rounded-lg bg-cream/50">
-                        <div className="text-2xl font-bold text-dark">{xp}</div>
-                        <div className="text-sm text-dark/60">Всего XP</div>
+                    <div className="p-3 text-center bg-primary/10 rounded-xl">
+                        <div className="text-2xl font-bold text-primary">
+                            {xp}
+                        </div>
+                        <div className="text-sm text-secondary">Всего XP</div>
                     </div>
-                    <div className="p-3 text-center rounded-lg bg-cream/50">
-                        <div className="text-2xl font-bold text-dark">
+                    <div className="p-3 text-center bg-primary/10 rounded-xl">
+                        <div className="text-2xl font-bold text-primary">
                             {completedLessonIds.length}
                         </div>
-                        <div className="text-sm text-dark/60">
+                        <div className="text-sm text-secondary">
                             Пройдено уроков
                         </div>
                     </div>
-                    <div className="p-3 text-center rounded-lg bg-cream/50">
-                        <div className="text-2xl font-bold text-terracotta">
+                    <div className="p-3 text-center bg-primary/10 rounded-xl">
+                        <div className="text-2xl font-bold text-gold">
                             {streak}
                         </div>
-                        <div className="text-sm text-dark/60">Дней подряд</div>
+                        <div className="text-sm text-secondary">
+                            Дней подряд
+                        </div>
                     </div>
-                    <div className="p-3 text-center rounded-lg bg-cream/50">
+                    <div className="p-3 text-center bg-primary/10 rounded-xl">
                         <div className="text-2xl font-bold text-gold">
                             {dailyGoal}
                         </div>
-                        <div className="text-sm text-dark/60">Цель на день</div>
+                        <div className="text-sm text-secondary">
+                            Цель на день
+                        </div>
                     </div>
                 </div>
             </div>
 
-            {/* Сброс прогресса */}
-            <div className="mt-6 card border-terracotta/20">
-                <h2 className="mb-4 text-xl font-semibold text-terracotta">
-                    ⚠️ Опасная зона
+            <div className="card border-error/20">
+                <h2 className="flex items-center gap-2 mb-4 text-xl font-bold text-error">
+                    <Trash2 className="w-5 h-5" />
+                    Опасная зона
                 </h2>
                 <button
                     onClick={handleResetProgress}
-                    className="w-full bg-red-500 btn-primary hover:bg-red-600"
+                    className="w-full py-3 font-bold transition-all duration-200 border bg-error/10 hover:bg-error/20 text-error rounded-xl border-error/30"
                 >
                     Сбросить весь прогресс
                 </button>
-                <p className="mt-2 text-xs text-dark/50">
+                <p className="mt-2 text-xs text-secondary">
                     Это действие удалит весь ваш прогресс, включая пройденные
                     уроки и достижения.
                 </p>

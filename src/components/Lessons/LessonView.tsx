@@ -4,8 +4,10 @@ import { useAppStore } from '../../store/useAppStore';
 import ExerciseRenderer from '../Exercises/ExerciseRenderer';
 import ProgressBar from '../Progress/ProgressBar';
 import AnimatedWrapper from '../UI/AnimatedWrapper';
+import Character from '../UI/Character';
 import type { Lesson } from '../../types/content';
-import Mascot from '../UI/Mascot';
+
+type CharacterState = 'idle' | 'happy' | 'sad' | 'celebrate' | 'thinking';
 
 interface LessonViewProps {
     lesson: Lesson;
@@ -30,12 +32,10 @@ const LessonView: React.FC<LessonViewProps> = ({ lesson, onComplete }) => {
         message: string;
         explanation?: string;
     } | null>(null);
+    const [characterState, setCharacterState] =
+        useState<CharacterState>('idle');
     const isProcessingRef = useRef(false);
     const isLessonCompletedRef = useRef(false);
-
-    const [mascotState, setMascotState] = useState<
-        'idle' | 'happy' | 'sad' | 'celebrate' | 'thinking'
-    >('idle');
 
     const {
         userId,
@@ -76,6 +76,7 @@ const LessonView: React.FC<LessonViewProps> = ({ lesson, onComplete }) => {
     const completeLesson = useCallback(async () => {
         if (isLessonCompletedRef.current) return;
         isLessonCompletedRef.current = true;
+        setCharacterState('celebrate');
         try {
             if (!userId) return;
             await syncProgress(userId, lesson.id, 'completed', 100, 50);
@@ -94,11 +95,15 @@ const LessonView: React.FC<LessonViewProps> = ({ lesson, onComplete }) => {
                     alert(`🎉 Новое достижение: ${ach.icon} ${ach.name}`);
                 });
             }
-            onComplete?.();
+            setTimeout(() => {
+                setCharacterState('idle');
+                onComplete?.();
+            }, 1200);
         } catch (error) {
             console.error('Ошибка завершения урока:', error);
             alert('Ошибка сохранения прогресса. Попробуйте ещё раз.');
             isLessonCompletedRef.current = false;
+            setCharacterState('idle');
         }
     }, [
         userId,
@@ -125,6 +130,7 @@ const LessonView: React.FC<LessonViewProps> = ({ lesson, onComplete }) => {
             setExerciseIndex(0);
             setReviewCompleted({});
             setFeedback(null);
+            setCharacterState('thinking');
             return;
         }
 
@@ -162,14 +168,12 @@ const LessonView: React.FC<LessonViewProps> = ({ lesson, onComplete }) => {
             if (isProcessingRef.current) return;
             const exerciseId = currentExercise.id;
 
-            // Если уже правильно отвечено в текущем режиме – пропускаем
             if (isReviewMode && reviewCompleted[exerciseId] === true) return;
             if (!isReviewMode && completedExercises[exerciseId] === true)
                 return;
 
             isProcessingRef.current = true;
 
-            // Сохраняем ответ в БД
             if (userId && userAnswer !== undefined) {
                 try {
                     await syncAnswer(userId, exerciseId, userAnswer, isCorrect);
@@ -178,16 +182,10 @@ const LessonView: React.FC<LessonViewProps> = ({ lesson, onComplete }) => {
                 }
             }
 
-            // Обновляем локальный прогресс
             answerExercise(exerciseId, isCorrect, lesson);
-
-            // Отмечаем упражнение как попытанное (всегда)
             setAttemptedExercises(prev => ({ ...prev, [exerciseId]: true }));
 
             if (isCorrect) {
-                // Отмечаем как правильно выполненное
-                setMascotState('happy');
-                setTimeout(() => setMascotState('idle'), 1500);
                 if (isReviewMode) {
                     setReviewCompleted(prev => ({
                         ...prev,
@@ -197,32 +195,27 @@ const LessonView: React.FC<LessonViewProps> = ({ lesson, onComplete }) => {
                         prev.filter(id => id !== exerciseId),
                     );
                 } else {
-                    setMascotState('sad');
-                    setTimeout(() => setMascotState('idle'), 1500);
                     setCompletedExercises(prev => ({
                         ...prev,
                         [exerciseId]: true,
                     }));
-                    // Если упражнение было в списке ошибок – удаляем (на случай, если пользователь ошибся, потом вернулся и исправил)
                     setWrongExerciseIds(prev =>
                         prev.filter(id => id !== exerciseId),
                     );
                 }
                 setFeedback({ type: 'correct', message: '✅ Правильно!' });
-                setMascotState('celebrate');
-                setTimeout(() => setMascotState('idle'), 2500);
+                setCharacterState('happy');
 
-                // Автоматический переход к следующему (только если не последнее)
                 setTimeout(() => {
                     setFeedback(null);
+                    setCharacterState('idle');
                     const list = isReviewMode ? reviewExercises : exercises;
                     if (exerciseIndex < list.length - 1) {
                         setExerciseIndex(prev => prev + 1);
                     }
                     isProcessingRef.current = false;
-                }, 1300);
+                }, 700);
             } else {
-                // Запоминаем ошибку (только в основном режиме)
                 if (!isReviewMode) {
                     if (!wrongExerciseIds.includes(exerciseId)) {
                         setWrongExerciseIds(prev => [...prev, exerciseId]);
@@ -238,6 +231,7 @@ const LessonView: React.FC<LessonViewProps> = ({ lesson, onComplete }) => {
                     message: `❌ Неправильно. Правильный ответ: ${correctAnswer}`,
                     explanation: currentExercise.explanation,
                 });
+                setCharacterState('sad');
                 isProcessingRef.current = false;
             }
         },
@@ -256,21 +250,22 @@ const LessonView: React.FC<LessonViewProps> = ({ lesson, onComplete }) => {
         ],
     );
 
-    // Кнопка "Продолжить" после ошибки
     const handleContinueAfterError = () => {
         setFeedback(null);
+        setCharacterState('idle');
         const list = isReviewMode ? reviewExercises : exercises;
         if (exerciseIndex < list.length - 1) {
             setExerciseIndex(prev => prev + 1);
         }
-        // Если достигли конца списка, эффекты сработают автоматически
     };
 
     // Если урок уже пройден
     if (completedLessonIds.includes(lesson.id)) {
         return (
             <div className="text-center card">
-                <p className="font-semibold text-olive">✅ Урок уже пройден!</p>
+                <p className="font-semibold text-success">
+                    ✅ Урок уже пройден!
+                </p>
                 <button onClick={onComplete} className="mt-3 btn-primary">
                     Вернуться к списку
                 </button>
@@ -278,13 +273,12 @@ const LessonView: React.FC<LessonViewProps> = ({ lesson, onComplete }) => {
         );
     }
 
-    // Определяем активное упражнение
     const activeExercise = isReviewMode
         ? currentReviewExercise
         : currentExercise;
     if (!activeExercise) {
         return (
-            <div className="py-10 text-center text-dark/60">
+            <div className="py-10 text-center text-text-secondary">
                 {isReviewMode
                     ? 'Все ошибки исправлены!'
                     : 'Загрузка упражнения...'}
@@ -302,85 +296,87 @@ const LessonView: React.FC<LessonViewProps> = ({ lesson, onComplete }) => {
         : Object.values(completedExercises).filter(Boolean).length;
 
     return (
-        <div className="max-w-2xl p-6 mx-auto">
-            <div className="flex items-center justify-between mb-4">
-                <h2 className="text-2xl font-bold text-dark">
-                    {isReviewMode ? '🔁 Повторение ошибок' : lesson.title}
-                </h2>
-                <span className="text-sm text-dark/60">
-                    {exerciseIndex + 1} / {total}
-                </span>
+        <div className="max-w-2xl p-6 mx-auto space-y-6">
+            {/* Заголовок и Character */}
+            <div className="flex items-center justify-between gap-4">
+                <div>
+                    <h2 className="text-2xl font-bold text-text-primary">
+                        {isReviewMode ? '🔁 Повторение ошибок' : lesson.title}
+                    </h2>
+                    <span className="text-sm text-text-secondary">
+                        {exerciseIndex + 1} / {total}
+                    </span>
+                </div>
+                <Character state={characterState} size="md" />
             </div>
+
             {isReviewMode && (
-                <p className="mb-2 text-sm text-terracotta">
+                <p className="text-sm text-gold">
                     Осталось ошибок: {wrongExerciseIds.length}
                 </p>
             )}
-            <div className="flex items-center gap-4">
-                <Mascot state={mascotState} size="md" />
-                <ProgressBar
-                    current={exerciseIndex + 1}
-                    total={total}
-                    correctCount={completedCount}
-                />
-            </div>
-            <div className="mt-6">
-                <AnimatedWrapper key={exerciseIndex} animation="scaleIn">
-                    {isCompleted ? (
-                        <div className="text-center card">
-                            <p className="font-semibold text-olive">
-                                ✅ Уже отвечено правильно!
-                            </p>
-                            <button
-                                onClick={() => {
-                                    const list = isReviewMode
-                                        ? reviewExercises
-                                        : exercises;
-                                    if (exerciseIndex < list.length - 1) {
-                                        setExerciseIndex(prev => prev + 1);
-                                    }
-                                }}
-                                className="mt-3 btn-primary"
+
+            <ProgressBar
+                current={exerciseIndex + 1}
+                total={total}
+                correctCount={completedCount}
+            />
+
+            <AnimatedWrapper key={exerciseIndex} animation="scaleIn">
+                {isCompleted ? (
+                    <div className="text-center card">
+                        <p className="font-semibold text-success">
+                            ✅ Уже отвечено правильно!
+                        </p>
+                        <button
+                            onClick={() => {
+                                const list = isReviewMode
+                                    ? reviewExercises
+                                    : exercises;
+                                if (exerciseIndex < list.length - 1) {
+                                    setExerciseIndex(prev => prev + 1);
+                                }
+                            }}
+                            className="mt-3 btn-primary"
+                        >
+                            {exerciseIndex < total - 1
+                                ? 'Следующее упражнение →'
+                                : 'Завершить урок'}
+                        </button>
+                    </div>
+                ) : (
+                    <div className="card">
+                        <ExerciseRenderer
+                            exercise={activeExercise}
+                            onAnswer={handleAnswer}
+                        />
+                        {feedback && (
+                            <div
+                                className={`mt-4 text-center font-semibold ${
+                                    feedback.type === 'correct'
+                                        ? 'text-success'
+                                        : 'text-error'
+                                }`}
                             >
-                                {exerciseIndex < total - 1
-                                    ? 'Следующее упражнение →'
-                                    : 'Завершить урок'}
-                            </button>
-                        </div>
-                    ) : (
-                        <>
-                            <ExerciseRenderer
-                                exercise={activeExercise}
-                                onAnswer={handleAnswer}
-                            />
-                            {feedback && (
-                                <div
-                                    className={`mt-3 text-center font-semibold ${
-                                        feedback.type === 'correct'
-                                            ? 'text-olive'
-                                            : 'text-terracotta'
-                                    }`}
-                                >
-                                    {feedback.message}
-                                    {feedback.explanation && (
-                                        <div className="p-3 mt-2 text-sm text-blue-800 border border-blue-200 rounded-lg bg-blue-50">
-                                            💡 {feedback.explanation}
-                                        </div>
-                                    )}
-                                    {feedback.type === 'incorrect' && (
-                                        <button
-                                            onClick={handleContinueAfterError}
-                                            className="mt-3 btn-secondary"
-                                        >
-                                            Продолжить →
-                                        </button>
-                                    )}
-                                </div>
-                            )}
-                        </>
-                    )}
-                </AnimatedWrapper>
-            </div>
+                                {feedback.message}
+                                {feedback.explanation && (
+                                    <div className="p-3 mt-2 text-sm border text-text-primary bg-dark-bg/50 border-gold/10 rounded-xl">
+                                        💡 {feedback.explanation}
+                                    </div>
+                                )}
+                                {feedback.type === 'incorrect' && (
+                                    <button
+                                        onClick={handleContinueAfterError}
+                                        className="mt-3 btn-secondary"
+                                    >
+                                        Продолжить →
+                                    </button>
+                                )}
+                            </div>
+                        )}
+                    </div>
+                )}
+            </AnimatedWrapper>
         </div>
     );
 };

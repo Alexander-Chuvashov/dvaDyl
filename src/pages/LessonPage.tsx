@@ -8,6 +8,8 @@ import TheoryView from '../components/Chapters/TheoryView';
 import Skeleton from '../components/UI/Skeleton';
 import Breadcrumbs from '../components/UI/Breadcrumbs';
 import { useAppStore } from '../store/useAppStore';
+import { motion } from 'framer-motion';
+import { FileText, X } from 'lucide-react';
 
 const LessonPage: React.FC = () => {
     const { chapterId, lessonId } = useParams();
@@ -36,14 +38,12 @@ const LessonPage: React.FC = () => {
                     setChapterTitle(chapter.title);
                 }
 
-                // Извлекаем теорию из главы
                 const theoryItems =
                     (chapter.lessons?.filter(
                         item => item.type === 'theory',
                     ) as Theory[]) || [];
                 setTheories(theoryItems);
 
-                // Извлекаем уроки и находим текущий
                 const allLessons =
                     (chapter.lessons?.filter(
                         item => item.type === 'lesson',
@@ -80,7 +80,7 @@ const LessonPage: React.FC = () => {
 
     if (error || !lesson) {
         return (
-            <div className="py-10 text-center text-red-500">
+            <div className="py-10 text-center text-error">
                 {error || 'Урок не найден'}
             </div>
         );
@@ -97,7 +97,7 @@ const LessonPage: React.FC = () => {
     };
 
     return (
-        <div className="max-w-4xl p-6 mx-auto">
+        <div className="max-w-4xl p-6 mx-auto space-y-6">
             <Breadcrumbs
                 items={[
                     { label: chapterTitle, path: `/chapter/${chapterId}` },
@@ -105,25 +105,27 @@ const LessonPage: React.FC = () => {
                 ]}
             />
 
-            {/* Кнопка теории и заголовок */}
-            <div className="flex items-center justify-between mb-4">
-                <h1 className="text-2xl font-bold text-dark">{lesson.title}</h1>
+            <div className="flex items-center justify-between">
+                <h1 className="text-2xl font-bold text-text-primary">
+                    {lesson.title}
+                </h1>
                 {theories.length > 0 && (
                     <button
                         onClick={() => setShowTheory(true)}
                         className="flex items-center gap-2 btn-secondary"
                     >
-                        📖 Теория
+                        <FileText className="w-4 h-4" />
+                        Теория
                     </button>
                 )}
             </div>
 
             <LessonView lesson={lesson} onComplete={handleComplete} />
 
-            <div className="mt-4 text-center">
+            <div className="text-center">
                 <button
                     onClick={() => navigate(`/chapter/${chapterId}`)}
-                    className="text-sm text-terracotta hover:underline"
+                    className="text-sm transition-colors text-text-secondary hover:text-gold"
                 >
                     ← Вернуться к списку уроков
                 </button>
@@ -132,28 +134,31 @@ const LessonPage: React.FC = () => {
             {/* Модальное окно с теорией */}
             {showTheory && (
                 <div
-                    className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50"
+                    className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-dark-bg/80 backdrop-blur-md"
                     onClick={() => setShowTheory(false)}
                 >
-                    <div
-                        className="bg-surface rounded-xl shadow-2xl max-w-3xl w-full max-h-[80vh] overflow-y-auto p-6 relative"
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.9 }}
+                        className="bg-dark-card rounded-3xl border border-gold/10 shadow-card-lg max-w-3xl w-full max-h-[90vh] overflow-y-auto p-8 relative"
                         onClick={e => e.stopPropagation()}
                     >
                         <button
                             onClick={() => setShowTheory(false)}
-                            className="absolute text-2xl top-4 right-4 text-dark/60 hover:text-dark"
+                            className="absolute transition-colors top-4 right-4 text-text-secondary hover:text-text-primary"
                         >
-                            ✕
+                            <X className="w-6 h-6" />
                         </button>
-                        <h2 className="mb-4 text-2xl font-bold text-dark">
+                        <h2 className="mb-6 text-2xl font-bold text-text-primary">
                             📖 Теория
                         </h2>
-                        <div className="space-y-6">
+                        <div className="space-y-8">
                             {theories.map(theory => (
                                 <TheoryView key={theory.id} theory={theory} />
                             ))}
                         </div>
-                    </div>
+                    </motion.div>
                 </div>
             )}
         </div>
