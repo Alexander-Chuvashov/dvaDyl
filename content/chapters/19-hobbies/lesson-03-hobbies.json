@@ -1,10 +1,10 @@
 {
     "type": "lesson",
-    "id": "lesson_3_118_description",
-    "chapterId": "ch_118_description",
-    "title": "Урок 3: Красивый",
-    "titleTuvan": "Кичээл 3: Чараш",
-    "description": "Эстетика",
+    "id": "lesson_3_119_hobbies",
+    "chapterId": "ch_119_hobbies",
+    "title": "Урок 3: Прогулки",
+    "titleTuvan": "Кичээл 3: Чорук",
+    "description": "Активный отдых",
     "skill": "vocabulary",
     "order": 4,
     "isPublished": true,
@@ -12,79 +12,79 @@
     "estimatedTime": 5,
     "exercises": [
         {
-            "id": "ex_de3_1",
+            "id": "ex_hb3_1",
             "type": "translate",
             "order": 0,
-            "question": "Красивый",
-            "correct": "Чараш"
+            "question": "Прогулка",
+            "correct": "Чорук"
         },
         {
-            "id": "ex_de3_2",
+            "id": "ex_hb3_2",
             "type": "choice",
             "order": 1,
-            "question": "Выбери 'Красивый'",
-            "options": ["Чараш", "Кырган", "Аныяк"],
-            "correct": "Чараш"
+            "question": "Выбери 'Прогулка'",
+            "options": ["Чорук", "Спорт", "Оюннар"],
+            "correct": "Чорук"
         },
         {
-            "id": "ex_de3_3",
+            "id": "ex_hb3_3",
             "type": "translate",
             "order": 2,
-            "question": "Чараш",
-            "correct": "Красивый"
+            "question": "Чорук",
+            "correct": "Прогулка"
         },
         {
-            "id": "ex_de3_4",
+            "id": "ex_hb3_4",
             "type": "order",
             "order": 3,
-            "question": "Собери: 'Красивый дом'",
-            "orderItems": ["бажың", "Чараш"],
-            "correct": ["Чараш", "бажың"]
+            "question": "Собери: 'Я гуляю' (чор мен)",
+            "orderItems": ["Мен", "чор", "мен"],
+            "correct": ["Мен", "чор", "мен"]
         },
         {
-            "id": "ex_de3_5",
+            "id": "ex_hb3_5",
             "type": "match",
             "order": 4,
             "question": "Сопоставь",
-            "matchPairs": [{ "left": "Чараш", "right": "Красивый" }]
+            "matchPairs": [{ "left": "Чорук", "right": "Прогулка" }]
         },
         {
-            "id": "ex_de3_6",
+            "id": "ex_hb3_6",
             "type": "choice",
             "order": 5,
-            "question": "Как сказать 'Красивая девушка' (кыс)?",
-            "options": ["Чараш кыс", "Улуг кыс", "Биче кыс"],
-            "correct": "Чараш кыс"
+            "question": "Как сказать 'Я гуляю'?",
+            "options": ["Мен чиир мен", "Мен чор мен", "Мен амыраар мен"],
+            "correct": "Мен чор мен"
         },
         {
-            "id": "ex_de3_7",
+            "id": "ex_hb3_7",
             "type": "translate",
             "order": 6,
-            "question": "Красивая девушка",
-            "correct": "Чараш кыс"
+            "question": "Я гуляю",
+            "correct": "Мен чор мен"
         },
         {
-            "id": "ex_de3_8",
+            "id": "ex_hb3_8",
             "type": "order",
             "order": 7,
-            "question": "Собери: 'Красивый цветок' (чек - цветок)",
-            "orderItems": ["чек", "Чараш"],
-            "correct": ["Чараш", "чек"]
+            "question": "Собери: 'Мы гуляем'",
+            "orderItems": ["Бис", "чор", "бис"],
+            "correct": ["Бис", "чор", "бис"]
         },
         {
-            "id": "ex_de3_9",
+            "id": "ex_hb3_9",
             "type": "choice",
             "order": 8,
-            "question": "Выбери перевод: 'Чараш чек'",
-            "options": ["Большой дом", "Красивый цветок", "Красивая девушка"],
-            "correct": "Красивый цветок"
+            "question": "Выбери перевод: 'Бис чор бис'",
+            "options": ["Я гуляю", "Мы гуляем", "Они гуляют"],
+            "correct": "Мы гуляем"
         },
         {
-            "id": "ex_de3_10",
+            "id": "ex_hb3_10",
             "type": "match",
             "order": 9,
             "question": "Сопоставь",
-            "matchPairs": [{ "left": "Чараш кыс", "right": "Красивая девушка" }]
+            "matchPairs": [{ "left": "Мен чор мен", "right": "Я гуляю" }]
         }
     ]
 }

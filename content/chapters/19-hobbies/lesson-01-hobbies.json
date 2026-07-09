@@ -1,10 +1,10 @@
 {
     "type": "lesson",
-    "id": "lesson_1_118_description",
-    "chapterId": "ch_118_description",
-    "title": "Урок 1: Высокий и низкий",
-    "titleTuvan": "Кичээл 1: Өр болгаш ээжик",
-    "description": "Рост",
+    "id": "lesson_1_119_hobbies",
+    "chapterId": "ch_119_hobbies",
+    "title": "Урок 1: Спорт и музыка",
+    "titleTuvan": "Кичээл 1: Спорт болгаш хөгжүм",
+    "description": "Базовые хобби",
     "skill": "vocabulary",
     "order": 2,
     "isPublished": true,
@@ -12,81 +12,81 @@
     "estimatedTime": 5,
     "exercises": [
         {
-            "id": "ex_de1_1",
+            "id": "ex_hb1_1",
             "type": "translate",
             "order": 0,
-            "question": "Высокий",
-            "correct": "Өр"
+            "question": "Спорт",
+            "correct": "Спорт"
         },
         {
-            "id": "ex_de1_2",
+            "id": "ex_hb1_2",
             "type": "translate",
             "order": 1,
-            "question": "Низкий",
-            "correct": "Ээжик"
+            "question": "Музыка",
+            "correct": "Хөгжүм"
         },
         {
-            "id": "ex_de1_3",
+            "id": "ex_hb1_3",
             "type": "choice",
             "order": 2,
-            "question": "Выбери 'Высокий'",
-            "options": ["Ээжик", "Өр", "Улуг"],
-            "correct": "Өр"
+            "question": "Выбери 'Спорт'",
+            "options": ["Хөгжүм", "Спорт", "Оюннар"],
+            "correct": "Спорт"
         },
         {
-            "id": "ex_de1_4",
+            "id": "ex_hb1_4",
             "type": "choice",
             "order": 3,
-            "question": "Выбери 'Низкий'",
-            "options": ["Өр", "Ээжик", "Биче"],
-            "correct": "Ээжик"
+            "question": "Выбери 'Музыка'",
+            "options": ["Спорт", "Хөгжүм", "Номчулга"],
+            "correct": "Хөгжүм"
         },
         {
-            "id": "ex_de1_5",
+            "id": "ex_hb1_5",
             "type": "match",
             "order": 4,
             "question": "Сопоставь",
             "matchPairs": [
-                { "left": "Өр", "right": "Высокий" },
-                { "left": "Ээжик", "right": "Низкий" }
+                { "left": "Спорт", "right": "Спорт" },
+                { "left": "Хөгжүм", "right": "Музыка" }
             ]
         },
         {
-            "id": "ex_de1_6",
+            "id": "ex_hb1_6",
             "type": "translate",
             "order": 5,
-            "question": "Өр",
-            "correct": "Высокий"
+            "question": "Хөгжүм",
+            "correct": "Музыка"
         },
         {
-            "id": "ex_de1_7",
+            "id": "ex_hb1_7",
             "type": "translate",
             "order": 6,
-            "question": "Ээжик",
-            "correct": "Низкий"
+            "question": "Спорт",
+            "correct": "Спорт"
         },
         {
-            "id": "ex_de1_8",
+            "id": "ex_hb1_8",
             "type": "order",
             "order": 7,
-            "question": "Собери: 'Высокий мужчина'",
-            "orderItems": ["эр кижи", "Өр"],
-            "correct": ["Өр", "эр кижи"]
+            "question": "Собери: 'Спорт и музыка'",
+            "orderItems": ["Спорт", "болгаш", "хөгжүм"],
+            "correct": ["Спорт", "болгаш", "хөгжүм"]
         },
         {
-            "id": "ex_de1_9",
+            "id": "ex_hb1_9",
             "type": "choice",
             "order": 8,
-            "question": "Выбери перевод: 'Ээжик кыс кижи'",
-            "options": ["Высокая женщина", "Низкая женщина", "Молодая девушка"],
-            "correct": "Низкая женщина"
+            "question": "Выбери перевод: 'Спорт болгаш хөгжүм'",
+            "options": ["Чтение и игры", "Спорт и музыка", "Музыка и прогулка"],
+            "correct": "Спорт и музыка"
         },
         {
-            "id": "ex_de1_10",
+            "id": "ex_hb1_10",
             "type": "match",
             "order": 9,
             "question": "Сопоставь",
-            "matchPairs": [{ "left": "Өр эр кижи", "right": "Высокий мужчина" }]
+            "matchPairs": [{ "left": "Хөгжүм", "right": "Музыка" }]
         }
     ]
 }

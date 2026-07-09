@@ -1,95 +1,96 @@
 {
     "type": "lesson",
-    "id": "lesson_6_118_description",
-    "chapterId": "ch_118_description",
-    "title": "Урок 6: Описание вещей",
-    "titleTuvan": "Кичээл 6: Чүүлдерни тодарадыры",
-    "description": "Прилагательные с предметами",
-    "skill": "grammar",
+    "id": "lesson_6_119_hobbies",
+    "chapterId": "ch_119_hobbies",
+    "title": "Урок 6: Свободное время",
+    "titleTuvan": "Кичээл 6: Хостуг үе",
+    "description": "Понятие свободного времени",
+    "skill": "vocabulary",
     "order": 7,
     "isPublished": true,
     "difficulty": 2,
     "estimatedTime": 7,
     "exercises": [
         {
-            "id": "ex_de6_1",
-            "type": "order",
-            "order": 0,
-            "question": "Собери: 'Большой стол'",
-            "orderItems": ["стол", "Улуг"],
-            "correct": ["Улуг", "стол"]
-        },
-        {
-            "id": "ex_de6_2",
-            "type": "order",
-            "order": 1,
-            "question": "Собери: 'Маленькая чашка'",
-            "orderItems": ["аяк", "Биче"],
-            "correct": ["Биче", "аяк"]
-        },
-        {
-            "id": "ex_de6_3",
-            "type": "choice",
-            "order": 2,
-            "question": "Выбери перевод: 'Чараш бажың'",
-            "options": ["Большой дом", "Красивый дом", "Старый дом"],
-            "correct": "Красивый дом"
-        },
-        {
-            "id": "ex_de6_4",
+            "id": "ex_hb6_1",
             "type": "translate",
-            "order": 3,
-            "question": "Маленькая чашка",
-            "correct": "Биче аяк"
+            "order": 0,
+            "question": "Свободное время",
+            "correct": "Хостуг үе"
         },
         {
-            "id": "ex_de6_5",
+            "id": "ex_hb6_2",
+            "type": "choice",
+            "order": 1,
+            "question": "Выбери 'Свободное время'",
+            "options": ["Хостуг үе", "Ажыл үе", "Номчулга"],
+            "correct": "Хостуг үе"
+        },
+        {
+            "id": "ex_hb6_3",
+            "type": "translate",
+            "order": 2,
+            "question": "Хостуг үе",
+            "correct": "Свободное время"
+        },
+        {
+            "id": "ex_hb6_4",
             "type": "order",
-            "order": 4,
-            "question": "Собери: 'Красивая машина' (машина - машина)",
-            "orderItems": ["машина", "Чараш"],
-            "correct": ["Чараш", "машина"]
+            "order": 3,
+            "question": "Собери: 'В свободное время' (хостуг үемде)",
+            "orderItems": ["хостуг", "үемде"],
+            "correct": ["хостуг", "үемде"]
         },
         {
-            "id": "ex_de6_6",
+            "id": "ex_hb6_5",
+            "type": "match",
+            "order": 4,
+            "question": "Сопоставь",
+            "matchPairs": [{ "left": "Хостуг үе", "right": "Свободное время" }]
+        },
+        {
+            "id": "ex_hb6_6",
             "type": "choice",
             "order": 5,
-            "question": "Как сказать 'Старый шкаф' (кагар)?",
-            "options": ["Кырган кагар", "Аныяк кагар", "Биче кагар"],
-            "correct": "Кырган кагар"
+            "question": "Как сказать 'В свободное время'?",
+            "options": ["Хостуг үемде", "Ажыл үеде", "Бүгү үеде"],
+            "correct": "Хостуг үемде"
         },
         {
-            "id": "ex_de6_7",
+            "id": "ex_hb6_7",
             "type": "translate",
             "order": 6,
-            "question": "Старый шкаф",
-            "correct": "Кырган кагар"
+            "question": "В свободное время",
+            "correct": "Хостуг үемде"
         },
         {
-            "id": "ex_de6_8",
+            "id": "ex_hb6_8",
             "type": "order",
             "order": 7,
-            "question": "Собери: 'Новый стол' (чаа - новый)",
-            "orderItems": ["стол", "Чаа"],
-            "correct": ["Чаа", "стол"]
+            "question": "Собери: 'Я читаю в свободное время' (ном номчуур)",
+            "orderItems": ["Мен", "хостуг", "үемде", "ном", "номчуур", "мен"],
+            "correct": ["Мен", "хостуг", "үемде", "ном", "номчуур", "мен"]
         },
         {
-            "id": "ex_de6_9",
-            "type": "match",
+            "id": "ex_hb6_9",
+            "type": "choice",
             "order": 8,
+            "question": "Выбери перевод: 'Мен хостуг үемде ном номчуур мен'",
+            "options": [
+                "В свободное время я читаю",
+                "В свободное время я гуляю",
+                "В свободное время я работаю"
+            ],
+            "correct": "В свободное время я читаю"
+        },
+        {
+            "id": "ex_hb6_10",
+            "type": "match",
+            "order": 9,
             "question": "Сопоставь",
             "matchPairs": [
-                { "left": "Улуг стол", "right": "Большой стол" },
-                { "left": "Чаа стол", "right": "Новый стол" }
+                { "left": "Хостуг үемде", "right": "В свободное время" }
             ]
-        },
-        {
-            "id": "ex_de6_10",
-            "type": "choice",
-            "order": 9,
-            "question": "Выбери правильный перевод: 'Чаа машина'",
-            "options": ["Старая машина", "Новая машина", "Красивая машина"],
-            "correct": "Новая машина"
         }
     ]
 }

@@ -1,10 +1,10 @@
 {
     "type": "lesson",
-    "id": "lesson_2_118_description",
-    "chapterId": "ch_118_description",
-    "title": "Урок 2: Большой и маленький",
-    "titleTuvan": "Кичээл 2: Улуг болгаш биче",
-    "description": "Размер",
+    "id": "lesson_2_119_hobbies",
+    "chapterId": "ch_119_hobbies",
+    "title": "Урок 2: Чтение и игры",
+    "titleTuvan": "Кичээл 2: Номчулга болгаш оюннар",
+    "description": "Интеллектуальные хобби",
     "skill": "vocabulary",
     "order": 3,
     "isPublished": true,
@@ -12,81 +12,81 @@
     "estimatedTime": 5,
     "exercises": [
         {
-            "id": "ex_de2_1",
+            "id": "ex_hb2_1",
             "type": "translate",
             "order": 0,
-            "question": "Большой",
-            "correct": "Улуг"
+            "question": "Чтение",
+            "correct": "Номчулга"
         },
         {
-            "id": "ex_de2_2",
+            "id": "ex_hb2_2",
             "type": "translate",
             "order": 1,
-            "question": "Маленький",
-            "correct": "Биче"
+            "question": "Игры",
+            "correct": "Оюннар"
         },
         {
-            "id": "ex_de2_3",
+            "id": "ex_hb2_3",
             "type": "choice",
             "order": 2,
-            "question": "Выбери 'Большой'",
-            "options": ["Биче", "Улуг", "Өр"],
-            "correct": "Улуг"
+            "question": "Выбери 'Чтение'",
+            "options": ["Оюннар", "Номчулга", "Хөгжүм"],
+            "correct": "Номчулга"
         },
         {
-            "id": "ex_de2_4",
+            "id": "ex_hb2_4",
             "type": "choice",
             "order": 3,
-            "question": "Выбери 'Маленький'",
-            "options": ["Улуг", "Биче", "Ээжик"],
-            "correct": "Биче"
+            "question": "Выбери 'Игры'",
+            "options": ["Номчулга", "Оюннар", "Спорт"],
+            "correct": "Оюннар"
         },
         {
-            "id": "ex_de2_5",
+            "id": "ex_hb2_5",
             "type": "match",
             "order": 4,
             "question": "Сопоставь",
             "matchPairs": [
-                { "left": "Улуг", "right": "Большой" },
-                { "left": "Биче", "right": "Маленький" }
+                { "left": "Номчулга", "right": "Чтение" },
+                { "left": "Оюннар", "right": "Игры" }
             ]
         },
         {
-            "id": "ex_de2_6",
+            "id": "ex_hb2_6",
             "type": "translate",
             "order": 5,
-            "question": "Улуг",
-            "correct": "Большой"
+            "question": "Номчулга",
+            "correct": "Чтение"
         },
         {
-            "id": "ex_de2_7",
+            "id": "ex_hb2_7",
             "type": "translate",
             "order": 6,
-            "question": "Биче",
-            "correct": "Маленький"
+            "question": "Оюннар",
+            "correct": "Игры"
         },
         {
-            "id": "ex_de2_8",
+            "id": "ex_hb2_8",
             "type": "order",
             "order": 7,
-            "question": "Собери: 'Большой дом'",
-            "orderItems": ["бажың", "Улуг"],
-            "correct": ["Улуг", "бажың"]
+            "question": "Собери: 'Чтение и игры'",
+            "orderItems": ["Номчулга", "болгаш", "оюннар"],
+            "correct": ["Номчулга", "болгаш", "оюннар"]
         },
         {
-            "id": "ex_de2_9",
+            "id": "ex_hb2_9",
             "type": "choice",
             "order": 8,
-            "question": "Выбери перевод: 'Биче аяк'",
-            "options": ["Большая чашка", "Маленькая чашка", "Высокий дом"],
-            "correct": "Маленькая чашка"
+            "question": "Выбери перевод: 'Номчулга болгаш оюннар'",
+            "options": ["Спорт и музыка", "Чтение и игры", "Игры и музыка"],
+            "correct": "Чтение и игры"
         },
         {
-            "id": "ex_de2_10",
+            "id": "ex_hb2_10",
             "type": "match",
             "order": 9,
             "question": "Сопоставь",
-            "matchPairs": [{ "left": "Улуг бажың", "right": "Большой дом" }]
+            "matchPairs": [{ "left": "Оюннар", "right": "Игры" }]
         }
     ]
 }
