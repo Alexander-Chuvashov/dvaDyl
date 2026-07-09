@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import type { Exercise } from '../../types/content';
 import { shuffle } from '../../utils/array';
 import ClickableWord from '../UI/ClickableWord';
+import { motion, AnimatePresence } from 'framer-motion';
 
 interface Props {
     exercise: Exercise;
@@ -18,6 +19,7 @@ const OrderExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
     const [selected, setSelected] = useState<string[]>([]);
     const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
     const [submitted, setSubmitted] = useState(false);
+    const [showReset, setShowReset] = useState(false);
 
     useEffect(() => {
         if (exercise.orderItems) {
@@ -25,6 +27,7 @@ const OrderExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
             setSelected([]);
             setIsCorrect(null);
             setSubmitted(false);
+            setShowReset(false);
         }
     }, [exercise]);
 
@@ -34,6 +37,7 @@ const OrderExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
                 JSON.stringify(selected) === JSON.stringify(exercise.correct);
             setIsCorrect(correct);
             setSubmitted(true);
+            setShowReset(!correct);
             const userAnswer = selected.join(' ');
             const correctAnswer = Array.isArray(exercise.correct)
                 ? exercise.correct.join(' ')
@@ -59,79 +63,118 @@ const OrderExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
         setSelected([]);
         setIsCorrect(null);
         setSubmitted(false);
+        setShowReset(false);
     };
 
-    const getItemColor = (item: string) => {
-        if (!submitted)
-            return 'bg-blue-100 hover:bg-blue-200 text-blue-800 border-blue-300';
-        if (isCorrect) return 'bg-green-100 text-green-800 border-green-300';
-        return 'bg-red-100 text-red-800 border-red-300';
+    const getItemClass = (item: string) => {
+        if (!submitted) {
+            return 'bg-card border-border text-primary hover:border-gold hover:bg-card-hover';
+        }
+        if (isCorrect) {
+            return 'bg-success/10 border-success/30 text-success';
+        }
+        return 'bg-error/10 border-error/30 text-error';
     };
 
     return (
-        <div
-            className={`p-4 bg-white rounded-xl shadow ${submitted && !isCorrect ? 'animate-shake' : ''}`}
-        >
-            <p className="mb-4 text-lg font-medium">
+        <div className="space-y-4 card">
+            <p className="text-lg font-medium text-primary">
                 <ClickableWord word={exercise.question} />
             </p>
             {exercise.hint && (
-                <p className="mb-4 text-sm text-gray-400">💡 {exercise.hint}</p>
+                <p className="text-sm text-secondary">💡 {exercise.hint}</p>
             )}
 
-            <div className="flex flex-wrap gap-2 min-h-[60px] p-3 bg-gray-50 rounded-lg border-2 border-dashed border-gray-300 mb-4">
+            {/* Выбранные элементы (порядок) */}
+            <div className="flex flex-wrap gap-2 min-h-[60px] p-3 bg-primary/30 rounded-xl border-2 border-dashed border-border">
                 {selected.length === 0 && (
-                    <span className="text-sm text-gray-400">
+                    <span className="text-sm text-secondary/50">
                         Кликни на слова ниже, чтобы составить предложение
                     </span>
                 )}
                 {selected.map((item, index) => (
-                    <button
+                    <motion.button
                         key={index}
+                        initial={{ scale: 0.8, opacity: 0 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        exit={{ scale: 0.8, opacity: 0 }}
                         onClick={() => handleRemove(item)}
-                        className={`px-3 py-2 rounded-lg border-2 ${getItemColor(item)} transition-all duration-200 cursor-pointer hover:shadow-md`}
+                        className={`px-3 py-2 rounded-xl border transition-all duration-200 hover:shadow-gold ${getItemClass(item)}`}
                     >
                         <ClickableWord word={item} />
-                        <span className="ml-1 text-xs text-gray-500">✕</span>
-                    </button>
-                ))}
-            </div>
-
-            <div className="flex flex-wrap gap-2 mb-4">
-                {available.map(item => (
-                    <button
-                        key={item}
-                        onClick={() => handleSelect(item)}
-                        className="px-4 py-2 transition-all duration-200 bg-gray-200 border-2 border-gray-300 rounded-lg cursor-pointer hover:bg-gray-300 hover:shadow-md"
-                    >
-                        <ClickableWord word={item} />
-                    </button>
-                ))}
-            </div>
-
-            {submitted && !isCorrect && (
-                <div className="p-3 mt-4 border border-red-300 rounded-lg bg-red-50">
-                    <p className="text-red-600">
-                        ❌ Неправильный порядок. Правильный порядок:{' '}
-                        <span className="font-bold">
-                            {Array.isArray(exercise.correct)
-                                ? exercise.correct.join(' ')
-                                : exercise.correct}
+                        <span className="ml-1 text-xs text-secondary/50">
+                            ✕
                         </span>
-                    </p>
-                    <button
-                        onClick={handleReset}
-                        className="px-4 py-2 mt-2 text-white bg-red-500 rounded-lg hover:bg-red-600"
-                    >
-                        Перемешать и начать заново
-                    </button>
-                </div>
-            )}
+                    </motion.button>
+                ))}
+            </div>
 
-            {submitted && isCorrect && (
-                <div className="p-3 mt-4 border border-green-300 rounded-lg bg-green-50 animate-bounce-success">
-                    <p className="text-green-600">✅ Правильно!</p>
-                </div>
+            {/* Доступные элементы */}
+            <div className="flex flex-wrap gap-2">
+                {available.map(item => (
+                    <motion.button
+                        key={item}
+                        initial={{ scale: 0.9, opacity: 0 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        whileHover={{ scale: 1.05 }}
+                        onClick={() => handleSelect(item)}
+                        className="px-4 py-2 transition-all duration-200 border rounded-xl border-border bg-card hover:border-gold hover:bg-card-hover text-primary"
+                    >
+                        <ClickableWord word={item} />
+                    </motion.button>
+                ))}
+            </div>
+
+            {/* Результат */}
+            <AnimatePresence>
+                {submitted && !isCorrect && (
+                    <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        className="p-4 border rounded-xl border-error/30 bg-error/10 text-error"
+                    >
+                        <p>
+                            ❌ Неправильный порядок. Правильный порядок:{' '}
+                            <span className="font-bold">
+                                {Array.isArray(exercise.correct)
+                                    ? exercise.correct.join(' ')
+                                    : exercise.correct}
+                            </span>
+                        </p>
+                        {showReset && (
+                            <button
+                                onClick={handleReset}
+                                className="mt-2 text-sm btn-secondary"
+                            >
+                                Перемешать и начать заново
+                            </button>
+                        )}
+                    </motion.div>
+                )}
+            </AnimatePresence>
+
+            <AnimatePresence>
+                {submitted && isCorrect && (
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.9 }}
+                        className="p-4 font-semibold text-center border rounded-xl border-success/30 bg-success/10 text-success"
+                    >
+                        ✅ Правильно!
+                    </motion.div>
+                )}
+            </AnimatePresence>
+
+            {/* Кнопка сброса (всегда доступна) */}
+            {!submitted && (
+                <button
+                    onClick={handleReset}
+                    className="text-sm transition-colors text-secondary hover:text-primary"
+                >
+                    Сбросить всё
+                </button>
             )}
         </div>
     );

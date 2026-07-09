@@ -16,7 +16,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
 
     return (
         <div className="w-full">
-            <div className="flex justify-between mb-1 text-sm text-text-secondary">
+            <div className="flex justify-between mb-1 text-sm text-secondary">
                 <span>Прогресс</span>
                 <span>
                     {correctCount} / {total} верно

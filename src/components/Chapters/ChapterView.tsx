@@ -8,6 +8,7 @@ import AnimatedWrapper from '../UI/AnimatedWrapper';
 import Skeleton from '../UI/Skeleton';
 import Breadcrumbs from '../UI/Breadcrumbs';
 import { motion } from 'framer-motion';
+import TheoryView from './TheoryView';
 import {
     BookOpen,
     ChevronRight,
@@ -15,6 +16,7 @@ import {
     Lock,
     Clock,
     FileText,
+    X,
 } from 'lucide-react';
 
 const ChapterView: React.FC = () => {
@@ -24,6 +26,7 @@ const ChapterView: React.FC = () => {
     const [chapter, setChapter] = useState<Chapter | null>(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
+    const [showTheory, setShowTheory] = useState(false);
 
     useEffect(() => {
         loadAllChapters()
@@ -87,20 +90,24 @@ const ChapterView: React.FC = () => {
 
     return (
         <div className="max-w-4xl p-6 mx-auto space-y-8">
-            {/* Хлебные крошки */}
             <Breadcrumbs items={[{ label: chapter.title }]} />
 
-            {/* Заголовок главы */}
-            <div className="relative p-8 overflow-hidden border rounded-3xl bg-gradient-to-br from-dark-card to-dark-cardHover border-gold/10">
+            {/* Заголовок главы с CSS-переменными */}
+            <div
+                className="relative p-8 overflow-hidden border rounded-3xl border-gold/10"
+                style={{
+                    background: `linear-gradient(135deg, var(--bg-card) 0%, var(--bg-card-hover) 100%)`,
+                }}
+            >
                 <div className="absolute top-0 right-0 w-64 h-64 rounded-full bg-gold/5 blur-3xl" />
                 <div className="relative">
-                    <h1 className="text-3xl font-bold md:text-4xl text-text-primary">
+                    <h1 className="text-3xl font-bold md:text-4xl text-primary">
                         {chapter.title}
                     </h1>
-                    <p className="mt-2 text-lg text-text-secondary">
+                    <p className="mt-2 text-lg text-secondary">
                         {chapter.titleTuvan}
                     </p>
-                    <p className="mt-1 text-text-secondary/70">
+                    <p className="mt-1 text-secondary/70">
                         {chapter.description}
                     </p>
                     <div className="flex items-center gap-4 mt-4">
@@ -111,7 +118,7 @@ const ChapterView: React.FC = () => {
                         </span>
                     </div>
                     <div className="mt-4">
-                        <div className="flex justify-between mb-1 text-sm text-text-secondary">
+                        <div className="flex justify-between mb-1 text-sm text-secondary">
                             <span>Прогресс главы</span>
                             <span>{progress}%</span>
                         </div>
@@ -131,14 +138,17 @@ const ChapterView: React.FC = () => {
                     <div className="flex items-center gap-3">
                         <FileText className="w-6 h-6 text-gold" />
                         <div className="flex-1">
-                            <h3 className="text-lg font-semibold text-text-primary">
+                            <h3 className="text-lg font-semibold text-primary">
                                 Теория
                             </h3>
-                            <p className="text-sm text-text-secondary">
+                            <p className="text-sm text-secondary">
                                 {theories.length} теоретических блоков доступно
                             </p>
                         </div>
-                        <button className="text-sm btn-secondary">
+                        <button
+                            onClick={() => setShowTheory(true)}
+                            className="text-sm btn-secondary"
+                        >
                             Открыть теорию →
                         </button>
                     </div>
@@ -147,7 +157,7 @@ const ChapterView: React.FC = () => {
 
             {/* Список уроков */}
             <div className="space-y-4">
-                <h2 className="text-xl font-bold text-text-primary">Уроки</h2>
+                <h2 className="text-xl font-bold text-primary">Уроки</h2>
                 {lessons.map((lesson, index) => {
                     const completed = isLessonCompleted(lesson.id);
                     const unlocked = isLessonUnlocked(index);
@@ -184,7 +194,7 @@ const ChapterView: React.FC = () => {
                                             {completed ? (
                                                 <CheckCircle className="w-6 h-6 text-success" />
                                             ) : !unlocked ? (
-                                                <Lock className="w-6 h-6 text-text-secondary/50" />
+                                                <Lock className="w-6 h-6 text-secondary/50" />
                                             ) : (
                                                 <span className="text-gold">
                                                     {index + 1}
@@ -192,19 +202,19 @@ const ChapterView: React.FC = () => {
                                             )}
                                         </div>
                                         <div>
-                                            <h3 className="text-lg font-semibold text-text-primary">
+                                            <h3 className="text-lg font-semibold text-primary">
                                                 {lesson.title}
                                             </h3>
-                                            <p className="text-sm text-text-secondary">
+                                            <p className="text-sm text-secondary">
                                                 {lesson.description}
                                             </p>
                                             <div className="flex flex-wrap gap-3 mt-1 text-xs">
-                                                <span className="flex items-center gap-1 text-text-secondary">
+                                                <span className="flex items-center gap-1 text-secondary">
                                                     <Clock className="w-3 h-3" />{' '}
                                                     {lesson.estimatedTime || 10}{' '}
                                                     мин
                                                 </span>
-                                                <span className="flex items-center gap-1 text-text-secondary">
+                                                <span className="flex items-center gap-1 text-secondary">
                                                     📝 {lesson.exercises.length}{' '}
                                                     упражнений
                                                 </span>
@@ -214,7 +224,7 @@ const ChapterView: React.FC = () => {
                                                     </span>
                                                 )}
                                                 {!unlocked && !completed && (
-                                                    <span className="text-text-secondary/50">
+                                                    <span className="text-secondary/50">
                                                         🔒 Заблокирован
                                                     </span>
                                                 )}
@@ -230,6 +240,32 @@ const ChapterView: React.FC = () => {
                     );
                 })}
             </div>
+            {showTheory && (
+                <div
+                    className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-primary/80 backdrop-blur-md"
+                    onClick={() => setShowTheory(false)}
+                >
+                    <div
+                        className="bg-card rounded-3xl border border-gold/10 shadow-card-lg max-w-3xl w-full max-h-[90vh] overflow-y-auto p-8 relative"
+                        onClick={e => e.stopPropagation()}
+                    >
+                        <button
+                            onClick={() => setShowTheory(false)}
+                            className="absolute transition-colors top-4 right-4 text-secondary hover:text-primary"
+                        >
+                            <X className="w-6 h-6" />
+                        </button>
+                        <h2 className="mb-6 text-2xl font-bold text-primary">
+                            📖 Теория
+                        </h2>
+                        <div className="space-y-8">
+                            {theories.map(theory => (
+                                <TheoryView key={theory.id} theory={theory} />
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     );
 };

@@ -19,7 +19,7 @@ const Button: React.FC<ButtonProps> = ({
         primary: 'btn-primary',
         secondary: 'btn-secondary',
         success: 'btn-success',
-        ghost: 'bg-transparent border border-gold/20 text-text-primary hover:border-gold/50 hover:bg-dark-card/30 transition-all',
+        ghost: 'bg-transparent border border-gold/20 text-primary hover:border-gold/50 hover:bg-card/30 transition-all',
     };
 
     const sizes = {

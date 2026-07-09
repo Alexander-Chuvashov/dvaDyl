@@ -106,7 +106,7 @@ const LessonPage: React.FC = () => {
             />
 
             <div className="flex items-center justify-between">
-                <h1 className="text-2xl font-bold text-text-primary">
+                <h1 className="text-2xl font-bold text-primary">
                     {lesson.title}
                 </h1>
                 {theories.length > 0 && (
@@ -125,32 +125,31 @@ const LessonPage: React.FC = () => {
             <div className="text-center">
                 <button
                     onClick={() => navigate(`/chapter/${chapterId}`)}
-                    className="text-sm transition-colors text-text-secondary hover:text-gold"
+                    className="text-sm transition-colors text-secondary hover:text-primary"
                 >
                     ← Вернуться к списку уроков
                 </button>
             </div>
 
-            {/* Модальное окно с теорией */}
             {showTheory && (
                 <div
-                    className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-dark-bg/80 backdrop-blur-md"
+                    className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-primary/80 backdrop-blur-md"
                     onClick={() => setShowTheory(false)}
                 >
                     <motion.div
                         initial={{ opacity: 0, scale: 0.9 }}
                         animate={{ opacity: 1, scale: 1 }}
                         exit={{ opacity: 0, scale: 0.9 }}
-                        className="bg-dark-card rounded-3xl border border-gold/10 shadow-card-lg max-w-3xl w-full max-h-[90vh] overflow-y-auto p-8 relative"
+                        className="bg-card rounded-3xl border border-gold/10 shadow-card-lg max-w-3xl w-full max-h-[90vh] overflow-y-auto p-8 relative"
                         onClick={e => e.stopPropagation()}
                     >
                         <button
                             onClick={() => setShowTheory(false)}
-                            className="absolute transition-colors top-4 right-4 text-text-secondary hover:text-text-primary"
+                            className="absolute transition-colors top-4 right-4 text-secondary hover:text-primary"
                         >
                             <X className="w-6 h-6" />
                         </button>
-                        <h2 className="mb-6 text-2xl font-bold text-text-primary">
+                        <h2 className="mb-6 text-2xl font-bold text-primary">
                             📖 Теория
                         </h2>
                         <div className="space-y-8">

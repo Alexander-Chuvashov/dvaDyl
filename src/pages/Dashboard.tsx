@@ -11,8 +11,8 @@ import {
     Flame,
     BookOpen,
     TrendingUp,
-    ChevronRight,
     Lock,
+    ChevronRight,
 } from 'lucide-react';
 
 const Dashboard: React.FC = () => {
@@ -49,9 +49,11 @@ const Dashboard: React.FC = () => {
             .finally(() => setLoading(false));
     }, [completedLessonIds]);
 
+    // Статистика за неделю (заглушка)
     const weeklyXP = [12, 18, 8, 25, 30, 15, 20];
     const maxXP = Math.max(...weeklyXP, 1);
 
+    // Прогресс по уровням
     const levelProgress = chapters.reduce(
         (acc, ch) => {
             const total =
@@ -93,7 +95,7 @@ const Dashboard: React.FC = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
-                className="relative p-8 overflow-hidden border rounded-3xl bg-card border-gold/10 md:p-12"
+                className="relative p-8 overflow-hidden border rounded-3xl bg-gradient-to-br from-card to-card-hover border-gold/10 md:p-12"
             >
                 <div className="absolute top-0 right-0 w-64 h-64 rounded-full bg-gold/5 blur-3xl" />
                 <div className="relative flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
@@ -249,7 +251,7 @@ const Dashboard: React.FC = () => {
                                         isLocked
                                             ? 'bg-card-hover text-secondary/30 border border-card-hover'
                                             : progress === 100
-                                              ? 'bg-gold-gradient text-dark-bg shadow-gold'
+                                              ? 'bg-gold-gradient text-primary shadow-gold'
                                               : 'bg-card-hover border border-gold/30 text-gold'
                                     }`}
                                 >
@@ -278,17 +280,73 @@ const Dashboard: React.FC = () => {
                 </div>
             </motion.div>
 
-            {/* Статистика */}
+            {/* Прогресс по главам */}
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="card"
+            >
+                <h3 className="mb-4 text-lg font-semibold text-primary">
+                    📖 Прогресс по главам
+                </h3>
+                <div className="space-y-3">
+                    {chapters.map(chapter => {
+                        const total =
+                            chapter.lessons?.filter(
+                                item => item.type === 'lesson',
+                            ).length || 0;
+                        const completed =
+                            chapter.lessons?.filter(
+                                item =>
+                                    item.type === 'lesson' &&
+                                    completedLessonIds.includes(item.id),
+                            ).length || 0;
+                        const progress =
+                            total > 0
+                                ? Math.round((completed / total) * 100)
+                                : 0;
+
+                        return (
+                            <div
+                                key={chapter.id}
+                                className="flex items-center gap-3 p-3 transition-colors cursor-pointer rounded-xl hover:bg-card-hover"
+                                onClick={() =>
+                                    navigate(`/chapter/${chapter.id}`)
+                                }
+                            >
+                                <span className="text-xl">{chapter.level}</span>
+                                <div className="flex-1 min-w-0">
+                                    <div className="flex justify-between text-sm">
+                                        <span className="truncate text-primary">
+                                            {chapter.title}
+                                        </span>
+                                        <span className="text-secondary">
+                                            {progress}%
+                                        </span>
+                                    </div>
+                                    <div className="mt-1 progress-bar">
+                                        <div
+                                            className="progress-bar-fill"
+                                            style={{ width: `${progress}%` }}
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                        );
+                    })}
+                </div>
+            </motion.div>
+
+            {/* Статистика (4 карточки) */}
             <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.3 }}
+                    transition={{ duration: 0.6, delay: 0.35 }}
                     className="text-center card"
                 >
-                    <div className="flex items-center justify-center mb-1 text-3xl text-gold">
-                        <Star className="w-8 h-8 fill-gold text-gold" />
-                    </div>
+                    <Star className="w-8 h-8 mx-auto mb-1 text-gold" />
                     <div className="text-2xl font-bold text-primary">{xp}</div>
                     <div className="text-sm text-secondary">Всего XP</div>
                 </motion.div>
@@ -296,12 +354,10 @@ const Dashboard: React.FC = () => {
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.35 }}
+                    transition={{ duration: 0.6, delay: 0.4 }}
                     className="text-center card"
                 >
-                    <div className="flex items-center justify-center mb-1 text-3xl text-gold">
-                        <Flame className="w-8 h-8 text-gold" />
-                    </div>
+                    <Flame className="w-8 h-8 mx-auto mb-1 text-gold" />
                     <div className="text-2xl font-bold text-primary">
                         {streak}
                     </div>
@@ -311,12 +367,10 @@ const Dashboard: React.FC = () => {
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.4 }}
+                    transition={{ duration: 0.6, delay: 0.45 }}
                     className="text-center card"
                 >
-                    <div className="flex items-center justify-center mb-1 text-3xl text-gold">
-                        <BookOpen className="w-8 h-8 text-gold" />
-                    </div>
+                    <BookOpen className="w-8 h-8 mx-auto mb-1 text-gold" />
                     <div className="text-2xl font-bold text-primary">
                         {completedLessonIds.length}
                     </div>
@@ -328,12 +382,10 @@ const Dashboard: React.FC = () => {
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.45 }}
+                    transition={{ duration: 0.6, delay: 0.5 }}
                     className="text-center card"
                 >
-                    <div className="flex items-center justify-center mb-1 text-3xl text-gold">
-                        <TrendingUp className="w-8 h-8 text-gold" />
-                    </div>
+                    <TrendingUp className="w-8 h-8 mx-auto mb-1 text-gold" />
                     <div className="text-2xl font-bold text-primary">
                         {totalLessons > 0
                             ? Math.round(

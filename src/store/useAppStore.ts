@@ -32,27 +32,22 @@ interface AppState {
     xp: number;
     streak: number;
     lastActivityDate: string | null;
-    userWords: LocalUserWordProgress[]; // локальный SRS (запасной)
+    userWords: LocalUserWordProgress[];
     dailyGoal: number;
     username: string;
-
+    errorExercises: string[];
     theme: 'dark' | 'light';
-    toggleTheme: () => void;
 
     // === Данные из БД ===
     userId: string | null;
     isAuthenticated: boolean;
-    dbProgress: Record<string, UserProgress>; // lessonId -> UserProgress
-    dbUserWords: Record<string, UserWord>; // wordId -> UserWord
+    dbProgress: Record<string, UserProgress>;
+    dbUserWords: Record<string, UserWord>;
     dbStreak: Streak | null;
-    dbXp: number; // общий XP из БД
+    dbXp: number;
 
     // === Достижения ===
-    userAchievements: UserAchievement[]; // разблокированные ачивки
-
-    errorExercises: string[]; // ID упражнений, на которых пользователь ошибался
-    addErrorExercise: (exerciseId: string) => void;
-    clearErrorExercises: () => void;
+    userAchievements: UserAchievement[];
 
     // === Действия ===
     setLessons: (lessons: Lesson[]) => void;
@@ -66,6 +61,11 @@ interface AppState {
     resetProgress: () => void;
     resetCurrentLesson: () => void;
     updateLocalWordProgress: (wordId: string, isCorrect: boolean) => void;
+    setDailyGoal: (goal: number) => void;
+    setUsername: (username: string) => void;
+    addErrorExercise: (exerciseId: string) => void;
+    clearErrorExercises: () => void;
+    toggleTheme: () => void;
 
     // === Действия для БД ===
     setUserId: (id: string | null) => void;
@@ -89,6 +89,8 @@ interface AppState {
         isCorrect: boolean,
     ) => Promise<void>;
     syncStreak: (userId: string) => Promise<void>;
+    loadUserSettings: (userId: string) => Promise<void>;
+    saveUserSettings: (userId: string) => Promise<void>;
     resetAll: () => void;
 
     // === Достижения ===
@@ -97,12 +99,6 @@ interface AppState {
         userId: string,
         stats: { lessonsCompleted: number; streak: number; xp: number },
     ) => Promise<Achievement[]>;
-
-    // === Настройки пользователя ===
-    setUsername: (username: string) => void;
-    setDailyGoal: (goal: number) => void;
-    loadUserSettings: (userId: string) => Promise<void>;
-    saveUserSettings: (userId: string) => Promise<void>;
 }
 
 const initialState = {
@@ -118,6 +114,8 @@ const initialState = {
     userWords: [],
     dailyGoal: 20,
     username: '',
+    errorExercises: [],
+    theme: 'dark' as 'dark',
     userId: null,
     isAuthenticated: false,
     dbProgress: {},
@@ -125,11 +123,8 @@ const initialState = {
     dbStreak: null,
     dbXp: 0,
     userAchievements: [],
-    errorExercises: [],
-    theme: 'dark' as 'dark',
 };
 
-// Вспомогательная функция для стрика (локальная)
 const updateStreak = (
     lastDate: string | null,
 ): { streak: number; today: string } => {
@@ -152,7 +147,6 @@ export const useAppStore = create<AppState>()(
 
             // === Локальные действия ===
             setLessons: lessons => set({ lessons }),
-
             selectLesson: lesson =>
                 set({
                     currentLesson: lesson,
@@ -167,7 +161,6 @@ export const useAppStore = create<AppState>()(
                         [exerciseId]: isCorrect,
                     },
                 }));
-
                 if (isCorrect) {
                     const state = get();
                     if (!state.completedExerciseIds.includes(exerciseId)) {
@@ -177,7 +170,6 @@ export const useAppStore = create<AppState>()(
                         let newStreak = state.streak;
                         if (streakDelta === 1) newStreak += 1;
                         else if (streakDelta === -999) newStreak = 1;
-
                         const xpGain = 10;
                         const newXp = state.xp + xpGain;
                         const newCompletedExercises = [
@@ -188,7 +180,6 @@ export const useAppStore = create<AppState>()(
                         const allCompleted = allExercises.every(ex =>
                             newCompletedExercises.includes(ex.id),
                         );
-
                         let newCompletedLessons = [...state.completedLessonIds];
                         let bonusXp = 0;
                         if (
@@ -201,7 +192,6 @@ export const useAppStore = create<AppState>()(
                             ];
                             bonusXp = 50;
                         }
-
                         set({
                             completedExerciseIds: newCompletedExercises,
                             completedLessonIds: newCompletedLessons,
@@ -211,17 +201,6 @@ export const useAppStore = create<AppState>()(
                         });
                     }
                 }
-            },
-
-            toggleTheme: () => {
-                const newTheme = get().theme === 'dark' ? 'light' : 'dark';
-                set({ theme: newTheme });
-                if (newTheme === 'light') {
-                    document.documentElement.classList.add('light');
-                } else {
-                    document.documentElement.classList.remove('light');
-                }
-                localStorage.setItem('theme', newTheme);
             },
 
             nextExercise: () =>
@@ -238,6 +217,7 @@ export const useAppStore = create<AppState>()(
                     lastActivityDate: null,
                     userWords: [],
                     userAchievements: [],
+                    errorExercises: [],
                 });
             },
 
@@ -271,6 +251,29 @@ export const useAppStore = create<AppState>()(
                 });
             },
 
+            setDailyGoal: goal => set({ dailyGoal: goal }),
+            setUsername: username => set({ username }),
+            addErrorExercise: exerciseId => {
+                set(state => {
+                    if (state.errorExercises.includes(exerciseId)) return state;
+                    return {
+                        errorExercises: [...state.errorExercises, exerciseId],
+                    };
+                });
+            },
+            clearErrorExercises: () => set({ errorExercises: [] }),
+
+            toggleTheme: () => {
+                const newTheme = get().theme === 'dark' ? 'light' : 'dark';
+                set({ theme: newTheme });
+                if (newTheme === 'light') {
+                    document.documentElement.classList.add('light');
+                } else {
+                    document.documentElement.classList.remove('light');
+                }
+                localStorage.setItem('theme', newTheme);
+            },
+
             // === Действия для БД ===
             setUserId: id => set({ userId: id, isAuthenticated: !!id }),
 
@@ -283,7 +286,6 @@ export const useAppStore = create<AppState>()(
                             DatabaseService.loadStreak(userId),
                             DatabaseService.getUserAchievements(userId),
                         ]);
-
                     const progressMap = progress.reduce(
                         (acc, p) => ({ ...acc, [p.lesson_id]: p }),
                         {} as Record<string, UserProgress>,
@@ -296,7 +298,6 @@ export const useAppStore = create<AppState>()(
                         (sum, p) => sum + (p.xp_earned || 0),
                         0,
                     );
-
                     set({
                         dbProgress: progressMap,
                         dbUserWords: wordsMap,
@@ -354,7 +355,6 @@ export const useAppStore = create<AppState>()(
                     let ease = current?.ease_factor || 2.5;
                     let interval = current?.interval || 1;
                     let repetitions = current?.repetitions || 0;
-
                     if (isCorrect) {
                         if (repetitions === 0) interval = 1;
                         else if (repetitions === 1) interval = 3;
@@ -366,10 +366,8 @@ export const useAppStore = create<AppState>()(
                         interval = 1;
                         ease = Math.max(1.3, ease - 0.2);
                     }
-
                     const nextReview = new Date();
                     nextReview.setDate(nextReview.getDate() + interval);
-
                     const wordData = {
                         user_id: userId,
                         word_id: wordId,
@@ -379,7 +377,6 @@ export const useAppStore = create<AppState>()(
                         next_review: nextReview.toISOString().split('T')[0],
                         last_review: new Date().toISOString().split('T')[0],
                     };
-
                     const saved = await DatabaseService.saveWord(wordData);
                     set(state => ({
                         dbUserWords: { ...state.dbUserWords, [wordId]: saved },
@@ -393,24 +390,18 @@ export const useAppStore = create<AppState>()(
                 try {
                     const today = new Date().toISOString().split('T')[0];
                     const current = get().dbStreak;
-
                     let newCurrent = current?.current_streak || 0;
                     let newLongest = current?.longest_streak || 0;
-
                     if (current?.last_active === today) return;
-
                     const yesterday = new Date();
                     yesterday.setDate(yesterday.getDate() - 1);
                     const yesterdayStr = yesterday.toISOString().split('T')[0];
-
                     if (current?.last_active === yesterdayStr) {
                         newCurrent += 1;
                     } else if (current?.last_active !== today) {
                         newCurrent = 1;
                     }
-
                     newLongest = Math.max(newLongest, newCurrent);
-
                     const updated = await DatabaseService.updateStreak(
                         userId,
                         newCurrent,
@@ -423,6 +414,34 @@ export const useAppStore = create<AppState>()(
                     });
                 } catch (error) {
                     console.error('Ошибка обновления стрика:', error);
+                }
+            },
+
+            loadUserSettings: async userId => {
+                try {
+                    const { data, error } = await supabase
+                        .from('users')
+                        .select('username')
+                        .eq('id', userId)
+                        .single();
+                    if (error) throw error;
+                    if (data) set({ username: data.username || '' });
+                } catch (error) {
+                    console.error('Ошибка загрузки настроек:', error);
+                }
+            },
+
+            saveUserSettings: async userId => {
+                const state = get();
+                try {
+                    const { error } = await supabase
+                        .from('users')
+                        .update({ username: state.username })
+                        .eq('id', userId);
+                    if (error) throw error;
+                } catch (error) {
+                    console.error('Ошибка сохранения настроек:', error);
+                    throw error;
                 }
             },
 
@@ -442,6 +461,8 @@ export const useAppStore = create<AppState>()(
                     userWords: [],
                     username: '',
                     dailyGoal: 20,
+                    errorExercises: [],
+                    theme: 'dark' as 'dark',
                 });
             },
 
@@ -491,54 +512,10 @@ export const useAppStore = create<AppState>()(
                     return [];
                 }
             },
-
-            // === Настройки пользователя ===
-            setUsername: username => set({ username }),
-            setDailyGoal: goal => set({ dailyGoal: goal }),
-
-            loadUserSettings: async userId => {
-                try {
-                    const { data, error } = await supabase
-                        .from('users')
-                        .select('username')
-                        .eq('id', userId)
-                        .single();
-                    if (error) throw error;
-                    if (data) set({ username: data.username || '' });
-                } catch (error) {
-                    console.error('Ошибка загрузки настроек:', error);
-                }
-            },
-
-            saveUserSettings: async userId => {
-                const state = get();
-                try {
-                    const { error } = await supabase
-                        .from('users')
-                        .update({ username: state.username })
-                        .eq('id', userId);
-                    if (error) throw error;
-                } catch (error) {
-                    console.error('Ошибка сохранения настроек:', error);
-                    throw error;
-                }
-            },
-
-            addErrorExercise: exerciseId => {
-                set(state => {
-                    if (state.errorExercises.includes(exerciseId)) return state;
-                    return {
-                        errorExercises: [...state.errorExercises, exerciseId],
-                    };
-                });
-            },
-
-            clearErrorExercises: () => set({ errorExercises: [] }),
         }),
         {
             name: 'tuvan-app-storage',
             partialize: state => ({
-                // Сохраняем только локальные данные
                 completedLessonIds: state.completedLessonIds,
                 completedExerciseIds: state.completedExerciseIds,
                 xp: state.xp,

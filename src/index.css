@@ -203,3 +203,22 @@
         box-shadow: 0 8px 32px var(--shadow-color);
     }
 }
+
+.bg-gold {
+    background-color: var(--gold);
+}
+.shadow-gold {
+    box-shadow: 0 4px 20px rgba(245, 158, 11, 0.3);
+}
+.text-primary {
+    color: var(--text-primary);
+}
+.text-secondary {
+    color: var(--text-secondary);
+}
+.bg-card-hover {
+    background-color: var(--bg-card-hover);
+}
+.border-border {
+    border-color: var(--border-color);
+}

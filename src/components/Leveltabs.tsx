@@ -13,15 +13,15 @@ const LevelTabs: React.FC<LevelTabsProps> = ({
     onLevelChange,
 }) => {
     return (
-        <div className="flex flex-wrap gap-2 pb-2 mb-6 border-b border-cream">
+        <div className="flex flex-wrap gap-1 pb-1 mb-6 border-b border-border">
             {levels.map(level => (
                 <button
                     key={level}
                     onClick={() => onLevelChange(level)}
-                    className={`px-4 py-2 rounded-t-lg font-medium transition-all ${
+                    className={`px-4 py-2 text-sm font-medium transition-all duration-200 rounded-t-lg ${
                         activeLevel === level
-                            ? 'bg-terracotta text-white shadow-button'
-                            : 'bg-transparent text-dark/60 hover:text-dark hover:bg-cream/50'
+                            ? 'bg-gold text-primary shadow-gold'
+                            : 'bg-transparent text-secondary hover:text-primary hover:bg-card-hover'
                     }`}
                 >
                     {level}

@@ -2,7 +2,6 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { useAppStore } from '../../store/useAppStore';
 import ExerciseRenderer from '../Exercises/ExerciseRenderer';
-import ProgressBar from '../Progress/ProgressBar';
 import AnimatedWrapper from '../UI/AnimatedWrapper';
 import Character from '../UI/Character';
 import type { Lesson } from '../../types/content';
@@ -53,26 +52,21 @@ const LessonView: React.FC<LessonViewProps> = ({ lesson, onComplete }) => {
     const currentExercise = exercises[exerciseIndex];
     const isLast = exerciseIndex === exercises.length - 1;
 
-    // Режим повторения – только ошибочные упражнения
     const reviewExercises = exercises.filter(ex =>
         wrongExerciseIds.includes(ex.id),
     );
     const currentReviewExercise = reviewExercises[exerciseIndex] || null;
 
-    // Все ли упражнения были попытаны
     const allAttempted = exercises.every(
         ex => attemptedExercises[ex.id] === true,
     );
-    // Все ли упражнения выполнены правильно
     const allCompleted = exercises.every(
         ex => completedExercises[ex.id] === true,
     );
-    // Все ли ошибки исправлены
     const allReviewCompleted = reviewExercises.every(
         ex => reviewCompleted[ex.id] === true,
     );
 
-    // Завершение урока (единая функция)
     const completeLesson = useCallback(async () => {
         if (isLessonCompletedRef.current) return;
         isLessonCompletedRef.current = true;
@@ -117,14 +111,11 @@ const LessonView: React.FC<LessonViewProps> = ({ lesson, onComplete }) => {
         onComplete,
     ]);
 
-    // Эффект: проверка завершения основного прохода
     useEffect(() => {
         if (!userId) return;
         if (isLessonCompletedRef.current) return;
         if (completedLessonIds.includes(lesson.id)) return;
         if (!allAttempted) return;
-
-        // Если есть ошибки – переходим в режим повторения
         if (wrongExerciseIds.length > 0) {
             setIsReviewMode(true);
             setExerciseIndex(0);
@@ -133,8 +124,6 @@ const LessonView: React.FC<LessonViewProps> = ({ lesson, onComplete }) => {
             setCharacterState('thinking');
             return;
         }
-
-        // Ошибок нет – завершаем урок
         completeLesson();
     }, [
         allAttempted,
@@ -145,7 +134,6 @@ const LessonView: React.FC<LessonViewProps> = ({ lesson, onComplete }) => {
         completeLesson,
     ]);
 
-    // Эффект: завершение режима повторения
     useEffect(() => {
         if (!userId) return;
         if (!isReviewMode) return;
@@ -162,18 +150,14 @@ const LessonView: React.FC<LessonViewProps> = ({ lesson, onComplete }) => {
         completeLesson,
     ]);
 
-    // Обработка ответа
     const handleAnswer = useCallback(
         async (isCorrect: boolean, userAnswer?: string) => {
             if (isProcessingRef.current) return;
             const exerciseId = currentExercise.id;
-
             if (isReviewMode && reviewCompleted[exerciseId] === true) return;
             if (!isReviewMode && completedExercises[exerciseId] === true)
                 return;
-
             isProcessingRef.current = true;
-
             if (userId && userAnswer !== undefined) {
                 try {
                     await syncAnswer(userId, exerciseId, userAnswer, isCorrect);
@@ -181,10 +165,8 @@ const LessonView: React.FC<LessonViewProps> = ({ lesson, onComplete }) => {
                     console.error('Ошибка сохранения ответа:', e);
                 }
             }
-
             answerExercise(exerciseId, isCorrect, lesson);
             setAttemptedExercises(prev => ({ ...prev, [exerciseId]: true }));
-
             if (isCorrect) {
                 if (isReviewMode) {
                     setReviewCompleted(prev => ({
@@ -205,7 +187,6 @@ const LessonView: React.FC<LessonViewProps> = ({ lesson, onComplete }) => {
                 }
                 setFeedback({ type: 'correct', message: '✅ Правильно!' });
                 setCharacterState('happy');
-
                 setTimeout(() => {
                     setFeedback(null);
                     setCharacterState('idle');
@@ -221,11 +202,9 @@ const LessonView: React.FC<LessonViewProps> = ({ lesson, onComplete }) => {
                         setWrongExerciseIds(prev => [...prev, exerciseId]);
                     }
                 }
-
                 const correctAnswer = Array.isArray(currentExercise.correct)
                     ? currentExercise.correct.join(' ')
                     : currentExercise.correct || '';
-
                 setFeedback({
                     type: 'incorrect',
                     message: `❌ Неправильно. Правильный ответ: ${correctAnswer}`,
@@ -259,7 +238,6 @@ const LessonView: React.FC<LessonViewProps> = ({ lesson, onComplete }) => {
         }
     };
 
-    // Если урок уже пройден
     if (completedLessonIds.includes(lesson.id)) {
         return (
             <div className="text-center card">
@@ -278,7 +256,7 @@ const LessonView: React.FC<LessonViewProps> = ({ lesson, onComplete }) => {
         : currentExercise;
     if (!activeExercise) {
         return (
-            <div className="py-10 text-center text-text-secondary">
+            <div className="py-10 text-center text-secondary">
                 {isReviewMode
                     ? 'Все ошибки исправлены!'
                     : 'Загрузка упражнения...'}
@@ -297,13 +275,12 @@ const LessonView: React.FC<LessonViewProps> = ({ lesson, onComplete }) => {
 
     return (
         <div className="max-w-2xl p-6 mx-auto space-y-6">
-            {/* Заголовок и Character */}
             <div className="flex items-center justify-between gap-4">
                 <div>
-                    <h2 className="text-2xl font-bold text-text-primary">
+                    <h2 className="text-2xl font-bold text-primary">
                         {isReviewMode ? '🔁 Повторение ошибок' : lesson.title}
                     </h2>
-                    <span className="text-sm text-text-secondary">
+                    <span className="text-sm text-secondary">
                         {exerciseIndex + 1} / {total}
                     </span>
                 </div>
@@ -316,11 +293,22 @@ const LessonView: React.FC<LessonViewProps> = ({ lesson, onComplete }) => {
                 </p>
             )}
 
-            <ProgressBar
-                current={exerciseIndex + 1}
-                total={total}
-                correctCount={completedCount}
-            />
+            <div className="w-full">
+                <div className="flex justify-between mb-1 text-sm text-secondary">
+                    <span>Прогресс</span>
+                    <span>
+                        {completedCount} / {total} верно
+                    </span>
+                </div>
+                <div className="progress-bar">
+                    <div
+                        className="progress-bar-fill"
+                        style={{
+                            width: `${Math.min(100, (exerciseIndex / total) * 100)}%`,
+                        }}
+                    />
+                </div>
+            </div>
 
             <AnimatedWrapper key={exerciseIndex} animation="scaleIn">
                 {isCompleted ? (
@@ -360,7 +348,7 @@ const LessonView: React.FC<LessonViewProps> = ({ lesson, onComplete }) => {
                             >
                                 {feedback.message}
                                 {feedback.explanation && (
-                                    <div className="p-3 mt-2 text-sm border text-text-primary bg-dark-bg/50 border-gold/10 rounded-xl">
+                                    <div className="p-3 mt-2 text-sm border text-primary bg-primary/30 border-gold/10 rounded-xl">
                                         💡 {feedback.explanation}
                                     </div>
                                 )}

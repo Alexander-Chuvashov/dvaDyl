@@ -28,7 +28,7 @@ const NavLink: React.FC<NavLinkProps> = ({ to, icon, label, badge }) => {
     return (
         <Link
             to={to}
-            className="flex flex-col items-center gap-0.5 text-text-secondary hover:text-gold transition-colors relative"
+            className="flex flex-col items-center gap-0.5 text-secondary hover:text-gold transition-colors relative"
             title={label}
         >
             <div className="relative">
@@ -58,7 +58,6 @@ const AppLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        // При монтировании применяем сохранённую тему
         if (theme === 'light') {
             document.documentElement.classList.add('light');
         } else {
@@ -74,14 +73,8 @@ const AppLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 
     if (!isAuthenticated) {
         return (
-            <div
-                className="min-h-screen"
-                style={{ backgroundColor: 'var(--bg-primary)' }}
-            >
-                <header
-                    className="px-6 py-4 border-b border-gold/10"
-                    style={{ backgroundColor: 'var(--bg-card)' }}
-                >
+            <div className="min-h-screen bg-primary">
+                <header className="px-6 py-4 border-b border-gold/10 bg-card">
                     <div className="flex items-center max-w-6xl gap-3 mx-auto">
                         <Link to="/" className="flex items-center gap-3">
                             <img
@@ -106,14 +99,8 @@ const AppLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     }
 
     return (
-        <div
-            className="min-h-screen"
-            style={{ backgroundColor: 'var(--bg-primary)' }}
-        >
-            <header
-                className="sticky top-0 z-50 px-4 py-3 border-b border-gold/10"
-                style={{ backgroundColor: 'var(--bg-card)' }}
-            >
+        <div className="min-h-screen bg-primary">
+            <header className="sticky top-0 z-50 px-4 py-3 border-b border-gold/10 bg-card shadow-card">
                 <div className="flex items-center justify-between max-w-6xl gap-4 mx-auto">
                     <Link to="/" className="flex items-center gap-3 shrink-0">
                         <img
@@ -161,10 +148,7 @@ const AppLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                     </nav>
 
                     <div className="flex items-center gap-3 shrink-0">
-                        <div
-                            className="flex items-center gap-3 text-sm px-3 py-1.5 rounded-full border border-gold/10"
-                            style={{ backgroundColor: 'var(--bg-primary)' }}
-                        >
+                        <div className="flex items-center gap-3 text-sm px-3 py-1.5 rounded-full border border-gold/10 bg-primary">
                             <div className="flex items-center gap-1">
                                 <Star className="w-4 h-4 text-gold fill-gold" />
                                 <span className="font-bold text-primary">

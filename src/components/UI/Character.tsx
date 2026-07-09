@@ -28,11 +28,11 @@ const Character: React.FC<CharacterProps> = ({
     };
 
     const images = {
-        idle: '/characters/idle.png',
-        happy: '/characters/happy.png',
-        sad: '/characters/sad.png',
-        celebrate: '/characters/celebrate.png',
-        thinking: '/characters/thinking.png',
+        idle: '/images/characters/idle.png',
+        happy: '/images/characters/motive.png',
+        sad: '/images/characters/sad.png',
+        celebrate: '/images/characters/char.png',
+        thinking: '/images/characters/think.png',
     };
 
     // Анимации для разных состояний (без variants, используем keyframes)
@@ -133,7 +133,7 @@ const Character: React.FC<CharacterProps> = ({
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -10 }}
-                        className="absolute -top-8 left-1/2 -translate-x-1/2 bg-dark-card border border-gold/20 text-text-primary rounded-lg px-3 py-1.5 text-xs shadow-gold whitespace-nowrap"
+                        className="absolute -top-8 left-1/2 -translate-x-1/2 bg-card border border-gold/20 text-primary rounded-lg px-3 py-1.5 text-xs shadow-gold whitespace-nowrap"
                     >
                         Отлично! 👍
                     </motion.div>
@@ -143,7 +143,7 @@ const Character: React.FC<CharacterProps> = ({
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -10 }}
-                        className="absolute -top-8 left-1/2 -translate-x-1/2 bg-dark-card border border-error/20 text-error rounded-lg px-3 py-1.5 text-xs shadow-gold whitespace-nowrap"
+                        className="absolute -top-8 left-1/2 -translate-x-1/2 bg-card border border-error/20 text-error rounded-lg px-3 py-1.5 text-xs shadow-gold whitespace-nowrap"
                     >
                         Попробуй ещё! 💪
                     </motion.div>
@@ -153,7 +153,7 @@ const Character: React.FC<CharacterProps> = ({
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -10 }}
-                        className="absolute -top-8 left-1/2 -translate-x-1/2 bg-dark-card border border-gold/20 text-gold rounded-lg px-3 py-1.5 text-xs shadow-gold whitespace-nowrap"
+                        className="absolute -top-8 left-1/2 -translate-x-1/2 bg-card border border-gold/20 text-gold rounded-lg px-3 py-1.5 text-xs shadow-gold whitespace-nowrap"
                     >
                         🎉 Ты молодец!
                     </motion.div>
@@ -163,7 +163,7 @@ const Character: React.FC<CharacterProps> = ({
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -10 }}
-                        className="absolute -top-8 left-1/2 -translate-x-1/2 bg-dark-card border border-gold/20 text-text-secondary rounded-lg px-3 py-1.5 text-xs shadow-gold whitespace-nowrap"
+                        className="absolute -top-8 left-1/2 -translate-x-1/2 bg-card border border-gold/20 text-secondary rounded-lg px-3 py-1.5 text-xs shadow-gold whitespace-nowrap"
                     >
                         🤔 Подумай...
                     </motion.div>
