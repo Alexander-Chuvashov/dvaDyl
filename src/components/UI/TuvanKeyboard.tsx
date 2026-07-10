@@ -144,9 +144,7 @@ const TuvanKeyboard: React.FC<TuvanKeyboardProps> = ({
         <div
             ref={keyboardRef}
             onMouseDown={handleMouseDown}
-            className={`fixed bottom-0 left-0 right-0 bg-surface border-t border-cream shadow-2xl p-4 z-50 transition-transform duration-300 ease-in-out ${
-                isVisible ? 'translate-y-0' : 'translate-y-full'
-            } ${className}`}
+            className={`fixed bottom-0 left-0 right-0 bg-card border-t border-border shadow-2xl p-4 z-50 transition-transform duration-300 ease-in-out ${isVisible ? 'translate-y-0' : 'translate-y-full'} ${className}`}
             style={{ maxHeight: '50vh', overflowY: 'auto' }}
         >
             <div className="flex flex-col gap-1.5 max-w-4xl mx-auto">
@@ -220,7 +218,7 @@ const TuvanKeyboard: React.FC<TuvanKeyboardProps> = ({
                             );
                             if (onInput) onInput(input.value);
                         }}
-                        className="px-4 py-2 bg-red-100 hover:bg-red-200 rounded-lg border border-red-300 text-red-700 font-medium transition-colors text-sm flex-1 max-w-[4rem]"
+                        className="px-6 py-2 bg-cream hover:bg-terracotta/20 rounded-lg border border-cream text-dark font-medium transition-colors flex-1 max-w-[4rem] text-sm"
                     >
                         ⌫
                     </button>

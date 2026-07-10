@@ -19,6 +19,7 @@ interface Props {
 }
 
 const ExerciseRenderer: React.FC<Props> = ({ exercise, onAnswer }) => {
+    console.log('🎨 ExerciseRenderer рендерит тип:', exercise.type);
     switch (exercise.type) {
         case 'translate':
             return (

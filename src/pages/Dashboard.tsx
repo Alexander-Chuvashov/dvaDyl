@@ -13,6 +13,8 @@ import {
     TrendingUp,
     Lock,
     ChevronRight,
+    Sparkles,
+    MapPin,
 } from 'lucide-react';
 
 const Dashboard: React.FC = () => {
@@ -79,6 +81,7 @@ const Dashboard: React.FC = () => {
             (ch.lessons?.filter(item => item.type === 'lesson').length || 0),
         0,
     );
+    const totalChapters = chapters.length;
 
     if (loading) {
         return (
@@ -90,37 +93,162 @@ const Dashboard: React.FC = () => {
 
     return (
         <div className="max-w-6xl mx-auto space-y-8">
-            {/* Приветственный блок */}
+            {/* ===== ПРИВЕТСТВЕННЫЙ БАННЕР ===== */}
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                className="relative p-8 overflow-hidden border rounded-3xl bg-gradient-to-br from-card to-card-hover border-gold/10 md:p-12"
+                transition={{ duration: 0.8, ease: 'easeOut' }}
+                className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#0A0F1C] via-[#121A2E] to-[#1A2744] border border-gold/20 p-8 md:p-12 shadow-2xl"
             >
-                <div className="absolute top-0 right-0 w-64 h-64 rounded-full bg-gold/5 blur-3xl" />
-                <div className="relative flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
-                    <div>
-                        <h1 className="text-3xl font-bold md:text-4xl text-primary">
-                            🌅 Добро пожаловать, {username || 'Путник'}!
-                        </h1>
-                        <p className="mt-2 text-lg text-secondary">
-                            Продолжим изучение тувинского языка
-                        </p>
-                        <div className="flex flex-wrap gap-4 mt-4">
-                            <span className="tag">
-                                📚 {totalLessons} уроков
-                            </span>
-                            <span className="tag">⭐ {xp} XP</span>
-                            <span className="tag-success">
-                                🔥 {streak} дней
-                            </span>
+                {/* Декоративные элементы */}
+                <div className="absolute top-0 right-0 rounded-full w-96 h-96 bg-gold/5 blur-3xl" />
+                <div className="absolute bottom-0 left-0 w-64 h-64 rounded-full bg-blue-500/5 blur-2xl" />
+                <div className="absolute w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 bg-gradient-to-r from-gold/5 via-transparent to-gold/5 blur-2xl" />
+
+                {/* Парящие частицы */}
+                <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                    {[...Array(8)].map((_, i) => (
+                        <motion.div
+                            key={i}
+                            className="absolute w-1 h-1 rounded-full bg-gold/40"
+                            initial={{
+                                x: Math.random() * 100 + '%',
+                                y: Math.random() * 100 + '%',
+                                opacity: Math.random() * 0.5 + 0.2,
+                            }}
+                            animate={{
+                                y: ['0%', '30%', '0%'],
+                                opacity: [0.2, 0.6, 0.2],
+                            }}
+                            transition={{
+                                duration: 4 + Math.random() * 6,
+                                repeat: Infinity,
+                                delay: Math.random() * 4,
+                            }}
+                            style={{
+                                width: Math.random() * 4 + 2 + 'px',
+                                height: Math.random() * 4 + 2 + 'px',
+                            }}
+                        />
+                    ))}
+                </div>
+
+                <div className="relative flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
+                    <div className="flex-1 space-y-4">
+                        <div className="flex items-center gap-3">
+                            <Sparkles className="w-8 h-8 text-gold" />
+                            <h1 className="text-4xl font-bold md:text-5xl text-text-primary">
+                                Добро пожаловать в{' '}
+                                <span className="text-gold">DVA-DYL</span>!
+                            </h1>
                         </div>
+                        <p className="max-w-2xl text-lg text-text-secondary">
+                            Изучай тувинский язык с увлекательными уроками,
+                            геймификацией и системой повторений.
+                        </p>
+
+                        <div className="flex flex-wrap gap-6 pt-2">
+                            <div className="flex items-center gap-2">
+                                <div className="p-2 rounded-full bg-gold/10">
+                                    <BookOpen className="w-5 h-5 text-gold" />
+                                </div>
+                                <div>
+                                    <div className="text-2xl font-bold text-text-primary">
+                                        {totalChapters}
+                                    </div>
+                                    <div className="text-xs text-text-secondary">
+                                        глав
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="flex items-center gap-2">
+                                <div className="p-2 rounded-full bg-gold/10">
+                                    <MapPin className="w-5 h-5 text-gold" />
+                                </div>
+                                <div>
+                                    <div className="text-2xl font-bold text-text-primary">
+                                        {totalLessons}
+                                    </div>
+                                    <div className="text-xs text-text-secondary">
+                                        уроков
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="flex items-center gap-2">
+                                <div className="p-2 rounded-full bg-gold/10">
+                                    <Star className="w-5 h-5 text-gold" />
+                                </div>
+                                <div>
+                                    <div className="text-2xl font-bold text-text-primary">
+                                        {xp}
+                                    </div>
+                                    <div className="text-xs text-text-secondary">
+                                        XP
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="flex items-center gap-2">
+                                <div className="p-2 rounded-full bg-gold/10">
+                                    <Flame className="w-5 h-5 text-gold" />
+                                </div>
+                                <div>
+                                    <div className="text-2xl font-bold text-text-primary">
+                                        {streak}
+                                    </div>
+                                    <div className="text-xs text-text-secondary">
+                                        дней
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {nextLesson && (
+                            <button
+                                onClick={() =>
+                                    navigate(
+                                        `/chapter/${nextLesson.chapterId}/lesson/${nextLesson.lesson.id}`,
+                                    )
+                                }
+                                className="flex items-center gap-2 mt-2 text-base btn-primary"
+                            >
+                                🚀 Продолжить обучение{' '}
+                                <ChevronRight className="w-5 h-5" />
+                            </button>
+                        )}
                     </div>
-                    <Character state="idle" size="lg" className="shrink-0" />
+
+                    {/* Персонаж с анимацией */}
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.6, delay: 0.3 }}
+                        className="shrink-0"
+                    >
+                        <motion.div
+                            animate={{
+                                y: [0, -10, 0],
+                                rotate: [0, 3, -3, 0],
+                            }}
+                            transition={{
+                                y: {
+                                    duration: 2,
+                                    repeat: Infinity,
+                                    ease: 'easeInOut',
+                                },
+                                rotate: {
+                                    duration: 3,
+                                    repeat: Infinity,
+                                    ease: 'easeInOut',
+                                },
+                            }}
+                        >
+                            <Character state="happy" size="sm" />
+                        </motion.div>
+                    </motion.div>
                 </div>
             </motion.div>
 
-            {/* Блок цели и графика */}
+            {/* ===== Блок цели и графика ===== */}
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -191,7 +319,7 @@ const Dashboard: React.FC = () => {
                 </motion.div>
             </div>
 
-            {/* Продолжить урок */}
+            {/* ===== Продолжить урок (дублируем на случай, если nextLesson есть, но баннер уже содержит кнопку) ===== */}
             {nextLesson && (
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -227,7 +355,7 @@ const Dashboard: React.FC = () => {
                 </motion.div>
             )}
 
-            {/* Карта уровней */}
+            {/* ===== Карта уровней ===== */}
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -280,7 +408,7 @@ const Dashboard: React.FC = () => {
                 </div>
             </motion.div>
 
-            {/* Прогресс по главам */}
+            {/* ===== Прогресс по главам ===== */}
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -338,7 +466,7 @@ const Dashboard: React.FC = () => {
                 </div>
             </motion.div>
 
-            {/* Статистика (4 карточки) */}
+            {/* ===== Статистика (4 карточки) ===== */}
             <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}

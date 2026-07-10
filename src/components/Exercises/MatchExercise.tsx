@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import type { Exercise } from '../../types/content';
 import { shuffle } from '../../utils/array';
 import ClickableWord from '../UI/ClickableWord';
+import { motion, AnimatePresence } from 'framer-motion';
 
 interface Props {
     exercise: Exercise;
@@ -103,30 +104,28 @@ const MatchExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
 
     const getLeftClass = (left: string) => {
         if (matches.some(m => m.left === left))
-            return 'bg-green-100 border-green-400 text-green-800';
-        if (selectedLeft === left)
-            return 'bg-yellow-100 border-yellow-400 text-yellow-800';
-        return 'bg-white hover:bg-gray-50 border-gray-300';
+            return 'bg-success/10 border-success/30 text-success';
+        if (selectedLeft === left) return 'border-gold bg-gold/10 text-gold';
+        return 'border-border bg-card hover:bg-card-hover text-primary';
     };
 
     const getRightClass = (right: string) => {
         if (matches.some(m => m.right === right))
-            return 'bg-green-100 border-green-400 text-green-800';
-        if (selectedRight === right)
-            return 'bg-yellow-100 border-yellow-400 text-yellow-800';
-        return 'bg-white hover:bg-gray-50 border-gray-300';
+            return 'bg-success/10 border-success/30 text-success';
+        if (selectedRight === right) return 'border-gold bg-gold/10 text-gold';
+        return 'border-border bg-card hover:bg-card-hover text-primary';
     };
 
     return (
         <div
-            className={`p-4 bg-white rounded-xl shadow ${submitted && !isCorrect ? 'animate-shake' : ''}`}
+            className={`card ${submitted && isCorrect ? 'border-success/30' : ''}`}
         >
-            <p className="mb-4 text-lg font-medium">
+            <p className="mb-4 text-lg font-medium text-primary">
                 <ClickableWord word={exercise.question} />
             </p>
-            <div className="grid grid-cols-2 gap-8">
+            <div className="grid grid-cols-2 gap-6">
                 <div>
-                    <h3 className="mb-2 text-sm font-semibold text-gray-500 uppercase">
+                    <h3 className="mb-2 text-sm font-semibold uppercase text-secondary">
                         Русский
                     </h3>
                     <div className="space-y-2">
@@ -138,12 +137,10 @@ const MatchExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
                                 return (
                                     <div
                                         key={idx}
-                                        className="flex items-center justify-between px-4 py-2 text-gray-500 bg-gray-100 border-2 border-gray-200 rounded-lg"
+                                        className="flex items-center justify-between px-4 py-2 border rounded-xl border-success/30 bg-success/10 text-success"
                                     >
                                         <ClickableWord word={left} />
-                                        <span className="text-green-500">
-                                            ✓
-                                        </span>
+                                        <span className="text-success">✓</span>
                                     </div>
                                 );
                             }
@@ -151,7 +148,7 @@ const MatchExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
                                 <button
                                     key={idx}
                                     onClick={() => handleLeftClick(left)}
-                                    className={`w-full text-left px-4 py-2 rounded-lg border-2 transition-all duration-200 ${getLeftClass(left)}`}
+                                    className={`w-full text-left px-4 py-2 rounded-xl border-2 transition-all duration-200 ${getLeftClass(left)}`}
                                 >
                                     <ClickableWord word={left} />
                                 </button>
@@ -160,7 +157,7 @@ const MatchExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
                     </div>
                 </div>
                 <div>
-                    <h3 className="mb-2 text-sm font-semibold text-gray-500 uppercase">
+                    <h3 className="mb-2 text-sm font-semibold uppercase text-secondary">
                         Тувинский
                     </h3>
                     <div className="space-y-2">
@@ -172,12 +169,10 @@ const MatchExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
                                 return (
                                     <div
                                         key={idx}
-                                        className="flex items-center justify-between px-4 py-2 text-gray-500 bg-gray-100 border-2 border-gray-200 rounded-lg"
+                                        className="flex items-center justify-between px-4 py-2 border rounded-xl border-success/30 bg-success/10 text-success"
                                     >
                                         <ClickableWord word={right} />
-                                        <span className="text-green-500">
-                                            ✓
-                                        </span>
+                                        <span className="text-success">✓</span>
                                     </div>
                                 );
                             }
@@ -185,7 +180,7 @@ const MatchExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
                                 <button
                                     key={idx}
                                     onClick={() => handleRightClick(right)}
-                                    className={`w-full text-left px-4 py-2 rounded-lg border-2 transition-all duration-200 ${getRightClass(right)}`}
+                                    className={`w-full text-left px-4 py-2 rounded-xl border-2 transition-all duration-200 ${getRightClass(right)}`}
                                 >
                                     <ClickableWord word={right} />
                                 </button>
@@ -195,30 +190,42 @@ const MatchExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
                 </div>
             </div>
 
-            {error && (
-                <div className="p-3 mt-4 border border-red-300 rounded-lg bg-red-50">
-                    <p className="text-red-600">{error}</p>
-                    <button
-                        onClick={handleReset}
-                        className="px-4 py-2 mt-2 text-white bg-red-500 rounded-lg hover:bg-red-600"
+            <AnimatePresence>
+                {error && (
+                    <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        className="p-3 mt-4 border rounded-xl border-error/30 bg-error/10 text-error"
                     >
-                        Начать заново
-                    </button>
-                </div>
-            )}
+                        <p>{error}</p>
+                        <button
+                            onClick={handleReset}
+                            className="mt-2 text-sm btn-secondary"
+                        >
+                            Начать заново
+                        </button>
+                    </motion.div>
+                )}
+            </AnimatePresence>
 
-            {submitted && isCorrect && (
-                <div className="p-3 mt-4 border border-green-300 rounded-lg bg-green-50 animate-bounce-success">
-                    <p className="text-green-600">
+            <AnimatePresence>
+                {submitted && isCorrect && (
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.9 }}
+                        className="p-3 mt-4 font-semibold text-center border rounded-xl border-success/30 bg-success/10 text-success"
+                    >
                         ✅ Все пары сопоставлены верно!
-                    </p>
-                </div>
-            )}
+                    </motion.div>
+                )}
+            </AnimatePresence>
 
             {!submitted && !error && (
                 <button
                     onClick={handleReset}
-                    className="mt-4 text-sm text-gray-400 underline hover:text-gray-600"
+                    className="mt-4 text-sm transition-colors text-secondary hover:text-primary"
                 >
                     Сбросить всё
                 </button>

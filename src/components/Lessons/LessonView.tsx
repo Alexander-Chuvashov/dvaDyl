@@ -67,34 +67,60 @@ const LessonView: React.FC<LessonViewProps> = ({ lesson, onComplete }) => {
         ex => reviewCompleted[ex.id] === true,
     );
 
+    console.log('🔍 allAttempted:', allAttempted);
+    console.log('🔍 allCompleted:', allCompleted);
+    console.log('🔍 isReviewMode:', isReviewMode);
+    console.log('🔍 wrongExerciseIds:', wrongExerciseIds);
+    console.log('🔍 allReviewCompleted:', allReviewCompleted);
+
     const completeLesson = useCallback(async () => {
         if (isLessonCompletedRef.current) return;
         isLessonCompletedRef.current = true;
         setCharacterState('celebrate');
+        console.log('🚀 completeLesson вызван для урока:', lesson.id);
+
         try {
-            if (!userId) return;
+            if (!userId) {
+                console.warn('❌ userId отсутствует, завершение невозможно');
+                return;
+            }
+
+            console.log('📤 Вызов syncProgress...');
             await syncProgress(userId, lesson.id, 'completed', 100, 50);
+            console.log('✅ syncProgress выполнен');
+
+            console.log('📤 Вызов syncStreak...');
             await syncStreak(userId);
+            console.log('✅ syncStreak выполнен');
+
             const stats = {
                 lessonsCompleted: completedLessonIds.length + 1,
                 streak: streak + 1,
                 xp: xp + 50,
             };
+            console.log('📊 Статистика для достижений:', stats);
             const newAchievements = await checkAndUnlockAchievements(
                 userId,
                 stats,
             );
+            console.log(
+                '✅ checkAndUnlockAchievements завершён, новых достижений:',
+                newAchievements.length,
+            );
+
             if (newAchievements.length > 0) {
                 newAchievements.forEach(ach => {
                     alert(`🎉 Новое достижение: ${ach.icon} ${ach.name}`);
                 });
             }
+
             setTimeout(() => {
                 setCharacterState('idle');
+                console.log('✅ Урок завершён, вызываем onComplete');
                 onComplete?.();
             }, 1200);
         } catch (error) {
-            console.error('Ошибка завершения урока:', error);
+            console.error('❌ Ошибка завершения урока:', error);
             alert('Ошибка сохранения прогресса. Попробуйте ещё раз.');
             isLessonCompletedRef.current = false;
             setCharacterState('idle');
@@ -111,22 +137,34 @@ const LessonView: React.FC<LessonViewProps> = ({ lesson, onComplete }) => {
         onComplete,
     ]);
 
+    // Эффект: после того как все упражнения попытаны
     useEffect(() => {
+        console.log(
+            '⚡ useEffect [allAttempted] triggered, isReviewMode:',
+            isReviewMode,
+        );
+        if (isReviewMode) return;
         if (!userId) return;
         if (isLessonCompletedRef.current) return;
         if (completedLessonIds.includes(lesson.id)) return;
         if (!allAttempted) return;
+
         if (wrongExerciseIds.length > 0) {
+            console.log('🔄 Переход в режим повторения ошибок');
             setIsReviewMode(true);
             setExerciseIndex(0);
             setReviewCompleted({});
             setFeedback(null);
             setCharacterState('thinking');
-            return;
+        } else {
+            console.log(
+                '✅ Все упражнения выполнены правильно, завершаем урок',
+            );
+            completeLesson();
         }
-        completeLesson();
     }, [
         allAttempted,
+        isReviewMode,
         wrongExerciseIds,
         userId,
         lesson.id,
@@ -134,12 +172,20 @@ const LessonView: React.FC<LessonViewProps> = ({ lesson, onComplete }) => {
         completeLesson,
     ]);
 
+    // Эффект: завершение режима повторения
     useEffect(() => {
+        console.log(
+            '⚡ useEffect [allReviewCompleted] triggered, isReviewMode:',
+            isReviewMode,
+        );
         if (!userId) return;
         if (!isReviewMode) return;
         if (isLessonCompletedRef.current) return;
         if (completedLessonIds.includes(lesson.id)) return;
         if (!allReviewCompleted) return;
+        console.log(
+            '✅ Все ошибки исправлены, завершаем урок (режим повторения)',
+        );
         completeLesson();
     }, [
         allReviewCompleted,
@@ -154,10 +200,13 @@ const LessonView: React.FC<LessonViewProps> = ({ lesson, onComplete }) => {
         async (isCorrect: boolean, userAnswer?: string) => {
             if (isProcessingRef.current) return;
             const exerciseId = currentExercise.id;
+
             if (isReviewMode && reviewCompleted[exerciseId] === true) return;
-            if (!isReviewMode && completedExercises[exerciseId] === true)
+            if (!isReviewMode && attemptedExercises[exerciseId] === true)
                 return;
+
             isProcessingRef.current = true;
+
             if (userId && userAnswer !== undefined) {
                 try {
                     await syncAnswer(userId, exerciseId, userAnswer, isCorrect);
@@ -165,8 +214,10 @@ const LessonView: React.FC<LessonViewProps> = ({ lesson, onComplete }) => {
                     console.error('Ошибка сохранения ответа:', e);
                 }
             }
+
             answerExercise(exerciseId, isCorrect, lesson);
             setAttemptedExercises(prev => ({ ...prev, [exerciseId]: true }));
+
             if (isCorrect) {
                 if (isReviewMode) {
                     setReviewCompleted(prev => ({
@@ -187,6 +238,7 @@ const LessonView: React.FC<LessonViewProps> = ({ lesson, onComplete }) => {
                 }
                 setFeedback({ type: 'correct', message: '✅ Правильно!' });
                 setCharacterState('happy');
+
                 setTimeout(() => {
                     setFeedback(null);
                     setCharacterState('idle');
@@ -223,7 +275,7 @@ const LessonView: React.FC<LessonViewProps> = ({ lesson, onComplete }) => {
             syncAnswer,
             answerExercise,
             lesson,
-            completedExercises,
+            attemptedExercises,
             reviewCompleted,
             wrongExerciseIds,
         ],

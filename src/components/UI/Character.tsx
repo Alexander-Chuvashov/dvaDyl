@@ -2,7 +2,13 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-type CharacterState = 'idle' | 'happy' | 'sad' | 'celebrate' | 'thinking';
+type CharacterState =
+    | 'idle'
+    | 'happy'
+    | 'motive'
+    | 'sad'
+    | 'celebrate'
+    | 'thinking';
 
 interface CharacterProps {
     state?: CharacterState;
@@ -29,7 +35,8 @@ const Character: React.FC<CharacterProps> = ({
 
     const images = {
         idle: '/images/characters/idle.png',
-        happy: '/images/characters/motive.png',
+        happy: '/images/characters/happy.png',
+        motive: '/images/characters/motive.png',
         sad: '/images/characters/sad.png',
         celebrate: '/images/characters/char.png',
         thinking: '/images/characters/think.png',

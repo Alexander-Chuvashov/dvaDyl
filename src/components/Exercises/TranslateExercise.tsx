@@ -27,6 +27,12 @@ const TranslateExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
             exercise.correct?.toString().toLowerCase();
         setIsCorrect(correct);
         setSubmitted(true);
+        console.log(
+            '🟢 TranslateExercise вызывает onAnswer, isCorrect:',
+            isCorrect,
+            'userAnswer:',
+            userAnswer,
+        );
         onAnswer(correct, userAnswer.trim(), exercise.correct?.toString());
     };
 

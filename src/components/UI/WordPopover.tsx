@@ -38,7 +38,7 @@ const WordPopover: React.FC<WordPopoverProps> = ({
     return createPortal(
         <div
             ref={popoverRef}
-            className="fixed z-50 max-w-xs p-3 border rounded-lg shadow-xl bg-surface border-cream"
+            className="fixed z-50 max-w-xs p-3 border shadow-2xl bg-card border-border rounded-xl"
             style={{
                 left: position.x,
                 top: position.y - 10,
@@ -46,10 +46,10 @@ const WordPopover: React.FC<WordPopoverProps> = ({
                 pointerEvents: 'auto',
             }}
         >
-            <div className="text-sm font-medium text-dark">{word}</div>
-            <div className="text-sm text-terracotta">{translation}</div>
-            <div className="mt-1 text-xs text-dark/50">{directionLabel}</div>
-            <div className="absolute w-2 h-2 rotate-45 border-b border-r -bottom-1 left-4 bg-surface border-cream" />
+            <div className="text-sm font-medium text-primary">{word}</div>
+            <div className="text-sm text-gold">{translation}</div>
+            <div className="mt-1 text-xs text-secondary">{directionLabel}</div>
+            <div className="absolute w-2 h-2 rotate-45 border-b border-r -bottom-1 left-4 bg-card border-border" />
         </div>,
         document.body,
     );

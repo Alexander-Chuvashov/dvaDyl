@@ -116,7 +116,7 @@ export const DatabaseService = {
                     interval: word.interval,
                     repetitions: word.repetitions,
                     next_review: word.next_review,
-                    last_rewiew: word.last_review,
+                    last_review: word.last_review,
                     updated_at: new Date().toISOString(),
                 },
                 { onConflict: 'user_id, word_id' },
