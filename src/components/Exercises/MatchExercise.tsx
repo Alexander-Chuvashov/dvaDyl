@@ -121,7 +121,7 @@ const MatchExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
             className={`card ${submitted && isCorrect ? 'border-success/30' : ''}`}
         >
             <p className="mb-4 text-lg font-medium text-primary">
-                <ClickableWord word={exercise.question} />
+                <ClickableWord word={exercise.question ?? ''} />
             </p>
             <div className="grid grid-cols-2 gap-6">
                 <div>

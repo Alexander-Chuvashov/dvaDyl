@@ -1,6 +1,6 @@
 // src/components/UI/Character.tsx
 import React, { useEffect, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, type Variants } from 'framer-motion';
 
 type CharacterState =
     | 'idle'
@@ -42,64 +42,47 @@ const Character: React.FC<CharacterProps> = ({
         thinking: '/images/characters/think.png',
     };
 
-    // Анимации для разных состояний (без variants, используем keyframes)
-    const getAnimation = (state: CharacterState) => {
-        switch (state) {
-            case 'idle':
-                return {
-                    y: [0, -8, 0],
-                    rotate: [0, 2, -2, 0],
-                    transition: {
-                        y: {
-                            duration: 1.5,
-                            repeat: Infinity,
-                            ease: [0.4, 0, 0.6, 1],
-                        },
-                        rotate: {
-                            duration: 2,
-                            repeat: Infinity,
-                            ease: [0.4, 0, 0.6, 1],
-                        },
-                    },
-                };
-            case 'happy':
-                return {
-                    scale: [1, 1.2, 1],
-                    y: [0, -20, 0],
-                    rotate: [0, -5, 5, 0],
-                    transition: {
-                        duration: 0.6,
-                        repeat: 2,
-                        ease: [0.4, 0, 0.6, 1],
-                    },
-                };
-            case 'sad':
-                return {
-                    scale: [1, 0.9, 1],
-                    y: [0, 10, 0],
-                    rotate: [0, 3, -3, 0],
-                    transition: { duration: 0.6, ease: [0.4, 0, 0.6, 1] },
-                };
-            case 'celebrate':
-                return {
-                    scale: [1, 1.3, 1, 1.2, 1],
-                    y: [0, -30, 0, -15, 0],
-                    rotate: [0, -10, 10, -5, 0],
-                    transition: { duration: 1.2, ease: [0.4, 0, 0.6, 1] },
-                };
-            case 'thinking':
-                return {
-                    rotate: [0, -10, 0, 10, 0],
-                    y: [0, -5, 0],
-                    transition: {
-                        duration: 2,
-                        repeat: Infinity,
-                        ease: [0.4, 0, 0.6, 1],
-                    },
-                };
-            default:
-                return {};
-        }
+    // Анимации для разных состояний (через variants для совместимости типов)
+    const stateVariants: Variants = {
+        idle: {
+            y: [0, -8, 0],
+            rotate: [0, 2, -2, 0],
+            transition: {
+                y: { duration: 1.5, repeat: Infinity, ease: 'easeInOut' },
+                rotate: { duration: 2, repeat: Infinity, ease: 'easeInOut' },
+            },
+        },
+        happy: {
+            scale: [1, 1.2, 1],
+            y: [0, -20, 0],
+            rotate: [0, -5, 5, 0],
+            transition: { duration: 0.6, repeat: 2, ease: 'easeInOut' },
+        },
+        sad: {
+            scale: [1, 0.9, 1],
+            y: [0, 10, 0],
+            rotate: [0, 3, -3, 0],
+            transition: { duration: 0.6, ease: 'easeInOut' },
+        },
+        celebrate: {
+            scale: [1, 1.3, 1, 1.2, 1],
+            y: [0, -30, 0, -15, 0],
+            rotate: [0, -10, 10, -5, 0],
+            transition: { duration: 1.2, ease: 'easeInOut' },
+        },
+        thinking: {
+            rotate: [0, -10, 0, 10, 0],
+            y: [0, -5, 0],
+            transition: { duration: 2, repeat: Infinity, ease: 'easeInOut' },
+        },
+        motive: {
+            y: [0, -8, 0],
+            rotate: [0, 2, -2, 0],
+            transition: {
+                y: { duration: 1.5, repeat: Infinity, ease: 'easeInOut' },
+                rotate: { duration: 2, repeat: Infinity, ease: 'easeInOut' },
+            },
+        },
     };
 
     const imageVariants = {
@@ -116,9 +99,9 @@ const Character: React.FC<CharacterProps> = ({
                 <motion.div
                     key={currentState}
                     className={`${sizeMap[size]} relative`}
-                    animate={getAnimation(currentState)}
-                    initial={false}
-                    transition={{ type: 'tween' }}
+                    variants={stateVariants}
+                    animate={currentState}
+                    initial="idle"
                 >
                     <motion.img
                         src={images[currentState]}

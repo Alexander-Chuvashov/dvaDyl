@@ -48,7 +48,7 @@ const ChoiceExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
             className={`card ${submitted && !isCorrect ? 'animate-shake' : ''}`}
         >
             <p className="text-lg font-medium text-dark">
-                <ClickableWord word={exercise.question} />
+                <ClickableWord word={exercise.question ?? ''} />
             </p>
             <div className="mt-4 space-y-2">
                 {exercise.options?.map(option => (

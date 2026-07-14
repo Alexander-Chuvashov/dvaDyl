@@ -66,7 +66,7 @@ const OrderExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
         setShowReset(false);
     };
 
-    const getItemClass = (item: string) => {
+    const getItemClass = (_item: string) => {
         if (!submitted) {
             return 'bg-card border-border text-primary hover:border-gold hover:bg-card-hover';
         }
@@ -79,7 +79,7 @@ const OrderExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
     return (
         <div className="space-y-4 card">
             <p className="text-lg font-medium text-primary">
-                <ClickableWord word={exercise.question} />
+                <ClickableWord word={exercise.question ?? ''} />
             </p>
             {exercise.hint && (
                 <p className="text-sm text-secondary">💡 {exercise.hint}</p>

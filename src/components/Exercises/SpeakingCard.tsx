@@ -1,8 +1,8 @@
 // src/components/Exercises/SpeakingCard.tsx
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import type { Exercise } from '../../types/content';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronRight, ChevronLeft, RotateCcw } from 'lucide-react';
+import { ChevronLeft, RotateCcw } from 'lucide-react';
 
 interface CardItem {
     promptRu: string;

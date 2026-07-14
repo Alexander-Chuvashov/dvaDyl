@@ -4,7 +4,6 @@ import { useAppStore } from '../store/useAppStore';
 import AnimatedWrapper from '../components/UI/AnimatedWrapper';
 import { supabase } from '../lib/supabaseClient';
 import { useNavigate } from 'react-router-dom';
-import { motion } from 'framer-motion';
 import { User, Target, Trash2, Save } from 'lucide-react';
 
 const SettingsPage: React.FC = () => {

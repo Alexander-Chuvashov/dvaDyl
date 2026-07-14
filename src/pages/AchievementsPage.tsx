@@ -4,7 +4,7 @@ import { useAppStore } from '../store/useAppStore';
 import { AchievementService } from '../services/AchievementService';
 import AnimatedWrapper from '../components/UI/AnimatedWrapper';
 import { motion } from 'framer-motion';
-import { Trophy, Lock } from 'lucide-react';
+import { Lock } from 'lucide-react';
 
 const AchievementsPage: React.FC = () => {
     const { userId } = useAppStore();

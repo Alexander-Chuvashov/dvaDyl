@@ -41,6 +41,37 @@ export const DatabaseService = {
         return user;
     },
 
+    async getWeeklyXp(userId: string): Promise<{ date: string; xp: number }[]> {
+        const sevenDaysAgo = new Date();
+        sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
+
+        const { data, error } = await supabase
+            .from('user_xp_log')
+            .select('amount, created_at')
+            .eq('user_id', userId)
+            .gte('created_at', sevenDaysAgo.toISOString());
+
+        if (error) throw error;
+
+        // Группируем по дням
+        const dailyMap: Record<string, number> = {};
+        data?.forEach(log => {
+            const date = new Date(log.created_at).toISOString().split('T')[0];
+            dailyMap[date] = (dailyMap[date] || 0) + log.amount;
+        });
+
+        // Заполняем пропущенные дни нулями
+        const result: { date: string; xp: number }[] = [];
+        const today = new Date();
+        for (let i = 6; i >= 0; i--) {
+            const d = new Date(today);
+            d.setDate(d.getDate() - i);
+            const dateStr = d.toISOString().split('T')[0];
+            result.push({ date: dateStr, xp: dailyMap[dateStr] || 0 });
+        }
+        return result;
+    },
+
     // ====== Прогресс ======
     async loadProgress(userId: string): Promise<UserProgress[]> {
         const { data, error } = await supabase

@@ -75,7 +75,7 @@ class OfflineService {
 
         for (const req of queue) {
             try {
-                const { data, error } = await supabase
+                const { error } = await supabase
                     .from(req.endpoint)
                     .upsert(req.data);
                 if (error) throw error;

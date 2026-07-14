@@ -30,8 +30,8 @@ const TuvanKeyboard: React.FC<TuvanKeyboardProps> = ({
     const [isVisible, setIsVisible] = useState(false);
     const [isShift, setIsShift] = useState(false);
     const keyboardRef = useRef<HTMLDivElement>(null);
-    const hideTimeoutRef = useRef<NodeJS.Timeout | null>(null);
-    const showTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+    const hideTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+    const showTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
     const insertChar = useCallback(
         (char: string) => {

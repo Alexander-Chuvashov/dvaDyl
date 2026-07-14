@@ -10,7 +10,6 @@ import Breadcrumbs from '../UI/Breadcrumbs';
 import { motion } from 'framer-motion';
 import TheoryView from './TheoryView';
 import {
-    BookOpen,
     ChevronRight,
     CheckCircle,
     Lock,

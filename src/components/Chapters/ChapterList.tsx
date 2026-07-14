@@ -18,6 +18,8 @@ import {
     Sparkles,
     MapPin,
 } from 'lucide-react';
+import WeeklyActivity from '../UI/WeeklyActivity';
+import RecentAchievements from './../UI/RecentAchievements';
 
 const ChapterList: React.FC = () => {
     const navigate = useNavigate();
@@ -80,7 +82,7 @@ const ChapterList: React.FC = () => {
     };
 
     const isChapterLocked = (
-        chapter: Chapter,
+        _chapter: Chapter,
         index: number,
         list: Chapter[],
     ) => {
@@ -215,6 +217,15 @@ const ChapterList: React.FC = () => {
                                 </div>
                             </div>
                         </div>
+
+                        <div className="card">
+                            <h3 className="mb-3 text-lg font-semibold text-primary">
+                                📊 Активность за неделю
+                            </h3>
+                            <WeeklyActivity />
+                        </div>
+
+                        <RecentAchievements />
 
                         {nextLesson && (
                             <button

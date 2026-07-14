@@ -33,7 +33,7 @@ const ListenExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
                 <p className="text-lg font-medium text-dark">
                     Прослушай слово и выбери правильный перевод:
                 </p>
-                <AudioButton text={exercise.question} lang="ru-RU" size="lg" />
+                <AudioButton text={exercise.question ?? ''} lang="ru-RU" size="lg" />
             </div>
             {exercise.hint && (
                 <p className="mt-1 text-sm text-dark/60">💡 {exercise.hint}</p>

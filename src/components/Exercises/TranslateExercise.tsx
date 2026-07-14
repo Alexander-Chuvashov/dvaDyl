@@ -42,7 +42,7 @@ const TranslateExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
                 className={`card ${isCorrect ? 'border-olive' : 'border-terracotta'}`}
             >
                 <p className="text-lg">
-                    <ClickableWord word={exercise.question} />
+                    <ClickableWord word={exercise.question ?? ''} />
                 </p>
                 {isCorrect ? (
                     <div className="p-3 mt-4 border rounded-lg bg-olive/10 border-olive text-olive animate-bounce-success">
@@ -70,7 +70,7 @@ const TranslateExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
     return (
         <form onSubmit={handleSubmit} className="card">
             <div className="flex items-center gap-2 text-lg font-medium text-dark">
-                <ClickableWord word={exercise.question} />
+                <ClickableWord word={exercise.question ?? ''} />
                 {/* <AudioButton text={exercise.question} lang="ru-RU" size="sm" /> */}
             </div>
             {exercise.hint && (

@@ -21,8 +21,7 @@ const DailyGoalProgress: React.FC<DailyGoalProgressProps> = ({
         // Здесь можно было бы загружать XP за сегодня из БД (user_xp_log)
         // Пока используем общий XP, но это не совсем правильно
         // Для демонстрации просто берём процент от общего XP
-        const today = new Date().toISOString().split('T')[0];
-        // Заглушка: считаем, что весь XP накоплен сегодня (для теста)
+        // TODO: загружать XP за сегодня из user_xp_log
         setTodayXp(xp);
     }, [xp]);
 

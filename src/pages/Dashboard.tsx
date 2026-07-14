@@ -19,7 +19,7 @@ import {
 
 const Dashboard: React.FC = () => {
     const navigate = useNavigate();
-    const { xp, streak, completedLessonIds, username, dailyGoal } =
+    const { xp, streak, completedLessonIds, dailyGoal } =
         useAppStore();
     const [chapters, setChapters] = useState<Chapter[]>([]);
     const [loading, setLoading] = useState(true);

@@ -50,7 +50,6 @@ const LessonView: React.FC<LessonViewProps> = ({ lesson, onComplete }) => {
 
     const exercises = lesson.exercises;
     const currentExercise = exercises[exerciseIndex];
-    const isLast = exerciseIndex === exercises.length - 1;
 
     const reviewExercises = exercises.filter(ex =>
         wrongExerciseIds.includes(ex.id),
@@ -67,17 +66,24 @@ const LessonView: React.FC<LessonViewProps> = ({ lesson, onComplete }) => {
         ex => reviewCompleted[ex.id] === true,
     );
 
-    console.log('🔍 allAttempted:', allAttempted);
-    console.log('🔍 allCompleted:', allCompleted);
-    console.log('🔍 isReviewMode:', isReviewMode);
-    console.log('🔍 wrongExerciseIds:', wrongExerciseIds);
-    console.log('🔍 allReviewCompleted:', allReviewCompleted);
+    console.log(
+        '🔍 allAttempted:',
+        allAttempted,
+        'allCompleted:',
+        allCompleted,
+        'isReviewMode:',
+        isReviewMode,
+        'wrongExerciseIds:',
+        wrongExerciseIds,
+        'allReviewCompleted:',
+        allReviewCompleted,
+    );
 
     const completeLesson = useCallback(async () => {
+        console.log('🚀 completeLesson вызван для урока:', lesson.id);
         if (isLessonCompletedRef.current) return;
         isLessonCompletedRef.current = true;
         setCharacterState('celebrate');
-        console.log('🚀 completeLesson вызван для урока:', lesson.id);
 
         try {
             if (!userId) {
@@ -177,6 +183,8 @@ const LessonView: React.FC<LessonViewProps> = ({ lesson, onComplete }) => {
         console.log(
             '⚡ useEffect [allReviewCompleted] triggered, isReviewMode:',
             isReviewMode,
+            'allReviewCompleted:',
+            allReviewCompleted,
         );
         if (!userId) return;
         if (!isReviewMode) return;
@@ -196,6 +204,7 @@ const LessonView: React.FC<LessonViewProps> = ({ lesson, onComplete }) => {
         completeLesson,
     ]);
 
+    // Обработка ответа
     const handleAnswer = useCallback(
         async (isCorrect: boolean, userAnswer?: string) => {
             if (isProcessingRef.current) return;
@@ -220,13 +229,20 @@ const LessonView: React.FC<LessonViewProps> = ({ lesson, onComplete }) => {
 
             if (isCorrect) {
                 if (isReviewMode) {
+                    console.log(
+                        '🟢 Режим повторения: правильный ответ, exerciseId:',
+                        exerciseId,
+                    );
+                    console.log('🟢 wrongExerciseIds до:', wrongExerciseIds);
                     setReviewCompleted(prev => ({
                         ...prev,
                         [exerciseId]: true,
                     }));
-                    setWrongExerciseIds(prev =>
-                        prev.filter(id => id !== exerciseId),
-                    );
+                    setWrongExerciseIds(prev => {
+                        const filtered = prev.filter(id => id !== exerciseId);
+                        console.log('🟢 wrongExerciseIds после:', filtered);
+                        return filtered;
+                    });
                 } else {
                     setCompletedExercises(prev => ({
                         ...prev,

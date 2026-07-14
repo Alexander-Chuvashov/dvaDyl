@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useAppStore } from '../store/useAppStore';
 import { loadAllChapters } from '../services/ContentService';
-import type { Exercise, Lesson } from '../types/content';
+import type { Lesson } from '../types/content';
 import ExerciseRenderer from '../components/Exercises/ExerciseRenderer';
 import AnimatedWrapper from '../components/UI/AnimatedWrapper';
 import Skeleton from '../components/UI/Skeleton';
@@ -45,7 +45,7 @@ const RepeatErrorsPage: React.FC = () => {
         loadErrors();
     }, [errorExercises]);
 
-    const handleAnswer = (isCorrect: boolean, userAnswer?: string) => {
+    const handleAnswer = (isCorrect: boolean) => {
         if (isCorrect) {
             // Если правильно, удаляем упражнение из ошибок
             // Но пока просто переходим к следующему

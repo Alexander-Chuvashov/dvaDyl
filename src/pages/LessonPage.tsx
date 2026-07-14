@@ -7,7 +7,6 @@ import LessonView from '../components/Lessons/LessonView';
 import TheoryView from '../components/Chapters/TheoryView';
 import Skeleton from '../components/UI/Skeleton';
 import Breadcrumbs from '../components/UI/Breadcrumbs';
-import { useAppStore } from '../store/useAppStore';
 import { motion } from 'framer-motion';
 import { FileText, X } from 'lucide-react';
 
@@ -15,7 +14,7 @@ const LessonPage: React.FC = () => {
     const { chapterId, lessonId } = useParams();
     const navigate = useNavigate();
     const location = useLocation();
-    const { completedLessonIds } = useAppStore();
+
     const [lesson, setLesson] = useState<Lesson | null>(null);
     const [theories, setTheories] = useState<Theory[]>([]);
     const [chapterTitle, setChapterTitle] = useState<string>(

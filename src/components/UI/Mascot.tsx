@@ -1,6 +1,6 @@
 // src/components/UI/Mascot.tsx
 import React, { useEffect, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, type Variants } from 'framer-motion';
 
 type MascotState = 'idle' | 'happy' | 'sad' | 'celebrate' | 'thinking';
 
@@ -28,7 +28,7 @@ const Mascot: React.FC<MascotProps> = ({
     };
 
     // Анимации для каждого состояния
-    const variants = {
+    const variants: Variants = {
         idle: {
             y: [0, -8, 0],
             rotate: [0, 2, -2, 0],

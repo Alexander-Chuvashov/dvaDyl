@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React from 'react';
 
 interface VirtualKeyboardProps {
     inputRef: React.RefObject<HTMLInputElement | HTMLTextAreaElement>;

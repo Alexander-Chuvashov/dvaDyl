@@ -8,7 +8,7 @@ export const TestSupabase = () => {
     useEffect(() => {
         const testConnection = async () => {
             try {
-                const { data, error } = await supabase
+                const { error } = await supabase
                     .from('users')
                     .select('count');
                 if (error) throw error;

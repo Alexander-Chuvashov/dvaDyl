@@ -12,7 +12,7 @@ const LevelProgressBar: React.FC<LevelProgressBarProps> = ({
     className = '',
     showLevel = true,
 }) => {
-    const { level, progress, xpInLevel, xpToNext, nextLevelXp } =
+    const { level, progress, xpInLevel, xpToNext } =
         getLevelInfo(xp);
 
     return (
