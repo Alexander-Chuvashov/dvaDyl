@@ -2,7 +2,14 @@
 import './index.css';
 
 import React, { useEffect } from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import {
+    BrowserRouter,
+    Routes,
+    Route,
+    Navigate,
+    useLocation,
+} from 'react-router-dom';
+import { AnimatePresence, motion } from 'framer-motion';
 import { useAppStore } from './store/useAppStore';
 import { supabase } from './lib/supabaseClient';
 import AppLayout from './components/Layout/AppLayout';
@@ -14,12 +21,11 @@ import ReviewPage from './pages/ReviewPage';
 import AchievementsPage from './pages/AchievementsPage';
 import SettingsPage from './pages/SettingsPage';
 import StatsPage from './pages/StatsPage';
+import LearnedWordsPage from './pages/LearnedWordsPage';
 import LessonPage from './pages/LessonPage';
-import PageTransition from './components/UI/PageTransition';
-import RepeatErrorsPage from './pages/RepeatErrorPage';
 import { TranslationService } from './services/TranslationService';
+import ToastContainer from './components/UI/ToastContainer';
 
-// Компонент для защищённых маршрутов (вынесен за пределы App, чтобы не создавать компонент внутри рендера)
 const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({
     children,
 }) => {
@@ -30,12 +36,29 @@ const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({
     return <>{children}</>;
 };
 
+// Компонент-обёртка для анимации страниц
+const PageWrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+    const location = useLocation();
+    return (
+        <AnimatePresence mode="wait">
+            <motion.div
+                key={location.pathname}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.3, ease: 'easeInOut' }}
+                className="w-full"
+            >
+                {children}
+            </motion.div>
+        </AnimatePresence>
+    );
+};
+
 function App() {
     const { setUserId, loadUserData, loadUserSettings } = useAppStore();
 
-    // Проверяем сессию при загрузке
     useEffect(() => {
-        TranslationService.loadVocabulary().catch(console.error);
         const getSession = async () => {
             const {
                 data: { session },
@@ -47,8 +70,9 @@ function App() {
             }
         };
         getSession();
-
-        // Подписка на изменения авторизации
+        TranslationService.loadVocabulary()
+            .then(() => console.log('✅ Словарь загружен'))
+            .catch(err => console.error('❌ Ошибка загрузки словаря:', err));
         const {
             data: { subscription },
         } = supabase.auth.onAuthStateChange(async (_event, session) => {
@@ -69,89 +93,78 @@ function App() {
     return (
         <BrowserRouter>
             <AppLayout>
-                <Routes>
-                    <Route path="/login" element={<Login />} />
-                    <Route path="/register" element={<Register />} />
-                    <Route
-                        path="/"
-                        element={
-                            <ProtectedRoute>
-                                <PageTransition>
+                <PageWrapper>
+                    <Routes>
+                        <Route path="/login" element={<Login />} />
+                        <Route path="/register" element={<Register />} />
+                        <Route
+                            path="/"
+                            element={
+                                <ProtectedRoute>
                                     <ChapterList />
-                                </PageTransition>
-                            </ProtectedRoute>
-                        }
-                    />
-                    <Route
-                        path="/chapter/:chapterId"
-                        element={
-                            <ProtectedRoute>
-                                <PageTransition>
+                                </ProtectedRoute>
+                            }
+                        />
+                        <Route
+                            path="/chapter/:chapterId"
+                            element={
+                                <ProtectedRoute>
                                     <ChapterView />
-                                </PageTransition>
-                            </ProtectedRoute>
-                        }
-                    />
-                    <Route
-                        path="/review"
-                        element={
-                            <ProtectedRoute>
-                                <PageTransition>
-                                    <ReviewPage />
-                                </PageTransition>
-                            </ProtectedRoute>
-                        }
-                    />
-                    <Route
-                        path="/achievements"
-                        element={
-                            <ProtectedRoute>
-                                <PageTransition>
-                                    <AchievementsPage />
-                                </PageTransition>
-                            </ProtectedRoute>
-                        }
-                    />
-                    <Route
-                        path="/settings"
-                        element={
-                            <ProtectedRoute>
-                                <PageTransition>
-                                    <SettingsPage />
-                                </PageTransition>
-                            </ProtectedRoute>
-                        }
-                    />
-                    <Route
-                        path="/stats"
-                        element={
-                            <ProtectedRoute>
-                                <PageTransition>
-                                    <StatsPage />
-                                </PageTransition>
-                            </ProtectedRoute>
-                        }
-                    />
-                    <Route
-                        path="/chapter/:chapterId/lesson/:lessonId"
-                        element={
-                            <ProtectedRoute>
-                                <PageTransition>
+                                </ProtectedRoute>
+                            }
+                        />
+                        <Route
+                            path="/chapter/:chapterId/lesson/:lessonId"
+                            element={
+                                <ProtectedRoute>
                                     <LessonPage />
-                                </PageTransition>
-                            </ProtectedRoute>
-                        }
-                    />
-                    <Route
-                        path="/repeat-errors"
-                        element={
-                            <ProtectedRoute>
-                                <RepeatErrorsPage />
-                            </ProtectedRoute>
-                        }
-                    />
-                    <Route path="*" element={<Navigate to="/" replace />} />
-                </Routes>
+                                </ProtectedRoute>
+                            }
+                        />
+                        <Route
+                            path="/review"
+                            element={
+                                <ProtectedRoute>
+                                    <ReviewPage />
+                                </ProtectedRoute>
+                            }
+                        />
+                        <Route
+                            path="/achievements"
+                            element={
+                                <ProtectedRoute>
+                                    <AchievementsPage />
+                                </ProtectedRoute>
+                            }
+                        />
+                        <Route
+                            path="/settings"
+                            element={
+                                <ProtectedRoute>
+                                    <SettingsPage />
+                                </ProtectedRoute>
+                            }
+                        />
+                        <Route
+                            path="/stats"
+                            element={
+                                <ProtectedRoute>
+                                    <StatsPage />
+                                </ProtectedRoute>
+                            }
+                        />
+                        <Route
+                            path="/learned-words"
+                            element={
+                                <ProtectedRoute>
+                                    <LearnedWordsPage />
+                                </ProtectedRoute>
+                            }
+                        />
+                        <Route path="*" element={<Navigate to="/" replace />} />
+                    </Routes>
+                    <ToastContainer />
+                </PageWrapper>
             </AppLayout>
         </BrowserRouter>
     );

@@ -34,7 +34,13 @@
             "orderItems": ["Ол", "кижи", "-", "дыр"],
             "correct": ["Ол", "кижи", "-", "дыр"]
         },
-
+        {
+            "id": "ex_b2_4",
+            "type": "translate",
+            "order": 3,
+            "question": "Мен",
+            "correct": "Я"
+        },
         {
             "id": "ex_b2_5",
             "type": "translate",

@@ -40,62 +40,64 @@ const ChapterCard: React.FC<ChapterCardProps> = ({
     return (
         <div
             onClick={handleClick}
-            className={`group w-full card hover:shadow-card-lg transition-all duration-300 flex items-center justify-between ${
+            className={`group w-full card p-4 sm:p-6 hover:shadow-xl transition-all duration-300 flex items-center justify-between ${
                 isLocked
                     ? 'opacity-50 cursor-not-allowed'
-                    : 'cursor-pointer hover:scale-[1.02]'
+                    : 'cursor-pointer hover:scale-[1.01] sm:hover:scale-[1.02]'
             } ${isFullyCompleted ? 'border-success/30 bg-success/5' : ''}`}
         >
-            <div className="flex-1 text-left">
-                <div className="flex items-center gap-3 mb-1">
+            <div className="flex-1 min-w-0 text-left">
+                <div className="flex items-center gap-2 mb-1 sm:gap-3">
                     {isLocked ? (
-                        <Lock className="w-6 h-6 text-secondary" />
+                        <Lock className="w-5 h-5 sm:w-6 sm:h-6 text-secondary/40" />
                     ) : isFullyCompleted ? (
-                        <CheckCircle className="w-6 h-6 text-success" />
+                        <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6 text-success animate-bounce-success" />
                     ) : (
-                        <BookOpen className="w-6 h-6 text-gold group-hover:rotate-[-5deg] transition-transform" />
+                        <BookOpen className="w-5 h-5 sm:w-6 sm:h-6 text-gold group-hover:rotate-[-5deg] transition-transform" />
                     )}
-                    <h2 className="text-xl font-semibold text-primary">
+                    <h2 className="text-base font-semibold truncate sm:text-xl text-primary">
                         {chapter.title}
-                        <span className="ml-2 text-sm font-medium text-gold">
+                        <span className="ml-1 text-xs font-medium sm:ml-2 sm:text-sm text-gold">
                             {chapter.titleTuvan}
                         </span>
                     </h2>
                 </div>
-                <p className="mb-2 text-sm text-secondary">
+                <p className="mb-2 text-xs truncate sm:text-sm text-secondary/70">
                     {chapter.description}
                 </p>
-                <div className="flex items-center gap-4 text-xs text-secondary">
+                <div className="flex flex-wrap items-center gap-2 text-xs sm:gap-4 sm:text-sm text-secondary/50">
                     <span className="flex items-center gap-1">
-                        <span className="text-base">📖</span> {totalLessons}{' '}
-                        уроков
+                        <span className="text-sm sm:text-base">📖</span>{' '}
+                        {totalLessons} уроков
                     </span>
                     {totalLessons > 0 && (
-                        <div className="flex items-center gap-2 flex-1 max-w-[200px]">
-                            <div className="w-full h-2 overflow-hidden rounded-full bg-card-hover">
+                        <div className="flex items-center gap-1 sm:gap-2 flex-1 min-w-[80px] max-w-[120px] sm:max-w-[200px]">
+                            <div className="w-full h-1.5 sm:h-2 bg-cream rounded-full overflow-hidden">
                                 <div
                                     className="h-full transition-all duration-1000 ease-out rounded-full bg-gold-gradient"
                                     style={{ width: `${progress}%` }}
                                 />
                             </div>
-                            <span className="font-medium text-secondary">
+                            <span className="text-xs font-medium sm:text-sm">
                                 {progress}%
                             </span>
                         </div>
                     )}
                     {isLocked && (
-                        <span className="text-xs text-secondary/50">
+                        <span className="flex items-center gap-1 text-xs text-secondary/40">
                             🔒 заблокировано
                         </span>
                     )}
                     {isFullyCompleted && !isLocked && (
-                        <span className="text-xs text-success">
+                        <span className="flex items-center gap-1 text-xs text-success">
                             ✅ пройдено
                         </span>
                     )}
                 </div>
             </div>
-            <div className="text-2xl transition-transform text-gold group-hover:translate-x-1">
+            <div
+                className={`text-2xl sm:text-3xl text-gold transition-transform shrink-0 ${isLocked ? 'opacity-30' : 'group-hover:translate-x-1'}`}
+            >
                 {isLocked ? '' : '→'}
             </div>
         </div>

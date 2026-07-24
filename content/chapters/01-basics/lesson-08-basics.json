@@ -74,18 +74,11 @@
             "options": ["Кто он?", "Это он", "Это она"],
             "correct": "Это он"
         },
-        {
-            "id": "ex_b8_9",
-            "type": "order",
-            "order": 8,
-            "question": "Собери вопрос: 'Кто ты?'",
-            "orderItems": ["сен?", "Кым", "мен", "ол"],
-            "correct": ["Кым", "сен?"]
-        },
+
         {
             "id": "ex_b8_10",
             "type": "translate",
-            "order": 9,
+            "order": 8,
             "question": "Кым",
             "correct": "Кто"
         }

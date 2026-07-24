@@ -1,3 +1,4 @@
+// vite.config.ts
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
@@ -13,12 +14,14 @@ export default defineConfig({
                 'mask-icon.svg',
             ],
             manifest: {
-                name: 'DVA-DYL - Тувинский язык',
+                name: 'дваДЫЛ',
                 short_name: 'DVA-DYL',
-                description: 'Изучай тувинский язык с нуля',
-                theme_color: '#E8DCC8',
-                background_color: '#E8DCC8',
+                description: 'Изучение тувинского языка с геймификацией',
+                theme_color: '#0A0F1C',
+                background_color: '#0A0F1C',
                 display: 'standalone',
+                orientation: 'portrait',
+                start_url: '/',
                 icons: [
                     {
                         src: 'pwa-192x192.png',
@@ -29,7 +32,6 @@ export default defineConfig({
                         src: 'pwa-512x512.png',
                         sizes: '512x512',
                         type: 'image/png',
-                        purpose: 'any',
                     },
                 ],
             },
@@ -37,25 +39,26 @@ export default defineConfig({
                 globPatterns: ['**/*.{js,css,html,ico,png,svg,woff2}'],
                 runtimeCaching: [
                     {
-                        urlPattern:
-                            /^https:\/\/hurdvyigefxttxttprsy\.supabase\.co\/rest\/v1\/.*/i,
-                        handler: 'NetworkFirst',
+                        urlPattern: ({ request }) =>
+                            request.destination === 'image',
+                        handler: 'CacheFirst',
                         options: {
-                            cacheName: 'supabase-cache',
+                            cacheName: 'images',
                             expiration: {
-                                maxEntries: 100,
+                                maxEntries: 50,
                                 maxAgeSeconds: 60 * 60 * 24 * 7, // 7 дней
                             },
                         },
                     },
                     {
-                        urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
+                        urlPattern: ({ url }) =>
+                            url.pathname.startsWith('/content/'),
                         handler: 'CacheFirst',
                         options: {
-                            cacheName: 'google-fonts-cache',
+                            cacheName: 'content',
                             expiration: {
-                                maxEntries: 10,
-                                maxAgeSeconds: 60 * 60 * 24 * 365, // 1 год
+                                maxEntries: 100,
+                                maxAgeSeconds: 60 * 60 * 24 * 30, // 30 дней
                             },
                         },
                     },
@@ -63,7 +66,4 @@ export default defineConfig({
             },
         }),
     ],
-    server: {
-        port: 3000,
-    },
 });

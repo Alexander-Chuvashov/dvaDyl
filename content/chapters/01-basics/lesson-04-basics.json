@@ -3,8 +3,8 @@
     "id": "lesson_4_101_basics",
     "chapterId": "ch_101_basics",
     "title": "Урок 4: Мужчины и женщины",
-    "titleTuvan": "Кичээл 4: Эр кижи болгаш кыс кижи",
-    "description": "Слова ол, эр кижи, кыс кижи",
+    "titleTuvan": "Кичээл 4: Эр кижи болгаш херээжен",
+    "description": "Слова ол, эр кижи, херээжен",
     "skill": "vocabulary",
     "order": 5,
     "isPublished": true,
@@ -23,7 +23,7 @@
             "type": "translate",
             "order": 1,
             "question": "Женщина",
-            "correct": "Кыс кижи"
+            "correct": "херээжен"
         },
         {
             "id": "ex_b4_3",
@@ -38,8 +38,8 @@
             "type": "choice",
             "order": 3,
             "question": "Выбери 'Женщина'",
-            "options": ["Кыс кижи", "Эр кижи", "Кыс"],
-            "correct": "Кыс кижи"
+            "options": ["Кыс кижи", "Эр кижи", "Херээжен"],
+            "correct": "Херээжен"
         },
         {
             "id": "ex_b4_5",
@@ -54,8 +54,8 @@
             "type": "order",
             "order": 5,
             "question": "Собери: 'Ты женщина'",
-            "orderItems": ["Сен", "кыс кижи", "сен"],
-            "correct": ["Сен", "кыс кижи", "сен"]
+            "orderItems": ["Сен", "херээжен", "сен"],
+            "correct": ["Сен", "херээжен", "сен"]
         },
         {
             "id": "ex_b4_7",
@@ -64,7 +64,7 @@
             "question": "Сопоставь",
             "matchPairs": [
                 { "left": "Эр кижи", "right": "Мужчина" },
-                { "left": "Кыс кижи", "right": "Женщина" }
+                { "left": "Херээжен", "right": "Женщина" }
             ]
         },
         {
@@ -78,7 +78,7 @@
             "id": "ex_b4_9",
             "type": "translate",
             "order": 8,
-            "question": "Кыс кижи",
+            "question": "Херээжен",
             "correct": "Женщина"
         },
         {

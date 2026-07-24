@@ -3,7 +3,7 @@
     "id": "lesson_6_101_basics",
     "chapterId": "ch_101_basics",
     "title": "Урок 6: Отрицание",
-    "titleTuvan": "Кичээл 6: Эвес",
+    "titleTuvan": "Кичээл 6: Хүлээвези",
     "description": "Использование частицы эвес",
     "skill": "grammar",
     "order": 7,
@@ -55,14 +55,14 @@
             "type": "translate",
             "order": 5,
             "question": "Я не женщина",
-            "correct": "Мен кыс кижи эвес мен"
+            "correct": "Мен херээжен эвес мен"
         },
         {
             "id": "ex_b6_7",
             "type": "translate",
             "order": 6,
             "question": "Ол кыс эвес",
-            "correct": "Она не девочка"
+            "correct": "Она не девушка"
         },
         {
             "id": "ex_b6_8",

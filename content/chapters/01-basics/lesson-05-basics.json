@@ -3,8 +3,8 @@
     "id": "lesson_5_101_basics",
     "chapterId": "ch_101_basics",
     "title": "Урок 5: Мальчики и девочки",
-    "titleTuvan": "Кичээл 5: Оолдар болгаш кыстар",
-    "description": "Слова оол, кыс, ача",
+    "titleTuvan": "Кичээл 5: Оолдар уруглар",
+    "description": "Слова оол, уруг, ача",
     "skill": "vocabulary",
     "order": 6,
     "isPublished": true,
@@ -23,21 +23,21 @@
             "type": "translate",
             "order": 1,
             "question": "Девочка",
-            "correct": "Кыс"
+            "correct": "Уруг"
         },
         {
             "id": "ex_b5_3",
             "type": "translate",
             "order": 2,
             "question": "Ребенок",
-            "correct": "Ача"
+            "correct": "Чаш уруг"
         },
         {
             "id": "ex_b5_4",
             "type": "choice",
             "order": 3,
             "question": "Выбери 'Мальчик'",
-            "options": ["Кыс", "Ача", "Оол"],
+            "options": ["Уруг", "Ача", "Оол"],
             "correct": "Оол"
         },
         {
@@ -45,8 +45,8 @@
             "type": "choice",
             "order": 4,
             "question": "Выбери 'Девочка'",
-            "options": ["Кыс", "Оол", "Эр кижи"],
-            "correct": "Кыс"
+            "options": ["Уруг", "Оол", "Эр кижи"],
+            "correct": "Уруг"
         },
         {
             "id": "ex_b5_6",
@@ -61,8 +61,8 @@
             "type": "order",
             "order": 6,
             "question": "Собери: 'Она девочка'",
-            "orderItems": ["Ол", "кыс", "-дыр"],
-            "correct": ["Ол", "кыс", "-дыр"]
+            "orderItems": ["Ол", "уруг", "-дыр"],
+            "correct": ["Ол", "уруг", "-дыр"]
         },
         {
             "id": "ex_b5_8",
@@ -71,8 +71,8 @@
             "question": "Сопоставь",
             "matchPairs": [
                 { "left": "Оол", "right": "Мальчик" },
-                { "left": "Кыс", "right": "Девочка" },
-                { "left": "Ача", "right": "Ребенок" }
+                { "left": "Уруг", "right": "Девочка" },
+                { "left": "Чаш уруг", "right": "Ребенок" }
             ]
         },
         {
@@ -86,7 +86,7 @@
             "id": "ex_b5_10",
             "type": "choice",
             "order": 9,
-            "question": "Выбери перевод: 'Мен ача эвес мен'",
+            "question": "Выбери перевод: 'Мен чаш уруг эвес мен'",
             "options": ["Я мальчик", "Я не ребенок", "Я ребенок"],
             "correct": "Я не ребенок"
         }

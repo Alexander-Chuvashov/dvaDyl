@@ -1,7 +1,6 @@
 // src/components/Exercises/ChoiceExercise.tsx
 import React, { useState } from 'react';
 import type { Exercise } from '../../types/content';
-// import AudioButton from '../UI/AudioButton';
 import ClickableWord from '../UI/ClickableWord';
 
 interface Props {
@@ -34,38 +33,37 @@ const ChoiceExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
     const getOptionClass = (option: string) => {
         if (!submitted) {
             return selected === option
-                ? 'border-terracotta bg-terracotta/10 ring-2 ring-terracotta'
-                : 'border-cream hover:border-terracotta/30';
+                ? 'border-gold bg-gold/10 ring-2 ring-gold'
+                : 'border-border bg-card hover:border-gold hover:bg-card-hover';
         }
-        if (option === exercise.correct) return 'border-olive bg-olive/10';
+        if (option === exercise.correct)
+            return 'border-success bg-success/10 text-success';
         if (selected === option && option !== exercise.correct)
-            return 'border-terracotta bg-terracotta/10';
-        return 'border-cream opacity-60';
+            return 'border-error bg-error/10 text-error';
+        return 'border-border bg-card opacity-60';
     };
 
     return (
         <div
-            className={`card ${submitted && !isCorrect ? 'animate-shake' : ''}`}
+            className={`card p-4 sm:p-6 space-y-3 sm:space-y-4 ${submitted && !isCorrect ? 'animate-shake' : ''}`}
         >
-            <p className="text-lg font-medium text-dark">
-                <ClickableWord word={exercise.question ?? ''} />
+            <p className="text-base font-medium sm:text-lg text-primary">
+                {exercise.question && (
+                    <ClickableWord word={exercise.question} />
+                )}
             </p>
-            <div className="mt-4 space-y-2">
+            <div className="space-y-2 sm:space-y-3">
                 {exercise.options?.map(option => (
                     <div
                         key={option}
                         onClick={() => handleSelect(option)}
-                        className={`w-full text-left px-4 py-3 rounded-lg border-2 transition-all cursor-pointer ${getOptionClass(option)}`}
+                        className={`w-full text-left px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl border-2 transition-all cursor-pointer text-sm sm:text-base ${getOptionClass(option)} ${
+                            !submitted && selected === option
+                                ? 'shadow-gold'
+                                : ''
+                        }`}
                     >
                         <ClickableWord word={option} />
-                        {/* {!submitted && (
-                            <AudioButton
-                                text={option}
-                                lang="tuv"
-                                size="sm"
-                                className="float-right"
-                            />
-                        )} */}
                         {submitted && option === exercise.correct && ' ✅'}
                         {submitted &&
                             selected === option &&
@@ -78,19 +76,19 @@ const ChoiceExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
                 <button
                     onClick={handleSubmit}
                     disabled={!selected}
-                    className="mt-4 btn-primary disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full text-sm btn-primary sm:w-auto sm:text-base disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                     Проверить
                 </button>
             )}
             {submitted && !isCorrect && (
-                <div className="p-3 mt-4 border rounded-lg bg-terracotta/10 border-terracotta text-terracotta">
+                <div className="p-2 text-sm border rounded-lg sm:p-3 bg-error/10 border-error/30 text-error sm:text-base">
                     ❌ Неправильно. Правильный ответ:{' '}
                     <span className="font-bold">{exercise.correct}</span>
                 </div>
             )}
             {submitted && isCorrect && (
-                <div className="p-3 mt-4 border rounded-lg bg-olive/10 border-olive text-olive animate-bounce-success">
+                <div className="p-2 text-sm border rounded-lg sm:p-3 bg-success/10 border-success/30 text-success sm:text-base animate-bounce-success">
                     ✅ Правильно!
                 </div>
             )}

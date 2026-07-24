@@ -104,28 +104,35 @@ const MatchExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
 
     const getLeftClass = (left: string) => {
         if (matches.some(m => m.left === left))
-            return 'bg-success/10 border-success/30 text-success';
-        if (selectedLeft === left) return 'border-gold bg-gold/10 text-gold';
-        return 'border-border bg-card hover:bg-card-hover text-primary';
+            return 'border-success/30 bg-success/10 text-success cursor-default';
+        if (selectedLeft === left)
+            return 'border-gold bg-gold/10 text-gold ring-2 ring-gold';
+        return 'border-border bg-card hover:border-gold hover:bg-card-hover';
     };
 
     const getRightClass = (right: string) => {
         if (matches.some(m => m.right === right))
-            return 'bg-success/10 border-success/30 text-success';
-        if (selectedRight === right) return 'border-gold bg-gold/10 text-gold';
-        return 'border-border bg-card hover:bg-card-hover text-primary';
+            return 'border-success/30 bg-success/10 text-success cursor-default';
+        if (selectedRight === right)
+            return 'border-gold bg-gold/10 text-gold ring-2 ring-gold';
+        return 'border-border bg-card hover:border-gold hover:bg-card-hover';
     };
 
     return (
         <div
-            className={`card ${submitted && isCorrect ? 'border-success/30' : ''}`}
+            className={`card p-4 sm:p-6 space-y-4 ${submitted && isCorrect ? 'border-success/30' : ''}`}
         >
-            <p className="mb-4 text-lg font-medium text-primary">
-                <ClickableWord word={exercise.question ?? ''} />
+            <p className="text-base font-medium break-words sm:text-lg text-primary">
+                {exercise.question && (
+                    <ClickableWord word={exercise.question} />
+                )}
             </p>
-            <div className="grid grid-cols-2 gap-6">
+
+            {/* Мобильная версия: одна колонка */}
+            <div className="grid grid-cols-1 gap-3 md:grid-cols-2 sm:gap-4">
+                {/* Левая колонка (Русский) */}
                 <div>
-                    <h3 className="mb-2 text-sm font-semibold uppercase text-secondary">
+                    <h3 className="mb-2 text-xs font-semibold uppercase sm:text-sm text-secondary">
                         Русский
                     </h3>
                     <div className="space-y-2">
@@ -137,7 +144,7 @@ const MatchExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
                                 return (
                                     <div
                                         key={idx}
-                                        className="flex items-center justify-between px-4 py-2 border rounded-xl border-success/30 bg-success/10 text-success"
+                                        className="flex items-center justify-between px-3 py-2 text-sm border sm:px-4 sm:py-3 rounded-xl border-success/30 bg-success/10 text-success sm:text-base"
                                     >
                                         <ClickableWord word={left} />
                                         <span className="text-success">✓</span>
@@ -148,7 +155,11 @@ const MatchExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
                                 <button
                                     key={idx}
                                     onClick={() => handleLeftClick(left)}
-                                    className={`w-full text-left px-4 py-2 rounded-xl border-2 transition-all duration-200 ${getLeftClass(left)}`}
+                                    className={`w-full text-left px-3 sm:px-4 py-2 sm:py-3 rounded-xl border-2 transition-all duration-200 text-sm sm:text-base ${getLeftClass(left)} ${
+                                        selectedLeft === left && !submitted
+                                            ? 'shadow-gold'
+                                            : ''
+                                    }`}
                                 >
                                     <ClickableWord word={left} />
                                 </button>
@@ -156,8 +167,10 @@ const MatchExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
                         })}
                     </div>
                 </div>
+
+                {/* Правая колонка (Тувинский) */}
                 <div>
-                    <h3 className="mb-2 text-sm font-semibold uppercase text-secondary">
+                    <h3 className="mb-2 text-xs font-semibold uppercase sm:text-sm text-secondary">
                         Тувинский
                     </h3>
                     <div className="space-y-2">
@@ -169,7 +182,7 @@ const MatchExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
                                 return (
                                     <div
                                         key={idx}
-                                        className="flex items-center justify-between px-4 py-2 border rounded-xl border-success/30 bg-success/10 text-success"
+                                        className="flex items-center justify-between px-3 py-2 text-sm border sm:px-4 sm:py-3 rounded-xl border-success/30 bg-success/10 text-success sm:text-base"
                                     >
                                         <ClickableWord word={right} />
                                         <span className="text-success">✓</span>
@@ -180,7 +193,11 @@ const MatchExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
                                 <button
                                     key={idx}
                                     onClick={() => handleRightClick(right)}
-                                    className={`w-full text-left px-4 py-2 rounded-xl border-2 transition-all duration-200 ${getRightClass(right)}`}
+                                    className={`w-full text-left px-3 sm:px-4 py-2 sm:py-3 rounded-xl border-2 transition-all duration-200 text-sm sm:text-base ${getRightClass(right)} ${
+                                        selectedRight === right && !submitted
+                                            ? 'shadow-gold'
+                                            : ''
+                                    }`}
                                 >
                                     <ClickableWord word={right} />
                                 </button>
@@ -196,12 +213,12 @@ const MatchExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -10 }}
-                        className="p-3 mt-4 border rounded-xl border-error/30 bg-error/10 text-error"
+                        className="p-2 text-sm border sm:p-3 rounded-xl border-error/30 bg-error/10 text-error sm:text-base"
                     >
                         <p>{error}</p>
                         <button
                             onClick={handleReset}
-                            className="mt-2 text-sm btn-secondary"
+                            className="mt-2 text-xs btn-secondary sm:text-sm"
                         >
                             Начать заново
                         </button>
@@ -215,7 +232,7 @@ const MatchExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
                         initial={{ opacity: 0, scale: 0.9 }}
                         animate={{ opacity: 1, scale: 1 }}
                         exit={{ opacity: 0, scale: 0.9 }}
-                        className="p-3 mt-4 font-semibold text-center border rounded-xl border-success/30 bg-success/10 text-success"
+                        className="p-2 text-sm font-semibold text-center border sm:p-3 rounded-xl border-success/30 bg-success/10 text-success sm:text-base"
                     >
                         ✅ Все пары сопоставлены верно!
                     </motion.div>
@@ -225,7 +242,7 @@ const MatchExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
             {!submitted && !error && (
                 <button
                     onClick={handleReset}
-                    className="mt-4 text-sm transition-colors text-secondary hover:text-primary"
+                    className="text-xs transition-colors sm:text-sm text-secondary hover:text-primary"
                 >
                     Сбросить всё
                 </button>

@@ -4,7 +4,8 @@ import { useAppStore } from '../store/useAppStore';
 import AnimatedWrapper from '../components/UI/AnimatedWrapper';
 import { supabase } from '../lib/supabaseClient';
 import { useNavigate } from 'react-router-dom';
-import { User, Target, Trash2, Save } from 'lucide-react';
+import { User, Target, Trash2, Save, Download, Upload } from 'lucide-react';
+import { DatabaseService } from '../services/DatabaseService';
 
 const SettingsPage: React.FC = () => {
     const navigate = useNavigate();
@@ -16,6 +17,7 @@ const SettingsPage: React.FC = () => {
         setDailyGoal,
         saveUserSettings,
         resetAll,
+        loadUserData,
         xp,
         streak,
         completedLessonIds,
@@ -87,6 +89,10 @@ const SettingsPage: React.FC = () => {
                     .from('user_achievements')
                     .delete()
                     .eq('user_id', userId);
+                await supabase
+                    .from('user_xp_log')
+                    .delete()
+                    .eq('user_id', userId);
             }
             resetAll();
             navigate('/');
@@ -96,18 +102,70 @@ const SettingsPage: React.FC = () => {
         }
     };
 
+    const handleExport = async () => {
+        if (!userId) return;
+        try {
+            const data = await DatabaseService.exportUserData(userId);
+            const blob = new Blob([JSON.stringify(data, null, 2)], {
+                type: 'application/json',
+            });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `dva-dyl-backup-${new Date().toISOString().split('T')[0]}.json`;
+            a.click();
+            URL.revokeObjectURL(url);
+            setMessage({
+                type: 'success',
+                text: '✅ Данные успешно экспортированы!',
+            });
+        } catch (error) {
+            console.error('Ошибка экспорта:', error);
+            setMessage({ type: 'error', text: '❌ Ошибка экспорта данных' });
+        }
+    };
+
+    const handleImport = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const file = event.target.files?.[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = async e => {
+            try {
+                const data = JSON.parse(e.target?.result as string);
+                if (!confirm('Импорт заменит все текущие данные. Продолжить?'))
+                    return;
+                if (!userId) return;
+                await DatabaseService.importUserData(userId, data);
+                setMessage({
+                    type: 'success',
+                    text: '✅ Данные успешно импортированы!',
+                });
+                await loadUserData(userId);
+                window.location.reload();
+            } catch (error) {
+                console.error('Ошибка импорта:', error);
+                setMessage({
+                    type: 'error',
+                    text: '❌ Ошибка импорта данных. Проверьте файл.',
+                });
+            }
+        };
+        reader.readAsText(file);
+        event.target.value = '';
+    };
+
     return (
-        <div className="max-w-2xl mx-auto space-y-8">
+        <div className="max-w-2xl p-4 mx-auto space-y-6 sm:p-6 sm:space-y-8">
             <AnimatedWrapper animation="slideUp">
-                <h1 className="text-3xl font-bold text-primary">
+                <h1 className="text-2xl font-bold sm:text-3xl text-primary">
                     ⚙️ Настройки
                 </h1>
-                <p className="mt-1 text-secondary">
+                <p className="mt-1 text-sm sm:text-base text-secondary">
                     Управляй своим профилем и прогрессом
                 </p>
             </AnimatedWrapper>
 
-            <div className="space-y-6 card">
+            <div className="p-4 space-y-4 card sm:p-6 sm:space-y-6">
                 <div>
                     <label className="flex items-center block gap-2 mb-1 text-sm font-medium text-primary">
                         <User className="w-4 h-4 text-gold" />
@@ -117,7 +175,7 @@ const SettingsPage: React.FC = () => {
                         type="text"
                         value={localUsername}
                         onChange={e => setLocalUsername(e.target.value)}
-                        className="input-field"
+                        className="text-sm input-field sm:text-base"
                         placeholder="Введите имя"
                     />
                 </div>
@@ -133,7 +191,7 @@ const SettingsPage: React.FC = () => {
                         onChange={e =>
                             setLocalDailyGoal(Number(e.target.value))
                         }
-                        className="input-field"
+                        className="text-sm input-field sm:text-base"
                         min={5}
                         max={200}
                         step={5}
@@ -146,7 +204,7 @@ const SettingsPage: React.FC = () => {
                 <button
                     onClick={handleSave}
                     disabled={isSaving}
-                    className="flex items-center justify-center w-full gap-2 btn-primary"
+                    className="flex items-center justify-center w-full gap-2 text-sm btn-primary sm:text-base"
                 >
                     <Save className="w-4 h-4" />
                     {isSaving ? 'Сохранение...' : 'Сохранить настройки'}
@@ -154,7 +212,7 @@ const SettingsPage: React.FC = () => {
 
                 {message && (
                     <div
-                        className={`p-3 rounded-xl ${
+                        className={`p-2 sm:p-3 rounded-xl text-sm sm:text-base ${
                             message.type === 'success'
                                 ? 'bg-success/10 border border-success/30 text-success'
                                 : 'bg-error/10 border border-error/30 text-error'
@@ -165,52 +223,84 @@ const SettingsPage: React.FC = () => {
                 )}
             </div>
 
-            <div className="card">
-                <h2 className="mb-4 text-xl font-bold text-primary">
+            <div className="p-4 card sm:p-6">
+                <h2 className="mb-3 text-base font-bold sm:text-xl text-primary sm:mb-4">
                     📊 Ваша статистика
                 </h2>
-                <div className="grid grid-cols-2 gap-4">
-                    <div className="p-3 text-center bg-primary/10 rounded-xl">
-                        <div className="text-2xl font-bold text-primary">
+                <div className="grid grid-cols-2 gap-3 sm:gap-4">
+                    <div className="p-2 text-center bg-primary/30 sm:p-3 rounded-xl">
+                        <div className="text-lg font-bold sm:text-2xl text-primary">
                             {xp}
                         </div>
-                        <div className="text-sm text-secondary">Всего XP</div>
+                        <div className="text-xs sm:text-sm text-secondary">
+                            Всего XP
+                        </div>
                     </div>
-                    <div className="p-3 text-center bg-primary/10 rounded-xl">
-                        <div className="text-2xl font-bold text-primary">
+                    <div className="p-2 text-center bg-primary/30 sm:p-3 rounded-xl">
+                        <div className="text-lg font-bold sm:text-2xl text-primary">
                             {completedLessonIds.length}
                         </div>
-                        <div className="text-sm text-secondary">
+                        <div className="text-xs sm:text-sm text-secondary">
                             Пройдено уроков
                         </div>
                     </div>
-                    <div className="p-3 text-center bg-primary/10 rounded-xl">
-                        <div className="text-2xl font-bold text-gold">
+                    <div className="p-2 text-center bg-primary/30 sm:p-3 rounded-xl">
+                        <div className="text-lg font-bold sm:text-2xl text-gold">
                             {streak}
                         </div>
-                        <div className="text-sm text-secondary">
+                        <div className="text-xs sm:text-sm text-secondary">
                             Дней подряд
                         </div>
                     </div>
-                    <div className="p-3 text-center bg-primary/10 rounded-xl">
-                        <div className="text-2xl font-bold text-gold">
+                    <div className="p-2 text-center bg-primary/30 sm:p-3 rounded-xl">
+                        <div className="text-lg font-bold sm:text-2xl text-gold">
                             {dailyGoal}
                         </div>
-                        <div className="text-sm text-secondary">
+                        <div className="text-xs sm:text-sm text-secondary">
                             Цель на день
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div className="card border-error/20">
-                <h2 className="flex items-center gap-2 mb-4 text-xl font-bold text-error">
-                    <Trash2 className="w-5 h-5" />
+            <div className="p-4 card sm:p-6">
+                <h2 className="flex items-center gap-2 mb-3 text-base font-bold sm:text-xl text-primary sm:mb-4">
+                    <Download className="w-4 h-4 sm:w-5 sm:h-5 text-gold" />
+                    Резервное копирование
+                </h2>
+                <div className="flex flex-wrap gap-2 sm:gap-3">
+                    <button
+                        onClick={handleExport}
+                        className="btn-secondary flex items-center gap-2 text-sm sm:text-base px-3 sm:px-4 py-1.5 sm:py-2"
+                    >
+                        <Download className="w-4 h-4" />
+                        Экспорт данных
+                    </button>
+                    <label className="btn-secondary flex items-center gap-2 cursor-pointer text-sm sm:text-base px-3 sm:px-4 py-1.5 sm:py-2">
+                        <Upload className="w-4 h-4" />
+                        Импорт данных
+                        <input
+                            type="file"
+                            accept=".json"
+                            onChange={handleImport}
+                            className="hidden"
+                        />
+                    </label>
+                </div>
+                <p className="mt-2 text-xs text-secondary">
+                    Экспорт создаёт JSON-файл со всем вашим прогрессом. Импорт
+                    заменит текущие данные.
+                </p>
+            </div>
+
+            <div className="p-4 card sm:p-6 border-error/20">
+                <h2 className="flex items-center gap-2 mb-3 text-base font-bold sm:text-xl text-error sm:mb-4">
+                    <Trash2 className="w-4 h-4 sm:w-5 sm:h-5" />
                     Опасная зона
                 </h2>
                 <button
                     onClick={handleResetProgress}
-                    className="w-full py-3 font-bold transition-all duration-200 border bg-error/10 hover:bg-error/20 text-error rounded-xl border-error/30"
+                    className="w-full py-2 text-sm font-bold transition-all duration-200 border bg-error/10 hover:bg-error/20 text-error sm:py-3 rounded-xl border-error/30 sm:text-base"
                 >
                     Сбросить весь прогресс
                 </button>

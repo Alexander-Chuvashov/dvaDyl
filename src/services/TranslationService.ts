@@ -19,39 +19,28 @@ export const TranslationService = {
         return loadingPromise;
     },
 
-    // Ищет перевод в обоих направлениях
-    getTranslation: (
-        word: string,
-    ): { translation: string; from: 'tuvan' | 'russian' } | null => {
+    // Возвращает весь словарь
+    getVocabulary: (): VocabularyWord[] | null => vocabulary,
+
+    getTranslation: (word: string): string | null => {
         if (!vocabulary) return null;
         const normalized = word.trim().toLowerCase();
-
-        // Ищем как тувинское слово
-        const foundAsTuvan = vocabulary.find(
+        const found = vocabulary.find(
             item => item.wordTuvan.toLowerCase() === normalized,
         );
-        if (foundAsTuvan) {
-            return {
-                translation: foundAsTuvan.wordRussian,
-                from: 'tuvan',
-            };
-        }
-
-        // Ищем как русское слово
-        const foundAsRussian = vocabulary.find(
-            item => item.wordRussian.toLowerCase() === normalized,
-        );
-        if (foundAsRussian) {
-            return {
-                translation: foundAsRussian.wordTuvan,
-                from: 'russian',
-            };
-        }
-
-        return null;
+        return found?.wordRussian || null;
     },
 
-    // Проверяем, есть ли перевод для слова
+    // Находит слово по тувинскому написанию и возвращает его ID
+    getWordId: (word: string): string | null => {
+        if (!vocabulary) return null;
+        const normalized = word.trim().toLowerCase();
+        const found = vocabulary.find(
+            item => item.wordTuvan.toLowerCase() === normalized,
+        );
+        return found?.id || null;
+    },
+
     hasTranslation: (word: string): boolean => {
         return !!TranslationService.getTranslation(word);
     },

@@ -7,7 +7,7 @@ import type { Chapter } from '../../types/content';
 import AnimatedWrapper from '../UI/AnimatedWrapper';
 import ChapterCard from './ChapterCard';
 import Skeleton from '../UI/Skeleton';
-import LevelTabs from '../Leveltabs';
+import LevelTabs from '../LevelTabs';
 import Character from '../UI/Character';
 import { motion } from 'framer-motion';
 import {
@@ -18,8 +18,6 @@ import {
     Sparkles,
     MapPin,
 } from 'lucide-react';
-import WeeklyActivity from '../UI/WeeklyActivity';
-import RecentAchievements from './../UI/RecentAchievements';
 
 const ChapterList: React.FC = () => {
     const navigate = useNavigate();
@@ -32,7 +30,6 @@ const ChapterList: React.FC = () => {
 
     const levels = ['A1', 'A2', 'B1', 'B2', 'C1'];
 
-    // Находим следующий урок для кнопки "Продолжить"
     const [nextLesson, setNextLesson] = useState<{
         chapterId: string;
         lesson: any;
@@ -45,7 +42,6 @@ const ChapterList: React.FC = () => {
                 setFilteredChapters(
                     data.filter(ch => ch.level === activeLevel),
                 );
-                // Ищем следующий урок (первый не пройденный)
                 const allLessons: { chapterId: string; lesson: any }[] = [];
                 data.forEach(ch => {
                     const lessons =
@@ -81,17 +77,36 @@ const ChapterList: React.FC = () => {
         );
     };
 
-    const isChapterLocked = (
-        _chapter: Chapter,
-        index: number,
-        list: Chapter[],
-    ) => {
+    const isChapterLocked = (_: Chapter, index: number, list: Chapter[]) => {
         if (index === 0) return false;
         const prevChapter = list[index - 1];
         return !isChapterCompleted(prevChapter);
     };
 
-    // Статистика
+    const levelProgress = levels.map(level => {
+        const chapters = allChapters.filter(ch => ch.level === level);
+        const totalLessons = chapters.reduce(
+            (acc, ch) =>
+                acc +
+                (ch.lessons?.filter(item => item.type === 'lesson').length ||
+                    0),
+            0,
+        );
+        const completedLessons = chapters.reduce((acc, ch) => {
+            const lessons =
+                ch.lessons?.filter(item => item.type === 'lesson') || [];
+            const completed = lessons.filter(l =>
+                completedLessonIds.includes(l.id),
+            ).length;
+            return acc + completed;
+        }, 0);
+        const percent =
+            totalLessons > 0
+                ? Math.round((completedLessons / totalLessons) * 100)
+                : 0;
+        return { level, totalLessons, completedLessons, percent };
+    });
+
     const totalChapters = allChapters.length;
     const totalLessons = allChapters.reduce(
         (acc, ch) =>
@@ -104,128 +119,86 @@ const ChapterList: React.FC = () => {
     }
 
     return (
-        <div className="max-w-4xl p-6 mx-auto space-y-8">
-            {/* ===== НОВЫЙ ПРИВЕТСТВЕННЫЙ БАННЕР ===== */}
+        <div className="max-w-4xl p-4 mx-auto space-y-6 sm:p-6 sm:space-y-8">
+            {/* ===== ПРИВЕТСТВЕННЫЙ БАННЕР (АДАПТИВ) ===== */}
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: 'easeOut' }}
-                className="relative p-8 overflow-hidden border shadow-2xl rounded-3xl border-gold/20 md:p-12"
-                style={{
-                    background: 'var(--bg-gradient)',
-                    backgroundColor: 'var(--bg-card)',
-                }}
+                className="relative overflow-hidden rounded-2xl sm:rounded-3xl bg-gradient-to-br from-[#0A0F1C] via-[#121A2E] to-[#1A2744] border border-gold/20 p-6 md:p-8 lg:p-12 shadow-2xl"
             >
-                {/* Декоративные элементы */}
-                <div className="absolute top-0 right-0 rounded-full w-96 h-96 bg-gold/5 blur-3xl" />
-                <div className="absolute bottom-0 left-0 w-64 h-64 rounded-full bg-blue-500/5 blur-2xl" />
+                <div className="absolute top-0 right-0 w-48 h-48 rounded-full sm:w-64 sm:h-64 bg-gold/5 blur-3xl" />
+                <div className="absolute bottom-0 left-0 w-48 h-48 rounded-full sm:w-64 sm:h-64 bg-blue-500/5 blur-2xl" />
                 <div className="absolute w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 bg-gradient-to-r from-gold/5 via-transparent to-gold/5 blur-2xl" />
 
-                {/* Парящие частицы (золотые, без изменений) */}
-                <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                    {[...Array(8)].map((_, i) => (
-                        <motion.div
-                            key={i}
-                            className="absolute w-1 h-1 rounded-full bg-gold/40"
-                            initial={{
-                                x: Math.random() * 100 + '%',
-                                y: Math.random() * 100 + '%',
-                                opacity: Math.random() * 0.5 + 0.2,
-                            }}
-                            animate={{
-                                y: ['0%', '30%', '0%'],
-                                opacity: [0.2, 0.6, 0.2],
-                            }}
-                            transition={{
-                                duration: 4 + Math.random() * 6,
-                                repeat: Infinity,
-                                delay: Math.random() * 4,
-                            }}
-                            style={{
-                                width: Math.random() * 4 + 2 + 'px',
-                                height: Math.random() * 4 + 2 + 'px',
-                            }}
-                        />
-                    ))}
-                </div>
-
-                <div className="relative flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
-                    <div className="flex-1 space-y-4">
-                        <div className="flex items-center gap-3">
-                            <Sparkles className="w-8 h-8 text-gold" />
-                            <h1 className="text-4xl font-bold md:text-5xl text-primary">
-                                Добро пожаловать в{' '}
-                                <span className="text-gold">дваДЫЛ</span>!
+                <div className="relative flex flex-col items-start justify-between gap-4 md:flex-row md:items-center sm:gap-8">
+                    <div className="flex-1 space-y-3 sm:space-y-4">
+                        <div className="flex items-center gap-2 sm:gap-3">
+                            <Sparkles className="w-6 h-6 sm:w-8 sm:h-8 text-gold" />
+                            <h1 className="text-2xl font-bold sm:text-3xl md:text-4xl lg:text-5xl text-primary">
+                                🌍 Добро пожаловать в{' '}
+                                <span className="text-gold">DVA-DYL</span>!
                             </h1>
                         </div>
-                        <p className="max-w-2xl text-lg text-secondary">
+                        <p className="max-w-2xl text-sm sm:text-base md:text-lg text-secondary">
                             Изучай тувинский язык с увлекательными уроками,
                             геймификацией и системой повторений.
                         </p>
 
-                        <div className="flex flex-wrap gap-6 pt-2">
-                            <div className="flex items-center gap-2">
-                                <div className="p-2 rounded-full bg-gold/10">
-                                    <BookOpen className="w-5 h-5 text-gold" />
+                        <div className="flex flex-wrap gap-3 pt-1 sm:gap-4 sm:pt-2">
+                            <div className="flex items-center gap-1 sm:gap-2">
+                                <div className="p-1 rounded-full sm:p-2 bg-gold/10">
+                                    <BookOpen className="w-4 h-4 sm:w-5 sm:h-5 text-gold" />
                                 </div>
                                 <div>
-                                    <div className="text-2xl font-bold text-primary">
+                                    <div className="text-lg font-bold sm:text-xl md:text-2xl text-primary">
                                         {totalChapters}
                                     </div>
-                                    <div className="text-xs text-secondary">
+                                    <div className="text-[10px] sm:text-xs text-secondary">
                                         глав
                                     </div>
                                 </div>
                             </div>
-                            <div className="flex items-center gap-2">
-                                <div className="p-2 rounded-full bg-gold/10">
-                                    <MapPin className="w-5 h-5 text-gold" />
+                            <div className="flex items-center gap-1 sm:gap-2">
+                                <div className="p-1 rounded-full sm:p-2 bg-gold/10">
+                                    <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-gold" />
                                 </div>
                                 <div>
-                                    <div className="text-2xl font-bold text-primary">
+                                    <div className="text-lg font-bold sm:text-xl md:text-2xl text-primary">
                                         {totalLessons}
                                     </div>
-                                    <div className="text-xs text-secondary">
+                                    <div className="text-[10px] sm:text-xs text-secondary">
                                         уроков
                                     </div>
                                 </div>
                             </div>
-                            <div className="flex items-center gap-2">
-                                <div className="p-2 rounded-full bg-gold/10">
-                                    <Star className="w-5 h-5 text-gold" />
+                            <div className="flex items-center gap-1 sm:gap-2">
+                                <div className="p-1 rounded-full sm:p-2 bg-gold/10">
+                                    <Star className="w-4 h-4 sm:w-5 sm:h-5 text-gold" />
                                 </div>
                                 <div>
-                                    <div className="text-2xl font-bold text-primary">
+                                    <div className="text-lg font-bold sm:text-xl md:text-2xl text-primary">
                                         {xp}
                                     </div>
-                                    <div className="text-xs text-secondary">
+                                    <div className="text-[10px] sm:text-xs text-secondary">
                                         XP
                                     </div>
                                 </div>
                             </div>
-                            <div className="flex items-center gap-2">
-                                <div className="p-2 rounded-full bg-gold/10">
-                                    <Flame className="w-5 h-5 text-gold" />
+                            <div className="flex items-center gap-1 sm:gap-2">
+                                <div className="p-1 rounded-full sm:p-2 bg-gold/10">
+                                    <Flame className="w-4 h-4 sm:w-5 sm:h-5 text-gold" />
                                 </div>
                                 <div>
-                                    <div className="text-2xl font-bold text-primary">
+                                    <div className="text-lg font-bold sm:text-xl md:text-2xl text-primary">
                                         {streak}
                                     </div>
-                                    <div className="text-xs text-secondary">
+                                    <div className="text-[10px] sm:text-xs text-secondary">
                                         дней
                                     </div>
                                 </div>
                             </div>
                         </div>
-
-                        <div className="card">
-                            <h3 className="mb-3 text-lg font-semibold text-primary">
-                                📊 Активность за неделю
-                            </h3>
-                            <WeeklyActivity />
-                        </div>
-
-                        <RecentAchievements />
 
                         {nextLesson && (
                             <button
@@ -234,15 +207,14 @@ const ChapterList: React.FC = () => {
                                         `/chapter/${nextLesson.chapterId}/lesson/${nextLesson.lesson.id}`,
                                     )
                                 }
-                                className="flex items-center gap-2 mt-2 text-base btn-primary"
+                                className="flex items-center gap-2 mt-1 text-sm sm:mt-2 btn-primary sm:text-base"
                             >
                                 🚀 Продолжить обучение{' '}
-                                <ChevronRight className="w-5 h-5" />
+                                <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
                             </button>
                         )}
                     </div>
 
-                    {/* Персонаж (без изменений) */}
                     <motion.div
                         initial={{ opacity: 0, scale: 0.8 }}
                         animate={{ opacity: 1, scale: 1 }}
@@ -273,6 +245,34 @@ const ChapterList: React.FC = () => {
                 </div>
             </motion.div>
 
+            {/* ===== БЛОК ПРОГРЕССА ПО УРОВНЯМ (АДАПТИВ) ===== */}
+            <div className="p-4 card">
+                <h3 className="mb-2 text-sm font-semibold text-primary">
+                    📊 Прогресс по уровням
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                    {levelProgress.map(item => (
+                        <div
+                            key={item.level}
+                            className="flex items-center gap-2"
+                        >
+                            <span className="w-4 text-xs font-bold text-primary">
+                                {item.level}
+                            </span>
+                            <div className="w-16 sm:w-24 h-1.5 bg-card-hover rounded-full overflow-hidden">
+                                <div
+                                    className="h-full transition-all duration-500 rounded-full bg-gold-gradient"
+                                    style={{ width: `${item.percent}%` }}
+                                />
+                            </div>
+                            <span className="text-xs text-secondary">
+                                {item.percent}%
+                            </span>
+                        </div>
+                    ))}
+                </div>
+            </div>
+
             {/* ===== УРОВНИ И КАРТОЧКИ ГЛАВ ===== */}
             <LevelTabs
                 levels={levels}
@@ -280,10 +280,14 @@ const ChapterList: React.FC = () => {
                 onLevelChange={handleLevelChange}
             />
 
-            <div className="grid gap-4">
+            <div className="grid gap-3 sm:gap-4">
                 {loading
                     ? Array.from({ length: 3 }).map((_, i) => (
-                          <Skeleton key={i} variant="card" className="h-24" />
+                          <Skeleton
+                              key={i}
+                              variant="card"
+                              className="h-20 sm:h-24"
+                          />
                       ))
                     : filteredChapters.map((chapter, index) => {
                           const locked = isChapterLocked(
@@ -295,7 +299,7 @@ const ChapterList: React.FC = () => {
                               <AnimatedWrapper
                                   key={chapter.id}
                                   animation="fadeIn"
-                                  delay={index * 80}
+                                  delay={0.14}
                               >
                                   <ChapterCard
                                       chapter={chapter}
@@ -307,7 +311,7 @@ const ChapterList: React.FC = () => {
             </div>
 
             {!loading && filteredChapters.length === 0 && (
-                <div className="py-10 text-center text-text-secondary">
+                <div className="py-10 text-center text-secondary">
                     Нет уроков для этого уровня
                 </div>
             )}

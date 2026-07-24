@@ -35,7 +35,7 @@ const ExerciseRenderer: React.FC<Props> = ({ exercise, onAnswer }) => {
             // если есть компонент ListenExercise, передаём туда
             return <ListenExercise exercise={exercise} onAnswer={onAnswer} />;
         case 'dialogue_lesson':
-            return <DialogueLesson exercise={exercise} onAnswer={onAnswer} />;
+            return <DialogueLesson exercise={exercise} />;
         case 'speaking_card':
             return <SpeakingCard exercise={exercise} onAnswer={onAnswer} />;
 

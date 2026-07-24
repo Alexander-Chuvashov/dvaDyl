@@ -46,6 +46,13 @@ interface AppState {
     dbStreak: Streak | null;
     dbXp: number;
 
+    addXpLog: (
+        userId: string,
+        amount: number,
+        source: string,
+        description?: string,
+    ) => Promise<void>;
+
     // === Достижения ===
     userAchievements: UserAchievement[];
 
@@ -66,6 +73,7 @@ interface AppState {
     addErrorExercise: (exerciseId: string) => void;
     clearErrorExercises: () => void;
     toggleTheme: () => void;
+    markLessonCompleted: (lessonId: string) => void;
 
     // === Действия для БД ===
     setUserId: (id: string | null) => void;
@@ -170,8 +178,7 @@ export const useAppStore = create<AppState>()(
                         let newStreak = state.streak;
                         if (streakDelta === 1) newStreak += 1;
                         else if (streakDelta === -999) newStreak = 1;
-                        const xpGain = 10;
-                        const newXp = state.xp + xpGain;
+
                         const newCompletedExercises = [
                             ...state.completedExerciseIds,
                             exerciseId,
@@ -181,7 +188,6 @@ export const useAppStore = create<AppState>()(
                             newCompletedExercises.includes(ex.id),
                         );
                         let newCompletedLessons = [...state.completedLessonIds];
-                        let bonusXp = 0;
                         if (
                             allCompleted &&
                             !newCompletedLessons.includes(lesson.id)
@@ -190,12 +196,10 @@ export const useAppStore = create<AppState>()(
                                 ...newCompletedLessons,
                                 lesson.id,
                             ];
-                            bonusXp = 50;
                         }
                         set({
                             completedExerciseIds: newCompletedExercises,
                             completedLessonIds: newCompletedLessons,
-                            xp: newXp + bonusXp,
                             streak: newStreak,
                             lastActivityDate: today,
                         });
@@ -207,6 +211,12 @@ export const useAppStore = create<AppState>()(
                 set(state => ({
                     currentExerciseIndex: state.currentExerciseIndex + 1,
                 })),
+
+            markLessonCompleted: lessonId => {
+                set(state => ({
+                    completedLessonIds: [...state.completedLessonIds, lessonId],
+                }));
+            },
 
             resetProgress: () => {
                 set({
@@ -275,6 +285,18 @@ export const useAppStore = create<AppState>()(
             },
 
             // === Действия для БД ===
+            addXpLog: async (userId, amount, source, description) => {
+                try {
+                    await DatabaseService.addXpLog(
+                        userId,
+                        amount,
+                        source,
+                        description,
+                    );
+                } catch (error) {
+                    console.error('Ошибка добавления XP лога:', error);
+                }
+            },
             setUserId: id => set({ userId: id, isAuthenticated: !!id }),
 
             loadUserData: async userId => {
@@ -306,6 +328,9 @@ export const useAppStore = create<AppState>()(
                         userAchievements: achievements,
                         xp: totalXp,
                         streak: streak?.current_streak || 0,
+                        completedLessonIds: progress
+                            .filter(p => p.status === 'completed')
+                            .map(p => p.lesson_id),
                     });
                 } catch (error) {
                     console.error(
@@ -423,7 +448,7 @@ export const useAppStore = create<AppState>()(
                         .from('users')
                         .select('username')
                         .eq('id', userId)
-                        .single();
+                        .maybeSingle();
                     if (error) throw error;
                     if (data) set({ username: data.username || '' });
                 } catch (error) {

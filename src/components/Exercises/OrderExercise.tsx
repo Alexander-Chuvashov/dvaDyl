@@ -77,18 +77,20 @@ const OrderExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
     };
 
     return (
-        <div className="space-y-4 card">
-            <p className="text-lg font-medium text-primary">
-                <ClickableWord word={exercise.question ?? ''} />
+        <div className="p-4 space-y-3 card sm:p-6 sm:space-y-4">
+            <p className="text-base font-medium break-words sm:text-lg text-primary">
+                {exercise.question && (
+                    <ClickableWord word={exercise.question} />
+                )}
             </p>
             {exercise.hint && (
                 <p className="text-sm text-secondary">💡 {exercise.hint}</p>
             )}
 
             {/* Выбранные элементы (порядок) */}
-            <div className="flex flex-wrap gap-2 min-h-[60px] p-3 bg-primary/30 rounded-xl border-2 border-dashed border-border">
+            <div className="flex flex-wrap gap-1.5 sm:gap-2 min-h-[48px] sm:min-h-[60px] p-2 sm:p-3 bg-primary/30 rounded-xl border-2 border-dashed border-border">
                 {selected.length === 0 && (
-                    <span className="text-sm text-secondary/50">
+                    <span className="text-xs sm:text-sm text-secondary/50">
                         Кликни на слова ниже, чтобы составить предложение
                     </span>
                 )}
@@ -99,7 +101,7 @@ const OrderExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
                         animate={{ scale: 1, opacity: 1 }}
                         exit={{ scale: 0.8, opacity: 0 }}
                         onClick={() => handleRemove(item)}
-                        className={`px-3 py-2 rounded-xl border transition-all duration-200 hover:shadow-gold ${getItemClass(item)}`}
+                        className={`px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-xl border transition-all duration-200 text-sm sm:text-base ${getItemClass(item)}`}
                     >
                         <ClickableWord word={item} />
                         <span className="ml-1 text-xs text-secondary/50">
@@ -110,7 +112,7 @@ const OrderExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
             </div>
 
             {/* Доступные элементы */}
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-1.5 sm:gap-2">
                 {available.map(item => (
                     <motion.button
                         key={item}
@@ -118,7 +120,7 @@ const OrderExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
                         animate={{ scale: 1, opacity: 1 }}
                         whileHover={{ scale: 1.05 }}
                         onClick={() => handleSelect(item)}
-                        className="px-4 py-2 transition-all duration-200 border rounded-xl border-border bg-card hover:border-gold hover:bg-card-hover text-primary"
+                        className="px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl border border-border bg-card hover:border-gold hover:bg-card-hover transition-all duration-200 text-primary text-sm sm:text-base"
                     >
                         <ClickableWord word={item} />
                     </motion.button>
@@ -132,7 +134,7 @@ const OrderExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -10 }}
-                        className="p-4 border rounded-xl border-error/30 bg-error/10 text-error"
+                        className="p-2 text-sm border sm:p-3 rounded-xl border-error/30 bg-error/10 text-error sm:text-base"
                     >
                         <p>
                             ❌ Неправильный порядок. Правильный порядок:{' '}
@@ -145,7 +147,7 @@ const OrderExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
                         {showReset && (
                             <button
                                 onClick={handleReset}
-                                className="mt-2 text-sm btn-secondary"
+                                className="mt-2 text-xs btn-secondary sm:text-sm"
                             >
                                 Перемешать и начать заново
                             </button>
@@ -160,7 +162,7 @@ const OrderExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
                         initial={{ opacity: 0, scale: 0.9 }}
                         animate={{ opacity: 1, scale: 1 }}
                         exit={{ opacity: 0, scale: 0.9 }}
-                        className="p-4 font-semibold text-center border rounded-xl border-success/30 bg-success/10 text-success"
+                        className="p-2 text-sm font-semibold text-center border sm:p-3 rounded-xl border-success/30 bg-success/10 text-success sm:text-base"
                     >
                         ✅ Правильно!
                     </motion.div>
@@ -171,7 +173,7 @@ const OrderExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
             {!submitted && (
                 <button
                     onClick={handleReset}
-                    className="text-sm transition-colors text-secondary hover:text-primary"
+                    className="text-xs transition-colors sm:text-sm text-secondary hover:text-primary"
                 >
                     Сбросить всё
                 </button>

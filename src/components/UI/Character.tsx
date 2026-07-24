@@ -28,9 +28,9 @@ const Character: React.FC<CharacterProps> = ({
     }, [state]);
 
     const sizeMap = {
-        sm: 'w-16 h-16',
-        md: 'w-24 h-24',
-        lg: 'w-40 h-40',
+        sm: 'w-12 h-12 text-3xl sm:w-16 sm:h-16 sm:text-4xl',
+        md: 'w-16 h-16 text-4xl sm:w-24 sm:h-24 sm:text-6xl',
+        lg: 'w-24 h-24 text-6xl sm:w-32 sm:h-32 sm:text-8xl',
     };
 
     const images = {
@@ -38,7 +38,7 @@ const Character: React.FC<CharacterProps> = ({
         happy: '/images/characters/happy.png',
         motive: '/images/characters/motive.png',
         sad: '/images/characters/sad.png',
-        celebrate: '/images/characters/char.png',
+        celebrate: '/images/characters/learn.png',
         thinking: '/images/characters/think.png',
     };
 
@@ -125,7 +125,7 @@ const Character: React.FC<CharacterProps> = ({
                         exit={{ opacity: 0, y: -10 }}
                         className="absolute -top-8 left-1/2 -translate-x-1/2 bg-card border border-gold/20 text-primary rounded-lg px-3 py-1.5 text-xs shadow-gold whitespace-nowrap"
                     >
-                        Отлично! 👍
+                        Привет! 🖐
                     </motion.div>
                 )}
                 {currentState === 'sad' && (

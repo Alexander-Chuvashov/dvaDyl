@@ -14,26 +14,26 @@ interface BreadcrumbsProps {
 
 const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ items }) => {
     return (
-        <nav className="flex flex-wrap items-center gap-1 mb-4 text-sm text-dark/60">
+        <nav className="flex flex-wrap items-center gap-1 mb-4 overflow-x-auto text-xs sm:text-sm text-secondary/60 scrollbar-hide">
             <Link
                 to="/"
-                className="flex items-center gap-1 transition-colors hover:text-terracotta"
+                className="flex items-center gap-1 transition-colors hover:text-gold shrink-0"
             >
-                <Home className="w-4 h-4" />
-                <span>Главная</span>
+                <Home className="w-3 h-3 sm:w-4 sm:h-4" />
+                <span className="hidden sm:inline">Главная</span>
             </Link>
             {items.map((item, index) => (
                 <React.Fragment key={index}>
-                    <ChevronRight className="w-4 h-4" />
+                    <ChevronRight className="w-3 h-3 sm:w-4 sm:h-4 shrink-0" />
                     {item.path ? (
                         <Link
                             to={item.path}
-                            className="transition-colors hover:text-terracotta"
+                            className="hover:text-gold transition-colors truncate max-w-[100px] sm:max-w-[200px]"
                         >
                             {item.label}
                         </Link>
                     ) : (
-                        <span className="font-medium text-dark">
+                        <span className="text-primary font-medium truncate max-w-[120px] sm:max-w-[200px]">
                             {item.label}
                         </span>
                     )}

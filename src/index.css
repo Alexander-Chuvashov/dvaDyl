@@ -6,7 +6,6 @@
 
 @layer base {
     :root {
-        /* Тёмная тема (по умолчанию) */
         --bg-primary: #0a0f1c;
         --bg-card: #121a2e;
         --bg-card-hover: #1a2744;
@@ -67,7 +66,7 @@
 @layer components {
     /* Кнопки */
     .btn-primary {
-        @apply font-bold py-3 px-6 rounded-xl transition-all duration-200 hover:scale-[1.02] active:scale-[0.98];
+        @apply font-bold py-2.5 sm:py-3 px-4 sm:px-6 rounded-xl transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] text-sm sm:text-base;
         background: linear-gradient(90deg, var(--gold), var(--gold-dark));
         color: #0a0f1c;
         box-shadow: 0 4px 20px rgba(245, 158, 11, 0.3);
@@ -76,7 +75,7 @@
         box-shadow: 0 8px 40px rgba(245, 158, 11, 0.4);
     }
     .btn-secondary {
-        @apply px-6 py-3 font-medium transition-all duration-200 border rounded-xl;
+        @apply font-medium py-2.5 sm:py-3 px-4 sm:px-6 rounded-xl border transition-all duration-200 text-sm sm:text-base;
         background-color: var(--bg-card);
         border-color: var(--border-color);
         color: var(--text-primary);
@@ -86,7 +85,7 @@
         background-color: var(--bg-card-hover);
     }
     .btn-success {
-        @apply font-bold py-3 px-6 rounded-xl transition-all duration-200 hover:scale-[1.02] active:scale-[0.98];
+        @apply font-bold py-2.5 sm:py-3 px-4 sm:px-6 rounded-xl transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] text-sm sm:text-base;
         background: var(--success);
         color: #0a0f1c;
     }
@@ -155,23 +154,29 @@
 
     /* Теги */
     .tag {
-        @apply px-3 py-1 text-xs font-medium border rounded-full;
+        @apply px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full text-xs font-medium border;
         background-color: rgba(245, 158, 11, 0.1);
         color: var(--gold);
         border-color: rgba(245, 158, 11, 0.2);
     }
     .tag-success {
-        @apply px-3 py-1 text-xs font-medium border rounded-full;
+        @apply px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full text-xs font-medium border;
         background-color: rgba(34, 197, 94, 0.1);
         color: var(--success);
         border-color: rgba(34, 197, 94, 0.2);
     }
     .tag-locked {
-        @apply px-3 py-1 text-xs font-medium border rounded-full;
+        @apply px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full text-xs font-medium border;
         background-color: var(--bg-card-hover);
         color: var(--text-secondary);
         border-color: var(--border-color);
         opacity: 0.5;
+    }
+    .tag-error {
+        @apply px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full text-xs font-medium border;
+        background-color: rgba(239, 68, 68, 0.1);
+        color: var(--error);
+        border-color: rgba(239, 68, 68, 0.2);
     }
 
     /* Текстовые утилиты */
@@ -187,7 +192,37 @@
     .bg-card {
         background-color: var(--bg-card);
     }
+    .bg-card-hover {
+        background-color: var(--bg-card-hover);
+    }
+    .bg-gold\/10 {
+        background-color: rgba(245, 158, 11, 0.1);
+    }
+    .bg-gold\/5 {
+        background-color: rgba(245, 158, 11, 0.05);
+    }
+    .bg-success\/10 {
+        background-color: rgba(34, 197, 94, 0.1);
+    }
+    .bg-error\/10 {
+        background-color: rgba(239, 68, 68, 0.1);
+    }
     .border-gold\/10 {
+        border-color: rgba(245, 158, 11, 0.1);
+    }
+    .border-gold\/20 {
+        border-color: rgba(245, 158, 11, 0.2);
+    }
+    .border-gold\/30 {
+        border-color: rgba(245, 158, 11, 0.3);
+    }
+    .border-success\/30 {
+        border-color: rgba(34, 197, 94, 0.3);
+    }
+    .border-error\/30 {
+        border-color: rgba(239, 68, 68, 0.3);
+    }
+    .border-border {
         border-color: var(--border-color);
     }
     .text-gold {
@@ -202,23 +237,71 @@
     .shadow-card {
         box-shadow: 0 8px 32px var(--shadow-color);
     }
+    .shadow-gold {
+        box-shadow: 0 4px 20px rgba(245, 158, 11, 0.3);
+    }
+
+    /* Анимации */
+    .animate-bounce-success {
+        animation: bounceSuccess 0.5s ease;
+    }
+    .animate-shake {
+        animation: shake 0.5s ease;
+    }
+    .animate-pulse-soft {
+        animation: pulseSoft 1.5s ease-in-out infinite;
+    }
 }
 
-.bg-gold {
-    background-color: var(--gold);
-}
-.shadow-gold {
-    box-shadow: 0 4px 20px rgba(245, 158, 11, 0.3);
-}
-.text-primary {
-    color: var(--text-primary);
-}
-.text-secondary {
-    color: var(--text-secondary);
-}
-.bg-card-hover {
-    background-color: var(--bg-card-hover);
-}
-.border-border {
-    border-color: var(--border-color);
+@layer utilities {
+    @keyframes bounceSuccess {
+        0%,
+        100% {
+            transform: scale(1);
+        }
+        30% {
+            transform: scale(1.05);
+        }
+        50% {
+            transform: scale(0.95);
+        }
+        70% {
+            transform: scale(1.02);
+        }
+    }
+    @keyframes shake {
+        0%,
+        100% {
+            transform: translateX(0);
+        }
+        20% {
+            transform: translateX(-8px);
+        }
+        40% {
+            transform: translateX(8px);
+        }
+        60% {
+            transform: translateX(-6px);
+        }
+        80% {
+            transform: translateX(6px);
+        }
+    }
+    @keyframes pulseSoft {
+        0%,
+        100% {
+            opacity: 1;
+        }
+        50% {
+            opacity: 0.6;
+        }
+    }
+
+    .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+    .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+    }
 }

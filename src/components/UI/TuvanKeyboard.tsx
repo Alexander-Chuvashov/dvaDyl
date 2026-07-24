@@ -144,12 +144,18 @@ const TuvanKeyboard: React.FC<TuvanKeyboardProps> = ({
         <div
             ref={keyboardRef}
             onMouseDown={handleMouseDown}
-            className={`fixed bottom-0 left-0 right-0 bg-card border-t border-border shadow-2xl p-4 z-50 transition-transform duration-300 ease-in-out ${isVisible ? 'translate-y-0' : 'translate-y-full'} ${className}`}
-            style={{ maxHeight: '50vh', overflowY: 'auto' }}
+            className={`fixed bottom-0 left-0 right-0 bg-card border-t border-border shadow-2xl p-2 sm:p-4 z-50 transition-transform duration-300 ease-in-out ${
+                isVisible ? 'translate-y-0' : 'translate-y-full'
+            } ${className}`}
+            style={{ maxHeight: '40vh sm:50vh', overflowY: 'auto' }}
         >
-            <div className="flex flex-col gap-1.5 max-w-4xl mx-auto">
+            <div className="flex flex-col gap-1 sm:gap-1.5 max-w-4xl mx-auto">
+                {/* Ряды клавиш */}
                 {currentRows.map((row, rowIndex) => (
-                    <div key={rowIndex} className="flex justify-center gap-1">
+                    <div
+                        key={rowIndex}
+                        className="flex justify-center gap-0.5 sm:gap-1"
+                    >
                         {row.map(char => (
                             <KeyButton
                                 key={char}
@@ -157,6 +163,7 @@ const TuvanKeyboard: React.FC<TuvanKeyboardProps> = ({
                                 isShift={isShift}
                                 onClick={() => handleKeyPress(char)}
                                 isTuvan={false}
+                                size="sm"
                             />
                         ))}
                     </div>
@@ -235,7 +242,8 @@ const KeyButton: React.FC<{
     isShift: boolean;
     onClick: () => void;
     isTuvan: boolean;
-}> = ({ char, isShift, onClick, isTuvan }) => {
+    size?: 'sm' | 'md';
+}> = ({ char, isShift, onClick, isTuvan, size = 'md' }) => {
     const [pressed, setPressed] = useState(false);
 
     const handleClick = () => {
@@ -244,13 +252,18 @@ const KeyButton: React.FC<{
         onClick();
     };
 
+    const sizeClasses = {
+        sm: 'px-1.5 py-1.5 text-[10px] min-w-[1.8rem] max-w-[2.2rem]',
+        md: 'px-2 py-2 text-sm min-w-[2.2rem] max-w-[2.8rem]',
+    };
+
     return (
         <button
             type="button"
             onClick={handleClick}
-            className={`px-3 py-2 rounded-lg border font-medium transition-all duration-100 text-sm min-w-[2.5rem] flex-1 max-w-[3rem] ${
+            className={`rounded-lg border font-medium transition-all duration-100 ${
                 pressed ? 'scale-95' : 'scale-100'
-            } ${
+            } ${sizeClasses[size]} ${
                 isTuvan
                     ? 'bg-terracotta/10 hover:bg-terracotta/20 border-terracotta/30 text-terracotta'
                     : 'bg-cream hover:bg-terracotta/20 border-cream text-dark'

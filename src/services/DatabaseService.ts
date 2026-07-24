@@ -253,4 +253,92 @@ export const DatabaseService = {
         if (error) throw error;
         return data;
     },
+    // ====== Экспорт/Импорт ======
+    async exportUserData(userId: string) {
+        const [
+            progressRes,
+            answersRes,
+            wordsRes,
+            streakRes,
+            achievementsRes,
+            xpLogRes,
+        ] = await Promise.all([
+            supabase.from('user_progress').select('*').eq('user_id', userId),
+            supabase.from('user_answers').select('*').eq('user_id', userId),
+            supabase.from('user_words').select('*').eq('user_id', userId),
+            supabase
+                .from('user_streaks')
+                .select('*')
+                .eq('user_id', userId)
+                .maybeSingle(),
+            supabase
+                .from('user_achievements')
+                .select('*')
+                .eq('user_id', userId),
+            supabase.from('user_xp_log').select('*').eq('user_id', userId),
+        ]);
+        if (progressRes.error) throw progressRes.error;
+        if (answersRes.error) throw answersRes.error;
+        if (wordsRes.error) throw wordsRes.error;
+        if (streakRes.error) throw streakRes.error;
+        if (achievementsRes.error) throw achievementsRes.error;
+        if (xpLogRes.error) throw xpLogRes.error;
+
+        return {
+            progress: progressRes.data,
+            answers: answersRes.data,
+            words: wordsRes.data,
+            streak: streakRes.data,
+            achievements: achievementsRes.data,
+            xpLog: xpLogRes.data,
+        };
+    },
+
+    async importUserData(userId: string, data: any) {
+        // Очищаем существующие данные
+        await supabase.from('user_xp_log').delete().eq('user_id', userId);
+        await supabase.from('user_achievements').delete().eq('user_id', userId);
+        await supabase.from('user_words').delete().eq('user_id', userId);
+        await supabase.from('user_answers').delete().eq('user_id', userId);
+        await supabase.from('user_progress').delete().eq('user_id', userId);
+        await supabase.from('user_streaks').delete().eq('user_id', userId);
+
+        // Вставляем новые данные
+        if (data.progress?.length) {
+            const { error } = await supabase
+                .from('user_progress')
+                .insert(data.progress);
+            if (error) throw error;
+        }
+        if (data.answers?.length) {
+            const { error } = await supabase
+                .from('user_answers')
+                .insert(data.answers);
+            if (error) throw error;
+        }
+        if (data.words?.length) {
+            const { error } = await supabase
+                .from('user_words')
+                .insert(data.words);
+            if (error) throw error;
+        }
+        if (data.streak) {
+            const { error } = await supabase
+                .from('user_streaks')
+                .insert({ ...data.streak, user_id: userId });
+            if (error) throw error;
+        }
+        if (data.achievements?.length) {
+            const { error } = await supabase
+                .from('user_achievements')
+                .insert(data.achievements);
+            if (error) throw error;
+        }
+        if (data.xpLog?.length) {
+            const { error } = await supabase
+                .from('user_xp_log')
+                .insert(data.xpLog);
+            if (error) throw error;
+        }
+    },
 };

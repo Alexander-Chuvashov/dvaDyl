@@ -1,9 +1,9 @@
 // src/components/Exercises/TranslateExercise.tsx
 import React, { useState, useRef } from 'react';
 import type { Exercise } from '../../types/content';
-// import AudioButton from '../UI/AudioButton';
 import TuvanKeyboard from '../UI/TuvanKeyboard';
 import ClickableWord from '../UI/ClickableWord';
+import Tooltip from '../UI/Tooltip';
 
 interface Props {
     exercise: Exercise;
@@ -27,54 +27,60 @@ const TranslateExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
             exercise.correct?.toString().toLowerCase();
         setIsCorrect(correct);
         setSubmitted(true);
-        console.log(
-            '🟢 TranslateExercise вызывает onAnswer, isCorrect:',
-            isCorrect,
-            'userAnswer:',
-            userAnswer,
-        );
         onAnswer(correct, userAnswer.trim(), exercise.correct?.toString());
     };
 
     if (submitted) {
         return (
             <div
-                className={`card ${isCorrect ? 'border-olive' : 'border-terracotta'}`}
+                className={`card p-4 sm:p-6 ${isCorrect ? 'border-success/30' : 'border-error/30'}`}
             >
-                <p className="text-lg">
-                    <ClickableWord word={exercise.question ?? ''} />
+                <p className="text-sm font-medium sm:text-base text-primary">
+                    {exercise.question && (
+                        <ClickableWord word={exercise.question} />
+                    )}
                 </p>
                 {isCorrect ? (
-                    <div className="p-3 mt-4 border rounded-lg bg-olive/10 border-olive text-olive animate-bounce-success">
+                    <div className="p-3 mt-3 text-sm border rounded-lg sm:mt-4 bg-success/10 border-success/30 text-success sm:text-base animate-bounce-success">
                         ✅ Правильно!
                     </div>
                 ) : (
-                    <div className="p-3 mt-4 border rounded-lg bg-terracotta/10 border-terracotta text-terracotta">
+                    <div className="p-3 mt-3 text-sm border rounded-lg sm:mt-4 bg-error/10 border-error/30 text-error sm:text-base">
                         ❌ Неправильно. Правильный ответ:{' '}
                         <span className="font-bold">{exercise.correct}</span>
                     </div>
                 )}
-                <button
-                    onClick={() => {
-                        setSubmitted(false);
-                        setUserAnswer('');
-                    }}
-                    className="mt-3 btn-secondary"
-                >
-                    Попробовать снова
-                </button>
+                <Tooltip text="Попробовать снова">
+                    <button
+                        onClick={() => {
+                            setSubmitted(false);
+                            setUserAnswer('');
+                        }}
+                        className="mt-3 text-sm btn-secondary sm:text-base"
+                    >
+                        Попробовать снова
+                    </button>
+                </Tooltip>
             </div>
         );
     }
 
     return (
-        <form onSubmit={handleSubmit} className="card">
-            <div className="flex items-center gap-2 text-lg font-medium text-dark">
-                <ClickableWord word={exercise.question ?? ''} />
-                {/* <AudioButton text={exercise.question} lang="ru-RU" size="sm" /> */}
+        <form
+            onSubmit={handleSubmit}
+            className="p-4 space-y-3 card sm:p-6 sm:space-y-4"
+        >
+            <div className="flex flex-wrap items-center gap-2 text-sm font-medium sm:text-base text-primary">
+                <span>
+                    {exercise.question && (
+                        <ClickableWord word={exercise.question} />
+                    )}
+                </span>
             </div>
             {exercise.hint && (
-                <p className="mt-1 text-sm text-dark/60">💡 {exercise.hint}</p>
+                <p className="text-xs sm:text-sm text-secondary/60">
+                    💡 {exercise.hint}
+                </p>
             )}
             <input
                 ref={inputRef}
@@ -82,16 +88,21 @@ const TranslateExercise: React.FC<Props> = ({ exercise, onAnswer }) => {
                 value={userAnswer}
                 onChange={e => setUserAnswer(e.target.value)}
                 placeholder="Введи перевод..."
-                className="mt-3 input-field"
+                className="text-sm input-field sm:text-base"
                 autoFocus
             />
             <TuvanKeyboard
                 inputRef={inputRef}
                 onInput={newValue => setUserAnswer(newValue)}
             />
-            <button type="submit" className="mt-3 btn-primary">
-                Проверить
-            </button>
+            <Tooltip text="Проверить ответ">
+                <button
+                    type="submit"
+                    className="w-full text-sm btn-primary sm:text-base"
+                >
+                    Проверить
+                </button>
+            </Tooltip>
         </form>
     );
 };

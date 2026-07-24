@@ -14,7 +14,6 @@ const LessonPage: React.FC = () => {
     const { chapterId, lessonId } = useParams();
     const navigate = useNavigate();
     const location = useLocation();
-
     const [lesson, setLesson] = useState<Lesson | null>(null);
     const [theories, setTheories] = useState<Theory[]>([]);
     const [chapterTitle, setChapterTitle] = useState<string>(
@@ -70,16 +69,16 @@ const LessonPage: React.FC = () => {
 
     if (loading) {
         return (
-            <div className="max-w-2xl p-6 mx-auto">
-                <Skeleton variant="text" className="w-3/4 h-10 mb-4" />
-                <Skeleton variant="card" className="h-96" />
+            <div className="max-w-2xl p-4 mx-auto sm:p-6">
+                <Skeleton variant="text" className="w-3/4 h-8 mb-4 sm:h-10" />
+                <Skeleton variant="card" className="h-72 sm:h-96" />
             </div>
         );
     }
 
     if (error || !lesson) {
         return (
-            <div className="py-10 text-center text-error">
+            <div className="py-10 text-sm text-center text-error sm:text-base">
                 {error || 'Урок не найден'}
             </div>
         );
@@ -96,7 +95,7 @@ const LessonPage: React.FC = () => {
     };
 
     return (
-        <div className="max-w-4xl p-6 mx-auto space-y-6">
+        <div className="max-w-4xl p-4 mx-auto space-y-4 sm:p-6 sm:space-y-6">
             <Breadcrumbs
                 items={[
                     { label: chapterTitle, path: `/chapter/${chapterId}` },
@@ -104,17 +103,18 @@ const LessonPage: React.FC = () => {
                 ]}
             />
 
-            <div className="flex items-center justify-between">
-                <h1 className="text-2xl font-bold text-primary">
+            <div className="flex flex-wrap items-center justify-between gap-2 sm:gap-4">
+                <h1 className="text-xl font-bold break-words sm:text-2xl text-primary">
                     {lesson.title}
                 </h1>
                 {theories.length > 0 && (
                     <button
                         onClick={() => setShowTheory(true)}
-                        className="flex items-center gap-2 btn-secondary"
+                        className="btn-secondary flex items-center gap-1 sm:gap-2 text-xs sm:text-sm px-3 sm:px-4 py-1.5 sm:py-2"
                     >
                         <FileText className="w-4 h-4" />
-                        Теория
+                        <span className="hidden sm:inline">Теория</span>
+                        <span className="sm:hidden">📖</span>
                     </button>
                 )}
             </div>
@@ -124,12 +124,13 @@ const LessonPage: React.FC = () => {
             <div className="text-center">
                 <button
                     onClick={() => navigate(`/chapter/${chapterId}`)}
-                    className="text-sm transition-colors text-secondary hover:text-primary"
+                    className="text-xs transition-colors sm:text-sm text-secondary hover:text-primary"
                 >
                     ← Вернуться к списку уроков
                 </button>
             </div>
 
+            {/* Модальное окно с теорией */}
             {showTheory && (
                 <div
                     className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-primary/80 backdrop-blur-md"
@@ -139,19 +140,19 @@ const LessonPage: React.FC = () => {
                         initial={{ opacity: 0, scale: 0.9 }}
                         animate={{ opacity: 1, scale: 1 }}
                         exit={{ opacity: 0, scale: 0.9 }}
-                        className="bg-card rounded-3xl border border-gold/10 shadow-card-lg max-w-3xl w-full max-h-[90vh] overflow-y-auto p-8 relative"
+                        className="bg-card rounded-2xl sm:rounded-3xl border border-gold/10 shadow-card-lg max-w-3xl w-full max-h-[90vh] overflow-y-auto p-4 sm:p-8 relative"
                         onClick={e => e.stopPropagation()}
                     >
                         <button
                             onClick={() => setShowTheory(false)}
-                            className="absolute transition-colors top-4 right-4 text-secondary hover:text-primary"
+                            className="absolute p-1 transition-colors top-2 right-2 sm:top-4 sm:right-4 text-secondary hover:text-primary"
                         >
-                            <X className="w-6 h-6" />
+                            <X className="w-5 h-5 sm:w-6 sm:h-6" />
                         </button>
-                        <h2 className="mb-6 text-2xl font-bold text-primary">
+                        <h2 className="mb-4 text-xl font-bold sm:text-2xl text-primary sm:mb-6">
                             📖 Теория
                         </h2>
-                        <div className="space-y-8">
+                        <div className="space-y-6 sm:space-y-8">
                             {theories.map(theory => (
                                 <TheoryView key={theory.id} theory={theory} />
                             ))}
